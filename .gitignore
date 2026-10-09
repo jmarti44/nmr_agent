@@ -1,0 +1,27 @@
+# Python / tooling
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Large benchmark downloads (re-create with the bench scripts)
+bench/data/
+
+# Obsidian vault settings (the notes in docs/Spectral_Agent/ are tracked)
+docs/Spectral_Agent/.obsidian/
+docs/Spectral_Agent/Welcome.md
+
+# Personal / planning documents that must not be published
+SPEC.md
+Technical.md
+project_spec.md
+NMR Agent Proposal.md
+Project Goals and Context about me.md

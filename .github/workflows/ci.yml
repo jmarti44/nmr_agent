@@ -1,0 +1,18 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install uv && uv sync --frozen
+      - run: uv run ruff check . && uv run ruff format --check .
+      - run: uv run pytest -q -m "not live"
+      - run: docker build -t nmr-agent:ci .
+      - run: |
+          docker run --rm -e PORT=8080 -p 8080:8080 -d --name smoke nmr-agent:ci
+          sleep 8
+          curl -fsS http://localhost:8080/healthz
+          docker rm -f smoke
