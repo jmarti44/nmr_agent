@@ -13,7 +13,7 @@ from typing import Literal
 
 from src.schemas import Nucleus
 
-SHIFT_TABLE_VERSION = "2026.10.1"
+SHIFT_TABLE_VERSION = "2026.10.2"  # 2026.10.2: ranges re-sourced from NMRShiftDB2 after the Phase 1 review
 
 SOURCES: dict[str, str] = {
     "OS-H": "Organic Chemistry (OpenStax, McMurry) §13.4, Table 13.3",

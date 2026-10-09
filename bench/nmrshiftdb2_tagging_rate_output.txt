@@ -1,0 +1,23 @@
+== peak-list input (impurity tagging off) ==
+1H in CDCl3: 1183 spectra, 8429 peaks (0 skipped, out of range)
+   mis-tagged peaks: 351 (4.2%)
+   spectra with at least one: 279 (23.6%)
+   by role: {'analyte': 8078, 'water': 209, 'solvent': 139, 'reference': 3}
+   most common false tags: [('1.6 (CDCl3 water/HOD)', 32), ('1.55 (CDCl3 water/HOD)', 27), ('1.58 (CDCl3 water/HOD)', 23), ('1.57 (CDCl3 water/HOD)', 22), ('1.54 (CDCl3 water/HOD)', 19), ('7.3 (CDCl3 residual)', 17)]
+13C in CDCl3: 2571 spectra, 34782 peaks (10 skipped, out of range)
+   mis-tagged peaks: 152 (0.4%)
+   spectra with at least one: 139 (5.4%)
+   by role: {'analyte': 34630, 'solvent': 152}
+   most common false tags: [('77.6 (CDCl3 residual)', 18), ('76.9 (CDCl3 residual)', 15), ('77.2 (CDCl3 residual)', 13), ('76.7 (CDCl3 residual)', 12), ('77.7 (CDCl3 residual)', 12), ('77.4 (CDCl3 residual)', 11)]
+
+== impurity tagging on (raw-spectrum path) ==
+1H in CDCl3: 1183 spectra, 8429 peaks (0 skipped, out of range)
+   mis-tagged peaks: 2847 (33.8%)
+   spectra with at least one: 855 (72.3%)
+   by role: {'impurity_suspect': 2496, 'analyte': 5582, 'water': 209, 'solvent': 139, 'reference': 3}
+   most common false tags: [('1.6 (CDCl3 water/HOD)', 32), ('1.28 (possible ethyl acetate)', 30), ('2.05 (possible ethyl acetate)', 30), ('2 (possible ethyl acetate)', 28), ('1.4 (possible cyclohexane)', 28), ('2.1 (possible acetic acid)', 27)]
+13C in CDCl3: 2571 spectra, 34782 peaks (10 skipped, out of range)
+   mis-tagged peaks: 2785 (8.0%)
+   spectra with at least one: 1427 (55.5%)
+   by role: {'analyte': 31997, 'impurity_suspect': 2633, 'solvent': 152}
+   most common false tags: [('21.1 (possible acetic acid)', 82), ('21.3 (possible acetic acid)', 74), ('20.8 (possible acetic acid)', 72), ('20.9 (possible acetic acid)', 68), ('21 (possible acetic acid)', 66), ('21.4 (possible toluene)', 63)]

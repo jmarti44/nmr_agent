@@ -18,7 +18,7 @@ bench/data/
 # Implementer/reviewer working notes and the Obsidian status vault: local only, never committed
 docs/Spectral_Agent/
 docs/README.md
-docs/phase*-findings.md
+docs/phase*
 docs/review-phase*.md
 docs/review-phase*-probes/
 

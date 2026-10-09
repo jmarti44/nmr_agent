@@ -56,8 +56,13 @@ IMPURITIES_C_CDCL3: dict[str, tuple[float, ...]] = {
 REFERENCE_H = (0.0,)  # TMS
 
 
-def classify_peak(peak: Peak, solvent: Solvent | None) -> tuple[PeakRole, str | None]:
-    """Role and label for one peak given the solvent. Peaks that already carry a non-analyte role keep it."""
+def classify_peak(
+    peak: Peak, solvent: Solvent | None, impurities: bool = True
+) -> tuple[PeakRole, str | None]:
+    """Role and label for one peak given the solvent. Peaks that already carry a non-analyte role keep it.
+
+    impurities=False skips the common-impurity table (solvent, water and reference are still tagged).
+    """
     if peak.role != PeakRole.ANALYTE:
         return peak.role, peak.label
     tol = TOL_H if peak.nucleus == Nucleus.H1 else TOL_C
@@ -71,7 +76,7 @@ def classify_peak(peak: Peak, solvent: Solvent | None) -> tuple[PeakRole, str | 
         for ref in entry[key]:
             if abs(peak.shift_ppm - ref) <= tol:
                 return PeakRole.SOLVENT, f"{solvent.value} residual"
-    if solvent == Solvent.CDCL3:
+    if impurities and solvent == Solvent.CDCL3:
         table = IMPURITIES_H_CDCL3 if peak.nucleus == Nucleus.H1 else IMPURITIES_C_CDCL3
         for name, shifts in table.items():
             if any(abs(peak.shift_ppm - s) <= tol for s in shifts):
@@ -79,11 +84,11 @@ def classify_peak(peak: Peak, solvent: Solvent | None) -> tuple[PeakRole, str | 
     return PeakRole.ANALYTE, peak.label
 
 
-def tag_peaks(peaks: list[Peak], solvent: Solvent | None) -> list[Peak]:
+def tag_peaks(peaks: list[Peak], solvent: Solvent | None, impurities: bool = True) -> list[Peak]:
     """Return copies of the peaks with solvent/water/reference/impurity roles applied. Nothing is dropped."""
     out = []
     for p in peaks:
-        role, label = classify_peak(p, solvent)
+        role, label = classify_peak(p, solvent, impurities)
         out.append(
             p.model_copy(update={"role": role, "label": label}) if (role, label) != (p.role, p.label) else p
         )

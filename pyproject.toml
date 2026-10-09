@@ -50,3 +50,4 @@ select = ["E", "F", "I", "B", "UP"]
 "src/verify/shift_tables.py" = ["E501"]
 "src/verify/solvent_tables.py" = ["E501"]
 "src/verify/smarts.py" = ["E501"]
+"src/prompting/templates.py" = ["E501"]  # prompt prose; wrapping would change the prompt text

@@ -1,0 +1,16 @@
+Nucleus: 1H, 400.13 MHz, solvent DMSO-d6, referencing: as_supplied
+Formula (HRMS): C9H8O4   (H = 8, DoU = 6)
+#   shift(ppm)  mult   J(Hz)        integral  role
+1   12.95       br     -            1.0       analyte   (exchangeable?)
+2   7.95        dd     7.8, 1.6     1.0       analyte
+3   7.64        td     7.8, 1.6     1.0       analyte
+4   7.37        td     7.8, 1.2     1.0       analyte
+5   7.17        dd     8.0, 1.2     1.0       analyte
+6   2.50        quint  -            -         solvent   (DMSO-d6 residual)
+7   2.24        s      -            3.0       analyte
+13C (100.61 MHz) signals as id:shift(ppm): 8:169.1, 9:166.3, 10:150.3, 11:134.2, 12:131.2, 13:126.1, 14:124.0, 15:123.8, 16:39.5[solvent], 17:20.8
+
+Sample details:
+- Notes from the chemist: white crystalline solid
+
+Propose up to 3 candidate structure(s) (1 to 3), best first.
