@@ -15,9 +15,8 @@ __pycache__/
 # Large benchmark downloads (re-create with the bench scripts)
 bench/data/
 
-# Obsidian vault settings (the notes in docs/Spectral_Agent/ are tracked)
-docs/Spectral_Agent/.obsidian/
-docs/Spectral_Agent/Welcome.md
+# Implementer/reviewer vault (Obsidian): local only, never committed
+docs/Spectral_Agent/
 
 # Personal / planning documents that must not be published
 SPEC.md

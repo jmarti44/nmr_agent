@@ -1,0 +1,27 @@
+ 20165367  1H #0: 2/2 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+ 10019495 13C #0: 18/18 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+ 20206255  1H #1: 7/7 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+ 20180685 13C #0: 9/9 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+ 20209549  1H #1: 11/13 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+ 20068561  1H #0: 3/3 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+ 80041961  1H #1: 12/14 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+ 20165169  1H #0: 8/8 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+ 30100294 13C #0: 12/12 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+    90704 13C #0: 8/8 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+ 10008826 13C #0: 4/4 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+ 20200134 13C #0: NO DATA (sd=True, page_measured=False)
+ 20146581 13C #0: 7/7 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+ 20123589 13C #0: 15/15 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+ 20212879 13C #0: 15/15 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+ 20218221 13C #0: 8/8 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+ 20208656  1H #1: 8/8 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+    21127 13C #0: 36/36 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+ 20209018  1H #1: 11/12 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+    16331 13C #1: 11/11 SD shifts found in page 'Meas. Shift' column -> EXPERIMENTAL
+
+19/20 confirmed experimental
+
+Manual check of the one NO DATA case (20200134, 13C #0): its page has no "Meas. Shift" header; it labels the column
+"expt-0 sdbs". The SD values for 13C 0 (21.24, 31.59, 33.26) match that column on the rows where it has a value (atoms 2, 3, 5), and the SD predicted spectra
+(13C 1 = ACD/Labs, 13C 2 = HOSE) match the page "Prediction" columns. Result: 20/20 confirmed experimental
+(19 by script, 1 by hand).

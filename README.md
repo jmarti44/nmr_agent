@@ -16,7 +16,7 @@ Early development. Only the foundation exists; the service does not analyze spec
 
 | Phase | Scope | Status |
 |---|---|---|
-| 0 | Scaffold, Bruker FID processing, tests, Docker, CI workflow | Implemented, under review |
+| 0 | Scaffold, Bruker FID processing, tests, Docker, CI workflow | Done, review closed |
 | 1 | Pydantic schemas and the RDKit verifier | Not started |
 | 2 | Peak-list analysis with the LLM | Not started |
 | 3 | Raw-data ingestion (Bruker zip, JCAMP-DX) | Not started |
@@ -29,7 +29,7 @@ What works today:
 - `GET /healthz` and the generated OpenAPI document.
 - Tests against a synthetic Bruker experiment and a real, TopSpin-processed dataset.
 
-The GitHub Actions workflow has not run yet.
+The first GitHub Actions run (lint, tests, Docker build, container smoke check) passed.
 
 ## Quick start
 
@@ -64,7 +64,6 @@ src/
   verify/      RDKit checks, shift rules, scoring
 tests/         unit tests, synthetic Bruker round trip, real-data fixture
 bench/         benchmark scripts (large downloads go in bench/data/, not tracked)
-docs/Spectral_Agent/   implementer/reviewer notes for each phase
 ```
 
 Of these, only `api/`, `core/` and `processing/` contain code so far.

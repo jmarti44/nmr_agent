@@ -1,0 +1,21 @@
+53063 spectra classified experimental; sample (seed 7):
+nmrshiftdb2 ID 20165367	1H spectrum 0	Unreported
+nmrshiftdb2 ID 10019495	13C spectrum 0	Methanol-D4 (CD3OD)
+nmrshiftdb2 ID 20206255	1H spectrum 1	Unreported
+nmrshiftdb2 ID 20180685	13C spectrum 0	Unreported
+nmrshiftdb2 ID 20209549	1H spectrum 1	Unreported
+nmrshiftdb2 ID 20068561	1H spectrum 0	Unreported
+nmrshiftdb2 ID 80041961	1H spectrum 1	Deuteriumoxide (D2O)
+nmrshiftdb2 ID 20165169	1H spectrum 0	Unreported
+nmrshiftdb2 ID 30100294	13C spectrum 0	Unreported
+nmrshiftdb2 ID 90704	13C spectrum 0	Unreported
+nmrshiftdb2 ID 10008826	13C spectrum 0	Chloroform-D1 (CDCl3)
+nmrshiftdb2 ID 20200134	13C spectrum 0	Unreported
+nmrshiftdb2 ID 20146581	13C spectrum 0	Unreported
+nmrshiftdb2 ID 20123589	13C spectrum 0	Unreported
+nmrshiftdb2 ID 20212879	13C spectrum 0	Unreported
+nmrshiftdb2 ID 20218221	13C spectrum 0	Unreported
+nmrshiftdb2 ID 20208656	1H spectrum 1	Unreported
+nmrshiftdb2 ID 21127	13C spectrum 0	Methanol-D4 (CD3OD)
+nmrshiftdb2 ID 20209018	1H spectrum 1	Unreported
+nmrshiftdb2 ID 16331	13C spectrum 1	Unreported

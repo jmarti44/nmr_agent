@@ -1,33 +1,47 @@
 | metric | records |
 |---|---|
 | records | 58187 |
-| any_1H | 17671 |
-| any_13C | 33378 |
-| any_both | 7475 |
+| solvent_key_disagreements | 0 |
 | exp_1H | 17535 |
 | exp_13C | 32875 |
-| exp_both | 6865 |
-| filtered_all | 36729 |
-| filtered_exp_1H | 13125 |
-| filtered_exp_13C | 28938 |
-| filtered_exp_both | 5992 |
+| exp_both_any_solvent | 6865 |
+| filtered_exp_both_any_solvent | 5992 |
+| exp_both_same_solvent | 6470 |
+| filtered_same_solvent_any | 5643 |
+| filtered_same_solvent_named | 903 |
+| filtered_same_solvent_unreported_only | 4740 |
 
-Solvents of experimental 1H spectra (all records):
-   15705  Unreported
-    1169  Chloroform-D1 (CDCl3)
-     545  Deuteriumoxide (D2O)
-     115  Methanol-D4 (CD3OD)
-     112  Dimethylsulphoxide-D6 (DMSO-D6, C2D6SO)
-      72  TETRACHLORO-METHANE (CCl4)
-      62  Acetone-D6 ((CD3)2CO)
-      40  DMSO
+Named solvents shared by experimental 1H and 13C, filtered records (a record can list several):
+     440  Chloroform-D1 (CDCl3)
+     235  Deuteriumoxide (D2O)
+      62  Dimethylsulphoxide-D6 (DMSO-D6, C2D6SO)
+      48  Methanol-D4 (CD3OD)
+      32  Acetone-D6 ((CD3)2CO)
+      30  DMSO
+      18  ethanol
+      13  benzene
+       8  acetone
+       8  methanol
+       5  CDCL3,TMS
+       4  Benzene-D6 (C6D6)
+       4  Acetonitrile-D3 (CD3CN)
+       3  Pyridin-D5 (C5D5N)
+       3  Cyclohexane
+       2  Methylenchloride-D2 (CD2Cl2)
+       2  Tetrahydrofuran-D8 (THF-D8, C4D4O)
+       1  DMSO-d6
+       1  TETRACHLORO-METHANE (CCl4)
+       1  Toluol-d8
+       1  CD3COCD
+       1  MeOH
+       1  Water (H2O)
+       1  toluene
+       1  neat
+       1  1
 
-Solvents of experimental 1H spectra (filtered, both nuclei):
-    4987  Unreported
-     654  Chloroform-D1 (CDCl3)
-     378  Deuteriumoxide (D2O)
-      72  Dimethylsulphoxide-D6 (DMSO-D6, C2D6SO)
-      68  Methanol-D4 (CD3OD)
-      50  Acetone-D6 ((CD3)2CO)
-      48  TETRACHLORO-METHANE (CCl4)
-      33  DMSO
+DoU bins, filtered named-solvent same-solvent records (by record):
+     169  DoU 0-1
+     137  DoU 2-3
+     257  DoU 4-5
+     125  DoU 6-7
+     215  DoU 8+
