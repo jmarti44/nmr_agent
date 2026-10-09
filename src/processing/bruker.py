@@ -7,7 +7,7 @@ import numpy as np
 
 # proc_bl.med takes its window (mw) and smoothing (sf) in points, so they are defined in Hz here and
 # converted using the spectrum resolution. 15 Hz is wider than a multiplet; 3.5 Hz (SPEC §5.2's mw=24 at
-# 0.147 Hz/pt) subtracted real signal and left negative lobes (review R0-1).
+# 0.147 Hz/pt) subtracted real signal and left negative lobes.
 BASELINE_MW_HZ = 15.0
 BASELINE_SF_HZ = 2.4
 

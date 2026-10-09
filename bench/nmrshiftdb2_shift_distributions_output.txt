@@ -1,0 +1,35 @@
+# NSDB2 distributions (experimental spectra only)
+terminal alkyne C-H (1H): n=136 min=1.72 p5=1.96 median=2.59 p95=3.44 max=4.48
+ketone C=O (13C), conjugated: n=4013 min=12.10 p5=176.90 median=193.10 p95=206.40 max=215.00
+ketone C=O (13C), saturated: n=1672 min=46.10 p5=188.10 median=207.50 p95=218.72 max=225.80
+aromatic C-H, carbocyclic (1H): n=31445 min=-8.97 p5=6.49 median=7.38 p95=8.48 max=11.91
+alpha-amine only, CH, D2O: n=13 min=2.97 p5=2.97 median=3.33 p95=3.83 max=7.82
+alpha-amine only, CH, other solvents: n=475 min=1.11 p5=2.43 median=3.31 p95=4.39 max=5.70
+alpha-amine only, CH2, D2O: n=198 min=2.57 p5=2.60 median=3.12 p95=3.65 max=3.78
+alpha-amine only, CH2, other solvents: n=1736 min=0.65 p5=2.25 median=2.94 p95=4.60 max=7.56
+alpha-amine only, CH3, D2O: n=54 min=2.61 p5=2.61 median=2.75 p95=3.03 max=3.92
+alpha-amine only, CH3, other solvents: n=799 min=0.59 p5=2.19 median=2.57 p95=3.66 max=4.58
+alpha-amino acid CH, D2O: n=84 min=1.68 p5=3.13 median=3.78 p95=4.14 max=4.89
+alpha-amino acid CH, other solvents: n=96 min=1.87 p5=2.17 median=3.95 p95=5.22 max=5.95
+alpha-carbonyl only, CH: n=808 min=0.93 p5=1.86 median=2.83 p95=4.35 max=5.56
+alpha-carbonyl only, CH2: n=1912 min=0.88 p5=1.99 median=2.52 p95=3.35 max=5.40
+alpha-carbonyl only, CH3: n=2559 min=0.87 p5=1.86 median=2.10 p95=2.60 max=9.62
+vinyl C-H (1H), not beta to a carbonyl: n=3229 min=0.67 p5=4.83 median=6.03 p95=8.08 max=10.51
+vinyl C-H (1H), beta carbon of a C=C-C=O: n=930 min=1.71 p5=5.57 median=6.94 p95=8.09 max=12.36
+
+sp3 C-H protons beta to a heteroatom (all neighbours sp3 carbons, not in a 3-ring):
+  beta-none     CH3: n=11023 min=-0.72 p5=0.76 median=1.01 p95=1.52 max=6.94
+  beta-none     CH2: n=9829 min=-4.00 p5=1.12 median=1.44 p95=2.25 max=11.60
+  beta-none     CH : n=1072 min=-1.07 p5=1.00 median=1.70 p95=2.71 max=4.90
+  beta-halogen  CH3: n=166 min=1.45 p5=1.51 median=1.82 p95=2.45 max=2.73
+  beta-halogen  CH2: n=272 min=1.49 p5=1.70 median=2.08 p95=3.64 max=4.32
+  beta-halogen  CH : n=63 min=1.27 p5=1.76 median=2.72 p95=3.52 max=4.18
+  beta-oxygen   CH3: n=4790 min=0.55 p5=1.08 median=1.32 p95=1.67 max=10.20
+  beta-oxygen   CH2: n=3508 min=0.41 p5=1.28 median=1.84 p95=2.66 max=4.97
+  beta-oxygen   CH : n=603 min=-1.60 p5=1.32 median=2.07 p95=3.24 max=4.77
+  beta-nitrogen CH3: n=1142 min=-0.34 p5=0.95 median=1.24 p95=1.73 max=4.01
+  beta-nitrogen CH2: n=1693 min=-0.52 p5=1.27 median=1.83 p95=2.50 max=4.00
+  beta-nitrogen CH : n=228 min=1.20 p5=1.49 median=2.03 p95=2.85 max=4.11
+  beta-nitro    CH3: n=148 min=0.42 p5=1.10 median=1.50 p95=1.93 max=2.34
+  beta-nitro    CH2: n=149 min=0.89 p5=1.30 median=1.97 p95=2.61 max=4.37
+  beta-nitro    CH : n=17 min=1.41 p5=1.41 median=2.70 p95=3.61 max=5.04

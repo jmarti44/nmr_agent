@@ -15,11 +15,14 @@ __pycache__/
 # Large benchmark downloads (re-create with the bench scripts)
 bench/data/
 
-# Implementer/reviewer vault (Obsidian): local only, never committed
+# Implementer/reviewer working notes and the Obsidian status vault: local only, never committed
 docs/Spectral_Agent/
+docs/README.md
+docs/phase*-findings.md
+docs/review-phase*.md
+docs/review-phase*-probes/
 
 # Personal / planning documents that must not be published
-SPEC.md
 Technical.md
 project_spec.md
 NMR Agent Proposal.md

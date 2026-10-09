@@ -17,7 +17,7 @@ Early development. Only the foundation exists; the service does not analyze spec
 | Phase | Scope | Status |
 |---|---|---|
 | 0 | Scaffold, Bruker FID processing, tests, Docker, CI workflow | Done, review closed |
-| 1 | Pydantic schemas and the RDKit verifier | Not started |
+| 1 | Pydantic schemas and the RDKit verifier | Done, review closed |
 | 2 | Peak-list analysis with the LLM | Not started |
 | 3 | Raw-data ingestion (Bruker zip, JCAMP-DX) | Not started |
 | 4 | Hardening and deployment | Not started |
@@ -26,6 +26,8 @@ Early development. Only the foundation exists; the service does not analyze spec
 What works today:
 
 - `process_bruker_fid` in [src/processing/bruker.py](src/processing/bruker.py): digital-filter removal, apodization, zero-fill, FFT, ACME auto-phasing, spectrum reversal, median baseline correction, ppm axis.
+- `POST /v1/verify`: checks candidate SMILES against a peak table with rules V01-V11 (no LLM). `accepted` means consistent with the supplied data, not proven correct: isomers can also be accepted.
+- `GET /v1/reference/shifts`: the chemical-shift, SMARTS and solvent tables with their sources.
 - `GET /healthz` and the generated OpenAPI document.
 - Tests against a synthetic Bruker experiment and a real, TopSpin-processed dataset.
 
@@ -66,7 +68,7 @@ tests/         unit tests, synthetic Bruker round trip, real-data fixture
 bench/         benchmark scripts (large downloads go in bench/data/, not tracked)
 ```
 
-Of these, only `api/`, `core/` and `processing/` contain code so far.
+Of these, `api/`, `core/`, `processing/` and `verify/` contain code so far; `src/schemas.py` holds all Pydantic models.
 
 ## Testing notes
 

@@ -44,3 +44,9 @@ target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+# Data tables read better one rule per line.
+"src/verify/shift_tables.py" = ["E501"]
+"src/verify/solvent_tables.py" = ["E501"]
+"src/verify/smarts.py" = ["E501"]
