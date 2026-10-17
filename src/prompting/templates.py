@@ -29,7 +29,7 @@ from src.verify.shift_tables import (
 )
 from src.verify.smarts import SPECS
 
-PROMPT_VERSION = "2026.10.2"
+PROMPT_VERSION = "2026.10.3"
 FULL_VERSION = f"{PROMPT_VERSION}+shifts.{SHIFT_TABLE_VERSION}"
 
 _HEAD = """\
@@ -58,7 +58,9 @@ Hard rules:
 6. Rank candidates best first. Candidates must differ in connectivity, not only in stereochemistry.
 7. Prefer the simplest structure consistent with all the evidence, and list the peaks you cannot explain.
 8. Every functional group in a candidate needs supporting peaks inside the reference ranges below; a group whose
-   expected signal is missing will be flagged. Use only the functional-group names defined below.
+   expected signal is missing will be flagged. The functional_groups list in your answer describes your first
+   (rank 1) candidate only and is checked against that candidate alone. Use only the functional-group names
+   defined below.
 9. Multiplicity gives neighbours (n+1). Typical couplings: ortho-aromatic 7-9 Hz, meta about 2 Hz, vicinal
    alkyl about 7 Hz, cis alkene 10-12 Hz, trans alkene 14-18 Hz. Treat these as guidance, not law. "m" and
    unknown multiplicity are not evidence for or against a structure.

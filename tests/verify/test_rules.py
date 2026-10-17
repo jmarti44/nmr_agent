@@ -489,3 +489,116 @@ def test_accepted_status_is_documented_as_consistency_not_correctness():
 
     desc = VerifiedCandidate.model_json_schema()["properties"]["status"]["description"]
     assert "consistent with the supplied data" in desc and "NOT mean" in desc
+
+
+# ---- claims describe one candidate (the model's first) ---------------------------------------------------
+
+ISOMER_SMILES = "COC(=O)c1ccccc1C(=O)O"  # same formula as aspirin, no acetyl group
+
+
+def _claims_about_the_isomer():
+    """True of the isomer, false of aspirin: 'no acetyl group', plus an aromatic ring."""
+    return [_claim(FunctionalGroup.ACETYL, False, []), _claim(FunctionalGroup.AROMATIC_RING, True, [2, 3])]
+
+
+def _v10(v):
+    return next(r for r in v.rules if r.rule_id.startswith("V10"))
+
+
+def test_claims_about_the_first_candidate_do_not_penalise_the_second():
+    out = verify_candidates(
+        ASPIRIN.table(),
+        [cand(ISOMER_SMILES, rank=1), cand(ASPIRIN.smiles, rank=2)],
+        ASPIRIN.context(),
+        claims=_claims_about_the_isomer(),
+    )
+    by_rank = {v.candidate.rank: v for v in out}
+    assert _v10(by_rank[1]).status == RuleStatus.PASS
+    assert _v10(by_rank[2]).status == RuleStatus.SKIPPED
+    assert "claims describe candidate 1" in _v10(by_rank[2]).message
+    assert by_rank[2].verifier_score == 1.0 and by_rank[2].status == "accepted"
+
+
+def test_the_bias_this_removes_is_real():
+    """Checking the same claims directly against aspirin fails it: that is what used to happen to rank 2."""
+    v = verify_candidate(
+        ASPIRIN.table(), cand(ASPIRIN.smiles), ASPIRIN.context(), claims=_claims_about_the_isomer()
+    )
+    assert _v10(v).status == RuleStatus.FAIL and v.verifier_score < 1.0
+
+
+def test_v10_still_fails_when_the_first_candidate_contradicts_its_own_claims():
+    wrong = [_claim(FunctionalGroup.ACETYL, False, [])]  # aspirin has an acetyl group
+    out = verify_candidates(ASPIRIN.table(), [cand(ASPIRIN.smiles, rank=1)], ASPIRIN.context(), claims=wrong)
+    assert _v10(out[0]).status == RuleStatus.FAIL and "claimed absent but present" in _v10(out[0]).message
+
+
+def test_claims_rank_selects_which_candidate_the_claims_apply_to():
+    out = verify_candidates(
+        ASPIRIN.table(),
+        [cand(ASPIRIN.smiles, rank=1), cand(ISOMER_SMILES, rank=2)],
+        ASPIRIN.context(),
+        claims=_claims_about_the_isomer(),
+        claims_rank=2,
+    )
+    by_rank = {v.candidate.rank: v for v in out}
+    assert _v10(by_rank[1]).status == RuleStatus.SKIPPED and _v10(by_rank[2]).status == RuleStatus.PASS
+
+
+def test_without_claims_nothing_changes():
+    out = verify_candidates(ASPIRIN.table(), [cand(ASPIRIN.smiles)], ASPIRIN.context())
+    assert _v10(out[0]).status == RuleStatus.SKIPPED and _v10(out[0]).message == "no model claims to check"
+
+
+# ---- exactly one candidate carries the claims; a merged duplicate does not lose them ---------------------
+
+
+def test_two_candidates_with_the_same_rank_cannot_both_carry_the_claims():
+    """The pipeline rejects duplicate ranks, but the verifier must not depend on that."""
+    out = verify_candidates(
+        ASPIRIN.table(),
+        [cand(ISOMER_SMILES, rank=1), cand(ASPIRIN.smiles, rank=1)],
+        ASPIRIN.context(),
+        claims=_claims_about_the_isomer(),
+    )
+    assert sum(v.claims_checked for v in out) == 1
+    assert sum(_v10(v).status != RuleStatus.SKIPPED for v in out) == 1
+
+
+def test_claims_checked_marks_the_one_candidate_the_claims_were_applied_to():
+    out = verify_candidates(
+        ASPIRIN.table(),
+        [cand(ISOMER_SMILES, rank=1), cand(ASPIRIN.smiles, rank=2)],
+        ASPIRIN.context(),
+        claims=_claims_about_the_isomer(),
+    )
+    assert {v.candidate.rank: v.claims_checked for v in out} == {1: True, 2: False}
+    none = verify_candidates(ASPIRIN.table(), [cand(ASPIRIN.smiles)], ASPIRIN.context())
+    assert not any(v.claims_checked for v in none)
+
+
+def test_when_the_claimed_candidate_repeats_an_earlier_structure_the_kept_candidate_is_checked():
+    contradicting = [_claim(FunctionalGroup.METHOXY, False, [])]  # the isomer has a methoxy group
+    out = verify_candidates(
+        ASPIRIN.table(),
+        [cand(ISOMER_SMILES, rank=1), cand(ASPIRIN.smiles, rank=2), cand(ISOMER_SMILES, rank=3)],
+        ASPIRIN.context(),
+        claims=contradicting,
+        claims_rank=3,
+    )
+    by_rank = {v.candidate.rank: v for v in out}
+    assert set(by_rank) == {1, 2}  # rank 3 merged into rank 1
+    assert by_rank[1].claims_checked and _v10(by_rank[1]).status == RuleStatus.FAIL
+    assert "claimed absent but present" in _v10(by_rank[1]).message
+    assert not by_rank[2].claims_checked and _v10(by_rank[2]).status == RuleStatus.SKIPPED
+
+
+def test_an_invalid_claimed_candidate_still_carries_the_claims_marker():
+    out = verify_candidates(
+        ASPIRIN.table(),
+        [cand("C1CC", rank=1), cand(ASPIRIN.smiles, rank=2)],
+        ASPIRIN.context(),
+        claims=_claims_about_the_isomer(),
+    )
+    by_rank = {v.candidate.rank: v for v in out}
+    assert by_rank[1].status == "rejected" and by_rank[1].claims_checked and not by_rank[2].claims_checked

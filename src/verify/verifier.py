@@ -58,6 +58,7 @@ def verify_candidate(
     claims: list[FunctionalGroupClaim] | None = None,
     hypothesis_dou: int | None = None,
     use_model_confidence: bool = True,
+    claims_note: str | None = None,
 ) -> VerifiedCandidate:
     parsed, why = parse_smiles(cand.smiles)
     if parsed is None:
@@ -66,7 +67,7 @@ def verify_candidate(
         ]
         return VerifiedCandidate(
             candidate=cand, rules=rules, verifier_score=0.0, status="rejected",
-            final_confidence=_final(0.0, cand, use_model_confidence),
+            final_confidence=_final(0.0, cand, use_model_confidence), claims_checked=claims is not None,
         )  # fmt: skip
     msg = "parsed and sanitized; neutral"
     status = RuleStatus.PASS
@@ -83,6 +84,7 @@ def verify_candidate(
         parsed=parsed,
         candidate=cand,
         claims=claims,
+        claims_note=claims_note,
         hypothesis_dou=hypothesis_dou,
     )
     for rule in RULES_AFTER_PARSE:
@@ -101,6 +103,7 @@ def verify_candidate(
         rules=rules,
         verifier_score=round(vscore, 4),
         final_confidence=round(_final(vscore, cand, use_model_confidence), 4),
+        claims_checked=claims is not None,
         status=_status(rules, vscore, hard),  # type: ignore[arg-type]
     )
 
@@ -111,6 +114,26 @@ def _final(vscore: float, cand: Candidate, use_model_confidence: bool) -> float:
     return _clamp((1 - MODEL_WEIGHT) * vscore + MODEL_WEIGHT * _clamp(cand.confidence))
 
 
+def _first_block(smiles: str) -> str | None:
+    parsed, _ = parse_smiles(smiles)
+    return parsed.inchikey.split("-")[0] if parsed is not None and parsed.inchikey else None
+
+
+def _claims_target(ordered: list[Candidate], claims_rank: int) -> int | None:
+    """Index of the candidate that carries the claims.
+
+    The first candidate ranked `claims_rank`; or, if an earlier candidate has the same connectivity, that
+    earlier one, because it is the one V11 keeps when duplicates merge. Exactly one candidate is chosen.
+    """
+    claimed = next((i for i, c in enumerate(ordered) if c.rank == claims_rank), None)
+    if claimed is None:
+        return None
+    keys = [_first_block(c.smiles) for c in ordered]
+    if keys[claimed] is None:
+        return claimed
+    return keys.index(keys[claimed])
+
+
 def verify_candidates(
     table: PeakTable,
     candidates: list[Candidate],
@@ -118,11 +141,30 @@ def verify_candidates(
     claims: list[FunctionalGroupClaim] | None = None,
     hypothesis_dou: int | None = None,
     use_model_confidence: bool = True,
+    claims_rank: int = 1,
 ) -> list[VerifiedCandidate]:
-    """Verify, merge duplicates (same InChIKey first block, V11) and re-rank by final confidence."""
+    """Verify, merge duplicates (same InChIKey first block, V11) and re-rank by final confidence.
+
+    The model's functional-group claims describe one candidate, the one ranked `claims_rank` (the first). V10
+    checks them against that candidate only; for every other candidate V10 is skipped, so claims about one
+    structure can never penalise another. If the claimed candidate repeats the connectivity of an earlier one,
+    the earlier (kept) candidate is checked against the claims instead of being left unchecked. The candidate
+    that carried them is marked `claims_checked`.
+    """
+    note = f"the model's claims describe candidate {claims_rank}, not this one"
+    ordered = sorted(candidates, key=lambda c: c.rank)
+    target = _claims_target(ordered, claims_rank) if claims is not None else None
     verified = [
-        verify_candidate(table, c, context, claims, hypothesis_dou, use_model_confidence)
-        for c in sorted(candidates, key=lambda c: c.rank)
+        verify_candidate(
+            table,
+            c,
+            context,
+            claims if i == target else None,
+            hypothesis_dou,
+            use_model_confidence,
+            claims_note=note if claims is not None and i != target else None,
+        )
+        for i, c in enumerate(ordered)
     ]
     kept: list[VerifiedCandidate] = []
     first_block: dict[str, int] = {}

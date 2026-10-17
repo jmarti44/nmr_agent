@@ -18,7 +18,7 @@ Early development. Only the foundation exists; the service does not analyze spec
 |---|---|---|
 | 0 | Scaffold, Bruker FID processing, tests, Docker, CI workflow | Done, review closed |
 | 1 | Pydantic schemas and the RDKit verifier | Done, review closed |
-| 2 | Peak-list analysis with the LLM | In progress: peak normalization and prompt construction built; no model calls yet |
+| 2 | Peak-list analysis with the LLM | Built; tested against a fake API, not yet run against the live model |
 | 3 | Raw-data ingestion (Bruker zip, JCAMP-DX) | Not started |
 | 4 | Hardening and deployment | Not started |
 | 5 | Benchmark on NMRShiftDB2 and report | Not started |
@@ -29,6 +29,7 @@ What works today:
 - `POST /v1/verify`: checks candidate SMILES against a peak table with rules V01-V11 (no LLM). `accepted` means consistent with the supplied data, not proven correct: isomers can also be accepted.
 - `GET /v1/reference/shifts`: the chemical-shift, SMARTS and solvent tables with their sources.
 - `normalize_peaklist` and `build_prompt` (`src/processing/normalize.py`, `src/prompting/`): normalize a peak list and build the versioned prompt text for the model. Nothing is sent to a model yet.
+- `POST /v1/analyze`: peak list in, ranked and verified candidate structures out (one model call plus corrections and an optional repair round). Needs `ANTHROPIC_API_KEY`; not yet run against the live API; not safe to expose publicly (no rate limit).
 - `GET /healthz` and the generated OpenAPI document.
 - Tests against a synthetic Bruker experiment and a real, TopSpin-processed dataset.
 

@@ -74,6 +74,7 @@ class Ctx:
     parsed: ParsedMol
     candidate: Candidate
     claims: list[FunctionalGroupClaim] | None = None
+    claims_note: str | None = None  # why claims were not applied to this candidate
     hypothesis_dou: int | None = None
     envs: list[HEnv] = field(default_factory=list)
 
@@ -425,7 +426,7 @@ def v09_peaks_explained(c: Ctx) -> RuleResult:
 def v10_claimed_groups(c: Ctx) -> RuleResult:
     rid = "V10_claimed_groups_consistent"
     if c.claims is None:
-        return _res(rid, RuleStatus.SKIPPED, "soft", "no model claims to check")
+        return _res(rid, RuleStatus.SKIPPED, "soft", c.claims_note or "no model claims to check")
     problems: list[str] = []
     for cl in c.claims:
         spec = SPECS[cl.group]

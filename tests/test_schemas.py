@@ -140,3 +140,15 @@ def test_llm_schema_is_accepted_by_the_sdk_transform():
 
     out = anthropic.transform_schema(LLMHypothesis)
     assert out["type"] == "object" and out["additionalProperties"] is False
+
+
+def test_hypothesis_schema_tells_the_model_the_claims_describe_its_first_candidate():
+    d = LLMHypothesis.model_json_schema()["properties"]["functional_groups"]["description"]
+    assert "FIRST candidate" in d and "rank 1" in d
+
+
+def test_candidate_ranks_must_be_unique_because_the_claims_describe_the_first():
+    base = dict(functional_groups=[], reasoning_summary="s")
+    with pytest.raises(ValidationError, match="unique"):
+        LLMHypothesis(candidates=[_cand(1), _cand(1)], **base)
+    assert [c.rank for c in LLMHypothesis(candidates=[_cand(2), _cand(1)], **base).candidates] == [1, 2]

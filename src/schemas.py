@@ -340,7 +340,13 @@ class LLMHypothesis(BaseModel):
         None, description="Only when no formula was supplied; otherwise echo it"
     )
     degree_of_unsaturation: int | None = None
-    functional_groups: list[FunctionalGroupClaim]
+    functional_groups: list[FunctionalGroupClaim] = Field(
+        ...,
+        description=(
+            "Functional groups of your FIRST candidate (rank 1) only. The checker tests these claims against "
+            "that candidate and no other."
+        ),
+    )
     candidates: list[Candidate] = Field(
         ..., description="Ranked best-first, 1–5 entries, distinct connectivity"
     )
@@ -354,6 +360,9 @@ class LLMHypothesis(BaseModel):
     def _n(cls, v: list[Candidate]) -> list[Candidate]:
         if not 1 <= len(v) <= 5:
             raise ValueError("1–5 candidates required")
+        if len({c.rank for c in v}) != len(v):
+            # The claims describe the first candidate; two with the same rank would make that ambiguous.
+            raise ValueError("candidate ranks must be unique")
         return sorted(v, key=lambda c: c.rank)
 
 
@@ -390,6 +399,14 @@ class VerifiedCandidate(BaseModel):
     rules: list[RuleResult]
     verifier_score: float = Field(..., description="0–1 from rule outcomes only")
     final_confidence: float = Field(..., description="0–1 blend of verifier score and model confidence")
+    claims_checked: bool = Field(
+        False,
+        description=(
+            "True if the model's functional-group claims were checked against this candidate (rule V10). The "
+            "claims describe the model's first candidate; if that structure was merged into an earlier "
+            "duplicate, the kept candidate carries them."
+        ),
+    )
     status: Literal["accepted", "flagged", "rejected"] = Field(
         ...,
         description=(
@@ -406,7 +423,14 @@ class VerifiedFunctionalGroup(BaseModel):
     group: FunctionalGroup
     claimed_present: bool
     supported_by_shifts: RuleStatus
-    present_in_top_candidate: bool | None
+    present_in_top_candidate: bool | None = Field(
+        ...,
+        description=(
+            "Is the group present in the candidate the claims describe (the model's rank 1 of the final "
+            "answer)? null when that candidate was rejected. Not the top-ranked verified candidate, which "
+            "can differ."
+        ),
+    )
     source: str | None = None
 
 
@@ -426,6 +450,7 @@ class Usage(BaseModel):
     input_tokens: int
     output_tokens: int
     cache_read_input_tokens: int
+    cache_creation_input_tokens: int = 0  # added; not in the SPEC model
     estimated_cost_usd: float
 
 
@@ -434,9 +459,21 @@ class AnalysisResponse(BaseModel):
     request_id: str
     versions: Versions
     peak_table: PeakTable
-    hypothesis_raw: LLMHypothesis
+    hypothesis_raw: LLMHypothesis = Field(
+        ...,
+        description=(
+            "The model's final answer as returned, before sanitizing. After a repair round this is the "
+            "repair answer: the first round's candidates still appear in `candidates` but not here."
+        ),
+    )
     candidates: list[VerifiedCandidate]
-    functional_groups: list[VerifiedFunctionalGroup]
+    functional_groups: list[VerifiedFunctionalGroup] = Field(
+        ...,
+        description=(
+            "The model's claims checked against the candidate they describe (its rank 1), which is not "
+            "necessarily the first entry of `candidates`."
+        ),
+    )
     warnings: list[str]
     timing_ms: dict[str, int]
     usage: Usage

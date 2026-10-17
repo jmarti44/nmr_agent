@@ -15,8 +15,7 @@ __pycache__/
 # Large benchmark downloads (re-create with the bench scripts)
 bench/data/
 
-# Implementer/reviewer working notes and the Obsidian status vault: local only, never committed
-docs/Spectral_Agent/
+# Implementer/reviewer working notes: local only, never committed (the Obsidian status vault is outside the repo)
 docs/README.md
 docs/phase*
 docs/review-phase*.md

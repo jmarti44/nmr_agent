@@ -72,3 +72,8 @@ def test_importing_the_prompt_package_does_not_load_any_model_sdk_or_chemistry_t
         [sys.executable, "-c", code], capture_output=True, text=True, check=True
     ).stdout.strip()
     assert out == "[]"
+
+
+def test_the_prompt_says_the_claims_describe_the_first_candidate_only():
+    text = templates.system_prompt()
+    assert "describes your first" in text and "(rank 1) candidate only" in text

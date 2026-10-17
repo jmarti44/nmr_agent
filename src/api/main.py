@@ -6,6 +6,7 @@ from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
+from src.api.analyze_routes import router as analyze_router
 from src.api.verify_routes import router as verify_router
 from src.core.version import SERVICE_VERSION
 
@@ -14,11 +15,13 @@ app = FastAPI(
     version=SERVICE_VERSION,
     description="LLM-orchestrated 1D NMR interpretation with deterministic verification.",
     openapi_tags=[
+        {"name": "analysis", "description": "Propose and verify candidate structures from a peak list."},
         {"name": "verification", "description": "Check candidate structures against a peak table."},
         {"name": "reference", "description": "The literature tables the verifier uses, with sources."},
         {"name": "ops", "description": "Liveness."},
     ],
 )
+app.include_router(analyze_router)
 app.include_router(verify_router)
 
 
