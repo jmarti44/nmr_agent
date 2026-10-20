@@ -34,11 +34,12 @@ class Settings(BaseSettings):
     # Retries per model call: 429, 408/409, 5xx, connection errors, and timeouts if a full attempt still fits.
     # Done by the orchestrator inside the request deadline; the SDK's own retries are off. The name is kept.
     sdk_max_retries: int = Field(3, ge=0)
-    # Defined for later phases (abuse controls, uploads, PubChem); not used yet.
+    # Abuse controls for /v1/analyze (SPEC §9.4); in-memory counters, per process.
+    daily_llm_budget: int = Field(100, ge=0)  # model calls per UTC day
+    per_ip_per_hour: int = Field(10, ge=1)  # analyses per client address per hour
+    api_key: str | None = None  # when set, /v1/analyze requires X-API-Key
+    # Defined for later phases; not used yet.
     max_upload_mb: int = 25
-    daily_llm_budget: int = 100
-    per_ip_per_hour: int = 10
-    api_key: str | None = None
     pubchem: bool = False
     log_level: str = "INFO"
 

@@ -18,9 +18,9 @@ Early development. Only the foundation exists; the service does not analyze spec
 |---|---|---|
 | 0 | Scaffold, Bruker FID processing, tests, Docker, CI workflow | Done, review closed |
 | 1 | Pydantic schemas and the RDKit verifier | Done, review closed |
-| 2 | Peak-list analysis with the LLM | Built; tested against a fake API, not yet run against the live model |
-| 3 | Raw-data ingestion (Bruker zip, JCAMP-DX) | Built; 1H validated on one real dataset, 13C FID path not validated |
-| 4 | Hardening and deployment | Not started |
+| 2 | Peak-list analysis with the LLM | Done; run against the live model (aspirin): about $0.06 and 23 s per analysis |
+| 3 | Raw-data ingestion (Bruker zip, JCAMP-DX) | Done, review closed; 1H validated on one real dataset, 13C FID path not validated |
+| 4 | Hardening and deployment | Started: API key, hourly limit and daily budget on `/v1/analyze`; no deployment yet |
 | 5 | Benchmark on NMRShiftDB2 and report | Not started |
 
 What works today:
@@ -29,7 +29,7 @@ What works today:
 - `POST /v1/verify`: checks candidate SMILES against a peak table with rules V01-V11 (no LLM). `accepted` means consistent with the supplied data, not proven correct: isomers can also be accepted.
 - `GET /v1/reference/shifts`: the chemical-shift, SMARTS and solvent tables with their sources.
 - `normalize_peaklist` and `build_prompt` (`src/processing/normalize.py`, `src/prompting/`): normalize a peak list and build the versioned prompt text for the model. Nothing is sent to a model yet.
-- `POST /v1/analyze`: peak list in, ranked and verified candidate structures out (one model call plus corrections and an optional repair round). Needs `ANTHROPIC_API_KEY`; not yet run against the live API; not safe to expose publicly (no rate limit).
+- `POST /v1/analyze`: peak list in, ranked and verified candidate structures out (one model call plus corrections and an optional repair round). Needs `ANTHROPIC_API_KEY`. Optional `NMR_AGENT_API_KEY` (header `X-API-Key`), `NMR_AGENT_PER_IP_PER_HOUR` (default 10) and `NMR_AGENT_DAILY_LLM_BUDGET` (model calls per day, default 100); the counters are in memory, per process, and key on the connecting address (behind a proxy that is the proxy).
 - `POST /v1/process`: a Bruker zip, JCAMP-DX file or peak list in, normalized peak table out (no model call). `/v1/analyze` accepts the same uploads as multipart (`file` + `metadata`).
 - `GET /healthz` and the generated OpenAPI document.
 - Tests against a synthetic Bruker experiment and a real, TopSpin-processed dataset.

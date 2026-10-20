@@ -13,6 +13,7 @@ from fastapi import APIRouter, Depends, Request
 from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import JSONResponse
 
+from src.api.guards import GuardError, UsageGuard, check_api_key, get_guard
 from src.api.uploads import REQUEST_BODY_DOC, read_analysis_request
 from src.core.settings import Settings, get_settings
 from src.llm.errors import LLMRefused, LLMSchemaFailure, LLMUnavailable
@@ -21,7 +22,7 @@ from src.schemas import AnalysisResponse, ErrorResponse, PeakTable
 
 router = APIRouter(prefix="/v1")
 
-_ERRORS = {code: {"model": ErrorResponse} for code in (400, 451, 502, 503, 504)}
+_ERRORS = {code: {"model": ErrorResponse} for code in (400, 401, 429, 451, 502, 503, 504)}
 
 
 @lru_cache(maxsize=1)
@@ -61,13 +62,22 @@ async def analyze(
     request: Request,
     settings: Annotated[Settings, Depends(get_settings)],
     client: Annotated[Any, Depends(get_llm_client)],
+    guard: Annotated[UsageGuard, Depends(get_guard)],
 ):
     from src.analysis import new_request_id, run_analysis
 
     request_id = new_request_id()
     try:
+        check_api_key(settings, request.headers.get("x-api-key"))
+        guard.admit(request.client.host if request.client else "unknown", settings)
+    except GuardError as e:
+        headers = {"Retry-After": str(e.retry_after)} if e.retry_after else None
+        return _error(e.status, e.code, e.detail, request_id, headers)
+    try:
         req, upload = await read_analysis_request(request)
-        return await run_in_threadpool(run_analysis, req, settings, client, request_id, upload)
+        result = await run_in_threadpool(run_analysis, req, settings, client, request_id, upload)
+        guard.record_calls(result.usage.llm_calls)
+        return result
     except (PromptTooLarge, ValueError) as e:
         return _error(400, "INVALID_INPUT", str(e), request_id)
     except LLMRefused as e:
