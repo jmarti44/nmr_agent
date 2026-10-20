@@ -7,6 +7,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
 from src.api.analyze_routes import router as analyze_router
+from src.api.limits import BodyLimitMiddleware
 from src.api.verify_routes import router as verify_router
 from src.core.version import SERVICE_VERSION
 
@@ -21,6 +22,7 @@ app = FastAPI(
         {"name": "ops", "description": "Liveness."},
     ],
 )
+app.add_middleware(BodyLimitMiddleware)
 app.include_router(analyze_router)
 app.include_router(verify_router)
 

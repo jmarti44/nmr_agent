@@ -40,12 +40,12 @@ def test_invalid_body_is_400_invalid_input(call):
     assert r.status_code == 400 and r.json()["error_code"] == "INVALID_INPUT" and not api.requests
 
 
-def test_raw_spectrum_formats_are_not_supported_yet(call):
+def test_raw_formats_sent_as_json_without_a_file_are_400(call):
     r, api = call([], body={"input_format": "jcampdx"})
     assert (
         r.status_code == 400
         and r.json()["error_code"] == "INVALID_INPUT"
-        and "peaklist" in r.json()["detail"]
+        and "uploaded file" in r.json()["detail"]
     )
     assert not api.requests
 

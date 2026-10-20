@@ -66,3 +66,35 @@ def build_prompt_for_request(request: AnalysisRequest) -> tuple[PeakTable, Promp
         raise ValueError("only input_format='peaklist' is supported until raw-data ingestion exists")
     table = normalize_peaklist(request.peaks, request.context)
     return table, build_prompt(table, request.context, request.max_candidates)
+
+
+def prepare_request(
+    request: AnalysisRequest, upload: bytes | None = None
+) -> tuple[PeakTable, Prompt, SampleContext]:
+    """Any request -> (normalized table, prompt, context to verify with).
+
+    Raw formats are processed first; the context comes back completed with the solvent and spectrometer
+    frequency read from the file when the caller did not give them.
+    """
+    if request.input_format == "peaklist":
+        table, prompt = build_prompt_for_request(request)
+        return table, prompt, request.context
+    if upload is None:
+        raise ValueError(f"input_format={request.input_format!r} requires an uploaded file")
+    from src.processing.pipeline import process_upload
+
+    processed = process_upload(request.input_format, upload, request.context, request.options)
+    table = normalize_peaklist(
+        processed.peaks,
+        processed.context,
+        processed.referencing,
+        tag_impurities=processed.tag_impurities,
+        tag_reference=processed.tag_reference,
+    )
+    table = table.model_copy(
+        update={
+            "noise_sigma": processed.noise_sigma,
+            "processing_log": [*processed.log, *table.processing_log],
+        }
+    )
+    return table, build_prompt(table, processed.context, request.max_candidates), processed.context

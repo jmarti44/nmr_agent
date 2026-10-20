@@ -414,3 +414,36 @@ def test_a_peak_below_half_a_proton_is_never_a_restoration_candidate():
     peaks = [p(1, H, 7.27, "s", 0.3), p(2, H, 3.64, "t", 2), p(3, H, 1.39, "m", 2), p(4, H, 0.94, "t", 3)]
     t = normalize_peaklist(peaks, ctx(solvent="CDCl3", molecular_formula="C4H10O"))
     assert {x.shift_ppm: x.role for x in t.peaks}[7.27] == PeakRole.SOLVENT
+
+
+TBS = [  # tert-butyldimethyl(ethoxy)silane, C8H20OSi, CDCl3
+    p(1, H, 3.62, "q", 2),
+    p(2, H, 1.17, "t", 3),
+    p(3, H, 0.89, "s", 9),
+    p(4, H, 0.05, "s", 6),
+]
+
+
+def test_silyl_line_taken_for_tms_is_restored_when_the_formula_needs_it():
+    t = normalize_peaklist(TBS, ctx(molecular_formula="C8H20OSi", solvent=Solvent.CDCL3))
+    assert integrals(t) == [2.0, 3.0, 9.0, 6.0]
+    assert not [x for x in t.peaks if x.role == PeakRole.REFERENCE]
+    assert any("restored as analyte" in line for line in t.processing_log)
+
+
+def test_a_real_tms_line_with_a_formula_stays_reference():
+    peaks = [p(1, H, 3.62, "q", 2), p(2, H, 1.17, "t", 3), p(3, H, 0.89, "s", 9), p(4, H, 0.0, "s", 0.05)]
+    t = normalize_peaklist(peaks, ctx(molecular_formula="C6H14O", solvent=Solvent.CDCL3))
+    ref = [x for x in t.peaks if x.role == PeakRole.REFERENCE]
+    assert len(ref) == 1 and ref[0].shift_ppm == 0.0
+
+
+def test_without_a_formula_the_tms_tag_is_kept_but_says_it_is_an_assumption():
+    t = normalize_peaklist(TBS, ctx(solvent=Solvent.CDCL3))
+    (ref,) = [x for x in t.peaks if x.role == PeakRole.REFERENCE]
+    assert ref.shift_ppm == 0.05 and "assumed" in ref.label and "silyl" in ref.label
+
+
+def test_tag_reference_false_keeps_a_zero_ppm_line_as_analyte():
+    t = normalize_peaklist(TBS, ctx(solvent=Solvent.CDCL3), tag_reference=False)
+    assert not [x for x in t.peaks if x.role == PeakRole.REFERENCE]

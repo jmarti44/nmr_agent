@@ -1,6 +1,6 @@
 """Peak-list analysis pipeline: normalize, prompt, model, sanitize, verify, optional repair, response.
 
-Business logic only; the HTTP layer lives in src/api. Raw-spectrum inputs are not supported yet.
+Business logic only; the HTTP layer lives in src/api. Raw uploads (Bruker zip, JCAMP-DX) are processed first.
 """
 
 from __future__ import annotations
@@ -17,7 +17,8 @@ from src.llm.errors import LLMError
 from src.llm.orchestrator import Conversation
 from src.llm.pricing import estimate_cost_usd
 from src.llm.validate import sanitize_hypothesis
-from src.prompting import build_prompt_for_request
+from src.processing.pipeline import WARNING_PREFIX
+from src.prompting import prepare_request
 from src.schemas import (
     AnalysisRequest,
     AnalysisResponse,
@@ -121,15 +122,18 @@ def _usage(convo: Conversation, settings: Settings, warnings: list[str]) -> Usag
 
 
 def run_analysis(
-    request: AnalysisRequest, settings: Settings, client: Any, request_id: str | None = None
+    request: AnalysisRequest,
+    settings: Settings,
+    client: Any,
+    request_id: str | None = None,
+    upload: bytes | None = None,
 ) -> AnalysisResponse:
     from src.verify.verifier import verify_functional_groups
 
     request_id = request_id or new_request_id()
     started = time.perf_counter()
-    table, prompt = build_prompt_for_request(request)  # ValueError / PromptTooLarge for unsupported input
+    table, prompt, context = prepare_request(request, upload)  # ValueError / PromptTooLarge -> 400
     prompt_ms = _ms(time.perf_counter() - started)
-    context = request.context
 
     convo = Conversation(prompt, settings, client, request_id=request_id)
     raw = convo.elucidate()
@@ -159,6 +163,9 @@ def run_analysis(
                 f"repair round failed ({getattr(e, 'reason', type(e).__name__)}); kept the first answer"
             )
     warnings += convo.warnings
+    warnings += [
+        line.removeprefix(WARNING_PREFIX) for line in table.processing_log if line.startswith(WARNING_PREFIX)
+    ]
 
     claimed = _claimed_candidate(verified)  # found before trimming to max_candidates
     verified = verified[: request.max_candidates]

@@ -160,8 +160,8 @@ def test_model_errors_propagate_from_the_first_call():
         run(FakeAPI([httpx2.ConnectError("down")]))
 
 
-def test_only_peaklist_input_is_supported():
-    with pytest.raises(ValueError, match="peaklist"):
+def test_raw_formats_need_an_uploaded_file():
+    with pytest.raises(ValueError, match="uploaded file"):
         run(FakeAPI([]), AnalysisRequest(input_format="bruker_zip"))
 
 

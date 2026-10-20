@@ -22,12 +22,27 @@ PEAKS: list[tuple[float, float]] = [
 ]
 
 
-def write_synthetic_bruker(exp_dir: Path, n: int = 16384, noise: float = 0.01, seed: int = 1) -> Path:
-    """Write a 1H Bruker experiment (fid + acqus) with a digital-filter group delay baked in."""
+def write_synthetic_bruker(
+    exp_dir: Path,
+    n: int = 16384,
+    noise: float = 0.01,
+    seed: int = 1,
+    offset_ppm: float = 0.0,
+    peaks: list[tuple[float, float]] | None = None,
+    solvent: str = "CDCl3",
+    nucleus: str = "1H",
+) -> Path:
+    """Write a 1H Bruker experiment (fid + acqus) with a digital-filter group delay baked in.
+
+    offset_ppm moves every line, standing in for an unapplied SR (referencing) correction.
+    """
     sw_h = SW_PPM * BF1_MHZ
     o1 = CARRIER_PPM * BF1_MHZ
     t = np.arange(n) / sw_h
-    fid = sum(a * np.exp(2j * np.pi * (d - CARRIER_PPM) * BF1_MHZ * t) * np.exp(-t / 0.5) for d, a in PEAKS)
+    fid = sum(
+        a * np.exp(2j * np.pi * (d + offset_ppm - CARRIER_PPM) * BF1_MHZ * t) * np.exp(-t / 0.5)
+        for d, a in (peaks or PEAKS)
+    )
     # Emulate the DSP group delay as a circular (fractional) shift, which remove_digital_filter undoes.
     k = np.fft.fftfreq(n) * n
     fid = np.fft.ifft(np.fft.fft(fid) * np.exp(-2j * np.pi * k * GRPDLY / n))
@@ -38,7 +53,7 @@ def write_synthetic_bruker(exp_dir: Path, n: int = 16384, noise: float = 0.01, s
         "BYTORDA": 1, "DTYPA": 2, "AQ_mod": 3,  # AQ_mod=3 (DQD) makes nmrglue read the FID as complex
         "DECIM": 24, "DSPFVS": 20, "GRPDLY": GRPDLY,
         "SW_h": sw_h, "SW": SW_PPM, "SFO1": BF1_MHZ + o1 / 1e6, "BF1": BF1_MHZ, "O1": o1,
-        "TD": 2 * n, "NUC1": "1H", "SOLVENT": "CDCl3", "NS": 16, "PARMODE": 0, "FW": 0,
+        "TD": 2 * n, "NUC1": nucleus, "SOLVENT": solvent, "NS": 16, "PARMODE": 0, "FW": 0,
         "_comments": ["$$ synthetic"], "_coreheader": ["##TITLE= synthetic", "##JCAMPDX= 5.0"],
     }  # fmt: skip
     exp_dir.mkdir(parents=True, exist_ok=True)

@@ -156,14 +156,15 @@ def normalize_integrals(
 
 
 def _restore_by_formula_fit(peaks: list[Peak], context: SampleContext, log: list[str]) -> list[Peak]:
-    """The only rule that gives a solvent- or water-tagged peak back to the analyte.
+    """The only rule that gives a solvent-, water- or reference-tagged peak back to the analyte.
 
     Applies when the integrals are counts and a formula is known. If the analyte integrals alone already fit
     the formula, nothing is restored (the tag stays; the prompt lets the model use the peak if it needs it).
     Otherwise the smallest set of tagged peaks, each integrating to at least RESIDUAL_MAX_PROTONS, that makes
-    them fit is restored with its integrals as supplied: a phenyl multiplet at 7.27 in CDCl3, or a CH2 at the
-    water position. HOD in D2O or CD3OD is never restored, since that peak is mostly solvent. If no set fits,
-    nothing changes here and normalization falls back to rescaling.
+    them fit is restored with its integrals as supplied: a phenyl multiplet at 7.27 in CDCl3, a CH2 at the
+    water position, or a SiMe2 group at 0.05 that was taken for TMS.
+    HOD in D2O or CD3OD is never restored, since that peak is mostly solvent. If no set fits, nothing
+    changes here and normalization falls back to rescaling.
     """
     if _formula_window(context) is None:
         return peaks
@@ -180,7 +181,9 @@ def _restore_by_formula_fit(peaks: list[Peak], context: SampleContext, log: list
         if p.nucleus == Nucleus.H1
         and p.integral is not None
         and p.integral >= RESIDUAL_MAX_PROTONS
-        and (p.role == PeakRole.SOLVENT or (p.role == PeakRole.WATER and not never_water))
+        and (
+            p.role in (PeakRole.SOLVENT, PeakRole.REFERENCE) or (p.role == PeakRole.WATER and not never_water)
+        )
     ][:_MAX_RESTORE_CANDIDATES]
     h = _formula_h(context) or 0
     for size in range(1, len(candidates) + 1):
@@ -238,18 +241,22 @@ def normalize_peaklist(
     context: SampleContext | None = None,
     referencing: str = "as_supplied",
     tag_impurities: bool = False,
+    tag_reference: bool = True,
 ) -> PeakTable:
     """Supplied peak list -> normalized, solvent-tagged PeakTable. Nothing is dropped, only tagged.
 
     Common-impurity tagging is off by default: chemists curate peak lists, and on real CDCl3 spectra the
     impurity table mislabels about 30% of genuine 1H peaks. It is meant for the raw-spectrum path, where
     impurity signals are real and small.
+
+    tag_reference=False keeps a line at 0 ppm as analyte; the raw-data path passes it when referencing has
+    shown that line is not TMS.
     """
     context = context or SampleContext()
     plist = peaks.peaks if isinstance(peaks, PeakListInput) else list(peaks)
     log: list[str] = []
 
-    tagged = tag_peaks(plist, context.solvent, impurities=tag_impurities)
+    tagged = tag_peaks(plist, context.solvent, impurities=tag_impurities, reference=tag_reference)
     for old, new in zip(plist, tagged, strict=True):
         if new.role != old.role:
             log.append(f"{old.nucleus.value} {old.shift_ppm:g} ppm tagged {new.role.value}: {new.label}")

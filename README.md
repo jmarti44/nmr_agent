@@ -19,7 +19,7 @@ Early development. Only the foundation exists; the service does not analyze spec
 | 0 | Scaffold, Bruker FID processing, tests, Docker, CI workflow | Done, review closed |
 | 1 | Pydantic schemas and the RDKit verifier | Done, review closed |
 | 2 | Peak-list analysis with the LLM | Built; tested against a fake API, not yet run against the live model |
-| 3 | Raw-data ingestion (Bruker zip, JCAMP-DX) | Not started |
+| 3 | Raw-data ingestion (Bruker zip, JCAMP-DX) | Built; 1H validated on one real dataset, 13C FID path not validated |
 | 4 | Hardening and deployment | Not started |
 | 5 | Benchmark on NMRShiftDB2 and report | Not started |
 
@@ -30,6 +30,7 @@ What works today:
 - `GET /v1/reference/shifts`: the chemical-shift, SMARTS and solvent tables with their sources.
 - `normalize_peaklist` and `build_prompt` (`src/processing/normalize.py`, `src/prompting/`): normalize a peak list and build the versioned prompt text for the model. Nothing is sent to a model yet.
 - `POST /v1/analyze`: peak list in, ranked and verified candidate structures out (one model call plus corrections and an optional repair round). Needs `ANTHROPIC_API_KEY`; not yet run against the live API; not safe to expose publicly (no rate limit).
+- `POST /v1/process`: a Bruker zip, JCAMP-DX file or peak list in, normalized peak table out (no model call). `/v1/analyze` accepts the same uploads as multipart (`file` + `metadata`).
 - `GET /healthz` and the generated OpenAPI document.
 - Tests against a synthetic Bruker experiment and a real, TopSpin-processed dataset.
 
@@ -70,7 +71,7 @@ tests/         unit tests, synthetic Bruker round trip, real-data fixture
 bench/         benchmark scripts (large downloads go in bench/data/, not tracked)
 ```
 
-Of these, `api/`, `core/`, `processing/` and `verify/` contain code so far; `src/schemas.py` holds all Pydantic models.
+Of these, `api/`, `core/`, `ingest/`, `processing/`, `prompting/`, `llm/` and `verify/` contain code; `src/schemas.py` holds all Pydantic models.
 
 ## Testing notes
 

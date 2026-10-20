@@ -63,7 +63,7 @@ def test_fid_pipeline_matches_topspin_peaks_both_directions(ours, topspin):
 
 
 def test_fid_only_without_procs_is_unreferenced(tmp_path, ours):
-    """No procs/pdata: SR is not applied. Auto-referencing (SPEC §5.5) is a Phase 3 gate."""
+    """process_bruker_fid alone does not reference. The pipeline does it; see test_pipeline.py."""
     dst = tmp_path / "10"
     dst.mkdir()
     for name in ("acqus", "fid", "pulseprogram"):
@@ -73,6 +73,6 @@ def test_fid_only_without_procs_is_unreferenced(tmp_path, ours):
         _, ppm_raw, meta = process_bruker_fid(str(dst))
     assert meta["referenced"] is False
     _, ppm_ref, _ = ours
-    # Recorded offset vs the TopSpin-referenced axis (~ +0.019 ppm on this dataset). It is the number the
-    # Phase 3 auto-referencing rule must remove, so assert the known size rather than "close to zero".
+    # Recorded offset vs the TopSpin-referenced axis (~ +0.019 ppm on this dataset); the pipeline's
+    # auto-referencing removes it (test_real_fid_only_data_is_auto_referenced_to_the_topspin_axis).
     assert ppm_raw[0] - ppm_ref[0] == pytest.approx(0.0194, abs=0.005)
