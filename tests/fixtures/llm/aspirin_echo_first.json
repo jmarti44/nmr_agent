@@ -1,0 +1,52 @@
+{
+  "model": "claude-opus-5-5",
+  "id": "msg_FIXTURE",
+  "type": "message",
+  "role": "assistant",
+  "content": [
+    {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "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"
+    },
+    {
+      "type": "text",
+      "text": "{\"formula_inferred\":\"C9H8O4\",\"degree_of_unsaturation\":6,\"functional_groups\":[{\"group\":\"carboxylic_acid\",\"present\":true,\"confidence\":0.95,\"evidence\":{\"peak_ids\":[1,9],\"note\":\"Broad exchangeable 12.95 ppm H and C=O at 166.3 ppm indicate an aryl COOH.\"}},{\"group\":\"ester\",\"present\":true,\"confidence\":0.93,\"evidence\":{\"peak_ids\":[8,10],\"note\":\"C=O at 169.1 ppm and aryl C-O at 150.3 ppm fit an aryl acetate ester.\"}},{\"group\":\"acetyl\",\"present\":true,\"confidence\":0.93,\"evidence\":{\"peak_ids\":[7,17,8],\"note\":\"3H singlet at 2.24 ppm with C at 20.8 ppm is the CH3 of an O-acetyl group.\"}},{\"group\":\"methyl\",\"present\":true,\"confidence\":0.95,\"evidence\":{\"peak_ids\":[7,17],\"note\":\"Singlet CH3 at 2.24 ppm, carbon at 20.8 ppm.\"}},{\"group\":\"aromatic_ring\",\"present\":true,\"confidence\":0.97,\"evidence\":{\"peak_ids\":[2,3,4,5,11,12,13,14,15,10],\"note\":\"Four contiguous ArH (dd, td, td, dd) show an ortho-disubstituted benzene; six aromatic carbons.\"}},{\"group\":\"phenol\",\"present\":false,\"confidence\":0.85,\"evidence\":{\"peak_ids\":[10,8],\"note\":\"The aryl oxygen at 150.3 ppm is acylated (ester C=O 169.1), not a free OH.\"}},{\"group\":\"methoxy\",\"present\":false,\"confidence\":0.85,\"evidence\":{\"peak_ids\":[7,17],\"note\":\"CH3 at 2.24/20.8 ppm is too upfield for OCH3 (expected ~3.8/52 ppm).\"}}],\"candidates\":[{\"rank\":1,\"smiles\":\"CC(=O)Oc1ccccc1C(=O)O\",\"name\":\"2-acetoxybenzoic acid (aspirin)\",\"rationale\":\"Ortho-disubstituted pattern: dd 7.95 (2), td 7.64 (3), td 7.37 (4), dd 7.17 (5) with 7.8 Hz ortho couplings. COOH at 12.95 (1)/166.3 (9); acetate CH3 2.24 (7)/20.8 (17), ester C=O 169.1 (8), aryl C-O 150.3 (10). 9 carbon environments match 9 analyte 13C signals. Matches literature aspirin data in DMSO-d6.\",\"assignments\":[{\"peak_id\":1,\"proton_count\":1,\"environment\":\"COOH\"},{\"peak_id\":2,\"proton_count\":1,\"environment\":\"ArH-6 ortho to COOH\"},{\"peak_id\":3,\"proton_count\":1,\"environment\":\"ArH-4 para to COOH\"},{\"peak_id\":4,\"proton_count\":1,\"environment\":\"ArH-5 para to OAc\"},{\"peak_id\":5,\"proton_count\":1,\"environment\":\"ArH-3 ortho to OAc\"},{\"peak_id\":7,\"proton_count\":3,\"environment\":\"OC(=O)CH3\"}],\"confidence\":0.92},{\"rank\":2,\"smiles\":\"CC(=O)Oc1cccc(C(=O)O)c1\",\"name\":\"3-acetoxybenzoic acid\",\"rationale\":\"Same functional groups and formula (peaks 1,7,8,9,10,17), but meta substitution would give an isolated narrow ArH singlet-like signal; the observed dd/td/td/dd pattern (2-5) fits ortho substitution better.\",\"assignments\":[{\"peak_id\":1,\"proton_count\":1,\"environment\":\"COOH\"},{\"peak_id\":2,\"proton_count\":1,\"environment\":\"ArH-6 ortho to COOH\"},{\"peak_id\":3,\"proton_count\":1,\"environment\":\"ArH-2 between substituents\"},{\"peak_id\":4,\"proton_count\":1,\"environment\":\"ArH-5\"},{\"peak_id\":5,\"proton_count\":1,\"environment\":\"ArH-4 ortho to OAc\"},{\"peak_id\":7,\"proton_count\":3,\"environment\":\"OC(=O)CH3\"}],\"confidence\":0.05},{\"rank\":3,\"smiles\":\"COC(=O)c1ccccc1C(=O)O\",\"name\":\"monomethyl phthalate\",\"rationale\":\"Isomeric ortho-disubstituted acid-ester (peaks 1-5, 8, 9), but OCH3 would appear near 3.8 ppm/52 ppm, not 2.24 (7)/20.8 (17), and no aryl C-O near 150 ppm (10) is expected.\",\"assignments\":[{\"peak_id\":1,\"proton_count\":1,\"environment\":\"COOH\"},{\"peak_id\":2,\"proton_count\":1,\"environment\":\"ArH\"},{\"peak_id\":3,\"proton_count\":1,\"environment\":\"ArH\"},{\"peak_id\":4,\"proton_count\":1,\"environment\":\"ArH\"},{\"peak_id\":5,\"proton_count\":1,\"environment\":\"ArH\"},{\"peak_id\":7,\"proton_count\":3,\"environment\":\"OCH3 (poor fit)\"}],\"confidence\":0.02}],\"unexplained_peak_ids\":[],\"reasoning_summary\":\"C9H8O4, DoU 6: benzene (4) + two C=O. Four ArH (2-5) as dd/td/td/dd with 7.8 Hz couplings indicate 1,2-disubstitution. Broad 12.95 (1) with 166.3 (9) = aryl COOH. Singlet CH3 2.24 (7)/20.8 (17) with C=O 169.1 (8) and aryl C-O 150.3 (10) = aryl acetate. Total H = 8 including COOH. Nine analyte carbons (8-15, 17) match the 9 environments of 2-acetoxybenzoic acid (aspirin), consistent with a white crystalline solid. Peaks 6 and 16 are DMSO.\"}"
+    }
+  ],
+  "container": null,
+  "stop_reason": "end_turn",
+  "stop_sequence": null,
+  "stop_details": null,
+  "usage": {
+    "input_tokens": 425,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 5326,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "iterations": [
+      {
+        "input_tokens": 425,
+        "output_tokens": 2685,
+        "cache_read_input_tokens": 5326,
+        "cache_creation_input_tokens": 0,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "type": "message",
+        "model": null
+      }
+    ],
+    "output_tokens": 2685,
+    "output_tokens_details": {
+      "thinking_tokens": 590
+    },
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "speed": "standard"
+  },
+  "diagnostics": null
+}

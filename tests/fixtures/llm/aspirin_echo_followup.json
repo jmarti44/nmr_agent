@@ -1,0 +1,52 @@
+{
+  "model": "claude-opus-5-5",
+  "id": "msg_FIXTURE",
+  "type": "message",
+  "role": "assistant",
+  "content": [
+    {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS+wkKEAgTGAI4AUIIdGhpbmtpbmcSDElSQSOfcQcrlW/1HhoMRCkxf0kCsfHxhgDhIjARCC+PMiGzSD1G0Uf0n7h8ZMGiAJiuHemuQQ5vMNmdQmLOgnas5cmKn3yaVQivsEAqmAktIXeahn0It6O6e7h0LdtYvlBv6n1RCCFi+UugYV3DZAiaN32ovOg070IkUNLvfiz7TH6Gct4CqZmWLSX2QY8NIPGb9uGE8Tu4N9iulh5RPNUrMkWfoJuKRiLF4Re7MJ3TreBRQ+2V6EukwLVZODsaklmT4qoospH3+isdAhxfd+aaJOr8bsizUDYvOLI7RXvTG7u3NmHZFMxIL8ovI+puzud7QGTusJ4UqGNX91YnEFvllnRe7YL+Tp2uIlCf1ll5uIsr0atJjT/OEc/NHmZmgyYoyPR0vTVodHm5r3kQj2QVMfBGeSMO7b8g8GcafrlCDtfEb5lh007V9lPhydMU4bu3i420bOzb33DMpn26Iwln1zWuRJIW2K1vM8JnPpY+LjOiJ/gWhCuVL66iwZqc+wiP0zgAJJ73PuTEiE96PA4Zi994x/YfvYYpWVv/xDs1PQ/7ZCyEmD0SVaSMZv+3girg2XxFtU/dRADR+tE0KN2x/dVHFo6Dq+02RhiOnZ6byEfQHhzJ7Lfi84/CiNMEWEgZukruyfmxs8bOTSgNvhLyfsh441878/ly6v1MML/fdAl6VIQm07//42wVZeARdjtCKcV+rHkD13RGW6u3qMJfrQET9oTKDaGtjsgbAl+75Iwa/8Dc4RyNvtPURxg5hFiNIG7X7jHFrGeFKU9sSwfLzLQCH2YrYJCPU6N/iyB8h4Nr5cQSE+1GIvEC0BnmmOlZKOqsw/j91VtRUNhNOewGLQol64MqE9pGTa9ym3n1XdCuDObpatAgGBLLAlIFxO4k86wuXosBSaeexxJqZVBc97lb9AWVur5D/gC4rh7d9k9lmec8ha8YiKrqim7u2aY6OK+E+G9qKo9WMOGuTObV+oMEsIaXrooK23yhpMtjr3Y2TOquBOlc74bTOp7Dz44kIVD0wzqeatA14pvH7XwDIP5OuFoPvtS759SmRCPW/dfVuI1T+EHij/ZOohipfrN0Vaas0kE8Iryb9QN593qDxMMUXEL2eTLwdTggq68JGMh/rIEtKZ7QpgOL/nUf/CKL4W5fgfG4saXAr395fJG9E2vtF4P0gH7YPKr7RwdFF/xOUD0pgN2H5jJe0ZI8U9Ke1x5Itj28ast1a4c8LEmGMOI/gUvtsamrW0cnJFJYgyI7UEA7mEn9sNQmeSI5+rq8nxvx5E2TlWzEqeT4IVRZKn4PR3gDp9UHSXoZp+gwlEuqMWsWhIR/vAJbNmBEDphjrCKOpavnBMPOaZLjAGbcmwcj1p+4BkDgfl1VQ8nZwXgYYGqojNrVa90BzbWGXEua6aEB7MRy30tn7DQXcyipsAWm+7Z7hnOepajDJ8Vbog4tIwwOvT4175yrM+tg/Zj1up2wqHAQqv0UvfekSTVMJXp2z3boVJ1pU6V1CQYu2OlT3IidsF4wCmLZbDSBa9uBj5xvnlmrMYwuPYqW8N7ZA2o+GxnbhBPK57jyOJ1yPIsdTu+PNT6CnOjmJ0KqCWpAicuTX6Kw2U0UkLfJ8WviIYJwKnOq55FKE0GZ76Uy6/2WMOaKDuCZhlPfWpkLdPbgWlVRE2MYAQ=="
+    },
+    {
+      "type": "text",
+      "text": "{\"formula_inferred\":\"C9H8O4\",\"degree_of_unsaturation\":6,\"functional_groups\":[{\"group\":\"carboxylic_acid\",\"present\":true,\"confidence\":0.95,\"evidence\":{\"peak_ids\":[1,9],\"note\":\"Broad exchangeable H at 12.95 ppm and C=O at 166.3 ppm indicate an aryl COOH.\"}},{\"group\":\"ester\",\"present\":true,\"confidence\":0.93,\"evidence\":{\"peak_ids\":[8,10],\"note\":\"C=O at 169.1 ppm and aryl C-O at 150.3 ppm fit an aryl acetate.\"}},{\"group\":\"acetyl\",\"present\":true,\"confidence\":0.93,\"evidence\":{\"peak_ids\":[7,17,8],\"note\":\"3H singlet at 2.24 ppm (C 20.8) on ester C=O 169.1 ppm is an O-acetyl.\"}},{\"group\":\"methyl\",\"present\":true,\"confidence\":0.95,\"evidence\":{\"peak_ids\":[7,17],\"note\":\"CH3 singlet at 2.24 ppm, carbon at 20.8 ppm.\"}},{\"group\":\"aromatic_ring\",\"present\":true,\"confidence\":0.97,\"evidence\":{\"peak_ids\":[2,3,4,5,10,11,12,13,14,15],\"note\":\"Four contiguous ArH (dd, td, td, dd) show an ortho-disubstituted benzene.\"}}],\"candidates\":[{\"rank\":1,\"smiles\":\"OC(=O)c1ccccc1OC(C)=O\",\"name\":\"2-acetoxybenzoic acid (aspirin)\",\"rationale\":\"Aspirin has 9 inequivalent carbons (no symmetry), matching all 9 analyte 13C signals (8-15, 17); the V06 count of 8 appears to be a miscount and 8 would still lie within the allowed 8-11 window. Ortho pattern from ArH 2-5; COOH 1/9; OAc 7/17/8; aryl C-O 10. No C9H8O4 isomer fits better.\",\"assignments\":[{\"peak_id\":1,\"proton_count\":1,\"environment\":\"COOH\"},{\"peak_id\":2,\"proton_count\":1,\"environment\":\"ArH-6 ortho to COOH\"},{\"peak_id\":3,\"proton_count\":1,\"environment\":\"ArH-4\"},{\"peak_id\":4,\"proton_count\":1,\"environment\":\"ArH-5\"},{\"peak_id\":5,\"proton_count\":1,\"environment\":\"ArH-3 ortho to OAc\"},{\"peak_id\":7,\"proton_count\":3,\"environment\":\"OC(=O)CH3\"}],\"confidence\":0.9},{\"rank\":2,\"smiles\":\"CC(=O)Oc1cccc(C(=O)O)c1\",\"name\":\"3-acetoxybenzoic acid\",\"rationale\":\"Same groups and 9 carbons (peaks 1,7,8,9,10,17), but meta substitution would show an isolated ArH; observed dd/td/td/dd (2-5) favours ortho.\",\"assignments\":[{\"peak_id\":1,\"proton_count\":1,\"environment\":\"COOH\"},{\"peak_id\":2,\"proton_count\":1,\"environment\":\"ArH-6\"},{\"peak_id\":3,\"proton_count\":1,\"environment\":\"ArH-2\"},{\"peak_id\":4,\"proton_count\":1,\"environment\":\"ArH-5\"},{\"peak_id\":5,\"proton_count\":1,\"environment\":\"ArH-4\"},{\"peak_id\":7,\"proton_count\":3,\"environment\":\"OC(=O)CH3\"}],\"confidence\":0.06}],\"unexplained_peak_ids\":[],\"reasoning_summary\":\"C9H8O4, DoU 6: benzene + two C=O. ArH 2-5 (dd/td/td/dd, 7.8 Hz) = 1,2-disubstituted ring. COOH at 12.95 (1)/166.3 (9). Acetate CH3 2.24 (7)/20.8 (17), ester C=O 169.1 (8), aryl C-O 150.3 (10). Aspirin has 9 distinct carbons, exactly matching the 9 non-solvent 13C signals; the reported count of 8 seems erroneous and 8 would still be within tolerance. Peaks 6 and 16 are DMSO.\"}"
+    }
+  ],
+  "container": null,
+  "stop_reason": "end_turn",
+  "stop_sequence": null,
+  "stop_details": null,
+  "usage": {
+    "input_tokens": 3224,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 5326,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "iterations": [
+      {
+        "input_tokens": 3224,
+        "output_tokens": 1742,
+        "cache_read_input_tokens": 5326,
+        "cache_creation_input_tokens": 0,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "type": "message",
+        "model": null
+      }
+    ],
+    "output_tokens": 1742,
+    "output_tokens_details": {
+      "thinking_tokens": 281
+    },
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "speed": "standard"
+  },
+  "diagnostics": null
+}

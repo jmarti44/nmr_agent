@@ -72,7 +72,9 @@ def test_aspirin_example_is_consistent_with_its_own_answer():
     v = verify_candidates(table, [aspirin], req.context, use_model_confidence=False)[0]
     assert v.status == "accepted", [(r.rule_id, r.message) for r in v.rules if r.status.value != "pass"]
     v06 = next(r for r in v.rules if r.rule_id.startswith("V06"))
-    assert v06.status.value == "pass" and v06.evidence == {"observed": 9, "unique_carbons": 9}
+    assert (
+        v06.status.value == "pass" and v06.evidence["observed"] == 9 and v06.evidence["unique_carbons"] == 9
+    )
 
 
 def test_analyte_at_a_solvent_position_without_integrals_is_shown_and_the_prompt_allows_using_it():

@@ -46,7 +46,9 @@ def _status(rules: list[RuleResult], vscore: float, hard: bool) -> str:
     if hard:
         return "rejected"
     critical_soft_fail = any(
-        r.status == RuleStatus.FAIL and r.rule_id.split("_")[0] in ("V05", "V08") for r in rules
+        r.status == RuleStatus.FAIL
+        and (r.rule_id.split("_")[0] in ("V05", "V08") or r.evidence.get("blocking") is True)
+        for r in rules
     )
     return "accepted" if vscore >= ACCEPT_THRESHOLD - 1e-9 and not critical_soft_fail else "flagged"
 

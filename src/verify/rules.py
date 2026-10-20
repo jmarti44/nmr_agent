@@ -233,12 +233,25 @@ def v06_c13_environment_count(c: Ctx) -> RuleResult:
     u = carbon_environment_count(c.parsed.mol)
     counts = {len(c.c_peaks), len(c.c_ext)}
     ok = any(u - 2 <= n <= u + 1 for n in counts)
+    # Too many signals cannot come from a structure with fewer carbon environments, unless its stereochemistry
+    # is unspecified: a flat SMILES for a polyol or meso compound counts constitutionally equivalent carbons
+    # that the real stereoisomer distinguishes (2 of 113 true structures on NMRShiftDB2). Only without
+    # unassigned stereocentres does the failure block acceptance (SPEC §8.6, status rule in the verifier).
+    too_many = not ok and min(counts) > u + 1
+    unspecified_stereo = bool(
+        Chem.FindMolChiralCenters(c.parsed.mol, includeUnassigned=True, useLegacyImplementation=False)
+    )
     return _res(
         rid,
         RuleStatus.PASS if ok else RuleStatus.FAIL,
         "soft",
         f"{len(c.c_peaks)} observed 13C signals vs {u} distinct carbons (allowed {u - 2}..{u + 1})",
-        {"observed": len(c.c_peaks), "unique_carbons": u},
+        {
+            "observed": len(c.c_peaks),
+            "unique_carbons": u,
+            "too_many": too_many,
+            "blocking": too_many and not unspecified_stereo,
+        },
     )
 
 

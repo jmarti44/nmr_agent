@@ -602,3 +602,24 @@ def test_an_invalid_claimed_candidate_still_carries_the_claims_marker():
     )
     by_rank = {v.candidate.rank: v for v in out}
     assert by_rank[1].status == "rejected" and by_rank[1].claims_checked and not by_rank[2].claims_checked
+
+
+def test_too_many_13c_signals_block_acceptance_of_the_para_isomer_but_not_aspirin():
+    """4-acetoxybenzoic acid has 7 distinct carbons; aspirin's 9 observed signals cannot come from it."""
+    aspirin = verify_candidate(ASPIRIN.table(), cand(ASPIRIN.smiles), ASPIRIN.context())
+    para = verify_candidate(ASPIRIN.table(), cand("CC(=O)Oc1ccc(C(=O)O)cc1"), ASPIRIN.context())
+    v06 = next(r for r in para.rules if r.rule_id.startswith("V06"))
+    assert v06.status == RuleStatus.FAIL and v06.evidence["blocking"] is True
+    assert aspirin.status == "accepted" and para.status == "flagged"
+
+
+def test_too_many_13c_signals_do_not_block_when_stereochemistry_is_unspecified():
+    """A flat polyol SMILES under-counts carbon environments (inositols in NMRShiftDB2): warn only."""
+    from src.schemas import Nucleus, Peak, PeakTable, SampleContext
+
+    peaks = [Peak(id=i, nucleus=Nucleus.C13, shift_ppm=70.0 + i) for i in range(1, 5)]
+    table = PeakTable(peaks=peaks)
+    v = verify_candidate(table, cand("OC1C(O)C(O)C(O)C(O)C1O"), SampleContext())
+    v06 = next(r for r in v.rules if r.rule_id.startswith("V06"))
+    assert v06.status == RuleStatus.FAIL
+    assert v06.evidence["too_many"] is True and v06.evidence["blocking"] is False
