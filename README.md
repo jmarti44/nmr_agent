@@ -10,31 +10,44 @@ The design is an LLM with deterministic guardrails:
 4. **Verify** every claim with RDKit and literature chemical-shift rules.
 5. **Return** ranked candidate structures with an audit trail and a confidence computed from the verifier, not from the model's self-report.
 
-## Status
+## Results
 
-Early development. Only the foundation exists; the service does not analyze spectra yet.
+On 50 real molecules from NMRShiftDB2, given the ¹H and ¹³C shifts, the formula and the solvent, the correct structure was the first answer for **34 (68%)** and among the first three for **37 (74%)**. Every molecule with 10 or fewer heavy atoms was solved; 3 of 14 above 20 heavy atoms were. About $0.09 and 42 s per molecule. The verifier guarantees that returned structures are consistent with the formula and the spectrum, but on this data it does not raise top-1 accuracy over the model alone. Method, breakdowns and caveats: [bench/report.md](bench/report.md).
 
-| Phase | Scope | Status |
+## What it does
+
+| Route | In | Out |
 |---|---|---|
-| 0 | Scaffold, Bruker FID processing, tests, Docker, CI workflow | Done, review closed |
-| 1 | Pydantic schemas and the RDKit verifier | Done, review closed |
-| 2 | Peak-list analysis with the LLM | Done; run against the live model (aspirin): about $0.06 and 23 s per analysis |
-| 3 | Raw-data ingestion (Bruker zip, JCAMP-DX) | Done, review closed; 1H validated on one real dataset, 13C FID path not validated |
-| 4 | Hardening and deployment | Started: API key, hourly limit and daily budget on `/v1/analyze`; no deployment yet |
-| 5 | Benchmark on NMRShiftDB2 and report | Not started |
+| `POST /v1/analyze` | A peak list (JSON), or a Bruker zip or JCAMP-DX file (multipart: `file` + `metadata`) | Ranked candidate structures, each with its verifier rule ledger, plus warnings, token usage, cost and versions |
+| `POST /v1/process` | The same inputs | The normalized peak table only (no model call) |
+| `POST /v1/verify` | A peak table and candidate SMILES | Each candidate checked by rules V01-V11 (no model call) |
+| `GET /v1/reference/shifts` | — | The chemical-shift, SMARTS and solvent tables with their sources |
+| `GET /healthz` | — | Liveness |
 
-What works today:
+How an analysis runs:
 
-- `process_bruker_fid` in [src/processing/bruker.py](src/processing/bruker.py): digital-filter removal, apodization, zero-fill, FFT, ACME auto-phasing, spectrum reversal, median baseline correction, ppm axis.
-- `POST /v1/verify`: checks candidate SMILES against a peak table with rules V01-V11 (no LLM). `accepted` means consistent with the supplied data, not proven correct: isomers can also be accepted.
-- `GET /v1/reference/shifts`: the chemical-shift, SMARTS and solvent tables with their sources.
-- `normalize_peaklist` and `build_prompt` (`src/processing/normalize.py`, `src/prompting/`): normalize a peak list and build the versioned prompt text for the model. Nothing is sent to a model yet.
-- `POST /v1/analyze`: peak list in, ranked and verified candidate structures out (one model call plus corrections and an optional repair round). Needs `ANTHROPIC_API_KEY`. Optional `NMR_AGENT_API_KEY` (header `X-API-Key`), `NMR_AGENT_PER_IP_PER_HOUR` (default 10) and `NMR_AGENT_DAILY_LLM_BUDGET` (model calls per day, default 100); the counters are in memory, per process, and key on the connecting address (behind a proxy that is the proxy).
-- `POST /v1/process`: a Bruker zip, JCAMP-DX file or peak list in, normalized peak table out (no model call). `/v1/analyze` accepts the same uploads as multipart (`file` + `metadata`).
-- `GET /healthz` and the generated OpenAPI document.
-- Tests against a synthetic Bruker experiment and a real, TopSpin-processed dataset.
+```
+peak list / Bruker zip / JCAMP-DX
+        │
+        ▼
+ingest + process (nmrglue) ──► normalized peak table (solvent, water, TMS tagged)
+        │
+        ▼
+Claude, one structured-output call ──► candidate SMILES + assignments + claims
+        │      (schema corrections, retries, refusal fallback)
+        ▼
+sanitize ──► verify every candidate (RDKit + literature shift rules, V01-V11)
+        │
+        ├── nothing accepted? one repair round with the failure report, then verify again
+        ▼
+rank by 0.85 × verifier score + 0.15 × model confidence ──► response
+```
 
-The first GitHub Actions run (lint, tests, Docker build, container smoke check) passed.
+- `accepted` means consistent with the supplied data, not proven correct: same-formula isomers can also be accepted.
+- `/v1/analyze` needs `ANTHROPIC_API_KEY`. Optional abuse controls: `NMR_AGENT_API_KEY` (header `X-API-Key`), `NMR_AGENT_PER_IP_PER_HOUR` (default 10) and `NMR_AGENT_DAILY_LLM_BUDGET` (model calls per day, default 100, reserved when a request is admitted). Counters are in memory and per process.
+- Uploads are size-checked before parsing (body limits, zip and decompression limits, point limits).
+
+Not built yet: demo mode, an async endpoint, client addresses from a trusted proxy, a rate limit on `/v1/process`, and a hosted deployment. The ¹³C path from a raw FID has not been validated on real data.
 
 ## Quick start
 
@@ -68,7 +81,7 @@ src/
   llm/         Anthropic client and structured-output calls
   verify/      RDKit checks, shift rules, scoring
 tests/         unit tests, synthetic Bruker round trip, real-data fixture
-bench/         benchmark scripts (large downloads go in bench/data/, not tracked)
+bench/         benchmark harness, results and report (large downloads go in bench/data/, not tracked)
 ```
 
 Of these, `api/`, `core/`, `ingest/`, `processing/`, `prompting/`, `llm/` and `verify/` contain code; `src/schemas.py` holds all Pydantic models.
