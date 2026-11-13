@@ -519,12 +519,29 @@ def test_claims_about_the_first_candidate_do_not_penalise_the_second():
     assert by_rank[2].verifier_score == 1.0 and by_rank[2].status == "accepted"
 
 
-def test_the_bias_this_removes_is_real():
-    """Checking the same claims directly against aspirin fails it: that is what used to happen to rank 2."""
+def test_a_failed_claim_check_is_reported_but_never_changes_the_score():
+    """V10 describes one candidate only, so it must not move a score (review P5-1)."""
     v = verify_candidate(
         ASPIRIN.table(), cand(ASPIRIN.smiles), ASPIRIN.context(), claims=_claims_about_the_isomer()
     )
-    assert _v10(v).status == RuleStatus.FAIL and v.verifier_score < 1.0
+    assert _v10(v).status == RuleStatus.FAIL
+    assert v.verifier_score == 1.0 and v.status == "accepted"
+
+
+def test_a_wrong_claim_about_rank_1_does_not_demote_a_data_consistent_first_answer():
+    """Pilot case 30106149: the true rank 1 fell below unchecked isomers because of one wrong claim."""
+    wrong = [_claim(FunctionalGroup.ACETYL, False, [])]  # aspirin has an acetyl group
+    meta = "CC(=O)Oc1cccc(C(=O)O)c1"
+    out = verify_candidates(
+        ASPIRIN.table(),
+        [cand(ASPIRIN.smiles, rank=1), cand(meta, rank=2)],
+        ASPIRIN.context(),
+        claims=wrong,
+        use_model_confidence=False,
+    )
+    assert [v.candidate.rank for v in out] == [1, 2]
+    assert [v.verifier_score for v in out] == [1.0, 1.0]
+    assert _v10(out[0]).status == RuleStatus.FAIL  # still reported
 
 
 def test_v10_still_fails_when_the_first_candidate_contradicts_its_own_claims():

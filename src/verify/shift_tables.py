@@ -13,7 +13,9 @@ from typing import Literal
 
 from src.schemas import Nucleus
 
-SHIFT_TABLE_VERSION = "2026.10.2"  # 2026.10.2: ranges re-sourced from NMRShiftDB2 after the Phase 1 review
+SHIFT_TABLE_VERSION = (
+    "2026.11.1"  # 2026.11.1: aldehyde ranges widened, heteroaromatic C=N range added (Phase 5 review)
+)
 
 SOURCES: dict[str, str] = {
     "OS-H": "Organic Chemistry (OpenStax, McMurry) §13.4, Table 13.3",
@@ -27,6 +29,7 @@ SOURCES: dict[str, str] = {
     "FUL": "Fulmer et al., Organometallics 2010, 29, 2176, Tables 1-2",
     "UCSD": "UC San Diego CHEM 40 Table Appendix 2023-24 (after Gottlieb et al., J. Org. Chem. 1997, 62, 7512)",
     "NSDB2": "NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)",
+    "NSDB2-P5": "NMRShiftDB2 experimental spectra with the 99 Phase 5 benchmark molecules left out; bench/nmrshiftdb2_p5r1_distributions.py (output file alongside)",
     "NONE": "No verified range; accepted as neutral (wide) so unsourced environments cannot cause false rejections",
 }
 
@@ -66,7 +69,8 @@ _H_RULES = [
     _h("h_alkyl_ch3", "R-CH3 (saturated, no alpha-heteroatom)", 0.7, 1.3, "explain", ["OS-H", "UW-H", "OSU-H"]),
     _h("h_alkyl_ch2", "R-CH2-R", 1.2, 1.7, "explain", ["OS-H", "UW-H", "LT-H"]),
     _h("h_alkyl_ch", "R3CH", 1.4, 2.0, "explain", ["OS-H", "UW-H", "LT-H"]),
-    _h("h_allylic", "C=C-CH", 1.6, 2.4, "explain", ["OS-H", "UW-H"]),
+    _h("h_allylic", "C=C-CH", 1.6, 3.2, "explain", ["OS-H", "UW-H", "NSDB2-P5"]),
+    _h("h_cyclobutyl", "CH2/CH of a cyclobutane ring (ring strain)", 1.6, 3.1, "explain", ["NSDB2-P5"]),
     _h("h_propargylic", "C#C-CH", 1.7, 2.8, "explain", ["UW-H"]),
     _h("h_benzylic", "Ar-CH", 2.2, 2.8, "explain", ["OS-H", "UW-H"]),
     _h("h_alpha_carbonyl", "CH alpha to C=O (ketone, aldehyde, acid, ester)", 1.8, 3.4, "explain", ["OS-H", "UW-H", "OSU-H", "NSDB2"]),
@@ -86,7 +90,7 @@ _H_RULES = [
     _h("h_vinyl", "C=C-H", 4.5, 8.1, "diagnostic", ["OS-H", "SK", "UW-H", "OSU-H", "NSDB2"], confirm=(4.7, 6.5)),
     _h("h_aromatic", "Ar-H (carbocyclic)", 6.0, 9.0, "diagnostic", ["OS-H", "SK", "UW-H", "OSU-H", "NSDB2"], confirm=(6.8, 8.0)),
     _h("h_heteroaromatic", "pyridine/furan/thiophene C-H", 6.0, 9.0, "explain", ["UW-H", "UCSD"]),
-    _h("h_aldehyde", "R-CH=O", 9.0, 10.1, "diagnostic", ["OS-H", "SK", "UW-H", "OSU-H"], confirm=(9.7, 10.0)),
+    _h("h_aldehyde", "R-CH=O", 9.0, 10.6, "diagnostic", ["OS-H", "SK", "UW-H", "OSU-H", "NSDB2-P5"], confirm=(9.7, 10.0)),
     _h("h_carboxylic_acid", "R-COOH (broad)", 10.0, 14.0, "diagnostic", ["OS-H", "SK", "UW-H", "OSU-H", "LT-H"], confirm=(11.0, 12.0), exchangeable=True),
     _h("h_alcohol_oh", "R-OH (variable)", 0.5, 5.5, "explain", ["UW-H", "OS-H", "LT-H"], exchangeable=True),
     _h("h_amine_nh", "R-NH (variable)", 0.5, 5.0, "explain", ["UW-H", "LT-H", "OSU-H"], exchangeable=True),
@@ -104,11 +108,12 @@ _C_RULES = [
     _c("c_alkyne", "C#C", 65, 100, "explain", ["SK", "OS-C", "HW-C"], soft_only=True),
     _c("c_nitrile", "C#N", 112, 125, "diagnostic", ["UCSD", "FUL", "OS-C"]),
     _c("c_sp2_any", "alkene + aromatic", 100, 160, "explain", ["HW-C", "OS-C"]),
+    _c("c_heteroaromatic", "heteroaromatic ring carbon incl. C=N between ring heteroatoms", 100, 173, "explain", ["NSDB2-P5"]),
     _c("c_aromatic_ch", "protonated aromatic", 110, 135, "explain", ["PNA-C", "FUL", "UCSD"]),
     _c("c_aromatic_quat", "substituted/ipso aromatic, incl. C-O/C-N aromatic", 125, 165, "explain", ["PNA-C"]),
     _c("c_carbonyl_any", "any C=O", 160, 220, "diagnostic", ["OS-C", "HW-C"]),
     _c("c_ester_amide", "ester / amide / acid C=O", 160, 185, "diagnostic", ["PNA-C", "UCSD", "FUL"]),
-    _c("c_aldehyde", "R-CH=O", 190, 208, "diagnostic", ["PNA-C"]),
+    _c("c_aldehyde", "R-CH=O", 178, 208, "diagnostic", ["PNA-C", "NSDB2-P5"]),
     _c("c_ketone", "R-C(=O)-R", 175, 220, "diagnostic", ["PNA-C", "FUL", "UCSD", "NSDB2"], confirm=(195, 220)),
 ]  # fmt: skip
 

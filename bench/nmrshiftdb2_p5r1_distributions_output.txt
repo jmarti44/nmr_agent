@@ -1,0 +1,21 @@
+# P5R-1 distributions (experimental spectra, benchmark molecules excluded)
+# molecules used: 57288; benchmark molecules left out: 99
+13C ring C between two ring heteroatoms: n=3629 min=34.76 p5=137.40 median=154.10 p95=172.70 max=196.40
+13C ring C next to ring N: n=18031 min=17.80 p5=120.40 median=147.30 p95=165.50 max=219.10
+13C ring C next to ring O/S (no N): n=5088 min=29.10 p5=120.40 median=148.70 p95=166.60 max=223.00
+1H allylic CH2 (no heteroatom neighbour): n=1733 min=0.80 p5=1.65 median=2.28 p95=3.71 max=5.73
+1H allylic CH2 in a ring, ring C=C: n=1027 min=1.00 p5=1.51 median=2.26 p95=3.16 max=5.73
+1H cyclobutane CH (all-C ring, sp3 C neighbours): n=68 min=1.64 p5=1.88 median=2.83 p95=3.84 max=5.04
+1H cyclobutane CH2 (all-C ring, sp3 C neighbours): n=122 min=1.11 p5=1.59 median=2.25 p95=3.10 max=4.97
+aldehyde 13C, all: n=1070 min=23.00 p5=178.60 median=190.90 p95=202.20 max=209.10
+aldehyde 13C, aryl: n=670 min=158.40 p5=178.00 median=190.21 p95=195.60 max=201.90
+aldehyde 1H, all: n=251 min=3.58 p5=9.11 median=9.96 p95=10.50 max=11.47
+aldehyde 1H, aryl: n=190 min=6.24 p5=9.57 median=9.99 p95=10.50 max=11.47
+aldehyde 1H, aryl with ortho O: n=41 min=6.24 p5=6.59 median=10.40 p95=10.51 max=11.47
+amide N-H sites: 1775
+with a listed 1H shift on N: 1160
+  inside current range 9.0-10.1: 164/251 (65.3%)
+  inside current range 190-208: 640/1070 (59.8%)
+  inside current range 100-160: 15390/18031 (85.4%)
+  inside current range 100-160: 2449/3629 (67.5%)
+  inside current range 100-160: 4289/5088 (84.3%)

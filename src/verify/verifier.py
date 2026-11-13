@@ -25,10 +25,18 @@ WARN_FACTOR = 0.85
 MODEL_WEIGHT = 0.15
 
 
+# Rules that are reported but never change the score or the status. V10 checks the model's claims, which
+# describe one candidate only; if it could lower a score, it would lower only the model's favourite and
+# push a correct first answer below unchecked isomers (review P5-1). It still drives `functional_groups`.
+INFORMATIONAL_RULES = ("V10",)
+
+
 def score(rules: list[RuleResult]) -> tuple[float, bool]:
-    """(verifier_score, hard_failed). Hard failure -> 0; soft FAIL x0.6; WARN x0.85."""
+    """(verifier_score, hard_failed). Hard failure -> 0; soft FAIL x0.6; WARN x0.85. V10 is ignored."""
     s = 1.0
     for r in rules:
+        if r.rule_id.split("_")[0] in INFORMATIONAL_RULES:
+            continue
         if r.status == RuleStatus.FAIL and r.severity == "hard":
             return 0.0, True
         if r.status == RuleStatus.FAIL and r.severity == "soft":

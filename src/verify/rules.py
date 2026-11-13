@@ -311,7 +311,21 @@ def v08_structure_demands_peaks(c: Ctx) -> RuleResult:
             if not _evidence_applicable(c, ev):
                 continue
             found = [p for p in c.h_ext if c.h_in_ranges(p, ev.keys)]
-            if not found:
+            tagged = (
+                []
+                if found
+                else [
+                    p
+                    for p in c.table.peaks
+                    if p.nucleus == Nucleus.H1 and p.role == PeakRole.SOLVENT and c.h_in_ranges(p, ev.keys)
+                ]
+            )
+            if tagged:
+                # A peak on a solvent line can hide the analyte signal (CH3C=O at 2.49 in DMSO-d6): it
+                # does not prove the group, but the missing signal is not evidence against it either.
+                info["1H"] = {"solvent_tagged_peak_ids": [p.id for p in tagged]}
+                weak.append(f"{group.value}: 1H evidence only from solvent-tagged peaks")
+            elif not found:
                 is_hard = (
                     bool(c.context.molecular_formula)
                     and c.solvent is not None

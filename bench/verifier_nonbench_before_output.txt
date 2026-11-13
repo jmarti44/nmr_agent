@@ -1,0 +1,26 @@
+pool (same named solvent, filtered): 756 | sample: 756
+TRUTH status: {'error:LookupError': 653, 'accepted': 97, 'flagged': 6}
+per solvent accepted/total: {'CDCl3': '33/34', 'D2O': '50/54', 'DMSO-d6': '13/14', 'CD3OD': '1/1'}
+rule FAILs on truth: {'V08:soft': 6, 'V06:soft': 6, 'V09:soft': 1}
+DECOYS: {'decoys': 86, 'decoy_accepted': 24, 'tie': 18, 'decoy_flagged': 35, 'truth>decoy': 66, 'decoy_rejected': 27, 'decoy>truth': 2}
+
+HARD FAIL examples:
+
+SOFT FAIL examples by rule:
+   V08 ('60023349', 'NC(CCSCC(N)C(=O)O)C(=O)O', 'D2O', 'carboxylic_acid: no 13C peak in c_ester_amide')
+   V08 ('60019716', 'C=C(C)C1CCC(C)C(O)C1', 'CDCl3', 'alcohol: no 13C peak in c_alpha_oxygen')
+   V08 ('70093635', 'O=C(O)C(=O)CC1(C(=O)O)C=CC(O)C=C1', 'D2O', 'ketone: no 13C peak in c_ketone; carboxylic_acid: no 13C peak in c_ester_amide')
+   V08 ('60027796', 'CC/N=c1/nc(Cl)[nH]/c(=N/C(C)C)[nH]1', 'DMSO-d6', 'aromatic_ring: no 13C peak in c_sp2_any; heteroaromatic_ring: no 1H peak in h_heteroaromatic; heteroaromatic_ring: no 13C peak in c_sp2_any')
+   V06 ('10008807', 'CCCCCCCCCCCCCCCCO', 'CDCl3', '8 observed 13C signals vs 16 distinct carbons (allowed 14..17)')
+   V06 ('60018875', 'OC1C(O)C(O)C(O)C(O)C1O', 'D2O', '4 observed 13C signals vs 1 distinct carbons (allowed -1..2)')
+   V06 ('70093635', 'O=C(O)C(=O)CC1(C(=O)O)C=CC(O)C=C1', 'D2O', '5 observed 13C signals vs 8 distinct carbons (allowed 6..9)')
+   V06 ('60027796', 'CC/N=c1/nc(Cl)[nH]/c(=N/C(C)C)[nH]1', 'DMSO-d6', '26 observed 13C signals vs 7 distinct carbons (allowed 5..8)')
+   V09 ('70021955', 'Clc1ccc(COC(Cn2ccnc2)c2ccc(Cl)cc2Cl)c(Cl)c1', 'DMSO-d6', '1H peaks not explained by the structure: [1]')
+
+TRUTH NOT ACCEPTED (all):
+   ('60019716', 'flagged', 'C=C(C)C1CCC(C)C(O)C1', 'CDCl3', ['V08:alcohol: no 13C peak in c_alpha_oxygen'])
+   ('60021114', 'flagged', 'CC(C)C(=O)C(=O)O', 'D2O', ['V08:ketone: no 13C peak in c_ketone; carboxylic_acid: no 13C peak in c_ester_amide'])
+   ('60023349', 'flagged', 'NC(CCSCC(N)C(=O)O)C(=O)O', 'D2O', ['V08:carboxylic_acid: no 13C peak in c_ester_amide'])
+   ('60023403', 'flagged', 'CC(=O)NC1C(O)CC(O)(C(=O)O)OC1C(O)C(O)CO', 'D2O', ['V08:carboxylic_acid: no 13C peak in c_ester_amide; amide: no 13C peak in c_ester_amide; acetyl'])
+   ('60027796', 'flagged', 'CC/N=c1/nc(Cl)[nH]/c(=N/C(C)C)[nH]1', 'DMSO-d6', ['V06:26 observed 13C signals vs 7 distinct carbons (allowed 5..8)', 'V08:aromatic_ring: no 13C peak in c_sp2_any; heteroaromatic_ring: no 1H peak in h_heteroaromat'])
+   ('70093635', 'flagged', 'O=C(O)C(=O)CC1(C(=O)O)C=CC(O)C=C1', 'D2O', ['V06:5 observed 13C signals vs 8 distinct carbons (allowed 6..9)', 'V08:ketone: no 13C peak in c_ketone; carboxylic_acid: no 13C peak in c_ester_amide'])

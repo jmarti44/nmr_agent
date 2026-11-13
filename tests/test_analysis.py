@@ -6,6 +6,7 @@ import pytest
 from src.analysis import build_repair_report, run_analysis
 from src.core.settings import Settings
 from src.llm.errors import LLMRefused, LLMUnavailable
+from src.prompting import FULL_VERSION
 from src.prompting.builder import PromptTooLarge
 from src.schemas import AnalysisRequest, AnalysisResponse, Candidate
 from tests.llm.fake_api import ASPIRIN, ISOMER, FakeAPI, hypothesis, hypothesis_json, message
@@ -23,9 +24,7 @@ def test_accepted_answer_in_one_call():
     top = r.candidates[0]
     assert top.status == "accepted" and top.inchikey.startswith("BSYNRYMUTXBXSQ") and top.formula == "C9H8O4"
     assert r.request_id == "req_test" and r.warnings == []
-    assert (
-        r.versions.model_id == "claude-opus-5-5" and r.versions.prompt_version == "2026.10.3+shifts.2026.10.2"
-    )
+    assert r.versions.model_id == "claude-opus-5-5" and r.versions.prompt_version == FULL_VERSION
     assert r.versions.schema_version and r.versions.rdkit and r.versions.nmrglue
     assert [p.id for p in r.peak_table.peaks][:2] == [1, 2] and r.hypothesis_raw.candidates[
         0

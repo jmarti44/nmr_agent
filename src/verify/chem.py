@@ -194,6 +194,8 @@ def _sp3_carbon_keys(atom: Chem.Atom, n_h: int) -> tuple[list[str], tuple[str, .
     if mods:
         return sorted(set(mods)), specific
     base = {3: "h_alkyl_ch3", 2: "h_alkyl_ch2"}.get(n_h, "h_alkyl_ch")
+    if atom.IsInRingSize(4):  # cyclobutane protons sit above the plain-alkyl range
+        return [base, "h_cyclobutyl"], ()
     if _has_beta_heteroatom(atom):
         return [base, _BETA_KEY.get(n_h, "h_beta_ch")], ()
     return [base], ()

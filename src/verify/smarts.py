@@ -20,7 +20,8 @@ class Evidence:
     keys: tuple[str, ...]  # any one of these shift rules satisfies the requirement
     applies_if: str | None = None
     hard_in: tuple[str, ...] = ()  # solvents where a missing signal rejects the candidate (needs a formula)
-    # Only the aldehyde proton is hard. The COOH proton is listed for only 22% of CDCl3 and 29% of DMSO-d6 acid
+    # Only the aldehyde proton is hard. The amide N-H is listed for only 65% of amide N-H sites in NMRShiftDB2 (bench/nmrshiftdb2_p5r1_distributions_output.txt),
+    # so it warns like COOH. The COOH proton is listed for only 22% of CDCl3 and 29% of DMSO-d6 acid
     # spectra in NMRShiftDB2, so its absence is not evidence: it warns (weak) and never blocks acceptance.
     unless_exchanged: bool = False  # waived when D2O exchange was performed or the solvent exchanges
     # A missing signal only warns (the candidate can still be accepted). Used for the COOH proton, which databases
@@ -47,7 +48,7 @@ SPECS: dict[G, GroupSpec] = {
         GroupSpec(G.KETONE, ("[#6][CX3](=O)[#6]",), c=(_e("c_ketone"),)),
         GroupSpec(G.CARBOXYLIC_ACID, ("[CX3](=O)[OX2H1]",), h=(_e("h_carboxylic_acid", unless_exchanged=True, weak=True),), c=(_e("c_ester_amide"),)),
         GroupSpec(G.ESTER, ("[CX3](=O)[OX2H0][#6]",), h=(_e("h_ester_och", "h_methoxy", applies_if="[CX3](=O)[OX2][CX4;!H0]"),), c=(_e("c_ester_amide"),)),
-        GroupSpec(G.AMIDE, ("[CX3](=O)[NX3]",), h=(_e("h_amide_nh", applies_if="[CX3](=O)[NX3;!H0]", unless_exchanged=True),), c=(_e("c_ester_amide"),)),
+        GroupSpec(G.AMIDE, ("[CX3](=O)[NX3]",), h=(_e("h_amide_nh", applies_if="[CX3](=O)[NX3;!H0]", unless_exchanged=True, weak=True),), c=(_e("c_ester_amide"),)),
         GroupSpec(G.ALCOHOL, ("[CX4][OX2H]",), h=(_e("h_alpha_oxygen", applies_if="[CX4;!H0][OX2H]"),), c=(_e("c_alpha_oxygen", applies_if="[CX4][OX2H]"),)),
         GroupSpec(G.PHENOL, ("c[OX2H]",), h=(_e("h_aromatic"),), c=(_e("c_aromatic_quat"),)),
         GroupSpec(G.ETHER, ("[CX4][OX2][CX4,c]",), h=(_e("h_alpha_oxygen", "h_aryl_ether", applies_if="[CX4;!H0;!r3][OX2][#6]"),), c=(_e("c_alpha_oxygen", applies_if="[CX4][OX2][#6]"),)),
@@ -56,7 +57,7 @@ SPECS: dict[G, GroupSpec] = {
         GroupSpec(G.AMINE_SECONDARY, ("[NX3;H1;!$(NC=O)]([#6])[#6]",), h=(_e("h_alpha_amine", applies_if="[CX4;!H0;!r3][NX3;H1;!$(NC=O)]"),), c=(_e("c_alpha_nitrogen", applies_if="[CX4][NX3;H1;!$(NC=O)]"),)),
         GroupSpec(G.AMINE_TERTIARY, ("[NX3;H0;!$(NC=O)]([#6])([#6])[#6]",), h=(_e("h_alpha_amine", applies_if="[CX4;!H0;!r3][NX3;H0;!$(NC=O)]"),), c=(_e("c_alpha_nitrogen", applies_if="[CX4][NX3;H0;!$(NC=O)]"),)),
         GroupSpec(G.AROMATIC_RING, ("a1aaaaa1",), h=(_e("h_aromatic", "h_heteroaromatic", applies_if="[cH]"),), c=(_e("c_sp2_any"),)),
-        GroupSpec(G.HETEROAROMATIC_RING, ("[n,o,s]1aaaa1", "[n]1aaaaa1"), h=(_e("h_heteroaromatic", applies_if="[cH,nH]"),), c=(_e("c_sp2_any"),)),
+        GroupSpec(G.HETEROAROMATIC_RING, ("[n,o,s]1aaaa1", "[n]1aaaaa1"), h=(_e("h_heteroaromatic", applies_if="[cH,nH]"),), c=(_e("c_sp2_any", "c_heteroaromatic"),)),
         GroupSpec(G.ALKENE, ("[CX3]=[CX3]",), h=(_e("h_vinyl", applies_if="[CX3;!H0]=[CX3]"),), c=(_e("c_sp2_any"),)),
         GroupSpec(G.ALKYNE_TERMINAL, ("[CX2]#[CX2H1]",), h=(_e("h_alkyne_terminal"),), c=(_e("c_alkyne"),)),
         GroupSpec(G.ALKYNE_INTERNAL, ("[CX2;H0]#[CX2;H0]",), c=(_e("c_alkyne"),)),
