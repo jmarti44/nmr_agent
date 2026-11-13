@@ -1,0 +1,56 @@
+{
+ "id": "20200615",
+ "truth": "CCCCCCCl",
+ "truth_inchikey": "MLRVZFYXUZQSRU-UHFFFAOYSA-N",
+ "solvent": "CDCl3",
+ "formula": "C6H13Cl",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "CCCCCCCl",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.985
+  },
+  {
+   "smiles": "CCCCC(C)CCl",
+   "model_rank": 2,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.0075
+  }
+ ],
+ "cost_usd": 0.024341,
+ "llm_calls": 1,
+ "llm_ms": 9968,
+ "warnings": [],
+ "rescored": [
+  {
+   "smiles": "CCCCCCCl",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 1.0
+  },
+  {
+   "smiles": "CCCCC(C)CCl",
+   "model_rank": 2,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.0
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "CCCCCCCl",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "CCCCC(C)CCl",
+   "model_rank": 2,
+   "status": "rejected"
+  }
+ ]
+}

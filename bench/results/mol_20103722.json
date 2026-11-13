@@ -1,0 +1,75 @@
+{
+ "id": "20103722",
+ "truth": "Cc1c(O)cc(CCc2ccccc2)cc1OC1OC(CO)C(O)C(O)C1O",
+ "truth_inchikey": "WTRYYJMNPMGQFI-UHFFFAOYSA-N",
+ "solvent": "CD3OD",
+ "formula": "C21H26O7",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "Cc1c(O)cc(CCc2ccccc2)cc1OC1OC(CO)C(O)C(O)C1O",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.9625
+  },
+  {
+   "smiles": "Cc1c(OC2OC(CO)C(O)C(O)C2O)cc(O)cc1CCc1ccccc1",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.868
+  },
+  {
+   "smiles": "Cc1c(O)cc(O)cc1CCc1ccccc1OC1OC(CO)C(O)C(O)C1O",
+   "model_rank": 2,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.012
+  }
+ ],
+ "cost_usd": 0.104569,
+ "llm_calls": 1,
+ "llm_ms": 44992,
+ "warnings": [],
+ "rescored": [
+  {
+   "smiles": "Cc1c(O)cc(CCc2ccccc2)cc1OC1OC(CO)C(O)C(O)C1O",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 1.0
+  },
+  {
+   "smiles": "Cc1c(OC2OC(CO)C(O)C(O)C2O)cc(O)cc1CCc1ccccc1",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 1.0
+  },
+  {
+   "smiles": "Cc1c(O)cc(O)cc1CCc1ccccc1OC1OC(CO)C(O)C(O)C1O",
+   "model_rank": 2,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.0
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "Cc1c(O)cc(CCc2ccccc2)cc1OC1OC(CO)C(O)C(O)C1O",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "Cc1c(OC2OC(CO)C(O)C(O)C2O)cc(O)cc1CCc1ccccc1",
+   "model_rank": 3,
+   "status": "accepted"
+  },
+  {
+   "smiles": "Cc1c(O)cc(O)cc1CCc1ccccc1OC1OC(CO)C(O)C(O)C1O",
+   "model_rank": 2,
+   "status": "rejected"
+  }
+ ]
+}

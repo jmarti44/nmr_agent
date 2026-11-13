@@ -1,0 +1,735 @@
+{
+ "id": "60023496",
+ "truth": "C[N+](C)(C)CC(O)CC(=O)[O-]",
+ "truth_inchikey": "PHIQHXFUZVPYII-UHFFFAOYSA-N",
+ "solvent": "D2O",
+ "formula": "C7H15NO3",
+ "h_integrals_given": true,
+ "candidates": [
+  {
+   "smiles": "C[N+](C)(C)CC(O)CC([O-])=O",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.982
+  },
+  {
+   "smiles": "CN(C)CC(OC)CC(=O)O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.8575
+  }
+ ],
+ "cost_usd": 0.052409,
+ "llm_calls": 1,
+ "llm_ms": 24464,
+ "warnings": [],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 4.55,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 3.42,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 3.21,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 9.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 2.42,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "13C",
+     "shift_ppm": 180.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "13C",
+     "shift_ppm": 72.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "13C",
+     "shift_ppm": 66.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "13C",
+     "shift_ppm": 56.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "13C",
+     "shift_ppm": 45.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "D2O",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "formula_H",
+   "processing_log": [
+    "integrals sum to 14 and look like proton counts, consistent with H = 15: kept"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C7H15NO3",
+   "observed_exact_mass": null,
+   "solvent": "D2O",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C7H15NO3",
+   "degree_of_unsaturation": 1,
+   "functional_groups": [
+    {
+     "group": "alcohol",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       1,
+       7
+      ],
+      "note": "CH-OH methine at 4.55 ppm (1H) with carbinol carbon at 66.8 ppm."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       3,
+       8
+      ],
+      "note": "9H singlet at 3.21 and 13C 56.8 ppm match N+(CH3)3 methyls."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "C[N+](C)(C)CC(O)CC([O-])=O",
+     "name": "carnitine (3-hydroxy-4-(trimethylazaniumyl)butanoate, inner salt)",
+     "rationale": "9H singlet at 3.21 (peak 3) with 13C 56.8 (8) is a trimethylammonium group; CH2N+ at 3.42 (2)/72.9 (6); CHOH at 4.55 (1)/66.8 (7); CH2COO- at 2.42 (4)/45.7 (9); carboxylate 180.8 (5). The only DoU is the C=O. Shifts match literature carnitine in D2O almost exactly. Drawn as the overall-neutral zwitterion, as required by the formula C7H15NO3.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "CH(OH)"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "CH2-N+(CH3)3"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 9,
+       "environment": "N+(CH3)3"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "CH2-COO-"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "COO-"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CH2-N+"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "CH-OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "N+(CH3)3"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "CH2-COO-"
+      }
+     ],
+     "confidence": 0.88
+    },
+    {
+     "rank": 2,
+     "smiles": "CN(C)CC(OC)CC(=O)O",
+     "name": "4-(dimethylamino)-3-methoxybutanoic acid",
+     "rationale": "Neutral isomer fallback: NMe2 + OMe could overlap near 3.2 ppm (peak 3, 9H), CH-O at 4.55 (1), CH2N at 3.42 (2), CH2CO at 2.42 (4), acid C=O 180.8 (5). However it would show 6 distinct carbons and separate NMe2/OMe signals, so it fits worse than carnitine.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "CH-OMe"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "CH2-NMe2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 9,
+       "environment": "N(CH3)2 + OCH3 overlapped"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "CH2-COOH"
+      }
+     ],
+     "confidence": 0.05
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "DoU 1 with a 13C at 180.8 (peak 5) = carboxylate/acid C=O. A 9H singlet at 3.21 (3) with 13C 56.8 (8) is the hallmark of a trimethylammonium N+(CH3)3. Remaining signals: CH2N+ 3.42/72.9 (2,6), CHOH 4.55/66.8 (1,7), CH2CO 2.42/45.7 (4,9). 1H total 14 + 1 exchanged OH (D2O) = 15. This is carnitine, whose literature D2O shifts (180.6, 72.8, 66.7, 56.8, 45.6) match. The formula C7H15NO3 corresponds to the inner salt, which can only be drawn as a zwitterion (net neutral); a neutral covalent isomer is offered as a low-confidence fallback."
+  },
+  "repaired": null,
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "C[N+](C)(C)CC(O)CC([O-])=O",
+     "name": "carnitine (3-hydroxy-4-(trimethylazaniumyl)butanoate, inner salt)",
+     "rationale": "9H singlet at 3.21 (peak 3) with 13C 56.8 (8) is a trimethylammonium group; CH2N+ at 3.42 (2)/72.9 (6); CHOH at 4.55 (1)/66.8 (7); CH2COO- at 2.42 (4)/45.7 (9); carboxylate 180.8 (5). The only DoU is the C=O. Shifts match literature carnitine in D2O almost exactly. Drawn as the overall-neutral zwitterion, as required by the formula C7H15NO3.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "CH(OH)"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "CH2-N+(CH3)3"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 9,
+       "environment": "N+(CH3)3"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "CH2-COO-"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "COO-"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CH2-N+"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "CH-OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "N+(CH3)3"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "CH2-COO-"
+      }
+     ],
+     "confidence": 0.88
+    },
+    "canonical_smiles": "C[N+](C)(C)CC(O)CC(=O)[O-]",
+    "inchikey": "PHIQHXFUZVPYII-UHFFFAOYSA-N",
+    "formula": "C7H15NO3",
+    "exact_mass": 161.1052,
+    "degree_of_unsaturation": 1,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C7H15NO3 == C7H15NO3",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 1 == formula DoU 1",
+      "evidence": {
+       "structural": 1,
+       "expected": 1.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "pass",
+      "severity": "hard",
+      "message": "integrals sum to 14; candidate has 15 H",
+      "evidence": {
+       "candidate_H": 15,
+       "exchangeable_H": 1,
+       "integral_sum": 14.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 observed 13C signals vs 5 distinct carbons (allowed 3..6)",
+      "evidence": {
+       "observed": 5,
+       "unique_carbons": 5,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 non-exchangeable 1H signals vs 4 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 4,
+       "environments": 4,
+       "diastereotopic_allowance": 2
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 2 matched group(s)",
+      "evidence": {
+       "alcohol": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          6,
+          7,
+          8
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "pass",
+      "severity": "soft",
+      "message": "2 claim(s) consistent with the structure and cited peaks",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.982,
+    "claims_checked": true,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "CN(C)CC(OC)CC(=O)O",
+     "name": "4-(dimethylamino)-3-methoxybutanoic acid",
+     "rationale": "Neutral isomer fallback: NMe2 + OMe could overlap near 3.2 ppm (peak 3, 9H), CH-O at 4.55 (1), CH2N at 3.42 (2), CH2CO at 2.42 (4), acid C=O 180.8 (5). However it would show 6 distinct carbons and separate NMe2/OMe signals, so it fits worse than carnitine.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "CH-OMe"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "CH2-NMe2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 9,
+       "environment": "N(CH3)2 + OCH3 overlapped"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "CH2-COOH"
+      }
+     ],
+     "confidence": 0.05
+    },
+    "canonical_smiles": "COC(CC(=O)O)CN(C)C",
+    "inchikey": "ZRHURQXXXYNXLU-UHFFFAOYSA-N",
+    "formula": "C7H15NO3",
+    "exact_mass": 161.1052,
+    "degree_of_unsaturation": 1,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C7H15NO3 == C7H15NO3",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 1 == formula DoU 1",
+      "evidence": {
+       "structural": 1,
+       "expected": 1.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "pass",
+      "severity": "hard",
+      "message": "integrals sum to 14; candidate has 15 H",
+      "evidence": {
+       "candidate_H": 15,
+       "exchangeable_H": 1,
+       "integral_sum": 14.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 observed 13C signals vs 6 distinct carbons (allowed 4..7)",
+      "evidence": {
+       "observed": 5,
+       "unique_carbons": 6,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 non-exchangeable 1H signals vs 5 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 4,
+       "environments": 5,
+       "diastereotopic_allowance": 2
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 5 matched group(s)",
+      "evidence": {
+       "carboxylic_acid": {
+        "13C": {
+         "peak_ids": [
+          5
+         ]
+        }
+       },
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          6,
+          7,
+          8
+         ]
+        }
+       },
+       "methoxy": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          6,
+          7,
+          8
+         ]
+        }
+       },
+       "amine_tertiary": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.8575,
+    "claims_checked": false,
+    "status": "accepted"
+   }
+  ]
+ },
+ "rescored": [
+  {
+   "smiles": "C[N+](C)(C)CC(O)CC([O-])=O",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.982
+  },
+  {
+   "smiles": "CN(C)CC(OC)CC(=O)O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.8575
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "C[N+](C)(C)CC(O)CC([O-])=O",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "CN(C)CC(OC)CC(=O)O",
+   "model_rank": 2,
+   "status": "accepted"
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "id": "19998",
+ "truth": "CCCCCCCCC(=O)CC(=O)O",
+ "truth_inchikey": "RYAXOIRSQGWHQD-UHFFFAOYSA-N",
+ "solvent": "CDCl3",
+ "formula": "C11H20O3",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "CCCCCCCCC(=O)CC(=O)O",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 0.85,
+   "confidence": 0.85
+  },
+  {
+   "smiles": "CCCCCCC(C)C(=O)CC(=O)O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 0.85,
+   "confidence": 0.7345
+  }
+ ],
+ "cost_usd": 0.055081,
+ "llm_calls": 1,
+ "llm_ms": 23618,
+ "warnings": [],
+ "rescored": [
+  {
+   "smiles": "CCCCCCCCC(=O)CC(=O)O",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 0.85,
+   "confidence": 0.85
+  },
+  {
+   "smiles": "CCCCCCC(C)C(=O)CC(=O)O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 0.85,
+   "confidence": 0.85
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "CCCCCCCCC(=O)CC(=O)O",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "CCCCCCC(C)C(=O)CC(=O)O",
+   "model_rank": 2,
+   "status": "accepted"
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "id": "20190481",
+ "truth": "O=C(O)/C(O)=C/C=C(\\O)C(=O)O",
+ "truth_inchikey": "HADLILYMDLJRQC-CCAGOZQPSA-N",
+ "solvent": "DMSO-d6",
+ "formula": "C6H6O6",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "OC(=O)C(O)=CC=C(O)C(=O)O",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.6075
+  },
+  {
+   "smiles": "OC(=O)C=C(O)C(O)=CC(=O)O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.54
+  }
+ ],
+ "cost_usd": 0.053069,
+ "llm_calls": 1,
+ "llm_ms": 22551,
+ "warnings": [],
+ "rescored": [
+  {
+   "smiles": "OC(=O)C(O)=CC=C(O)C(=O)O",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.6
+  },
+  {
+   "smiles": "OC(=O)C=C(O)C(O)=CC(=O)O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.6
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "OC(=O)C(O)=CC=C(O)C(=O)O",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "OC(=O)C=C(O)C(O)=CC(=O)O",
+   "model_rank": 2,
+   "status": "accepted"
+  }
+ ]
+}

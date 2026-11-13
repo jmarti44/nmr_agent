@@ -1,0 +1,75 @@
+{
+ "id": "80039382",
+ "truth": "COc1ccc(/C=c2\\oc(=O)c3cccc4cccc2c43)cc1",
+ "truth_inchikey": "WPFFLWZMSWZGQX-PDGQHHTCSA-N",
+ "solvent": "DMSO-d6",
+ "formula": "C20H14O3",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "COc1ccc(cc1)-c1cc2c(ccc3ccccc32)oc1=O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.8875
+  },
+  {
+   "smiles": "COc1ccc(cc1)-c1cc(=O)oc2c1ccc1ccccc12",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.8725
+  },
+  {
+   "smiles": "COc1ccc(cc1)-c1cc2ccc3ccccc3c2oc1=O",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.5775
+  }
+ ],
+ "cost_usd": 0.136429,
+ "llm_calls": 1,
+ "llm_ms": 62527,
+ "warnings": [],
+ "rescored": [
+  {
+   "smiles": "COc1ccc(cc1)-c1cc2ccc3ccccc3c2oc1=O",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 1.0
+  },
+  {
+   "smiles": "COc1ccc(cc1)-c1cc2c(ccc3ccccc32)oc1=O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 1.0
+  },
+  {
+   "smiles": "COc1ccc(cc1)-c1cc(=O)oc2c1ccc1ccccc12",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 1.0
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "COc1ccc(cc1)-c1cc2ccc3ccccc3c2oc1=O",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "COc1ccc(cc1)-c1cc2c(ccc3ccccc32)oc1=O",
+   "model_rank": 2,
+   "status": "accepted"
+  },
+  {
+   "smiles": "COc1ccc(cc1)-c1cc(=O)oc2c1ccc1ccccc12",
+   "model_rank": 3,
+   "status": "accepted"
+  }
+ ]
+}

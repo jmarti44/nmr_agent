@@ -1,0 +1,77 @@
+{
+ "id": "80041845",
+ "truth": "O=C(O)C1C=CCN1",
+ "truth_inchikey": "OMGHIGVFLOPEHJ-UHFFFAOYSA-N",
+ "solvent": "D2O",
+ "formula": "C5H7NO2",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "O=C1OC2CC1NC2",
+   "model_rank": 4,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.9175
+  },
+  {
+   "smiles": "O=C1NCC12COC2",
+   "model_rank": 5,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.88
+  },
+  {
+   "smiles": "OC(=O)C1NCC=C1",
+   "model_rank": 1,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.585
+  }
+ ],
+ "cost_usd": 0.145734,
+ "llm_calls": 2,
+ "llm_ms": 59655,
+ "warnings": [
+  "no candidate was accepted; one repair round was used"
+ ],
+ "rescored": [
+  {
+   "smiles": "O=C1OC2CC1NC2",
+   "model_rank": 4,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 1.0
+  },
+  {
+   "smiles": "O=C1NCC12COC2",
+   "model_rank": 5,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 1.0
+  },
+  {
+   "smiles": "OC(=O)C1NCC=C1",
+   "model_rank": 1,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.6
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "O=C1OC2CC1NC2",
+   "model_rank": 4,
+   "status": "accepted"
+  },
+  {
+   "smiles": "O=C1NCC12COC2",
+   "model_rank": 5,
+   "status": "accepted"
+  },
+  {
+   "smiles": "OC(=O)C1NCC=C1",
+   "model_rank": 1,
+   "status": "flagged"
+  }
+ ]
+}

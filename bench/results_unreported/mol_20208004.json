@@ -1,0 +1,788 @@
+{
+ "id": "20208004",
+ "truth": "CCC(=O)c1ccc(F)cc1",
+ "truth_inchikey": "QIJNVLLXIIPXQT-UHFFFAOYSA-N",
+ "solvent": null,
+ "formula": "C9H9FO",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "CCC(=O)c1ccc(F)cc1",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.985
+  },
+  {
+   "smiles": "CCC(=O)c1cccc(F)c1",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.8575
+  }
+ ],
+ "cost_usd": 0.06585,
+ "llm_calls": 1,
+ "llm_ms": 16562,
+ "warnings": [],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 7.98,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 7.12,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 2.97,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 1.22,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "13C",
+     "shift_ppm": 199.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "13C",
+     "shift_ppm": 165.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "13C",
+     "shift_ppm": 133.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "13C",
+     "shift_ppm": 130.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "13C",
+     "shift_ppm": 115.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 10,
+     "nucleus": "13C",
+     "shift_ppm": 31.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 11,
+     "nucleus": "13C",
+     "shift_ppm": 8.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": null,
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "none",
+   "processing_log": [
+    "integrals not normalised: not every analyte 1H peak has one"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C9H9FO",
+   "observed_exact_mass": null,
+   "solvent": null,
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C9H9FO",
+   "degree_of_unsaturation": 5,
+   "functional_groups": [
+    {
+     "group": "ketone",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       5,
+       3
+      ],
+      "note": "C=O at 199.0 is an aryl ketone; the CH2 at 2.97 sits alpha to the carbonyl."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2,
+       7,
+       8,
+       9,
+       6
+      ],
+      "note": "Two aromatic 1H signals and four aromatic 13C signals indicate a para-disubstituted benzene."
+     }
+    },
+    {
+     "group": "aryl_halide",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       6,
+       9,
+       2
+      ],
+      "note": "C-F at 165.7 with ortho CH at 115.7 and the 1H at 7.12 is typical of an aryl fluoride."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       4,
+       11
+      ],
+      "note": "The CH3 at 1.22 ppm (13C 8.2) is the methyl of a propanoyl ethyl group."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "CCC(=O)c1ccc(F)cc1",
+     "name": "1-(4-fluorophenyl)propan-1-one",
+     "rationale": "Ketone C=O at 199.0 (5). Para-F aryl: C-F 165.7 (6), ipso 133.5 (7), CH ortho to C=O 130.7 (8), CH ortho to F 115.7 (9). The 1H pattern of 2H at 7.98 (1) and 2H at 7.12 (2) is AA'BB'. Ethyl ketone: CH2 2.97 (3) / 31.8 (10) and CH3 1.22 (4) / 8.2 (11). Seven carbon environments match the seven observed 13C signals.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "ArH ortho to C=O"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH ortho to F"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "C(=O)CH2"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "CH2CH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "ketone C=O"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C-F"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "ipso C-C=O"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "CH ortho to C=O"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "CH ortho to F"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "CH2"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "CH3"
+      }
+     ],
+     "confidence": 0.9
+    },
+    {
+     "rank": 2,
+     "smiles": "CCC(=O)c1cccc(F)c1",
+     "name": "1-(3-fluorophenyl)propan-1-one",
+     "rationale": "Same ethyl ketone unit (3, 4, 5, 10, 11). However, meta substitution would give 6 aromatic carbons and 4 ArH environments, but only 4 aromatic 13C and 2 aromatic 1H signals are observed. It is therefore less consistent.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "ArH ortho to C=O"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH near F"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "C(=O)CH2"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "CH3"
+      }
+     ],
+     "confidence": 0.05
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "With DoU 5, a ketone C=O (199.0) plus a benzene ring accounts for all unsaturation. The 13C shifts 165.7, 133.5, 130.7 and 115.7 with only two ArH signals (7.98, 7.12) indicate a para-substituted fluorobenzene bearing an acyl group. The remaining C2H5 is an ethyl ketone: CH2 at 2.97 / 31.8 alpha to C=O and CH3 at 1.22 / 8.2. Integrals were not supplied, so proton counts (2, 2, 2, 3 = 9 H) are assigned from the structure. The best fit is 4'-fluoropropiophenone."
+  },
+  "repaired": null,
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "CCC(=O)c1ccc(F)cc1",
+     "name": "1-(4-fluorophenyl)propan-1-one",
+     "rationale": "Ketone C=O at 199.0 (5). Para-F aryl: C-F 165.7 (6), ipso 133.5 (7), CH ortho to C=O 130.7 (8), CH ortho to F 115.7 (9). The 1H pattern of 2H at 7.98 (1) and 2H at 7.12 (2) is AA'BB'. Ethyl ketone: CH2 2.97 (3) / 31.8 (10) and CH3 1.22 (4) / 8.2 (11). Seven carbon environments match the seven observed 13C signals.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "ArH ortho to C=O"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH ortho to F"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "C(=O)CH2"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "CH2CH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "ketone C=O"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C-F"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "ipso C-C=O"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "CH ortho to C=O"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "CH ortho to F"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "CH2"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "CH3"
+      }
+     ],
+     "confidence": 0.9
+    },
+    "canonical_smiles": "CCC(=O)c1ccc(F)cc1",
+    "inchikey": "QIJNVLLXIIPXQT-UHFFFAOYSA-N",
+    "formula": "C9H9FO",
+    "exact_mass": 152.0637,
+    "degree_of_unsaturation": 5,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C9H9FO == C9H9FO",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 5 == formula DoU 5",
+      "evidence": {
+       "structural": 5,
+       "expected": 5.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "7 observed 13C signals vs 7 distinct carbons (allowed 5..8)",
+      "evidence": {
+       "observed": 7,
+       "unique_carbons": 7,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 non-exchangeable 1H signals vs 4 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 4,
+       "environments": 4,
+       "diastereotopic_allowance": 1
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 4 matched group(s)",
+      "evidence": {
+       "ketone": {
+        "13C": {
+         "peak_ids": [
+          5
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9
+         ]
+        }
+       },
+       "aryl_halide": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          3,
+          4
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 claim(s) consistent with the structure and cited peaks",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.985,
+    "claims_checked": true,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "CCC(=O)c1cccc(F)c1",
+     "name": "1-(3-fluorophenyl)propan-1-one",
+     "rationale": "Same ethyl ketone unit (3, 4, 5, 10, 11). However, meta substitution would give 6 aromatic carbons and 4 ArH environments, but only 4 aromatic 13C and 2 aromatic 1H signals are observed. It is therefore less consistent.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "ArH ortho to C=O"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH near F"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "C(=O)CH2"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "CH3"
+      }
+     ],
+     "confidence": 0.05
+    },
+    "canonical_smiles": "CCC(=O)c1cccc(F)c1",
+    "inchikey": "RPMOHVRRKYJFSB-UHFFFAOYSA-N",
+    "formula": "C9H9FO",
+    "exact_mass": 152.0637,
+    "degree_of_unsaturation": 5,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C9H9FO == C9H9FO",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 5 == formula DoU 5",
+      "evidence": {
+       "structural": 5,
+       "expected": 5.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "7 observed 13C signals vs 9 distinct carbons (allowed 7..10)",
+      "evidence": {
+       "observed": 7,
+       "unique_carbons": 9,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 non-exchangeable 1H signals vs 6 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 4,
+       "environments": 6,
+       "diastereotopic_allowance": 1
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 4 matched group(s)",
+      "evidence": {
+       "ketone": {
+        "13C": {
+         "peak_ids": [
+          5
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9
+         ]
+        }
+       },
+       "aryl_halide": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          3,
+          4
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.8575,
+    "claims_checked": false,
+    "status": "accepted"
+   }
+  ]
+ },
+ "rescored": [
+  {
+   "smiles": "CCC(=O)c1ccc(F)cc1",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.985
+  },
+  {
+   "smiles": "CCC(=O)c1cccc(F)c1",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.8575
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "CCC(=O)c1ccc(F)cc1",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "CCC(=O)c1cccc(F)c1",
+   "model_rank": 2,
+   "status": "accepted"
+  }
+ ]
+}

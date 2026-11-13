@@ -1,0 +1,987 @@
+{
+ "id": "20198900",
+ "truth": "ClCc1cccc(CCl)c1",
+ "truth_inchikey": "GRJWOKACBGZOKT-UHFFFAOYSA-N",
+ "solvent": null,
+ "formula": "C8H8Cl2",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "ClCc1cccc(CCl)c1",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.9775
+  },
+  {
+   "smiles": "ClCc1ccccc1CCl",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.862
+  },
+  {
+   "smiles": "ClCc1ccc(CCl)cc1",
+   "model_rank": 3,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.516
+  }
+ ],
+ "cost_usd": 0.049137,
+ "llm_calls": 1,
+ "llm_ms": 20439,
+ "warnings": [],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 7.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 7.34,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 7.33,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 4.57,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "13C",
+     "shift_ppm": 138.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "13C",
+     "shift_ppm": 129.1,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "13C",
+     "shift_ppm": 128.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "13C",
+     "shift_ppm": 128.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "13C",
+     "shift_ppm": 45.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": null,
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "none",
+   "processing_log": [
+    "integrals not normalised: not every analyte 1H peak has one"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C8H8Cl2",
+   "observed_exact_mass": null,
+   "solvent": null,
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C8H8Cl2",
+   "degree_of_unsaturation": 4,
+   "functional_groups": [
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.97,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2,
+       3,
+       5,
+       6,
+       7,
+       8
+      ],
+      "note": "Aromatic 1H at 7.33-7.40 and four sp2 13C (138.0 quaternary, 129.1/128.6/128.5 CH) indicate a benzene ring."
+     }
+    },
+    {
+     "group": "alkyl_halide",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       4,
+       9
+      ],
+      "note": "1H 4.57 and 13C 45.7 are typical of benzylic CH2Cl."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": false,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       4,
+       9
+      ],
+      "note": "Only aliphatic signal is the CH2Cl at 4.57/45.7; no CH3 signal present."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "ClCc1cccc(CCl)c1",
+     "name": "1,3-bis(chloromethyl)benzene",
+     "rationale": "DoU 4 = benzene ring. A single aliphatic environment (4.57 ppm, 45.7 ppm; peaks 4, 9) means two equivalent ArCH2Cl groups. Five 13C signals fit meta symmetry: C1/C3 138.0 (5), C5 129.1 (6), C2 128.6 (7), C4/C6 128.5 (8), CH2 45.7 (9). Aromatic H2 appears at 7.40 (1) and H4/5/6 at 7.34/7.33 (2, 3). This matches literature values for m-xylylene dichloride.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH-2 between CH2Cl groups"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-5"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ArH-4/6"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 4,
+       "environment": "2x ArCH2Cl"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "C1/C3 ipso"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C5 CH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "C2 CH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "C4/C6 CH"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "CH2Cl"
+      }
+     ],
+     "confidence": 0.85
+    },
+    {
+     "rank": 2,
+     "smiles": "ClCc1ccccc1CCl",
+     "name": "1,2-bis(chloromethyl)benzene",
+     "rationale": "This isomer also has equivalent CH2Cl groups (4, 9), but it gives only four 13C environments. Its literature shifts (CH2 about 4.7 ppm/42.8 ppm, ipso C about 136) fit the observed 45.7 and 138.0 ppm less well.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "ArH-3/6"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-4"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-5"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 4,
+       "environment": "2x ArCH2Cl"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "ipso C"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "ArCH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "ArCH"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "CH2Cl"
+      }
+     ],
+     "confidence": 0.08
+    },
+    {
+     "rank": 3,
+     "smiles": "ClCc1ccc(CCl)cc1",
+     "name": "1,4-bis(chloromethyl)benzene",
+     "rationale": "Its shifts (4.57, 45.7, 138.0, 129.1) are close to the data, but para symmetry gives only three 13C environments while five are observed (5-9). It also predicts a single aromatic 1H singlet rather than three aromatic signals (1-3).",
+     "assignments": [
+      {
+       "peak_id": 2,
+       "proton_count": 4,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 4,
+       "environment": "2x ArCH2Cl"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "ipso C"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "ArCH"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "CH2Cl"
+      }
+     ],
+     "confidence": 0.04
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "C8H8Cl2 has DoU 4, which corresponds to one benzene ring. The only aliphatic signal is 4.57 ppm (peak 4) with 13C 45.7 (peak 9), typical of ArCH2Cl. Since all 8 H must be accounted for, this points to two equivalent CH2Cl groups (4H) plus four ArH (peaks 1-3). Five 13C signals (one quaternary at 138.0 and three aromatic CH at 128.5-129.1) require meta substitution: para would give 3 signals and ortho 4. The aromatic pattern (7.40 for the isolated H2; 7.34/7.33 for the others) and the shifts match 1,3-bis(chloromethyl)benzene."
+  },
+  "repaired": null,
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "ClCc1cccc(CCl)c1",
+     "name": "1,3-bis(chloromethyl)benzene",
+     "rationale": "DoU 4 = benzene ring. A single aliphatic environment (4.57 ppm, 45.7 ppm; peaks 4, 9) means two equivalent ArCH2Cl groups. Five 13C signals fit meta symmetry: C1/C3 138.0 (5), C5 129.1 (6), C2 128.6 (7), C4/C6 128.5 (8), CH2 45.7 (9). Aromatic H2 appears at 7.40 (1) and H4/5/6 at 7.34/7.33 (2, 3). This matches literature values for m-xylylene dichloride.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH-2 between CH2Cl groups"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-5"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ArH-4/6"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 4,
+       "environment": "2x ArCH2Cl"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "C1/C3 ipso"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C5 CH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "C2 CH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "C4/C6 CH"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "CH2Cl"
+      }
+     ],
+     "confidence": 0.85
+    },
+    "canonical_smiles": "ClCc1cccc(CCl)c1",
+    "inchikey": "GRJWOKACBGZOKT-UHFFFAOYSA-N",
+    "formula": "C8H8Cl2",
+    "exact_mass": 174.0003,
+    "degree_of_unsaturation": 4,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C8H8Cl2 == C8H8Cl2",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 4 == formula DoU 4",
+      "evidence": {
+       "structural": 4,
+       "expected": 4.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 observed 13C signals vs 5 distinct carbons (allowed 3..6)",
+      "evidence": {
+       "observed": 5,
+       "unique_carbons": 5,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 non-exchangeable 1H signals vs 4 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 4,
+       "environments": 4,
+       "diastereotopic_allowance": 1
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 2 matched group(s)",
+      "evidence": {
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          5,
+          6,
+          7,
+          8
+         ]
+        }
+       },
+       "alkyl_halide": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          9
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "pass",
+      "severity": "soft",
+      "message": "3 claim(s) consistent with the structure and cited peaks",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.9775,
+    "claims_checked": true,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "ClCc1ccccc1CCl",
+     "name": "1,2-bis(chloromethyl)benzene",
+     "rationale": "This isomer also has equivalent CH2Cl groups (4, 9), but it gives only four 13C environments. Its literature shifts (CH2 about 4.7 ppm/42.8 ppm, ipso C about 136) fit the observed 45.7 and 138.0 ppm less well.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "ArH-3/6"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-4"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-5"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 4,
+       "environment": "2x ArCH2Cl"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "ipso C"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "ArCH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "ArCH"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "CH2Cl"
+      }
+     ],
+     "confidence": 0.08
+    },
+    "canonical_smiles": "ClCc1ccccc1CCl",
+    "inchikey": "FMGGHNGKHRCJLL-UHFFFAOYSA-N",
+    "formula": "C8H8Cl2",
+    "exact_mass": 174.0003,
+    "degree_of_unsaturation": 4,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C8H8Cl2 == C8H8Cl2",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 4 == formula DoU 4",
+      "evidence": {
+       "structural": 4,
+       "expected": 4.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 observed 13C signals vs 4 distinct carbons (allowed 2..5)",
+      "evidence": {
+       "observed": 5,
+       "unique_carbons": 4,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 non-exchangeable 1H signals vs 3 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 4,
+       "environments": 3,
+       "diastereotopic_allowance": 1
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 2 matched group(s)",
+      "evidence": {
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          5,
+          6,
+          7,
+          8
+         ]
+        }
+       },
+       "alkyl_halide": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          9
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.862,
+    "claims_checked": false,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 3,
+     "smiles": "ClCc1ccc(CCl)cc1",
+     "name": "1,4-bis(chloromethyl)benzene",
+     "rationale": "Its shifts (4.57, 45.7, 138.0, 129.1) are close to the data, but para symmetry gives only three 13C environments while five are observed (5-9). It also predicts a single aromatic 1H singlet rather than three aromatic signals (1-3).",
+     "assignments": [
+      {
+       "peak_id": 2,
+       "proton_count": 4,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 4,
+       "environment": "2x ArCH2Cl"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "ipso C"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "ArCH"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "CH2Cl"
+      }
+     ],
+     "confidence": 0.04
+    },
+    "canonical_smiles": "ClCc1ccc(CCl)cc1",
+    "inchikey": "ZZHIDJWUJRKHGX-UHFFFAOYSA-N",
+    "formula": "C8H8Cl2",
+    "exact_mass": 174.0003,
+    "degree_of_unsaturation": 4,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C8H8Cl2 == C8H8Cl2",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 4 == formula DoU 4",
+      "evidence": {
+       "structural": 4,
+       "expected": 4.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "fail",
+      "severity": "soft",
+      "message": "5 observed 13C signals vs 3 distinct carbons (allowed 1..4)",
+      "evidence": {
+       "observed": 5,
+       "unique_carbons": 3,
+       "too_many": true,
+       "blocking": true
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 non-exchangeable 1H signals vs 2 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 4,
+       "environments": 2,
+       "diastereotopic_allowance": 1
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 2 matched group(s)",
+      "evidence": {
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          5,
+          6,
+          7,
+          8
+         ]
+        }
+       },
+       "alkyl_halide": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          9
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.516,
+    "claims_checked": false,
+    "status": "flagged"
+   }
+  ]
+ },
+ "rescored": [
+  {
+   "smiles": "ClCc1cccc(CCl)c1",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.9775
+  },
+  {
+   "smiles": "ClCc1ccccc1CCl",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.862
+  },
+  {
+   "smiles": "ClCc1ccc(CCl)cc1",
+   "model_rank": 3,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.516
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "ClCc1cccc(CCl)c1",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "ClCc1ccccc1CCl",
+   "model_rank": 2,
+   "status": "accepted"
+  },
+  {
+   "smiles": "ClCc1ccc(CCl)cc1",
+   "model_rank": 3,
+   "status": "flagged"
+  }
+ ]
+}

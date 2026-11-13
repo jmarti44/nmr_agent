@@ -1,0 +1,1542 @@
+{
+ "id": "20200053",
+ "truth": "O=Cc1c[nH]c2ccccc12",
+ "truth_inchikey": "OLNJUISKUQQNIM-UHFFFAOYSA-N",
+ "solvent": "DMSO-d6",
+ "formula": "C9H7NO",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "O=Cc1c[nH]c2ccccc12",
+   "model_rank": 1,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.642
+  },
+  {
+   "smiles": "O=Cc1cc2ccccc2[nH]1",
+   "model_rank": 2,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.519
+  },
+  {
+   "smiles": "O=c1cc[nH]c2ccccc12",
+   "model_rank": 5,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.5175
+  }
+ ],
+ "cost_usd": 0.102438,
+ "llm_calls": 2,
+ "llm_ms": 37391,
+ "warnings": [
+  "no candidate was accepted; one repair round was used"
+ ],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 9.94,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 8.29,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 8.1,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 7.52,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "1H",
+     "shift_ppm": 7.24,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "13C",
+     "shift_ppm": 185.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "13C",
+     "shift_ppm": 138.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "13C",
+     "shift_ppm": 137.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "13C",
+     "shift_ppm": 124.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 10,
+     "nucleus": "13C",
+     "shift_ppm": 123.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 11,
+     "nucleus": "13C",
+     "shift_ppm": 122.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 12,
+     "nucleus": "13C",
+     "shift_ppm": 121.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 13,
+     "nucleus": "13C",
+     "shift_ppm": 118.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 14,
+     "nucleus": "13C",
+     "shift_ppm": 112.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "DMSO-d6",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "none",
+   "processing_log": [
+    "integrals not normalised: not every analyte 1H peak has one"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C9H7NO",
+   "observed_exact_mass": null,
+   "solvent": "DMSO-d6",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C9H7NO",
+   "degree_of_unsaturation": 7,
+   "functional_groups": [
+    {
+     "group": "aldehyde",
+     "present": true,
+     "confidence": 0.93,
+     "evidence": {
+      "peak_ids": [
+       1,
+       6
+      ],
+      "note": "The 1H singlet-region signal at 9.94 ppm and the 13C signal at 185.4 ppm fit a conjugated (vinylogous amide-type) aldehyde CHO."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.92,
+     "evidence": {
+      "peak_ids": [
+       3,
+       4,
+       5,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14
+      ],
+      "note": "The 1H signals at 7.2-8.1 ppm and the 13C CH/quaternary carbons at 112-125 ppm fit a benzo ring."
+     }
+    },
+    {
+     "group": "heteroaromatic_ring",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       2,
+       7,
+       8
+      ],
+      "note": "The pyrrole H2 at 8.29 ppm, C2 at 138.9 ppm and C7a at 137.5 ppm indicate an indole."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "O=Cc1c[nH]c2ccccc12",
+     "name": "1H-indole-3-carbaldehyde",
+     "rationale": "DoU 7 = bicyclic aromatic (6) + C=O (1). CHO at 9.94/185.4 (ids 1,6) is shielded by conjugation with the indole N, typical of a 3-formyl group. H2 at 8.29 (id 2) is deshielded. H4 at 8.10 (id 3) is peri to the CHO. H7 is at 7.52 (id 4) and H5/H6 at 7.24 (id 5). 13C: C2 138.9, C7a 137.5, C3a 124.6, CH 123.9/122.6/121.3, C3 118.6, C7 112.9. All 9 carbons are observed and match literature values. The NH (~12 ppm) is unlisted.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "CHO"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "indole H2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "indole H4 (peri to CHO)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "indole H7"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 2,
+       "environment": "indole H5 and H6"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C=O aldehyde"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "C2"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "C7a"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "C3a"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "C6"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "C5"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 0,
+       "environment": "C4"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "C3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "C7"
+      }
+     ],
+     "confidence": 0.88
+    },
+    {
+     "rank": 2,
+     "smiles": "O=Cc1cc2ccccc2[nH]1",
+     "name": "1H-indole-2-carbaldehyde",
+     "rationale": "This is an isomeric formyl indole. Its CHO usually appears near 9.8-9.9 ppm with C=O near 182 ppm. However, H3 would be near 7.4 ppm rather than a low-field singlet at 8.29 (id 2). Its C2 would also be near 136 and C3 near 115, so it fits ids 2 and 7 worse.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "CHO"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "H3?"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H4"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "H7"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 2,
+       "environment": "H5/H6"
+      }
+     ],
+     "confidence": 0.06
+    },
+    {
+     "rank": 3,
+     "smiles": "O=Cc1ccc2[nH]ccc2c1",
+     "name": "1H-indole-5-carbaldehyde",
+     "rationale": "This isomer has the formyl group on the benzo ring. Its CHO would be expected near 10.0 ppm and 192 ppm, which does not fit the 185.4 ppm carbonyl (id 6). It would also show H3 near 6.6 ppm, which is absent, so this candidate is unlikely.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "CHO"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "H4"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H6?"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "H7/H2"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 2,
+       "environment": "H2/H3?"
+      }
+     ],
+     "confidence": 0.02
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "C9H7NO has DoU 7. A carbonyl at 185.4 ppm with a 1H signal at 9.94 ppm indicates a conjugated aldehyde. Its shielded value fits a vinylogous amide, as in indole-3-carbaldehyde. The remaining eight 13C signals (112.9-138.9) match the indole core: C2 at 138.9, C7a at 137.5 and C7 at 112.9. The 1H signals are assigned as H2 at 8.29, H4 at 8.10 (peri-deshielded by the CHO), H7 at 7.52 and H5/H6 at 7.24 (2H). Together these account for 6 H, and the indole NH (about 12 ppm) is not listed. This exactly matches literature data for indole-3-carboxaldehyde in DMSO-d6. The 2- and 5-formyl isomers fit the carbonyl shift and the H2/H3 pattern poorly."
+  },
+  "repaired": {
+   "formula_inferred": "C9H7NO",
+   "degree_of_unsaturation": 7,
+   "functional_groups": [
+    {
+     "group": "aldehyde",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       1,
+       6
+      ],
+      "note": "CHO H at 9.94 ppm. The C=O at 185.4 ppm is shielded below the generic aldehyde range by vinylogous amide conjugation with the indole nitrogen."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.92,
+     "evidence": {
+      "peak_ids": [
+       3,
+       4,
+       5,
+       10,
+       11,
+       12,
+       14
+      ],
+      "note": "The benzo ring of indole is supported by 1H at 7.2-8.1 ppm and 13C CH at 112-124 ppm."
+     }
+    },
+    {
+     "group": "heteroaromatic_ring",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       2,
+       7,
+       8
+      ],
+      "note": "Pyrrole H2 at 8.29 ppm and C2/C7a at 138.9/137.5 ppm support an indole."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "O=Cc1c[nH]c2ccccc12",
+     "name": "1H-indole-3-carbaldehyde",
+     "rationale": "This is retained despite the c_aldehyde flag. 3-Formylindoles have C=O near 185 ppm in DMSO because conjugation with the indole N gives vinylogous amide character. The literature values (185.0, 138.4, 137.1, 124.2, 123.5, 122.2, 120.9, 118.2, 112.4) match ids 6-14 within 0.5 ppm. The 1H values (9.94, 8.29, 8.10, 7.52, 7.24\u00d72) match ids 1-5. NH ~12 ppm is unlisted.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "CHO"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "indole H2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H4"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "H7"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 2,
+       "environment": "H5/H6"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CHO carbon"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "C2"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "C7a"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "C3a"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "C6"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "C5"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 0,
+       "environment": "C4"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "C3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "C7"
+      }
+     ],
+     "confidence": 0.85
+    },
+    {
+     "rank": 2,
+     "smiles": "O=c1cc[nH]c2ccccc12",
+     "name": "quinolin-4(1H)-one",
+     "rationale": "This alternative is an isomer without an aldehyde. Its C=O (~177 ppm) is lower than id 6 (185.4), and it has no proton near 9.9 ppm except a broad NH. It fits worse than candidate 1.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "NH?"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "H5"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H2"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "H7/H8"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "H6"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C4=O"
+      }
+     ],
+     "confidence": 0.05
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "All 1H and 13C data match literature indole-3-carbaldehyde in DMSO-d6 exactly. The aldehyde carbon at 185.4 ppm sits just below the generic 190-208 window because of conjugation with the indole N. This is a well-known effect, so the flag is a range artifact rather than a structural mismatch. The H count is 6 observed plus 1 unlisted NH, giving 7. Quinolin-4-one is offered as a non-aldehyde alternative, but it fits poorly."
+  },
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "O=Cc1c[nH]c2ccccc12",
+     "name": "1H-indole-3-carbaldehyde",
+     "rationale": "DoU 7 = bicyclic aromatic (6) + C=O (1). CHO at 9.94/185.4 (ids 1,6) is shielded by conjugation with the indole N, typical of a 3-formyl group. H2 at 8.29 (id 2) is deshielded. H4 at 8.10 (id 3) is peri to the CHO. H7 is at 7.52 (id 4) and H5/H6 at 7.24 (id 5). 13C: C2 138.9, C7a 137.5, C3a 124.6, CH 123.9/122.6/121.3, C3 118.6, C7 112.9. All 9 carbons are observed and match literature values. The NH (~12 ppm) is unlisted.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "CHO"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "indole H2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "indole H4 (peri to CHO)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "indole H7"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 2,
+       "environment": "indole H5 and H6"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C=O aldehyde"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "C2"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "C7a"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "C3a"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "C6"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "C5"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 0,
+       "environment": "C4"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "C3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "C7"
+      }
+     ],
+     "confidence": 0.88
+    },
+    "canonical_smiles": "O=Cc1c[nH]c2ccccc12",
+    "inchikey": "OLNJUISKUQQNIM-UHFFFAOYSA-N",
+    "formula": "C9H7NO",
+    "exact_mass": 145.0528,
+    "degree_of_unsaturation": 7,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C9H7NO == C9H7NO",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 7 == formula DoU 7",
+      "evidence": {
+       "structural": 7,
+       "expected": 7.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 9 distinct carbons (allowed 7..10)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 9,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 non-exchangeable 1H signals vs 6 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 5,
+       "environments": 6,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "fail",
+      "severity": "soft",
+      "message": "aldehyde: no 13C peak in c_aldehyde",
+      "evidence": {
+       "aldehyde": {
+        "1H": {
+         "peak_ids": [
+          1
+         ]
+        },
+        "13C": {
+         "missing": [
+          "c_aldehyde"
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4,
+          5
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+         ]
+        }
+       },
+       "heteroaromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4,
+          5
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": [
+        1
+       ]
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "pass",
+      "severity": "soft",
+      "message": "3 claim(s) consistent with the structure and cited peaks",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "merged duplicate connectivity from rank(s) [4]",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.642,
+    "claims_checked": true,
+    "status": "flagged"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "O=Cc1cc2ccccc2[nH]1",
+     "name": "1H-indole-2-carbaldehyde",
+     "rationale": "This is an isomeric formyl indole. Its CHO usually appears near 9.8-9.9 ppm with C=O near 182 ppm. However, H3 would be near 7.4 ppm rather than a low-field singlet at 8.29 (id 2). Its C2 would also be near 136 and C3 near 115, so it fits ids 2 and 7 worse.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "CHO"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "H3?"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H4"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "H7"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 2,
+       "environment": "H5/H6"
+      }
+     ],
+     "confidence": 0.06
+    },
+    "canonical_smiles": "O=Cc1cc2ccccc2[nH]1",
+    "inchikey": "SBNOTUDDIXOFSN-UHFFFAOYSA-N",
+    "formula": "C9H7NO",
+    "exact_mass": 145.0528,
+    "degree_of_unsaturation": 7,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C9H7NO == C9H7NO",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 7 == formula DoU 7",
+      "evidence": {
+       "structural": 7,
+       "expected": 7.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 9 distinct carbons (allowed 7..10)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 9,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 non-exchangeable 1H signals vs 6 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 5,
+       "environments": 6,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "fail",
+      "severity": "soft",
+      "message": "aldehyde: no 13C peak in c_aldehyde",
+      "evidence": {
+       "aldehyde": {
+        "1H": {
+         "peak_ids": [
+          1
+         ]
+        },
+        "13C": {
+         "missing": [
+          "c_aldehyde"
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4,
+          5
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+         ]
+        }
+       },
+       "heteroaromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4,
+          5
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": [
+        1
+       ]
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 4, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.519,
+    "claims_checked": false,
+    "status": "flagged"
+   },
+   {
+    "candidate": {
+     "rank": 5,
+     "smiles": "O=c1cc[nH]c2ccccc12",
+     "name": "quinolin-4(1H)-one",
+     "rationale": "This alternative is an isomer without an aldehyde. Its C=O (~177 ppm) is lower than id 6 (185.4), and it has no proton near 9.9 ppm except a broad NH. It fits worse than candidate 1.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "NH?"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "H5"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H2"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "H7/H8"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "H6"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C4=O"
+      }
+     ],
+     "confidence": 0.05
+    },
+    "canonical_smiles": "O=c1cc[nH]c2ccccc12",
+    "inchikey": "PMZDQRJGMBOQBF-UHFFFAOYSA-N",
+    "formula": "C9H7NO",
+    "exact_mass": 145.0528,
+    "degree_of_unsaturation": 7,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C9H7NO == C9H7NO",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 7 == formula DoU 7",
+      "evidence": {
+       "structural": 7,
+       "expected": 7.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 9 distinct carbons (allowed 7..10)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 9,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 non-exchangeable 1H signals vs 6 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 5,
+       "environments": 6,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 2 matched group(s)",
+      "evidence": {
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4,
+          5
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+         ]
+        }
+       },
+       "heteroaromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4,
+          5
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "fail",
+      "severity": "soft",
+      "message": "1H peaks not explained by the structure: [1]",
+      "evidence": {
+       "unexplained_peak_ids": [
+        1
+       ],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 4, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.5175,
+    "claims_checked": false,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 3,
+     "smiles": "O=Cc1ccc2[nH]ccc2c1",
+     "name": "1H-indole-5-carbaldehyde",
+     "rationale": "This isomer has the formyl group on the benzo ring. Its CHO would be expected near 10.0 ppm and 192 ppm, which does not fit the 185.4 ppm carbonyl (id 6). It would also show H3 near 6.6 ppm, which is absent, so this candidate is unlikely.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "CHO"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "H4"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H6?"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "H7/H2"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 2,
+       "environment": "H2/H3?"
+      }
+     ],
+     "confidence": 0.02
+    },
+    "canonical_smiles": "O=Cc1ccc2[nH]ccc2c1",
+    "inchikey": "ADZUEEUKBYCSEY-UHFFFAOYSA-N",
+    "formula": "C9H7NO",
+    "exact_mass": 145.0528,
+    "degree_of_unsaturation": 7,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C9H7NO == C9H7NO",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 7 == formula DoU 7",
+      "evidence": {
+       "structural": 7,
+       "expected": 7.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 9 distinct carbons (allowed 7..10)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 9,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 non-exchangeable 1H signals vs 6 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 5,
+       "environments": 6,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "fail",
+      "severity": "soft",
+      "message": "aldehyde: no 13C peak in c_aldehyde",
+      "evidence": {
+       "aldehyde": {
+        "1H": {
+         "peak_ids": [
+          1
+         ]
+        },
+        "13C": {
+         "missing": [
+          "c_aldehyde"
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4,
+          5
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+         ]
+        }
+       },
+       "heteroaromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4,
+          5
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": [
+        1
+       ]
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 4, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.513,
+    "claims_checked": false,
+    "status": "flagged"
+   }
+  ]
+ },
+ "rescored": [
+  {
+   "smiles": "O=Cc1c[nH]c2ccccc12",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.982
+  },
+  {
+   "smiles": "O=Cc1cc2ccccc2[nH]1",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.859
+  },
+  {
+   "smiles": "O=Cc1ccc2[nH]ccc2c1",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.853
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "O=Cc1c[nH]c2ccccc12",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "O=Cc1cc2ccccc2[nH]1",
+   "model_rank": 2,
+   "status": "accepted"
+  },
+  {
+   "smiles": "O=Cc1ccc2[nH]ccc2c1",
+   "model_rank": 3,
+   "status": "accepted"
+  },
+  {
+   "smiles": "O=c1cc[nH]c2ccccc12",
+   "model_rank": 5,
+   "status": "accepted"
+  }
+ ]
+}

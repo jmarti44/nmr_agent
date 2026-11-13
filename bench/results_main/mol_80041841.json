@@ -1,0 +1,1176 @@
+{
+ "id": "80041841",
+ "truth": "CC1OC(O)C(O)C(O)C1O",
+ "truth_inchikey": "SHZGCJCMOBCMKK-UHFFFAOYSA-N",
+ "solvent": "D2O",
+ "formula": "C6H12O5",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "CC1OC(O)C(O)C(O)C1O",
+   "model_rank": 1,
+   "status": "flagged",
+   "score": 0.36,
+   "confidence": 0.426
+  },
+  {
+   "smiles": "CC(O)C1OC(O)C(O)C1O",
+   "model_rank": 2,
+   "status": "flagged",
+   "score": 0.36,
+   "confidence": 0.321
+  }
+ ],
+ "cost_usd": 0.113834,
+ "llm_calls": 2,
+ "llm_ms": 41894,
+ "warnings": [
+  "no candidate was accepted; one repair round was used"
+ ],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 5.19,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 4.54,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 4.19,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 3.85,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "1H",
+     "shift_ppm": 3.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "1H",
+     "shift_ppm": 3.74,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "1H",
+     "shift_ppm": 3.63,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "1H",
+     "shift_ppm": 3.44,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "1H",
+     "shift_ppm": 1.24,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 10,
+     "nucleus": "1H",
+     "shift_ppm": 1.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 11,
+     "nucleus": "13C",
+     "shift_ppm": 98.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 12,
+     "nucleus": "13C",
+     "shift_ppm": 94.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 13,
+     "nucleus": "13C",
+     "shift_ppm": 75.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 14,
+     "nucleus": "13C",
+     "shift_ppm": 74.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 15,
+     "nucleus": "13C",
+     "shift_ppm": 74.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 16,
+     "nucleus": "13C",
+     "shift_ppm": 73.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 17,
+     "nucleus": "13C",
+     "shift_ppm": 72.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 18,
+     "nucleus": "13C",
+     "shift_ppm": 69.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 19,
+     "nucleus": "13C",
+     "shift_ppm": 18.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "D2O",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "none",
+   "processing_log": [
+    "integrals not normalised: not every analyte 1H peak has one"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C6H12O5",
+   "observed_exact_mass": null,
+   "solvent": "D2O",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C6H12O5",
+   "degree_of_unsaturation": 1,
+   "functional_groups": [
+    {
+     "group": "alcohol",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       13,
+       14,
+       15,
+       16,
+       17,
+       18
+      ],
+      "note": "Several carbinol carbons at 69-76 ppm typical of sugar CH-OH; OH protons exchanged in D2O."
+     }
+    },
+    {
+     "group": "ether",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       11,
+       12,
+       3
+      ],
+      "note": "Anomeric acetal carbons at 98.9/94.9 and ring O-CH (H5 4.19) indicate a pyranose ring ether."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       9,
+       10,
+       19
+      ],
+      "note": "CH3 at 1.24/1.20 (two anomers) and 18.2 ppm, a C6 methyl of a 6-deoxy sugar."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "CC1OC(O)C(O)C(O)C1O",
+     "name": "6-deoxyhexopyranose (L-fucose, alpha/beta anomeric mixture)",
+     "rationale": "DoU 1 = one ring; two anomeric H (1: 5.19 alpha, 2: 4.54 beta) and C (11, 12) show an anomer mixture, explaining 9 13C signals. Two CH3 (9, 10; 19 at 18.2) = 6-deoxy sugar. Alpha H5 at 4.19 (3) and beta H1 4.54 match fucose (galacto) rather than rhamnose (H1 5.10/4.85) or quinovose (H4 ~3.15, absent). 13C pattern matches fucose with ~+1.8 ppm referencing offset.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "alpha H1 anomeric"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 2,
+       "environment": "alpha H2/H4"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "alpha H3"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "alpha H5 (q)"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 3,
+       "environment": "alpha CH3 (H6)"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 0,
+       "environment": "beta H1 anomeric"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "beta H4"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "beta H3"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "beta H2"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "beta CH3"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "beta C1"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 0,
+       "environment": "alpha C1"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "beta C3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "beta C2/C4"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 0,
+       "environment": "beta C5/C4"
+      },
+      {
+       "peak_id": 16,
+       "proton_count": 0,
+       "environment": "alpha C4"
+      },
+      {
+       "peak_id": 17,
+       "proton_count": 0,
+       "environment": "alpha C3"
+      },
+      {
+       "peak_id": 18,
+       "proton_count": 0,
+       "environment": "alpha C2/C5"
+      },
+      {
+       "peak_id": 19,
+       "proton_count": 0,
+       "environment": "C6 CH3"
+      }
+     ],
+     "confidence": 0.8
+    },
+    {
+     "rank": 2,
+     "smiles": "CC(O)C1OC(O)C(O)C1O",
+     "name": "6-deoxyhexofuranose",
+     "rationale": "Same formula with furanose ring; anomeric carbons would typically be >100 ppm for furanoses, and 11/12 at 98.9/94.9 fit pyranose better, so less likely.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "H1 anomeric"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H4"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "H5"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "H2"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "H3"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 3,
+       "environment": "CH3"
+      }
+     ],
+     "confidence": 0.1
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "C6H12O5, DoU 1, no carbonyl or sp2 carbons, so one ring. Two anomeric 1H (5.19, 4.54) and 13C (98.9, 94.9) plus two methyl doublet-region signals (1.24, 1.20) indicate a 6-deoxyhexopyranose as an alpha/beta mixture in D2O (OH exchanged, 8 CH protons per anomer). Alpha H5 at 4.19, beta H1 4.54 and absence of ~3.15 H4 signals point to fucose rather than rhamnose or quinovose; 13C values match fucose with a uniform ~1.8 ppm referencing offset. 9 observed carbons arise from overlapping anomer sets."
+  },
+  "repaired": {
+   "formula_inferred": "C6H12O5",
+   "degree_of_unsaturation": 1,
+   "functional_groups": [
+    {
+     "group": "alcohol",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       13,
+       14,
+       15,
+       16,
+       17,
+       18
+      ],
+      "note": "Carbinol carbons at 69-76 ppm typical of sugar CH-OH; OH protons exchanged in D2O."
+     }
+    },
+    {
+     "group": "ether",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       11,
+       12,
+       3
+      ],
+      "note": "Anomeric acetal carbons 98.9/94.9 and ring O-CH H5 at 4.19 indicate a pyranose ring ether."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       9,
+       10,
+       19
+      ],
+      "note": "CH3 at 1.24/1.20 (two anomers) and 18.2 ppm, C6 methyl of a 6-deoxy sugar."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "C[C@@H]1O[C@@H](O)[C@@H](O)[C@H](O)[C@@H]1O",
+     "name": "alpha-L-fucopyranose (in equilibrium with beta anomer)",
+     "rationale": "Any C6H12O5 has at most 6 carbons, so 9 13C and 10 1H signals can only arise from an anomer mixture. Paired anomeric H (1: 5.19, 2: 4.54), C (11, 12) and CH3 (9, 10) prove alpha/beta mutarotation. Alpha H5 4.19 (3), beta H1 4.54, no ~3.15 signals fit fucose over rhamnose/quinovose; 13C matches fucose with ~+1.8 ppm offset.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "alpha H1 anomeric"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 2,
+       "environment": "alpha H2/H4"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "alpha H3"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "alpha H5"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 3,
+       "environment": "alpha CH3"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 0,
+       "environment": "beta H1"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "beta H4"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "beta H3"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "beta H2"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "beta CH3"
+      }
+     ],
+     "confidence": 0.75
+    },
+    {
+     "rank": 2,
+     "smiles": "CC(O)C1OC(O)C(O)C1O",
+     "name": "6-deoxyhexofuranose",
+     "rationale": "Same formula; furanose anomeric C usually >100 ppm, so 11/12 favour pyranose; less likely.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "H1"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H4"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "H5"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "H2"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "H3"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 3,
+       "environment": "CH3"
+      }
+     ],
+     "confidence": 0.08
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "The environment-count failures cannot be resolved by any single C6H12O5 structure (max 6 carbons vs 9 13C signals). The doubled signal set (two anomeric H/C, two CH3) is the hallmark of a reducing sugar existing as alpha/beta anomers in D2O. Shifts (alpha H5 4.19, beta H1 4.54, C6 18.2) identify 6-deoxy-galactose, i.e. fucose; the rank-1 SMILES shows the alpha anomer, the extra peaks belong to the beta anomer of the same compound."
+  },
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "CC1OC(O)C(O)C(O)C1O",
+     "name": "6-deoxyhexopyranose (L-fucose, alpha/beta anomeric mixture)",
+     "rationale": "DoU 1 = one ring; two anomeric H (1: 5.19 alpha, 2: 4.54 beta) and C (11, 12) show an anomer mixture, explaining 9 13C signals. Two CH3 (9, 10; 19 at 18.2) = 6-deoxy sugar. Alpha H5 at 4.19 (3) and beta H1 4.54 match fucose (galacto) rather than rhamnose (H1 5.10/4.85) or quinovose (H4 ~3.15, absent). 13C pattern matches fucose with ~+1.8 ppm referencing offset.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "alpha H1 anomeric"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 2,
+       "environment": "alpha H2/H4"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "alpha H3"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "alpha H5 (q)"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 3,
+       "environment": "alpha CH3 (H6)"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 0,
+       "environment": "beta H1 anomeric"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "beta H4"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "beta H3"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "beta H2"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "beta CH3"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "beta C1"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 0,
+       "environment": "alpha C1"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "beta C3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "beta C2/C4"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 0,
+       "environment": "beta C5/C4"
+      },
+      {
+       "peak_id": 16,
+       "proton_count": 0,
+       "environment": "alpha C4"
+      },
+      {
+       "peak_id": 17,
+       "proton_count": 0,
+       "environment": "alpha C3"
+      },
+      {
+       "peak_id": 18,
+       "proton_count": 0,
+       "environment": "alpha C2/C5"
+      },
+      {
+       "peak_id": 19,
+       "proton_count": 0,
+       "environment": "C6 CH3"
+      }
+     ],
+     "confidence": 0.8
+    },
+    "canonical_smiles": "CC1OC(O)C(O)C(O)C1O",
+    "inchikey": "SHZGCJCMOBCMKK-UHFFFAOYSA-N",
+    "formula": "C6H12O5",
+    "exact_mass": 164.0685,
+    "degree_of_unsaturation": 1,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C6H12O5 == C6H12O5",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 1 == formula DoU 1",
+      "evidence": {
+       "structural": 1,
+       "expected": 1.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "fail",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 6 distinct carbons (allowed 4..7)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 6,
+       "too_many": true,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "fail",
+      "severity": "soft",
+      "message": "10 non-exchangeable 1H signals vs 6 distinct H environments: more than 2 extra signals",
+      "evidence": {
+       "observed": 10,
+       "environments": 6,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 3 matched group(s)",
+      "evidence": {
+       "alcohol": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+         ]
+        }
+       },
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "pass",
+      "severity": "soft",
+      "message": "3 claim(s) consistent with the structure and cited peaks",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "merged duplicate connectivity from rank(s) [3]",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.36,
+    "final_confidence": 0.426,
+    "claims_checked": true,
+    "status": "flagged"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "CC(O)C1OC(O)C(O)C1O",
+     "name": "6-deoxyhexofuranose",
+     "rationale": "Same formula with furanose ring; anomeric carbons would typically be >100 ppm for furanoses, and 11/12 at 98.9/94.9 fit pyranose better, so less likely.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "H1 anomeric"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H4"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "H5"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "H2"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "H3"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 3,
+       "environment": "CH3"
+      }
+     ],
+     "confidence": 0.1
+    },
+    "canonical_smiles": "CC(O)C1OC(O)C(O)C1O",
+    "inchikey": "AFNUZVCFKQUDBJ-UHFFFAOYSA-N",
+    "formula": "C6H12O5",
+    "exact_mass": 164.0685,
+    "degree_of_unsaturation": 1,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C6H12O5 == C6H12O5",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 1 == formula DoU 1",
+      "evidence": {
+       "structural": 1,
+       "expected": 1.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "fail",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 6 distinct carbons (allowed 4..7)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 6,
+       "too_many": true,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "fail",
+      "severity": "soft",
+      "message": "10 non-exchangeable 1H signals vs 6 distinct H environments: more than 2 extra signals",
+      "evidence": {
+       "observed": 10,
+       "environments": 6,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 3 matched group(s)",
+      "evidence": {
+       "alcohol": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+         ]
+        }
+       },
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 3, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "merged duplicate connectivity from rank(s) [4]",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.36,
+    "final_confidence": 0.321,
+    "claims_checked": false,
+    "status": "flagged"
+   }
+  ]
+ },
+ "rescored": [
+  {
+   "smiles": "CC1OC(O)C(O)C(O)C1O",
+   "model_rank": 1,
+   "status": "flagged",
+   "score": 0.36,
+   "confidence": 0.426
+  },
+  {
+   "smiles": "CC(O)C1OC(O)C(O)C1O",
+   "model_rank": 2,
+   "status": "flagged",
+   "score": 0.36,
+   "confidence": 0.321
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "CC1OC(O)C(O)C(O)C1O",
+   "model_rank": 1,
+   "status": "flagged"
+  },
+  {
+   "smiles": "CC(O)C1OC(O)C(O)C1O",
+   "model_rank": 2,
+   "status": "flagged"
+  }
+ ]
+}

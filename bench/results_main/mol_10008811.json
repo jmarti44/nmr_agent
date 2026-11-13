@@ -1,0 +1,1254 @@
+{
+ "id": "10008811",
+ "truth": "COc1cc(C(C)=O)ccc1O",
+ "truth_inchikey": "DFYRUELUNQRZTB-UHFFFAOYSA-N",
+ "solvent": "DMSO-d6",
+ "formula": "C9H10O3",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "COc1cc(C(C)=O)ccc1O",
+   "model_rank": 1,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.6375
+  },
+  {
+   "smiles": "COc1ccc(C(C)=O)cc1O",
+   "model_rank": 2,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.528
+  }
+ ],
+ "cost_usd": 0.117814,
+ "llm_calls": 2,
+ "llm_ms": 42317,
+ "warnings": [
+  "acetyl: evidence cites peak 5, which is tagged solvent",
+  "no candidate was accepted; one repair round was used"
+ ],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 7.51,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 7.44,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 6.87,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 3.83,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "1H",
+     "shift_ppm": 2.49,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "solvent",
+     "exchangeable_hint": false,
+     "label": "DMSO-d6 residual"
+    },
+    {
+     "id": 6,
+     "nucleus": "13C",
+     "shift_ppm": 196.1,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "13C",
+     "shift_ppm": 151.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "13C",
+     "shift_ppm": 147.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "13C",
+     "shift_ppm": 128.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 10,
+     "nucleus": "13C",
+     "shift_ppm": 123.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 11,
+     "nucleus": "13C",
+     "shift_ppm": 114.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 12,
+     "nucleus": "13C",
+     "shift_ppm": 111.1,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 13,
+     "nucleus": "13C",
+     "shift_ppm": 55.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 14,
+     "nucleus": "13C",
+     "shift_ppm": 26.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "DMSO-d6",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "none",
+   "processing_log": [
+    "1H 2.49 ppm tagged solvent: DMSO-d6 residual",
+    "integrals not normalised: not every analyte 1H peak has one"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C9H10O3",
+   "observed_exact_mass": null,
+   "solvent": "DMSO-d6",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C9H10O3",
+   "degree_of_unsaturation": 5,
+   "functional_groups": [
+    {
+     "group": "ketone",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       6
+      ],
+      "note": "13C 196.1 is a conjugated aryl ketone carbonyl."
+     }
+    },
+    {
+     "group": "acetyl",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       6,
+       14,
+       5
+      ],
+      "note": "C=O 196.1 with CH3 at 26.2 ppm; the acetyl CH3 1H (~2.47) is hidden under the DMSO residual peak 5."
+     }
+    },
+    {
+     "group": "methoxy",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       4,
+       13
+      ],
+      "note": "3H singlet at 3.83 with 13C 55.6 is an aryl OCH3."
+     }
+    },
+    {
+     "group": "ether",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       4,
+       13,
+       8
+      ],
+      "note": "Aryl methyl ether: OCH3 at 3.83/55.6 on an O-bearing aromatic C at 147.5."
+     }
+    },
+    {
+     "group": "phenol",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       7,
+       8
+      ],
+      "note": "Two O-substituted aromatic carbons (151.7, 147.5); the third O must be a phenolic OH (exchangeable, unlisted)."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2,
+       3,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12
+      ],
+      "note": "Three ArH (7.51, 7.44, 6.87) and six aromatic carbons indicate a 1,2,4-trisubstituted benzene."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       4,
+       13,
+       14
+      ],
+      "note": "OCH3 (55.6) and acetyl CH3 (26.2)."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "COc1cc(C(C)=O)ccc1O",
+     "name": "Apocynin (4-hydroxy-3-methoxyacetophenone)",
+     "rationale": "C=O 196.1 (6) + CH3 26.2 (14) = aryl methyl ketone; OCH3 3.83/55.6 (4,13); C-OH 151.7 (7) and C-OMe 147.5 (8); ArH 7.51 (H6), 7.44 (H2), 6.87 (H5 ortho to OH) fit 1,2,4-pattern. 13C set matches literature apocynin in DMSO (196.0,151.6,147.5,128.9,123.4,114.9,110.9,55.6,26.2). Acetyl CH3 is hidden under the DMSO peak (5); OH unlisted.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH-6 (ortho to C=O, dd)"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-2 (between C=O and OMe)"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-5 (ortho to OH)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 3,
+       "environment": "C(=O)CH3 hidden under DMSO residual"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "ketone C=O"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "C4-OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "C3-OMe"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "C1 ipso to acetyl"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "C6-H"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "C5-H"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 0,
+       "environment": "C2-H"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "acetyl CH3"
+      }
+     ],
+     "confidence": 0.85
+    },
+    {
+     "rank": 2,
+     "smiles": "COc1ccc(C(C)=O)cc1O",
+     "name": "3-hydroxy-4-methoxyacetophenone (isoacetovanillone)",
+     "rationale": "Same functional groups and 1,2,4-substitution; OMe para to acetyl would put ArH-5 near 7.0 and C-O near 152/146.5; fit to 13C values (7,8,10,12) is slightly worse than apocynin.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH-6"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-5 (ortho to OMe)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 3,
+       "environment": "acetyl CH3 under DMSO"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C=O"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "acetyl CH3"
+      }
+     ],
+     "confidence": 0.12
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "C9H10O3, DoU 5 = benzene + C=O. 13C 196.1 (6) with 26.2 (14) indicates an aryl methyl ketone; 55.6 (13) with 1H 3.83 (4) is OCH3. Two oxygenated aromatic carbons (151.7, 147.5) leave the third O as phenolic OH (exchangeable, not listed). Three aromatic H (7.51, 7.44, 6.87) indicate 1,2,4-trisubstitution, the upfield 6.87 being ortho to OH. The acetyl CH3 (~2.47) is hidden under the DMSO residual peak 5, which is used as evidence because nothing else accounts for those 3H. The full 13C set matches apocynin closely; the 3-hydroxy-4-methoxy isomer is a less likely alternative."
+  },
+  "repaired": {
+   "formula_inferred": "C9H10O3",
+   "degree_of_unsaturation": 5,
+   "functional_groups": [
+    {
+     "group": "ketone",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       6
+      ],
+      "note": "13C 196.1 is a conjugated aryl ketone C=O."
+     }
+    },
+    {
+     "group": "acetyl",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       6,
+       14
+      ],
+      "note": "C=O 196.1 plus CH3 26.2 define an aryl acetyl; its 1H (~2.47) is masked by the DMSO residual signal."
+     }
+    },
+    {
+     "group": "methoxy",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       4,
+       13
+      ],
+      "note": "3.83 ppm with 13C 55.6 is an aryl OCH3."
+     }
+    },
+    {
+     "group": "ether",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       4,
+       13,
+       8
+      ],
+      "note": "OCH3 on an oxygenated aromatic carbon at 147.5."
+     }
+    },
+    {
+     "group": "phenol",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       7
+      ],
+      "note": "C-OH at 151.7; the OH proton is exchangeable and unlisted."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2,
+       3,
+       9,
+       10,
+       11,
+       12
+      ],
+      "note": "Three ArH and six aromatic carbons indicate a 1,2,4-trisubstituted benzene."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       13,
+       14
+      ],
+      "note": "OCH3 55.6 and acetyl CH3 26.2."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "COc1cc(C(C)=O)ccc1O",
+     "name": "Apocynin (4-hydroxy-3-methoxyacetophenone)",
+     "rationale": "The 13C set (6,7,8,9,10,11,12,13,14) matches literature apocynin in DMSO-d6 almost exactly. ArH 7.51/7.44/6.87 (1,2,3) and OCH3 3.83 (4) fit. The acetyl CH3 1H (~2.47 ppm) coincides with the DMSO residual signal, so the V08 flag reflects signal overlap rather than an absent group. No alternative isomer without acetyl fits: e.g. a propiophenone would need visible CH2/CH3 signals.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH-6 ortho to C=O"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-5 ortho to OH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "ketone C=O"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "C4-OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "C3-OMe"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "C1 ipso"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "C6-H"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "C5-H"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 0,
+       "environment": "C2-H"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "acetyl CH3"
+      }
+     ],
+     "confidence": 0.85
+    },
+    {
+     "rank": 2,
+     "smiles": "COc1ccc(C(C)=O)cc1O",
+     "name": "3-hydroxy-4-methoxyacetophenone",
+     "rationale": "Regioisomer with the same groups; it fits the 13C data (7,8,10,12) less well. Its acetyl CH3 1H would likewise be masked by the DMSO residual signal.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH-6"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-5"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C=O"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "acetyl CH3"
+      }
+     ],
+     "confidence": 0.1
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "C9H10O3, DoU 5. 13C 196.1 (6) with 26.2 (14) indicates an aryl methyl ketone, and OCH3 appears at 3.83/55.6 (4,13). Two aromatic C-O carbons (151.7, 147.5) leave a phenolic OH, which is not listed. A 1,2,4-substituted ring is shown by the ArH at 7.51, 7.44 and 6.87. The 13C data match apocynin. The acetyl CH3 proton (~2.47) overlaps the DMSO residual signal, which explains the missing h_alpha_carbonyl peak. Peak 5 is no longer cited in the assignments, but the overlap is acknowledged. Structures without an acetyl group (e.g. a propiophenone) would require ethyl signals that are not observed, so apocynin stays as rank 1 despite the V08 flag."
+  },
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "COc1cc(C(C)=O)ccc1O",
+     "name": "Apocynin (4-hydroxy-3-methoxyacetophenone)",
+     "rationale": "C=O 196.1 (6) + CH3 26.2 (14) = aryl methyl ketone; OCH3 3.83/55.6 (4,13); C-OH 151.7 (7) and C-OMe 147.5 (8); ArH 7.51 (H6), 7.44 (H2), 6.87 (H5 ortho to OH) fit 1,2,4-pattern. 13C set matches literature apocynin in DMSO (196.0,151.6,147.5,128.9,123.4,114.9,110.9,55.6,26.2). Acetyl CH3 is hidden under the DMSO peak (5); OH unlisted.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH-6 (ortho to C=O, dd)"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-2 (between C=O and OMe)"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-5 (ortho to OH)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 3,
+       "environment": "C(=O)CH3 hidden under DMSO residual"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "ketone C=O"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "C4-OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "C3-OMe"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "C1 ipso to acetyl"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "C6-H"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "C5-H"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 0,
+       "environment": "C2-H"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "acetyl CH3"
+      }
+     ],
+     "confidence": 0.85
+    },
+    "canonical_smiles": "COc1cc(C(C)=O)ccc1O",
+    "inchikey": "DFYRUELUNQRZTB-UHFFFAOYSA-N",
+    "formula": "C9H10O3",
+    "exact_mass": 166.063,
+    "degree_of_unsaturation": 5,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C9H10O3 == C9H10O3",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 5 == formula DoU 5",
+      "evidence": {
+       "structural": 5,
+       "expected": 5.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 9 distinct carbons (allowed 7..10)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 9,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 non-exchangeable 1H signals vs 5 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 4,
+       "environments": 5,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "fail",
+      "severity": "soft",
+      "message": "acetyl: no 1H peak in h_alpha_carbonyl",
+      "evidence": {
+       "ketone": {
+        "13C": {
+         "peak_ids": [
+          6
+         ]
+        }
+       },
+       "phenol": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9
+         ]
+        }
+       },
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          13
+         ]
+        }
+       },
+       "methoxy": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          13
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        }
+       },
+       "acetyl": {
+        "1H": {
+         "missing": [
+          "h_alpha_carbonyl"
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          6
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "fail",
+      "severity": "soft",
+      "message": "methyl: cited peaks [13, 14] not in a required shift range",
+      "evidence": {
+       "problems": [
+        "methyl: cited peaks [13, 14] not in a required shift range"
+       ]
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; Process NMR Associates, Table 2 - 13C NMR"
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "merged duplicate connectivity from rank(s) [3]",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.6375,
+    "claims_checked": true,
+    "status": "flagged"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "COc1ccc(C(C)=O)cc1O",
+     "name": "3-hydroxy-4-methoxyacetophenone (isoacetovanillone)",
+     "rationale": "Same functional groups and 1,2,4-substitution; OMe para to acetyl would put ArH-5 near 7.0 and C-O near 152/146.5; fit to 13C values (7,8,10,12) is slightly worse than apocynin.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH-6"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-5 (ortho to OMe)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 3,
+       "environment": "acetyl CH3 under DMSO"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C=O"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "acetyl CH3"
+      }
+     ],
+     "confidence": 0.12
+    },
+    "canonical_smiles": "COc1ccc(C(C)=O)cc1O",
+    "inchikey": "YLTGFGDODHXMFB-UHFFFAOYSA-N",
+    "formula": "C9H10O3",
+    "exact_mass": 166.063,
+    "degree_of_unsaturation": 5,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C9H10O3 == C9H10O3",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 5 == formula DoU 5",
+      "evidence": {
+       "structural": 5,
+       "expected": 5.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 9 distinct carbons (allowed 7..10)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 9,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 non-exchangeable 1H signals vs 5 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 4,
+       "environments": 5,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "fail",
+      "severity": "soft",
+      "message": "acetyl: no 1H peak in h_alpha_carbonyl",
+      "evidence": {
+       "ketone": {
+        "13C": {
+         "peak_ids": [
+          6
+         ]
+        }
+       },
+       "phenol": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9
+         ]
+        }
+       },
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          13
+         ]
+        }
+       },
+       "methoxy": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          13
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        }
+       },
+       "acetyl": {
+        "1H": {
+         "missing": [
+          "h_alpha_carbonyl"
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          6
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 3, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "merged duplicate connectivity from rank(s) [4]",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.528,
+    "claims_checked": false,
+    "status": "flagged"
+   }
+  ]
+ },
+ "rescored": [
+  {
+   "smiles": "COc1cc(C(C)=O)ccc1O",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 0.85,
+   "confidence": 0.85
+  },
+  {
+   "smiles": "COc1ccc(C(C)=O)cc1O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 0.85,
+   "confidence": 0.7405
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "COc1cc(C(C)=O)ccc1O",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "COc1ccc(C(C)=O)cc1O",
+   "model_rank": 2,
+   "status": "accepted"
+  }
+ ]
+}

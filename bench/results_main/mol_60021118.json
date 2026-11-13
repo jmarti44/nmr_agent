@@ -1,0 +1,773 @@
+{
+ "id": "60021118",
+ "truth": "NC(=O)NCCC(=O)O",
+ "truth_inchikey": "JSJWCHRYRHKBBW-UHFFFAOYSA-N",
+ "solvent": "DMSO-d6",
+ "formula": "C4H8N2O3",
+ "h_integrals_given": true,
+ "candidates": [
+  {
+   "smiles": "NC(=O)NCCC(=O)O",
+   "model_rank": 1,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.6375
+  },
+  {
+   "smiles": "NC(=O)CCNC(=O)O",
+   "model_rank": 2,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.525
+  }
+ ],
+ "cost_usd": 0.072214,
+ "llm_calls": 2,
+ "llm_ms": 25851,
+ "warnings": [
+  "no candidate was accepted; one repair round was used"
+ ],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 3.15,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 2.33,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "13C",
+     "shift_ppm": 173.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "13C",
+     "shift_ppm": 159.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "13C",
+     "shift_ppm": 35.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "13C",
+     "shift_ppm": 35.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "DMSO-d6",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "formula_H",
+   "processing_log": [
+    "integrals sum to 4 and look like proton counts, consistent with H = 8: kept"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C4H8N2O3",
+   "observed_exact_mass": null,
+   "solvent": "DMSO-d6",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C4H8N2O3",
+   "degree_of_unsaturation": 2,
+   "functional_groups": [
+    {
+     "group": "carboxylic_acid",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       3,
+       2
+      ],
+      "note": "C=O at 173.9 fits COOH; CH2 at 2.33 is alpha to the acid carbonyl."
+     }
+    },
+    {
+     "group": "amide",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       4,
+       1
+      ],
+      "note": "C=O at 159.0 fits a urea carbonyl; CH2 at 3.15 sits on the urea NH."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": false,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2
+      ],
+      "note": "Only aliphatic CH2 signals are observed and no aromatic signals."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "NC(=O)NCCC(=O)O",
+     "name": "3-ureidopropanoic acid (N-carbamoyl-beta-alanine)",
+     "rationale": "Two CH2 groups of 2H each are seen. The one at 3.15 (1) is CH2-NH of a urea and the one at 2.33 (2) is CH2-COOH. The carbonyl at 173.9 (3) is the acid and the one at 159.0 (4) is the urea C=O. Carbons 35.7 and 35.4 (5,6) are the two CH2s. The formula and DoU of 2 (two C=O) match. The NH, NH2 and COOH protons are exchangeable and not listed.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "NH-CH2"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "CH2-COOH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 0,
+       "environment": "COOH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 0,
+       "environment": "urea C=O"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "CH2N"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CH2CO"
+      }
+     ],
+     "confidence": 0.85
+    },
+    {
+     "rank": 2,
+     "smiles": "NC(=O)CCNC(=O)O",
+     "name": "N-(2-carbamoylethyl)carbamic acid",
+     "rationale": "This isomer has the same CH2CH2 spacer (1,2) and two carbonyls: the amide at 173.9 (3) and the carbamic acid at 159.0 (4). Free carbamic acids are unstable, so this structure is less likely.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "NH-CH2"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "CH2-CONH2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 0,
+       "environment": "CONH2"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 0,
+       "environment": "NCOOH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "CH2N"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CH2CO"
+      }
+     ],
+     "confidence": 0.1
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "The formula C4H8N2O3 gives DoU 2. The 13C carbonyls at 173.9 (carboxylic acid) and 159.0 (urea) account for both unsaturations. Two CH2 signals are seen (1H 3.15 and 2.33; 13C 35.7 and 35.4), consistent with an N-CH2-CH2-C(=O) unit. The remaining 4 H (NH, NH2, COOH) are exchangeable and not observed. The best fit is 3-ureidopropanoic acid, a known beta-alanine metabolite."
+  },
+  "repaired": {
+   "formula_inferred": "C4H8N2O3",
+   "degree_of_unsaturation": 2,
+   "functional_groups": [
+    {
+     "group": "carboxylic_acid",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       3
+      ],
+      "note": "The 173.9 ppm carbonyl fits COOH; the acid OH proton is exchangeable and not listed."
+     }
+    },
+    {
+     "group": "amide",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       4
+      ],
+      "note": "The 159.0 ppm carbonyl fits a urea C(=O)N; the NH protons are exchangeable and not listed."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "NC(=O)NCCC(=O)O",
+     "name": "3-ureidopropanoic acid",
+     "rationale": "The CH2 at 3.15 (1) is CH2-NH and the CH2 at 2.33 (2) is CH2-COOH. The acid C=O is 173.9 (3) and the urea C=O is 159.0 (4); the two CH2 carbons are 35.7 and 35.4 (5,6). The NH, NH2 and OH protons (4H) are exchangeable and absent from the table. This matches the formula and DoU 2.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "NH-CH2"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "CH2-COOH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 0,
+       "environment": "COOH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 0,
+       "environment": "urea C=O"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "CH2N"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CH2CO"
+      }
+     ],
+     "confidence": 0.8
+    },
+    {
+     "rank": 2,
+     "smiles": "NC(=O)CCNC(=O)O",
+     "name": "N-(2-carbamoylethyl)carbamic acid",
+     "rationale": "This isomer has the same N-CH2-CH2-C=O skeleton (1,2,5,6), with an amide C=O at 173.9 (3) and a carbamic acid C=O at 159.0 (4). Free carbamic acids are unstable, so it is less likely.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "NH-CH2"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "CH2-CONH2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 0,
+       "environment": "CONH2"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 0,
+       "environment": "NCOOH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "CH2N"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CH2CO"
+      }
+     ],
+     "confidence": 0.1
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "The checker flags missing NH and COOH proton peaks. These are four exchangeable protons, which are often broadened or not reported in DMSO-d6, and the hard rules allow them to be absent. The two CH2 signals and the carbonyls at 173.9 (acid) and 159.0 (urea) uniquely fit 3-ureidopropanoic acid, which matches C4H8N2O3 with DoU 2. No other isomer with only two CH2 groups and these two carbonyl shifts is chemically reasonable."
+  },
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "NC(=O)NCCC(=O)O",
+     "name": "3-ureidopropanoic acid (N-carbamoyl-beta-alanine)",
+     "rationale": "Two CH2 groups of 2H each are seen. The one at 3.15 (1) is CH2-NH of a urea and the one at 2.33 (2) is CH2-COOH. The carbonyl at 173.9 (3) is the acid and the one at 159.0 (4) is the urea C=O. Carbons 35.7 and 35.4 (5,6) are the two CH2s. The formula and DoU of 2 (two C=O) match. The NH, NH2 and COOH protons are exchangeable and not listed.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "NH-CH2"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "CH2-COOH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 0,
+       "environment": "COOH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 0,
+       "environment": "urea C=O"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "CH2N"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CH2CO"
+      }
+     ],
+     "confidence": 0.85
+    },
+    "canonical_smiles": "NC(=O)NCCC(=O)O",
+    "inchikey": "JSJWCHRYRHKBBW-UHFFFAOYSA-N",
+    "formula": "C4H8N2O3",
+    "exact_mass": 132.0535,
+    "degree_of_unsaturation": 2,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C4H8N2O3 == C4H8N2O3",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 2 == formula DoU 2",
+      "evidence": {
+       "structural": 2,
+       "expected": 2.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "pass",
+      "severity": "hard",
+      "message": "integrals sum to 4; candidate has 8 H",
+      "evidence": {
+       "candidate_H": 8,
+       "exchangeable_H": 4,
+       "integral_sum": 4.0,
+       "tolerance": 0.8
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 observed 13C signals vs 4 distinct carbons (allowed 2..5)",
+      "evidence": {
+       "observed": 4,
+       "unique_carbons": 4,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "2 non-exchangeable 1H signals vs 2 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 2,
+       "environments": 2,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "fail",
+      "severity": "soft",
+      "message": "amide: no 1H peak in h_amide_nh; carboxylic_acid: no 1H peak in h_carboxylic_acid",
+      "evidence": {
+       "carboxylic_acid": {
+        "1H": {
+         "missing": [
+          "h_carboxylic_acid"
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          3
+         ]
+        }
+       },
+       "amide": {
+        "1H": {
+         "missing": [
+          "h_amide_nh"
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          3
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "fail",
+      "severity": "soft",
+      "message": "amide: cited peaks [4] not in a required shift range",
+      "evidence": {
+       "problems": [
+        "amide: cited peaks [4] not in a required shift range"
+       ]
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; Process NMR Associates, Table 2 - 13C NMR"
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "merged duplicate connectivity from rank(s) [3]",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.6375,
+    "claims_checked": true,
+    "status": "flagged"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "NC(=O)CCNC(=O)O",
+     "name": "N-(2-carbamoylethyl)carbamic acid",
+     "rationale": "This isomer has the same CH2CH2 spacer (1,2) and two carbonyls: the amide at 173.9 (3) and the carbamic acid at 159.0 (4). Free carbamic acids are unstable, so this structure is less likely.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "NH-CH2"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "CH2-CONH2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 0,
+       "environment": "CONH2"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 0,
+       "environment": "NCOOH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "CH2N"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CH2CO"
+      }
+     ],
+     "confidence": 0.1
+    },
+    "canonical_smiles": "NC(=O)CCNC(=O)O",
+    "inchikey": "NOQUUGGQOULQHP-UHFFFAOYSA-N",
+    "formula": "C4H8N2O3",
+    "exact_mass": 132.0535,
+    "degree_of_unsaturation": 2,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C4H8N2O3 == C4H8N2O3",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 2 == formula DoU 2",
+      "evidence": {
+       "structural": 2,
+       "expected": 2.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "pass",
+      "severity": "hard",
+      "message": "integrals sum to 4; candidate has 8 H",
+      "evidence": {
+       "candidate_H": 8,
+       "exchangeable_H": 4,
+       "integral_sum": 4.0,
+       "tolerance": 0.8
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 observed 13C signals vs 4 distinct carbons (allowed 2..5)",
+      "evidence": {
+       "observed": 4,
+       "unique_carbons": 4,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "2 non-exchangeable 1H signals vs 2 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 2,
+       "environments": 2,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "fail",
+      "severity": "soft",
+      "message": "amide: no 1H peak in h_amide_nh; carboxylic_acid: no 1H peak in h_carboxylic_acid",
+      "evidence": {
+       "carboxylic_acid": {
+        "1H": {
+         "missing": [
+          "h_carboxylic_acid"
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          3
+         ]
+        }
+       },
+       "amide": {
+        "1H": {
+         "missing": [
+          "h_amide_nh"
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          3
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 3, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "merged duplicate connectivity from rank(s) [4]",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.525,
+    "claims_checked": false,
+    "status": "flagged"
+   }
+  ]
+ },
+ "rescored": [
+  {
+   "smiles": "NC(=O)NCCC(=O)O",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 0.85,
+   "confidence": 0.85
+  },
+  {
+   "smiles": "NC(=O)CCNC(=O)O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 0.85,
+   "confidence": 0.7375
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "NC(=O)NCCC(=O)O",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "NC(=O)CCNC(=O)O",
+   "model_rank": 2,
+   "status": "accepted"
+  }
+ ]
+}

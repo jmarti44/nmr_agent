@@ -1,6 +1,8 @@
 """Experimental NMRShiftDB2 shift distributions used to source verifier ranges (the NSDB2 source).
 
-Usage: uv run python bench/nmrshiftdb2_shift_distributions.py
+Usage: uv run python bench/nmrshiftdb2_shift_distributions.py [--exclude-selection FILE ...]
+--exclude-selection leaves out every record of the molecules in a benchmark selection file (by NMRShiftDB2 id
+and by InChIKey connectivity block), for the hold-out check (review R1-11).
 Only experimental spectra are used (spectrum index present in the per-spectrum `Solvent` tag, which agrees
 exactly with the Program/NMRProgram blacklist; see nmrshiftdb2_census.py). Atom indices in the signal lists
 are taken as indices into the RDKit molecule built from the record's molblock, the same convention as the
@@ -115,7 +117,21 @@ def q(xs: list[float]) -> str:
     )
 
 
-def main(path: Path = DEFAULT) -> None:
+def excluded_from(selection_files: list[str]) -> tuple[set[str], set[str]]:
+    import json
+
+    ids: set[str] = set()
+    keys: set[str] = set()
+    for f in selection_files:
+        for r in json.loads(Path(f).read_text())["records"]:
+            ids.add(str(r["id"]))
+            keys.add(r["inchikey"].split("-")[0])
+    return ids, keys
+
+
+def main(path: Path = DEFAULT, exclude: tuple[set[str], set[str]] = (set(), set())) -> None:
+    ex_ids, ex_keys = exclude
+    skipped = 0
     alkyne: list[float] = []
     ket_conj: list[float] = []
     ket_sat: list[float] = []
@@ -130,6 +146,12 @@ def main(path: Path = DEFAULT) -> None:
         if mol is None:
             continue
         tags = {k: v for k, v in TAG.findall(rec[end:])}
+        if ex_ids and (
+            tags.get("nmrshiftdb2 ID", "").strip() in ex_ids
+            or Chem.MolToInchiKey(mol).split("-")[0] in ex_keys
+        ):
+            skipped += 1
+            continue
         measured = set(idx(tags.get("Solvent", "")))
         for k, v in tags.items():
             m = re.fullmatch(r"Spectrum (1H|13C) (\d+)", k)
@@ -175,6 +197,8 @@ def main(path: Path = DEFAULT) -> None:
                     )
                     (ket_conj if conj else ket_sat).extend(by_atom.get(match[1], []))
     print("# NSDB2 distributions (experimental spectra only)")
+    if ex_ids:
+        print(f"# records excluded (benchmark molecules): {skipped}")
     print("terminal alkyne C-H (1H):", q(alkyne))
     print("ketone C=O (13C), conjugated:", q(ket_conj))
     print("ketone C=O (13C), saturated:", q(ket_sat))
@@ -191,4 +215,7 @@ def main(path: Path = DEFAULT) -> None:
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+
+    files = [sys.argv[i + 1] for i, a in enumerate(sys.argv) if a == "--exclude-selection"]
+    main(exclude=excluded_from(files) if files else (set(), set()))

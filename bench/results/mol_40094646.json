@@ -1,0 +1,78 @@
+{
+ "id": "40094646",
+ "truth": "COc1c(Cl)c(C)c(Cl)c(O)c1C1OC(=O)c2c(O)cc(O)c(CC=C(C)C)c21",
+ "truth_inchikey": "AMZVUHJBCYQCJF-UHFFFAOYSA-N",
+ "solvent": "acetone-d6",
+ "formula": "C21H20Cl2O6",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "O=C1OC(c3c(O)c(Cl)c(C)c(Cl)c3OC)c2c1cc(O)c1CCC(C)(C)Oc21",
+   "model_rank": 5,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.88
+  },
+  {
+   "smiles": "O=C1OC(c3c(O)c(Cl)c(C)c(Cl)c3OC)c2cc(O)c4CCC(C)(C)Oc4c21",
+   "model_rank": 4,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.5625
+  },
+  {
+   "smiles": "O=C1OC(c3c(O)c(Cl)c(C)c(Cl)c3O)c2cc(OC)c(CC=C(C)C)c(O)c21",
+   "model_rank": 1,
+   "status": "flagged",
+   "score": 0.36,
+   "confidence": 0.381
+  }
+ ],
+ "cost_usd": 0.376482,
+ "llm_calls": 2,
+ "llm_ms": 148756,
+ "warnings": [
+  "no candidate was accepted; one repair round was used"
+ ],
+ "first_attempt_error": "LLMUnavailable: timeout: the model call timed out (recorded from the first run's output)",
+ "rescored": [
+  {
+   "smiles": "O=C1OC(c3c(O)c(Cl)c(C)c(Cl)c3OC)c2cc(O)c4CCC(C)(C)Oc4c21",
+   "model_rank": 4,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 1.0
+  },
+  {
+   "smiles": "O=C1OC(c3c(O)c(Cl)c(C)c(Cl)c3OC)c2c1cc(O)c1CCC(C)(C)Oc21",
+   "model_rank": 5,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 1.0
+  },
+  {
+   "smiles": "O=C1OC(c3c(O)c(Cl)c(C)c(Cl)c3O)c2cc(OC)c(CC=C(C)C)c(O)c21",
+   "model_rank": 1,
+   "status": "flagged",
+   "score": 0.36,
+   "confidence": 0.36
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "O=C1OC(c3c(O)c(Cl)c(C)c(Cl)c3OC)c2cc(O)c4CCC(C)(C)Oc4c21",
+   "model_rank": 4,
+   "status": "accepted"
+  },
+  {
+   "smiles": "O=C1OC(c3c(O)c(Cl)c(C)c(Cl)c3OC)c2c1cc(O)c1CCC(C)(C)Oc21",
+   "model_rank": 5,
+   "status": "accepted"
+  },
+  {
+   "smiles": "O=C1OC(c3c(O)c(Cl)c(C)c(Cl)c3O)c2cc(OC)c(CC=C(C)C)c(O)c21",
+   "model_rank": 1,
+   "status": "flagged"
+  }
+ ]
+}

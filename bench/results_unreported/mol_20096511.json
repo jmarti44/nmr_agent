@@ -1,0 +1,880 @@
+{
+ "id": "20096511",
+ "truth": "O=C(O)C1(C(=O)O)CCC1",
+ "truth_inchikey": "CCQPAEQGAVNNIA-UHFFFAOYSA-N",
+ "solvent": null,
+ "formula": "C6H8O4",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "OC(=O)C1CCC1C(=O)O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.8575
+  },
+  {
+   "smiles": "OC(=O)C1CC(C(=O)O)C1",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.8545
+  },
+  {
+   "smiles": "OC(=O)C1(C(=O)O)CCC1",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.645
+  }
+ ],
+ "cost_usd": 0.046737,
+ "llm_calls": 1,
+ "llm_ms": 19650,
+ "warnings": [],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 12.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 2.38,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 1.85,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "13C",
+     "shift_ppm": 172.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "13C",
+     "shift_ppm": 52.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "13C",
+     "shift_ppm": 28.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "13C",
+     "shift_ppm": 15.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": null,
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "none",
+   "processing_log": [
+    "integrals not normalised: not every analyte 1H peak has one"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C6H8O4",
+   "observed_exact_mass": null,
+   "solvent": null,
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C6H8O4",
+   "degree_of_unsaturation": 3,
+   "functional_groups": [
+    {
+     "group": "carboxylic_acid",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       1,
+       4
+      ],
+      "note": "Broad 12.60 ppm acidic OH and 172.8 ppm acid C=O indicate COOH groups."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": false,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       2,
+       3,
+       6,
+       7
+      ],
+      "note": "Signals at 2.38/1.85 and 28.2/15.5 match ring CH2 groups; no CH3 is needed."
+     }
+    },
+    {
+     "group": "ester",
+     "present": false,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       1,
+       5
+      ],
+      "note": "The acidic 12.60 H shows free acid; 52.2 is a quaternary ring C, not OCH3."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "OC(=O)C1(C(=O)O)CCC1",
+     "name": "cyclobutane-1,1-dicarboxylic acid",
+     "rationale": "DoU 3 = ring + 2 C=O. Four 13C signals for six C need symmetry: 172.8 is two equivalent COOH (4), 52.2 the quaternary C1 (5), 28.2 two equivalent C2/C4 CH2 (6), 15.5 the C3 CH2 (7). In 1H, 2.38 is the 4H alpha-CH2 (2), 1.85 the 2H C3 CH2 (3), and 12.60 the COOH (1). These shifts match literature values.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "2 x COOH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 4,
+       "environment": "ring CH2 alpha to C(COOH)2 (C2/C4)"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ring CH2 C3"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 0,
+       "environment": "COOH C=O"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "quaternary C1"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C2/C4 CH2"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "C3 CH2"
+      }
+     ],
+     "confidence": 0.9
+    },
+    {
+     "rank": 2,
+     "smiles": "OC(=O)C1CCC1C(=O)O",
+     "name": "cyclobutane-1,2-dicarboxylic acid",
+     "rationale": "Same formula and an acid signal (1, 4). Symmetry gives only 3 carbon environments: CH about 41 and CH2 about 22. This poorly fits the 52.2 and 15.5 signals (5, 7).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "2 x COOH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "CH-COOH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 4,
+       "environment": "ring CH2"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 0,
+       "environment": "COOH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "CH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CH2"
+      }
+     ],
+     "confidence": 0.05
+    },
+    {
+     "rank": 3,
+     "smiles": "OC(=O)C1CC(C(=O)O)C1",
+     "name": "cyclobutane-1,3-dicarboxylic acid",
+     "rationale": "Diacid isomer with 3 carbon environments. Its CH would sit near 34 ppm, inconsistent with 52.2 (5) and 15.5 (7).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "2 x COOH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 4,
+       "environment": "ring CH2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "CH-COOH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 0,
+       "environment": "COOH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "CH2"
+      }
+     ],
+     "confidence": 0.03
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "C6H8O4 has DoU 3. The 172.8 13C signal (4) and the 12.60 1H signal (1) indicate carboxylic acids. Only four 13C signals are seen for six carbons, so the molecule is symmetric: two equivalent COOH groups and two equivalent CH2 groups. The 52.2 signal (5) fits a quaternary carbon bearing two COOH groups. The 28.2 (6) and 15.5 (7) signals fit cyclobutane CH2 carbons, with the 2.38 (2) and 1.85 (3) protons in a 4H:2H pattern. The remaining unsaturation (two C=O plus one ring) means a cyclobutane ring. Cyclobutane-1,1-dicarboxylic acid matches the literature shifts closely (172.8, 51.9, 28.3, 15.4; 1H 12.6, 2.36, 1.82). The 1,2- and 1,3-diacid isomers are listed as weaker alternatives because their carbon shifts do not fit."
+  },
+  "repaired": null,
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "OC(=O)C1CCC1C(=O)O",
+     "name": "cyclobutane-1,2-dicarboxylic acid",
+     "rationale": "Same formula and an acid signal (1, 4). Symmetry gives only 3 carbon environments: CH about 41 and CH2 about 22. This poorly fits the 52.2 and 15.5 signals (5, 7).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "2 x COOH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "CH-COOH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 4,
+       "environment": "ring CH2"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 0,
+       "environment": "COOH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "CH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CH2"
+      }
+     ],
+     "confidence": 0.05
+    },
+    "canonical_smiles": "O=C(O)C1CCC1C(=O)O",
+    "inchikey": "SUSAGCZZQKACKE-UHFFFAOYSA-N",
+    "formula": "C6H8O4",
+    "exact_mass": 144.0423,
+    "degree_of_unsaturation": 3,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C6H8O4 == C6H8O4",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 3 == formula DoU 3",
+      "evidence": {
+       "structural": 3,
+       "expected": 3.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 observed 13C signals vs 3 distinct carbons (allowed 1..4)",
+      "evidence": {
+       "observed": 4,
+       "unique_carbons": 3,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "3 non-exchangeable 1H signals vs 2 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 3,
+       "environments": 2,
+       "diastereotopic_allowance": 1
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 1 matched group(s)",
+      "evidence": {
+       "carboxylic_acid": {
+        "1H": {
+         "peak_ids": [
+          1
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          4
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.8575,
+    "claims_checked": false,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 3,
+     "smiles": "OC(=O)C1CC(C(=O)O)C1",
+     "name": "cyclobutane-1,3-dicarboxylic acid",
+     "rationale": "Diacid isomer with 3 carbon environments. Its CH would sit near 34 ppm, inconsistent with 52.2 (5) and 15.5 (7).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "2 x COOH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 4,
+       "environment": "ring CH2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "CH-COOH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 0,
+       "environment": "COOH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "CH2"
+      }
+     ],
+     "confidence": 0.03
+    },
+    "canonical_smiles": "O=C(O)C1CC(C(=O)O)C1",
+    "inchikey": "WYHYNUWZLKTEEY-UHFFFAOYSA-N",
+    "formula": "C6H8O4",
+    "exact_mass": 144.0423,
+    "degree_of_unsaturation": 3,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C6H8O4 == C6H8O4",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 3 == formula DoU 3",
+      "evidence": {
+       "structural": 3,
+       "expected": 3.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 observed 13C signals vs 3 distinct carbons (allowed 1..4)",
+      "evidence": {
+       "observed": 4,
+       "unique_carbons": 3,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "3 non-exchangeable 1H signals vs 2 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 3,
+       "environments": 2,
+       "diastereotopic_allowance": 1
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 1 matched group(s)",
+      "evidence": {
+       "carboxylic_acid": {
+        "1H": {
+         "peak_ids": [
+          1
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          4
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.8545,
+    "claims_checked": false,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "OC(=O)C1(C(=O)O)CCC1",
+     "name": "cyclobutane-1,1-dicarboxylic acid",
+     "rationale": "DoU 3 = ring + 2 C=O. Four 13C signals for six C need symmetry: 172.8 is two equivalent COOH (4), 52.2 the quaternary C1 (5), 28.2 two equivalent C2/C4 CH2 (6), 15.5 the C3 CH2 (7). In 1H, 2.38 is the 4H alpha-CH2 (2), 1.85 the 2H C3 CH2 (3), and 12.60 the COOH (1). These shifts match literature values.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "2 x COOH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 4,
+       "environment": "ring CH2 alpha to C(COOH)2 (C2/C4)"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ring CH2 C3"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 0,
+       "environment": "COOH C=O"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "quaternary C1"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C2/C4 CH2"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "C3 CH2"
+      }
+     ],
+     "confidence": 0.9
+    },
+    "canonical_smiles": "O=C(O)C1(C(=O)O)CCC1",
+    "inchikey": "CCQPAEQGAVNNIA-UHFFFAOYSA-N",
+    "formula": "C6H8O4",
+    "exact_mass": 144.0423,
+    "degree_of_unsaturation": 3,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C6H8O4 == C6H8O4",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 3 == formula DoU 3",
+      "evidence": {
+       "structural": 3,
+       "expected": 3.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 observed 13C signals vs 4 distinct carbons (allowed 2..5)",
+      "evidence": {
+       "observed": 4,
+       "unique_carbons": 4,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "3 non-exchangeable 1H signals vs 2 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 3,
+       "environments": 2,
+       "diastereotopic_allowance": 2
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 1 matched group(s)",
+      "evidence": {
+       "carboxylic_acid": {
+        "1H": {
+         "peak_ids": [
+          1
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          4
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "fail",
+      "severity": "soft",
+      "message": "1H peaks not explained by the structure: [2, 3]",
+      "evidence": {
+       "unexplained_peak_ids": [
+        2,
+        3
+       ],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "pass",
+      "severity": "soft",
+      "message": "3 claim(s) consistent with the structure and cited peaks",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.645,
+    "claims_checked": true,
+    "status": "accepted"
+   }
+  ]
+ },
+ "rescored": [
+  {
+   "smiles": "OC(=O)C1(C(=O)O)CCC1",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.985
+  },
+  {
+   "smiles": "OC(=O)C1CCC1C(=O)O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.8575
+  },
+  {
+   "smiles": "OC(=O)C1CC(C(=O)O)C1",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.8545
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "OC(=O)C1(C(=O)O)CCC1",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "OC(=O)C1CCC1C(=O)O",
+   "model_rank": 2,
+   "status": "accepted"
+  },
+  {
+   "smiles": "OC(=O)C1CC(C(=O)O)C1",
+   "model_rank": 3,
+   "status": "accepted"
+  }
+ ]
+}

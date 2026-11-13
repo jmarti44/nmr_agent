@@ -1,0 +1,1148 @@
+{
+ "id": "40097678",
+ "truth": "C=CC1(O)c2ccccc2-c2ccccc21",
+ "truth_inchikey": "SLEDONQBEBNSAW-UHFFFAOYSA-N",
+ "solvent": "CDCl3",
+ "formula": "C15H12O",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "C=CC1(O)c2ccccc2-c2ccccc21",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.97
+  },
+  {
+   "smiles": "OC1c2ccccc2C=Cc2ccccc21",
+   "model_rank": 2,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.525
+  },
+  {
+   "smiles": "C#CC(O)(c1ccccc1)c1ccccc1",
+   "model_rank": 3,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.5145
+  }
+ ],
+ "cost_usd": 0.065101,
+ "llm_calls": 1,
+ "llm_ms": 27519,
+ "warnings": [],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 7.45,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 7.36,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 7.29,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "solvent",
+     "exchangeable_hint": false,
+     "label": "CDCl3 residual"
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 5.98,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "1H",
+     "shift_ppm": 5.55,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "1H",
+     "shift_ppm": 2.15,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "13C",
+     "shift_ppm": 148.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "13C",
+     "shift_ppm": 139.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "13C",
+     "shift_ppm": 139.1,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 10,
+     "nucleus": "13C",
+     "shift_ppm": 129.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 11,
+     "nucleus": "13C",
+     "shift_ppm": 128.1,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 12,
+     "nucleus": "13C",
+     "shift_ppm": 124.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 13,
+     "nucleus": "13C",
+     "shift_ppm": 120.1,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 14,
+     "nucleus": "13C",
+     "shift_ppm": 113.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 15,
+     "nucleus": "13C",
+     "shift_ppm": 82.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "CDCl3",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "none",
+   "processing_log": [
+    "1H 7.29 ppm tagged solvent: CDCl3 residual",
+    "integrals not normalised: not every analyte 1H peak has one"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C15H12O",
+   "observed_exact_mass": null,
+   "solvent": "CDCl3",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C15H12O",
+   "degree_of_unsaturation": 10,
+   "functional_groups": [
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2,
+       7,
+       9,
+       10,
+       11,
+       12,
+       13
+      ],
+      "note": "ArH at 7.45/7.36 and aromatic carbons 148.0, 139.5, 129.2, 128.1, 124.4, 120.1 fit a fluorene core."
+     }
+    },
+    {
+     "group": "alkene",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       4,
+       5,
+       8,
+       14
+      ],
+      "note": "Vinyl protons at 5.98 (CH=) and 5.55 (=CH2) with CH= 139.1 and terminal =CH2 113.5."
+     }
+    },
+    {
+     "group": "alcohol",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       15,
+       6
+      ],
+      "note": "Quaternary carbinol C at 82.5 typical of 9-substituted fluoren-9-ol; OH at 2.15."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": false,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       6
+      ],
+      "note": "2.15 lacks any 13C partner in the alkyl region, so it is the OH rather than a CH3."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "C=CC1(O)c2ccccc2-c2ccccc21",
+     "name": "9-vinyl-9H-fluoren-9-ol",
+     "rationale": "Only 9 13C signals implies C2 symmetry. Fluorenyl quats 148.0 (C8a/9a) and 139.5 (C4a/4b), four ArCH (129.2, 128.1, 124.4, 120.1), vinyl CH 139.1, =CH2 113.5, and quaternary C-OH 82.5 (peak 15). 1H: ArH 7.45/7.36 (8H), vinyl 5.98/5.55 (3H), OH 2.15. DoU 10 = 2 benzene rings + 5-ring + C=C.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "fluorenyl ArH (H1/H8, H4/H5)"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 4,
+       "environment": "fluorenyl ArH (H2/H3/H6/H7)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "CH=CH2 internal vinyl H"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 2,
+       "environment": "=CH2 terminal vinyl H"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "tertiary OH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "C8a/C9a quaternary"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "C4a/C4b quaternary"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "vinyl CH="
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "ArCH"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "ArCH"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 0,
+       "environment": "ArCH"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "ArCH C4/C5"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "=CH2"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 0,
+       "environment": "C9 quaternary C-OH"
+      }
+     ],
+     "confidence": 0.8
+    },
+    {
+     "rank": 2,
+     "smiles": "OC1c2ccccc2C=Cc2ccccc21",
+     "name": "5H-dibenzo[a,d]cyclohepten-5-ol",
+     "rationale": "Same formula and symmetry; CH-OH would give a methine near 5.5 (peak 5). However its carbinol carbon is expected near 70 ppm, not 82.5. Also, there is no terminal =CH2 to explain 113.5 (peak 14), so it fits less well.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 4,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "CH=CH (would be expected ~7.0)"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "CH-OH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "OH"
+      }
+     ],
+     "confidence": 0.1
+    },
+    {
+     "rank": 3,
+     "smiles": "C#CC(O)(c1ccccc1)c1ccccc1",
+     "name": "1,1-diphenylprop-2-yn-1-ol",
+     "rationale": "C15H12O with DoU 10. This structure has no vinyl protons to explain 5.98/5.55 (peaks 4, 5) and no carbons to account for 148.0 or 113.5. Its alkyne carbons would appear near 75-87, so it is a poor fit.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "ortho ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 6,
+       "environment": "meta/para ArH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "OH or C#CH"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 0,
+       "environment": "C-OH or alkyne C"
+      }
+     ],
+     "confidence": 0.03
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "The formula C15H12O gives DoU 10. The nine 13C signals imply a symmetric molecule. Signals 82.5 (quaternary C-O), 139.1 and 113.5 (CH=CH2), and fluorene-type carbons (148.0, 139.5, 120.1, 124.4, 128.1, 129.2) point to 9-vinylfluoren-9-ol. The 1H peaks at 5.98 and 5.55 are the vinyl group, 7.45 and 7.36 are the 8 aromatic H (part possibly under CDCl3 7.29), and 2.15 is the OH. This totals 12 H."
+  },
+  "repaired": null,
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "C=CC1(O)c2ccccc2-c2ccccc21",
+     "name": "9-vinyl-9H-fluoren-9-ol",
+     "rationale": "Only 9 13C signals implies C2 symmetry. Fluorenyl quats 148.0 (C8a/9a) and 139.5 (C4a/4b), four ArCH (129.2, 128.1, 124.4, 120.1), vinyl CH 139.1, =CH2 113.5, and quaternary C-OH 82.5 (peak 15). 1H: ArH 7.45/7.36 (8H), vinyl 5.98/5.55 (3H), OH 2.15. DoU 10 = 2 benzene rings + 5-ring + C=C.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "fluorenyl ArH (H1/H8, H4/H5)"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 4,
+       "environment": "fluorenyl ArH (H2/H3/H6/H7)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "CH=CH2 internal vinyl H"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 2,
+       "environment": "=CH2 terminal vinyl H"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "tertiary OH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "C8a/C9a quaternary"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "C4a/C4b quaternary"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "vinyl CH="
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "ArCH"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "ArCH"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 0,
+       "environment": "ArCH"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "ArCH C4/C5"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "=CH2"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 0,
+       "environment": "C9 quaternary C-OH"
+      }
+     ],
+     "confidence": 0.8
+    },
+    "canonical_smiles": "C=CC1(O)c2ccccc2-c2ccccc21",
+    "inchikey": "SLEDONQBEBNSAW-UHFFFAOYSA-N",
+    "formula": "C15H12O",
+    "exact_mass": 208.0888,
+    "degree_of_unsaturation": 10,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C15H12O == C15H12O",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 10 == formula DoU 10",
+      "evidence": {
+       "structural": 10,
+       "expected": 10.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 9 distinct carbons (allowed 7..10)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 9,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 non-exchangeable 1H signals vs 6 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 5,
+       "environments": 6,
+       "diastereotopic_allowance": 1
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 3 matched group(s)",
+      "evidence": {
+       "alcohol": {
+        "13C": {
+         "peak_ids": [
+          15
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+         ]
+        }
+       },
+       "alkene": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          4,
+          5
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 claim(s) consistent with the structure and cited peaks",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.97,
+    "claims_checked": true,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "OC1c2ccccc2C=Cc2ccccc21",
+     "name": "5H-dibenzo[a,d]cyclohepten-5-ol",
+     "rationale": "Same formula and symmetry; CH-OH would give a methine near 5.5 (peak 5). However its carbinol carbon is expected near 70 ppm, not 82.5. Also, there is no terminal =CH2 to explain 113.5 (peak 14), so it fits less well.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 4,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "CH=CH (would be expected ~7.0)"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "CH-OH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "OH"
+      }
+     ],
+     "confidence": 0.1
+    },
+    "canonical_smiles": "OC1c2ccccc2C=Cc2ccccc21",
+    "inchikey": "SRIISEYIFDTFRZ-UHFFFAOYSA-N",
+    "formula": "C15H12O",
+    "exact_mass": 208.0888,
+    "degree_of_unsaturation": 10,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C15H12O == C15H12O",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 10 == formula DoU 10",
+      "evidence": {
+       "structural": 10,
+       "expected": 10.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 8 distinct carbons (allowed 6..9)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 8,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 non-exchangeable 1H signals vs 6 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 5,
+       "environments": 6,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "fail",
+      "severity": "soft",
+      "message": "alcohol: no 1H peak in h_alpha_oxygen",
+      "evidence": {
+       "alcohol": {
+        "1H": {
+         "missing": [
+          "h_alpha_oxygen"
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          15
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+         ]
+        }
+       },
+       "alkene": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          4,
+          5
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.525,
+    "claims_checked": false,
+    "status": "flagged"
+   },
+   {
+    "candidate": {
+     "rank": 3,
+     "smiles": "C#CC(O)(c1ccccc1)c1ccccc1",
+     "name": "1,1-diphenylprop-2-yn-1-ol",
+     "rationale": "C15H12O with DoU 10. This structure has no vinyl protons to explain 5.98/5.55 (peaks 4, 5) and no carbons to account for 148.0 or 113.5. Its alkyne carbons would appear near 75-87, so it is a poor fit.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "ortho ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 6,
+       "environment": "meta/para ArH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "OH or C#CH"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 0,
+       "environment": "C-OH or alkyne C"
+      }
+     ],
+     "confidence": 0.03
+    },
+    "canonical_smiles": "C#CC(O)(c1ccccc1)c1ccccc1",
+    "inchikey": "SMCLTAARQYTXLW-UHFFFAOYSA-N",
+    "formula": "C15H12O",
+    "exact_mass": 208.0888,
+    "degree_of_unsaturation": 10,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C15H12O == C15H12O",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 10 == formula DoU 10",
+      "evidence": {
+       "structural": 10,
+       "expected": 10.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "fail",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 7 distinct carbons (allowed 5..8)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 7,
+       "too_many": true,
+       "blocking": true
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 non-exchangeable 1H signals vs 4 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 5,
+       "environments": 4,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 3 matched group(s)",
+      "evidence": {
+       "alcohol": {
+        "13C": {
+         "peak_ids": [
+          15
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+         ]
+        }
+       },
+       "alkyne_terminal": {
+        "1H": {
+         "peak_ids": [
+          6
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          15
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.5145,
+    "claims_checked": false,
+    "status": "flagged"
+   }
+  ]
+ },
+ "rescored": [
+  {
+   "smiles": "C=CC1(O)c2ccccc2-c2ccccc21",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.97
+  },
+  {
+   "smiles": "OC1c2ccccc2C=Cc2ccccc21",
+   "model_rank": 2,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.525
+  },
+  {
+   "smiles": "C#CC(O)(c1ccccc1)c1ccccc1",
+   "model_rank": 3,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.5145
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "C=CC1(O)c2ccccc2-c2ccccc21",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "OC1c2ccccc2C=Cc2ccccc21",
+   "model_rank": 2,
+   "status": "flagged"
+  },
+  {
+   "smiles": "C#CC(O)(c1ccccc1)c1ccccc1",
+   "model_rank": 3,
+   "status": "flagged"
+  }
+ ]
+}

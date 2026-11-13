@@ -1,0 +1,1022 @@
+{
+ "id": "20198933",
+ "truth": "COCC1CO1",
+ "truth_inchikey": "LKMJVFRMDSNFRT-UHFFFAOYSA-N",
+ "solvent": null,
+ "formula": "C4H8O2",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "COCC1CO1",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.645
+  },
+  {
+   "smiles": "COC1COC1",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.5175
+  },
+  {
+   "smiles": "CCOC1CO1",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.513
+  }
+ ],
+ "cost_usd": 0.055989,
+ "llm_calls": 1,
+ "llm_ms": 23230,
+ "warnings": [],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 3.68,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 3.41,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 3.34,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 3.14,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "1H",
+     "shift_ppm": 2.79,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "1H",
+     "shift_ppm": 2.61,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "13C",
+     "shift_ppm": 73.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "13C",
+     "shift_ppm": 59.1,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "13C",
+     "shift_ppm": 50.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 10,
+     "nucleus": "13C",
+     "shift_ppm": 44.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": null,
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "none",
+   "processing_log": [
+    "integrals not normalised: not every analyte 1H peak has one"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C4H8O2",
+   "observed_exact_mass": null,
+   "solvent": null,
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C4H8O2",
+   "degree_of_unsaturation": 1,
+   "functional_groups": [
+    {
+     "group": "ether",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       1,
+       3,
+       4,
+       5,
+       6,
+       7,
+       9,
+       10
+      ],
+      "note": "OCH2 (73.3) and epoxide CH/CH2 (50.7/44.0; 3.14, 2.79, 2.61) are C-O-C environments with no C=O."
+     }
+    },
+    {
+     "group": "methoxy",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       2,
+       8
+      ],
+      "note": "An OCH3 signal near 3.4 ppm and 59.1 ppm 13C are typical of a methyl ether."
+     }
+    },
+    {
+     "group": "carboxylic_acid",
+     "present": false,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       7,
+       8,
+       9,
+       10
+      ],
+      "note": "All 13C signals lie below 75 ppm, so there is no carbonyl."
+     }
+    },
+    {
+     "group": "alcohol",
+     "present": false,
+     "confidence": 0.7,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2,
+       3,
+       4,
+       5,
+       6
+      ],
+      "note": "The shift pattern fits a fully etherified epoxide and needs no OH."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "COCC1CO1",
+     "name": "2-(methoxymethyl)oxirane (glycidyl methyl ether)",
+     "rationale": "DoU 1 with no carbonyl implies a ring. The 13C signals fit glycidyl methyl ether: 73.3 (OCH2), 59.1 (OCH3), 50.7 (epoxide CH) and 44.0 (epoxide CH2). The 1H data agree: diastereotopic OCH2 at 3.68/3.34, OCH3 at 3.41, epoxide CH at 3.14 and epoxide CH2 at 2.79/2.61, which matches literature values.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "OCH2 Ha (diastereotopic)"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "OCH2 Hb (diastereotopic)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "epoxide CH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "epoxide CH2 Ha"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "epoxide CH2 Hb"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "OCH2"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "epoxide CH"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "epoxide CH2"
+      }
+     ],
+     "confidence": 0.9
+    },
+    {
+     "rank": 2,
+     "smiles": "COC1COC1",
+     "name": "3-methoxyoxetane",
+     "rationale": "This isomer has the same formula and also contains a ring plus a methoxy group. However, symmetry gives only 3 carbon environments. Its oxetane CH2 carbons would appear near 76 ppm, so the 44.0 (peak 10) and 50.7 (peak 9) signals fit poorly.",
+     "assignments": [
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "oxetane CH2 (a)"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "oxetane CH2 (b)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "OCH ring"
+      }
+     ],
+     "confidence": 0.05
+    },
+    {
+     "rank": 3,
+     "smiles": "CCOC1CO1",
+     "name": "2-ethoxyoxirane",
+     "rationale": "This isomer is an epoxide ether. It would require a CH3 signal near 1.2 ppm and 15 ppm 13C, and neither is observed. It also lacks a 59 ppm OCH3, so it is a poor fit.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "OCH2CH3"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "epoxide OCH(O)"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "epoxide CH2 Ha"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "epoxide CH2 Hb"
+      }
+     ],
+     "confidence": 0.02
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "C4H8O2 has DoU 1, and no 13C signal above 75 ppm rules out a C=O, so the unsaturation is a ring. Four distinct carbons are seen: 73.3 (OCH2), 59.1 (OCH3), 50.7 and 44.0. The last two are the characteristic shifts of an epoxide CH and CH2. The six 1H signals fit glycidyl methyl ether: diastereotopic OCH2 at 3.68/3.34, OCH3 at 3.41, epoxide CH at 3.14 and epoxide CH2 at 2.79/2.61, totalling 8 H with no exchangeable protons. Integrals were not supplied, so the proton counts are assigned from the structure. The oxetane and ethoxy-epoxide isomers fit the 13C data poorly."
+  },
+  "repaired": null,
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "COCC1CO1",
+     "name": "2-(methoxymethyl)oxirane (glycidyl methyl ether)",
+     "rationale": "DoU 1 with no carbonyl implies a ring. The 13C signals fit glycidyl methyl ether: 73.3 (OCH2), 59.1 (OCH3), 50.7 (epoxide CH) and 44.0 (epoxide CH2). The 1H data agree: diastereotopic OCH2 at 3.68/3.34, OCH3 at 3.41, epoxide CH at 3.14 and epoxide CH2 at 2.79/2.61, which matches literature values.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "OCH2 Ha (diastereotopic)"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "OCH2 Hb (diastereotopic)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "epoxide CH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "epoxide CH2 Ha"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "epoxide CH2 Hb"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "OCH2"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "epoxide CH"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "epoxide CH2"
+      }
+     ],
+     "confidence": 0.9
+    },
+    "canonical_smiles": "COCC1CO1",
+    "inchikey": "LKMJVFRMDSNFRT-UHFFFAOYSA-N",
+    "formula": "C4H8O2",
+    "exact_mass": 88.0524,
+    "degree_of_unsaturation": 1,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C4H8O2 == C4H8O2",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 1 == formula DoU 1",
+      "evidence": {
+       "structural": 1,
+       "expected": 1.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 observed 13C signals vs 4 distinct carbons (allowed 2..5)",
+      "evidence": {
+       "observed": 4,
+       "unique_carbons": 4,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "6 non-exchangeable 1H signals vs 4 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 6,
+       "environments": 4,
+       "diastereotopic_allowance": 2
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 3 matched group(s)",
+      "evidence": {
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9
+         ]
+        }
+       },
+       "methoxy": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "fail",
+      "severity": "soft",
+      "message": "1H peaks not explained by the structure: [6]",
+      "evidence": {
+       "unexplained_peak_ids": [
+        6
+       ],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": [
+        4,
+        5
+       ]
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 claim(s) consistent with the structure and cited peaks",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.645,
+    "claims_checked": true,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "COC1COC1",
+     "name": "3-methoxyoxetane",
+     "rationale": "This isomer has the same formula and also contains a ring plus a methoxy group. However, symmetry gives only 3 carbon environments. Its oxetane CH2 carbons would appear near 76 ppm, so the 44.0 (peak 10) and 50.7 (peak 9) signals fit poorly.",
+     "assignments": [
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "oxetane CH2 (a)"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "oxetane CH2 (b)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "OCH ring"
+      }
+     ],
+     "confidence": 0.05
+    },
+    "canonical_smiles": "COC1COC1",
+    "inchikey": "WCPLWTYNTSHPIU-UHFFFAOYSA-N",
+    "formula": "C4H8O2",
+    "exact_mass": 88.0524,
+    "degree_of_unsaturation": 1,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C4H8O2 == C4H8O2",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 1 == formula DoU 1",
+      "evidence": {
+       "structural": 1,
+       "expected": 1.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 observed 13C signals vs 3 distinct carbons (allowed 1..4)",
+      "evidence": {
+       "observed": 4,
+       "unique_carbons": 3,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "6 non-exchangeable 1H signals vs 3 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 6,
+       "environments": 3,
+       "diastereotopic_allowance": 1
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 3 matched group(s)",
+      "evidence": {
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9
+         ]
+        }
+       },
+       "methoxy": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "fail",
+      "severity": "soft",
+      "message": "1H peaks not explained by the structure: [4, 5, 6]",
+      "evidence": {
+       "unexplained_peak_ids": [
+        4,
+        5,
+        6
+       ],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.5175,
+    "claims_checked": false,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 3,
+     "smiles": "CCOC1CO1",
+     "name": "2-ethoxyoxirane",
+     "rationale": "This isomer is an epoxide ether. It would require a CH3 signal near 1.2 ppm and 15 ppm 13C, and neither is observed. It also lacks a 59 ppm OCH3, so it is a poor fit.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "OCH2CH3"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "epoxide OCH(O)"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "epoxide CH2 Ha"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "epoxide CH2 Hb"
+      }
+     ],
+     "confidence": 0.02
+    },
+    "canonical_smiles": "CCOC1CO1",
+    "inchikey": "MURWSOSFHFFMAC-UHFFFAOYSA-N",
+    "formula": "C4H8O2",
+    "exact_mass": 88.0524,
+    "degree_of_unsaturation": 1,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C4H8O2 == C4H8O2",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 1 == formula DoU 1",
+      "evidence": {
+       "structural": 1,
+       "expected": 1.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 observed 13C signals vs 4 distinct carbons (allowed 2..5)",
+      "evidence": {
+       "observed": 4,
+       "unique_carbons": 4,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "6 non-exchangeable 1H signals vs 4 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 6,
+       "environments": 4,
+       "diastereotopic_allowance": 2
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 2 matched group(s)",
+      "evidence": {
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7,
+          8,
+          9
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "fail",
+      "severity": "soft",
+      "message": "1H peaks not explained by the structure: [6]",
+      "evidence": {
+       "unexplained_peak_ids": [
+        6
+       ],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": [
+        4,
+        5
+       ]
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.513,
+    "claims_checked": false,
+    "status": "accepted"
+   }
+  ]
+ },
+ "rescored": [
+  {
+   "smiles": "COCC1CO1",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.645
+  },
+  {
+   "smiles": "COC1COC1",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.5175
+  },
+  {
+   "smiles": "CCOC1CO1",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.513
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "COCC1CO1",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "COC1COC1",
+   "model_rank": 2,
+   "status": "accepted"
+  },
+  {
+   "smiles": "CCOC1CO1",
+   "model_rank": 3,
+   "status": "accepted"
+  }
+ ]
+}

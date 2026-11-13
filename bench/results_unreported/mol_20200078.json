@@ -1,0 +1,1006 @@
+{
+ "id": "20200078",
+ "truth": "CCC#CCCC(C)C",
+ "truth_inchikey": "ZDXUMWBWHSCWBK-UHFFFAOYSA-N",
+ "solvent": null,
+ "formula": "C9H16",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "CCC#CCCC(C)C",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.9625
+  },
+  {
+   "smiles": "CCCC#CCC(C)C",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.865
+  },
+  {
+   "smiles": "CCC#CCC(C)CC",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.862
+  }
+ ],
+ "cost_usd": 0.058289,
+ "llm_calls": 1,
+ "llm_ms": 33194,
+ "warnings": [],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 2.17,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 1.61,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 1.44,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 1.11,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "1H",
+     "shift_ppm": 0.89,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "13C",
+     "shift_ppm": 81.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "13C",
+     "shift_ppm": 79.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "13C",
+     "shift_ppm": 38.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "13C",
+     "shift_ppm": 27.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 10,
+     "nucleus": "13C",
+     "shift_ppm": 22.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 11,
+     "nucleus": "13C",
+     "shift_ppm": 16.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 12,
+     "nucleus": "13C",
+     "shift_ppm": 14.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 13,
+     "nucleus": "13C",
+     "shift_ppm": 12.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": null,
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "none",
+   "processing_log": [
+    "integrals not normalised: not every analyte 1H peak has one"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C9H16",
+   "observed_exact_mass": null,
+   "solvent": null,
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C9H16",
+   "degree_of_unsaturation": 2,
+   "functional_groups": [
+    {
+     "group": "alkyne_internal",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       6,
+       7
+      ],
+      "note": "Two non-protonated sp carbons at 81.5 and 79.6 ppm point to an internal dialkyl alkyne."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       4,
+       5,
+       12,
+       10
+      ],
+      "note": "CH3 signals at 1.11 (ethyl on alkyne) and 0.89 (isopropyl), with carbons at 14.5 and 22.3."
+     }
+    },
+    {
+     "group": "alkene",
+     "present": false,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2,
+       3,
+       4,
+       5
+      ],
+      "note": "No vinyl 1H signals; the two degrees of unsaturation are used by the C\u2261C."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "CCC#CCCC(C)C",
+     "name": "7-methyloct-3-yne",
+     "rationale": "C 81.5 and 79.6 (6,7) fit an internal alkyne. An ethyl on the alkyne fits C 12.5 (CH2) and 14.5 (CH3), with 1H 1.11 (4). Propargylic CH2 at 16.8 (11) and 2.17 (1). CH2 at 38.4 (8) gives 1.44 (3). CH at 27.3 (9) gives 1.61 (2). Two equivalent CH3 at 22.3 (10) give 0.89 (5). This gives 8 distinct carbons, matching the 8 observed signals.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "two propargylic CH2 (C\u2261C-CH2)"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "CH(CH3)2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "CH2 beta to alkyne, next to CH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "CH3 of ethyl on alkyne"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 6,
+       "environment": "(CH3)2CH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "alkyne C"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "alkyne C"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "CH2CH(CH3)2"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "CH(CH3)2"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "(CH3)2"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "propargylic CH2 on isoamyl side"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 0,
+       "environment": "ethyl CH3"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "ethyl CH2 (propargylic)"
+      }
+     ],
+     "confidence": 0.75
+    },
+    {
+     "rank": 2,
+     "smiles": "CCCC#CCC(C)C",
+     "name": "2-methyloct-4-yne",
+     "rationale": "Also an internal alkyne (6,7) with an isobutyl and an n-butyl side. It accounts for 8 signals, but the expected n-butyl shifts (13.6, 22, 31, 18.5) and the isobutyl CH2 near 28 fit the observed 38.4 (8) and 12.5 (13) less well.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "propargylic CH2 x2"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "CH(CH3)2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 4,
+       "environment": "butyl CH2CH2"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 9,
+       "environment": "CH3 groups"
+      }
+     ],
+     "confidence": 0.1
+    },
+    {
+     "rank": 3,
+     "smiles": "CCC#CCC(C)CC",
+     "name": "6-methyloct-3-yne",
+     "rationale": "Ethyl alkyne fragment (12,13) with a 2-methylbutyl chain. However, this structure has 9 distinct carbons, one more than observed, and it lacks an equivalent pair of CH3 groups to explain the 6H-type signal at 0.89 (5).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "propargylic CH2 x2"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "CH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "CH2 of ethyl on CH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "ethyl CH3 on alkyne"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 6,
+       "environment": "CH3 d + CH3 t"
+      }
+     ],
+     "confidence": 0.08
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "C9H16 has DoU 2. The two quaternary sp carbons at 81.5 and 79.6 ppm (6,7) with no vinyl or alkyne C-H protons indicate an internal alkyne. The carbons at 12.5 and 14.5 (13,12) together with 1H at 1.11 (4) are typical of an ethyl group on an alkyne. The remaining five carbons appear as four signals (38.4, 27.3, 22.3, 16.8), which requires a symmetric isopropyl terminus: C\u2261C-CH2-CH2-CH(CH3)2. Protons map as follows: 2.17 for the propargylic CH2 groups, 1.61 for the CH, 1.44 for the CH2, 1.11 for the ethyl CH3 and 0.89 for the (CH3)2. The best fit is 7-methyloct-3-yne."
+  },
+  "repaired": null,
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "CCC#CCCC(C)C",
+     "name": "7-methyloct-3-yne",
+     "rationale": "C 81.5 and 79.6 (6,7) fit an internal alkyne. An ethyl on the alkyne fits C 12.5 (CH2) and 14.5 (CH3), with 1H 1.11 (4). Propargylic CH2 at 16.8 (11) and 2.17 (1). CH2 at 38.4 (8) gives 1.44 (3). CH at 27.3 (9) gives 1.61 (2). Two equivalent CH3 at 22.3 (10) give 0.89 (5). This gives 8 distinct carbons, matching the 8 observed signals.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "two propargylic CH2 (C\u2261C-CH2)"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "CH(CH3)2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "CH2 beta to alkyne, next to CH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "CH3 of ethyl on alkyne"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 6,
+       "environment": "(CH3)2CH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "alkyne C"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "alkyne C"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "CH2CH(CH3)2"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "CH(CH3)2"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "(CH3)2"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "propargylic CH2 on isoamyl side"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 0,
+       "environment": "ethyl CH3"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "ethyl CH2 (propargylic)"
+      }
+     ],
+     "confidence": 0.75
+    },
+    "canonical_smiles": "CCC#CCCC(C)C",
+    "inchikey": "ZDXUMWBWHSCWBK-UHFFFAOYSA-N",
+    "formula": "C9H16",
+    "exact_mass": 124.1252,
+    "degree_of_unsaturation": 2,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C9H16 == C9H16",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 2 == formula DoU 2",
+      "evidence": {
+       "structural": 2,
+       "expected": 2.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "8 observed 13C signals vs 8 distinct carbons (allowed 6..9)",
+      "evidence": {
+       "observed": 8,
+       "unique_carbons": 8,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 non-exchangeable 1H signals vs 6 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 5,
+       "environments": 6,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 2 matched group(s)",
+      "evidence": {
+       "alkyne_internal": {
+        "13C": {
+         "peak_ids": [
+          6,
+          7
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          4,
+          5
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "pass",
+      "severity": "soft",
+      "message": "3 claim(s) consistent with the structure and cited peaks",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.9625,
+    "claims_checked": true,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "CCCC#CCC(C)C",
+     "name": "2-methyloct-4-yne",
+     "rationale": "Also an internal alkyne (6,7) with an isobutyl and an n-butyl side. It accounts for 8 signals, but the expected n-butyl shifts (13.6, 22, 31, 18.5) and the isobutyl CH2 near 28 fit the observed 38.4 (8) and 12.5 (13) less well.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "propargylic CH2 x2"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "CH(CH3)2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 4,
+       "environment": "butyl CH2CH2"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 9,
+       "environment": "CH3 groups"
+      }
+     ],
+     "confidence": 0.1
+    },
+    "canonical_smiles": "CCCC#CCC(C)C",
+    "inchikey": "MBLOALSHICMMKJ-UHFFFAOYSA-N",
+    "formula": "C9H16",
+    "exact_mass": 124.1252,
+    "degree_of_unsaturation": 2,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C9H16 == C9H16",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 2 == formula DoU 2",
+      "evidence": {
+       "structural": 2,
+       "expected": 2.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "8 observed 13C signals vs 8 distinct carbons (allowed 6..9)",
+      "evidence": {
+       "observed": 8,
+       "unique_carbons": 8,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 non-exchangeable 1H signals vs 6 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 5,
+       "environments": 6,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 2 matched group(s)",
+      "evidence": {
+       "alkyne_internal": {
+        "13C": {
+         "peak_ids": [
+          6,
+          7
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          4,
+          5
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.865,
+    "claims_checked": false,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 3,
+     "smiles": "CCC#CCC(C)CC",
+     "name": "6-methyloct-3-yne",
+     "rationale": "Ethyl alkyne fragment (12,13) with a 2-methylbutyl chain. However, this structure has 9 distinct carbons, one more than observed, and it lacks an equivalent pair of CH3 groups to explain the 6H-type signal at 0.89 (5).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "propargylic CH2 x2"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "CH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "CH2 of ethyl on CH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "ethyl CH3 on alkyne"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 6,
+       "environment": "CH3 d + CH3 t"
+      }
+     ],
+     "confidence": 0.08
+    },
+    "canonical_smiles": "CCC#CCC(C)CC",
+    "inchikey": "LDZYCPWLKDNBLI-UHFFFAOYSA-N",
+    "formula": "C9H16",
+    "exact_mass": 124.1252,
+    "degree_of_unsaturation": 2,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C9H16 == C9H16",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 2 == formula DoU 2",
+      "evidence": {
+       "structural": 2,
+       "expected": 2.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "8 observed 13C signals vs 9 distinct carbons (allowed 7..10)",
+      "evidence": {
+       "observed": 8,
+       "unique_carbons": 9,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 non-exchangeable 1H signals vs 7 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 5,
+       "environments": 7,
+       "diastereotopic_allowance": 3
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 2 matched group(s)",
+      "evidence": {
+       "alkyne_internal": {
+        "13C": {
+         "peak_ids": [
+          6,
+          7
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          4,
+          5
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.862,
+    "claims_checked": false,
+    "status": "accepted"
+   }
+  ]
+ },
+ "rescored": [
+  {
+   "smiles": "CCC#CCCC(C)C",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.9625
+  },
+  {
+   "smiles": "CCCC#CCC(C)C",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.865
+  },
+  {
+   "smiles": "CCC#CCC(C)CC",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.862
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "CCC#CCCC(C)C",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "CCCC#CCC(C)C",
+   "model_rank": 2,
+   "status": "accepted"
+  },
+  {
+   "smiles": "CCC#CCC(C)CC",
+   "model_rank": 3,
+   "status": "accepted"
+  }
+ ]
+}

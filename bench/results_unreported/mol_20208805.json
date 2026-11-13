@@ -1,0 +1,1070 @@
+{
+ "id": "20208805",
+ "truth": "O=C(CCl)c1ccc(F)cc1F",
+ "truth_inchikey": "UENGBOCGGKLVJJ-UHFFFAOYSA-N",
+ "solvent": null,
+ "formula": "C8H5ClF2O",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "ClCC(=O)c1ccc(F)cc1F",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.9775
+  },
+  {
+   "smiles": "ClCC(=O)c1cc(F)ccc1F",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.862
+  },
+  {
+   "smiles": "ClCC(=O)c1ccc(F)c(F)c1",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.856
+  }
+ ],
+ "cost_usd": 0.045165,
+ "llm_calls": 1,
+ "llm_ms": 17476,
+ "warnings": [],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 8.02,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 7.03,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 6.92,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 4.69,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "13C",
+     "shift_ppm": 187.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "13C",
+     "shift_ppm": 166.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "13C",
+     "shift_ppm": 162.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "13C",
+     "shift_ppm": 133.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "13C",
+     "shift_ppm": 119.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 10,
+     "nucleus": "13C",
+     "shift_ppm": 112.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 11,
+     "nucleus": "13C",
+     "shift_ppm": 104.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 12,
+     "nucleus": "13C",
+     "shift_ppm": 49.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": null,
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "none",
+   "processing_log": [
+    "integrals not normalised: not every analyte 1H peak has one"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C8H5ClF2O",
+   "observed_exact_mass": null,
+   "solvent": null,
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C8H5ClF2O",
+   "degree_of_unsaturation": 5,
+   "functional_groups": [
+    {
+     "group": "ketone",
+     "present": true,
+     "confidence": 0.93,
+     "evidence": {
+      "peak_ids": [
+       5
+      ],
+      "note": "187.8 ppm is an aryl ketone C=O, lowered by conjugation and the alpha-Cl."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2,
+       3,
+       8,
+       9,
+       10,
+       11
+      ],
+      "note": "Three ArH signals and six aromatic carbons."
+     }
+    },
+    {
+     "group": "aryl_halide",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       6,
+       7,
+       11
+      ],
+      "note": "Two C-F carbons at 166.5/162.7; C3 at 104.9 lies between the two F atoms."
+     }
+    },
+    {
+     "group": "alkyl_halide",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       4,
+       12
+      ],
+      "note": "CH2Cl alpha to C=O at 4.69 ppm (1H) and 49.7 ppm (13C)."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "ClCC(=O)c1ccc(F)cc1F",
+     "name": "2-chloro-1-(2,4-difluorophenyl)ethan-1-one",
+     "rationale": "Ketone C=O at 187.8 (5) and COCH2Cl at 4.69/49.7 (4,12). Two C-F carbons appear at 166.5/162.7 (6,7). CH at 104.9 (11) is typical of C3 between two F atoms. H6 at 8.02 (1) is deshielded by the ortho C=O; H5/H3 sit at 7.03/6.92 (2,3). There are 8 distinct carbons and 8 are observed.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH-6 ortho to C=O"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-5"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-3 between F atoms"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "C(=O)CH2Cl"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "ketone C=O"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C4-F"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "C2-F"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "C6-H"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "C1 ipso"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "C5-H"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "C3-H"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 0,
+       "environment": "CH2Cl"
+      }
+     ],
+     "confidence": 0.85
+    },
+    {
+     "rank": 2,
+     "smiles": "ClCC(=O)c1cc(F)ccc1F",
+     "name": "2-chloro-1-(2,5-difluorophenyl)ethan-1-one",
+     "rationale": "Shares the ketone (5) and CH2Cl (4,12). However, the 104.9 CH (11) and the 8.02 ppm proton (1) fit the 2,4-pattern better.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH-6"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-4"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-3"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "C(=O)CH2Cl"
+      }
+     ],
+     "confidence": 0.08
+    },
+    {
+     "rank": 3,
+     "smiles": "ClCC(=O)c1ccc(F)c(F)c1",
+     "name": "2-chloro-1-(3,4-difluorophenyl)ethan-1-one",
+     "rationale": "Has the same ketone (5) and CH2Cl (4,12). It would not give ArH near 6.9 (3) or a CH at 104.9 (11), so it is less likely.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH-2/6"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-5"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "C(=O)CH2Cl"
+      }
+     ],
+     "confidence": 0.04
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "DoU 5 requires a benzene ring plus one C=O. The ketone C=O at 187.8 and the CH2Cl at 4.69 (2H, 49.7 ppm) indicate an alpha-chloroacetophenone. The remaining C6H3F2 ring gives three ArH. Two C-F carbons (166.5, 162.7) and a strongly shielded CH at 104.9 indicate a carbon flanked by two fluorines. The 8.02 ppm H6 ortho to the carbonyl is consistent with 2,4-difluoro substitution. All 8 carbons are accounted for."
+  },
+  "repaired": null,
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "ClCC(=O)c1ccc(F)cc1F",
+     "name": "2-chloro-1-(2,4-difluorophenyl)ethan-1-one",
+     "rationale": "Ketone C=O at 187.8 (5) and COCH2Cl at 4.69/49.7 (4,12). Two C-F carbons appear at 166.5/162.7 (6,7). CH at 104.9 (11) is typical of C3 between two F atoms. H6 at 8.02 (1) is deshielded by the ortho C=O; H5/H3 sit at 7.03/6.92 (2,3). There are 8 distinct carbons and 8 are observed.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH-6 ortho to C=O"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-5"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-3 between F atoms"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "C(=O)CH2Cl"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "ketone C=O"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C4-F"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "C2-F"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "C6-H"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "C1 ipso"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "C5-H"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "C3-H"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 0,
+       "environment": "CH2Cl"
+      }
+     ],
+     "confidence": 0.85
+    },
+    "canonical_smiles": "O=C(CCl)c1ccc(F)cc1F",
+    "inchikey": "UENGBOCGGKLVJJ-UHFFFAOYSA-N",
+    "formula": "C8H5ClF2O",
+    "exact_mass": 189.9997,
+    "degree_of_unsaturation": 5,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C8H5ClF2O == C8H5ClF2O",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 5 == formula DoU 5",
+      "evidence": {
+       "structural": 5,
+       "expected": 5.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "8 observed 13C signals vs 8 distinct carbons (allowed 6..9)",
+      "evidence": {
+       "observed": 8,
+       "unique_carbons": 8,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 non-exchangeable 1H signals vs 4 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 4,
+       "environments": 4,
+       "diastereotopic_allowance": 1
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 4 matched group(s)",
+      "evidence": {
+       "ketone": {
+        "13C": {
+         "peak_ids": [
+          5
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          8,
+          9,
+          10,
+          11
+         ]
+        }
+       },
+       "alkyl_halide": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          12
+         ]
+        }
+       },
+       "aryl_halide": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "fail",
+      "severity": "soft",
+      "message": "aryl_halide: cited peaks [6, 7, 11] not in a required shift range",
+      "evidence": {
+       "problems": [
+        "aryl_halide: cited peaks [6, 7, 11] not in a required shift range"
+       ]
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; Process NMR Associates, Table 2 - 13C NMR"
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.9775,
+    "claims_checked": true,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "ClCC(=O)c1cc(F)ccc1F",
+     "name": "2-chloro-1-(2,5-difluorophenyl)ethan-1-one",
+     "rationale": "Shares the ketone (5) and CH2Cl (4,12). However, the 104.9 CH (11) and the 8.02 ppm proton (1) fit the 2,4-pattern better.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH-6"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-4"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-3"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "C(=O)CH2Cl"
+      }
+     ],
+     "confidence": 0.08
+    },
+    "canonical_smiles": "O=C(CCl)c1cc(F)ccc1F",
+    "inchikey": "HJWDDTDVBUFTCP-UHFFFAOYSA-N",
+    "formula": "C8H5ClF2O",
+    "exact_mass": 189.9997,
+    "degree_of_unsaturation": 5,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C8H5ClF2O == C8H5ClF2O",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 5 == formula DoU 5",
+      "evidence": {
+       "structural": 5,
+       "expected": 5.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "8 observed 13C signals vs 8 distinct carbons (allowed 6..9)",
+      "evidence": {
+       "observed": 8,
+       "unique_carbons": 8,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 non-exchangeable 1H signals vs 4 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 4,
+       "environments": 4,
+       "diastereotopic_allowance": 1
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 4 matched group(s)",
+      "evidence": {
+       "ketone": {
+        "13C": {
+         "peak_ids": [
+          5
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          8,
+          9,
+          10,
+          11
+         ]
+        }
+       },
+       "alkyl_halide": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          12
+         ]
+        }
+       },
+       "aryl_halide": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.862,
+    "claims_checked": false,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 3,
+     "smiles": "ClCC(=O)c1ccc(F)c(F)c1",
+     "name": "2-chloro-1-(3,4-difluorophenyl)ethan-1-one",
+     "rationale": "Has the same ketone (5) and CH2Cl (4,12). It would not give ArH near 6.9 (3) or a CH at 104.9 (11), so it is less likely.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH-2/6"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-5"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "C(=O)CH2Cl"
+      }
+     ],
+     "confidence": 0.04
+    },
+    "canonical_smiles": "O=C(CCl)c1ccc(F)c(F)c1",
+    "inchikey": "VMEDAWUIKFAFJQ-UHFFFAOYSA-N",
+    "formula": "C8H5ClF2O",
+    "exact_mass": 189.9997,
+    "degree_of_unsaturation": 5,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C8H5ClF2O == C8H5ClF2O",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 5 == formula DoU 5",
+      "evidence": {
+       "structural": 5,
+       "expected": 5.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "8 observed 13C signals vs 8 distinct carbons (allowed 6..9)",
+      "evidence": {
+       "observed": 8,
+       "unique_carbons": 8,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 non-exchangeable 1H signals vs 4 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 4,
+       "environments": 4,
+       "diastereotopic_allowance": 1
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 4 matched group(s)",
+      "evidence": {
+       "ketone": {
+        "13C": {
+         "peak_ids": [
+          5
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          8,
+          9,
+          10,
+          11
+         ]
+        }
+       },
+       "alkyl_halide": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          12
+         ]
+        }
+       },
+       "aryl_halide": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.856,
+    "claims_checked": false,
+    "status": "accepted"
+   }
+  ]
+ },
+ "rescored": [
+  {
+   "smiles": "ClCC(=O)c1ccc(F)cc1F",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.9775
+  },
+  {
+   "smiles": "ClCC(=O)c1cc(F)ccc1F",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.862
+  },
+  {
+   "smiles": "ClCC(=O)c1ccc(F)c(F)c1",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.856
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "ClCC(=O)c1ccc(F)cc1F",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "ClCC(=O)c1cc(F)ccc1F",
+   "model_rank": 2,
+   "status": "accepted"
+  },
+  {
+   "smiles": "ClCC(=O)c1ccc(F)c(F)c1",
+   "model_rank": 3,
+   "status": "accepted"
+  }
+ ]
+}

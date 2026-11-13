@@ -1,0 +1,917 @@
+{
+ "id": "10016780",
+ "truth": "C/C=C/C(=O)O",
+ "truth_inchikey": "LDHQCZJRKDOVOX-NSCUHMNNSA-N",
+ "solvent": "CDCl3",
+ "formula": "C4H6O2",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "C/C=C/C(=O)O",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.982
+  },
+  {
+   "smiles": "C=C(C)C(=O)O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.8605
+  },
+  {
+   "smiles": "C=CCC(=O)O",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.853
+  }
+ ],
+ "cost_usd": 0.045713,
+ "llm_calls": 1,
+ "llm_ms": 19372,
+ "warnings": [],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 11.79,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 7.04,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 5.82,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 1.89,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "13C",
+     "shift_ppm": 172.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "13C",
+     "shift_ppm": 147.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "13C",
+     "shift_ppm": 122.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "13C",
+     "shift_ppm": 18.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "CDCl3",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "none",
+   "processing_log": [
+    "integrals not normalised: not every analyte 1H peak has one"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C4H6O2",
+   "observed_exact_mass": null,
+   "solvent": "CDCl3",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C4H6O2",
+   "degree_of_unsaturation": 2,
+   "functional_groups": [
+    {
+     "group": "carboxylic_acid",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       1,
+       5
+      ],
+      "note": "Broad-region 1H at 11.79 and 13C at 172.5 indicate a conjugated COOH."
+     }
+    },
+    {
+     "group": "alkene",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       2,
+       3,
+       6,
+       7
+      ],
+      "note": "Vinyl H at 7.04/5.82 and sp2 carbons at 147.7/122.7 indicate an \u03b1,\u03b2-unsaturated C=C."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       4,
+       8
+      ],
+      "note": "An allylic CH3 at 1.89 ppm with 13C at 18.0 fits a methyl on the alkene."
+     }
+    },
+    {
+     "group": "ester",
+     "present": false,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       1
+      ],
+      "note": "An acidic proton at 11.79 favours an acid; no OCH signal is seen."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "C/C=C/C(=O)O",
+     "name": "(E)-but-2-enoic acid (crotonic acid)",
+     "rationale": "COOH (1, 5: 172.5); \u03b2-CH at 7.04 (2) is deshielded by conjugation, with C-\u03b2 at 147.7 (6); \u03b1-CH at 5.82 (3), C-\u03b1 at 122.7 (7); allylic CH3 at 1.89 (4), 18.0 (8). Four 13C signals for four carbons. Shifts match literature values for trans-crotonic acid.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "COOH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "=CH beta to C=O (CH3-CH=)"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "=CH alpha to COOH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "allylic CH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "COOH carbon"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C-beta alkene"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "C-alpha alkene"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "CH3"
+      }
+     ],
+     "confidence": 0.88
+    },
+    {
+     "rank": 2,
+     "smiles": "C=C(C)C(=O)O",
+     "name": "methacrylic acid",
+     "rationale": "Also has COOH, a vinyl group and an allylic CH3 (1, 4, 8). However, its =CH2 protons (about 6.25 and 5.66) and carbons (about 136 and 128) fit 2, 6 and 7 poorly. The 7.04 and 147.7 signals favour a \u03b2-CH.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "COOH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "=CHH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "=CHH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "allylic CH3"
+      }
+     ],
+     "confidence": 0.07
+    },
+    {
+     "rank": 3,
+     "smiles": "C=CCC(=O)O",
+     "name": "but-3-enoic acid",
+     "rationale": "Has the same formula and a COOH (1, 5). It would require a CH2 near 3.1 and terminal vinyl signals near 5.2. The 1.89 (4) and 18.0 (8) signals argue against it.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "COOH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "=CH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "CH2 alpha to C=O"
+      }
+     ],
+     "confidence": 0.02
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "C4H6O2 has DoU 2. A signal at 11.79 (1) and 172.5 (5) indicate a carboxylic acid, accounting for one DoU. The two vinyl CH signals at 7.04 (2) and 5.82 (3), with sp2 carbons at 147.7 (6) and 122.7 (7), show an \u03b1,\u03b2-unsaturated acid, accounting for the second DoU. The strongly deshielded \u03b2-carbon and \u03b2-H indicate the alkene is substituted at the \u03b2 position. The CH3 at 1.89 (4) and 18.0 (8) is allylic. Together this gives crotonic acid, CH3-CH=CH-COOH. The values match the E isomer (lit. 7.08, 5.84, 1.91; 13C 172, 147, 122, 18). Methacrylic acid and but-3-enoic acid fit the shifts worse."
+  },
+  "repaired": null,
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "C/C=C/C(=O)O",
+     "name": "(E)-but-2-enoic acid (crotonic acid)",
+     "rationale": "COOH (1, 5: 172.5); \u03b2-CH at 7.04 (2) is deshielded by conjugation, with C-\u03b2 at 147.7 (6); \u03b1-CH at 5.82 (3), C-\u03b1 at 122.7 (7); allylic CH3 at 1.89 (4), 18.0 (8). Four 13C signals for four carbons. Shifts match literature values for trans-crotonic acid.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "COOH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "=CH beta to C=O (CH3-CH=)"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "=CH alpha to COOH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "allylic CH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "COOH carbon"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C-beta alkene"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "C-alpha alkene"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "CH3"
+      }
+     ],
+     "confidence": 0.88
+    },
+    "canonical_smiles": "C/C=C/C(=O)O",
+    "inchikey": "LDHQCZJRKDOVOX-NSCUHMNNSA-N",
+    "formula": "C4H6O2",
+    "exact_mass": 86.0368,
+    "degree_of_unsaturation": 2,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C4H6O2 == C4H6O2",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 2 == formula DoU 2",
+      "evidence": {
+       "structural": 2,
+       "expected": 2.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 observed 13C signals vs 4 distinct carbons (allowed 2..5)",
+      "evidence": {
+       "observed": 4,
+       "unique_carbons": 4,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 non-exchangeable 1H signals vs 3 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 4,
+       "environments": 3,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 3 matched group(s)",
+      "evidence": {
+       "carboxylic_acid": {
+        "1H": {
+         "peak_ids": [
+          1
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          5
+         ]
+        }
+       },
+       "alkene": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          6,
+          7
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 claim(s) consistent with the structure and cited peaks",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.982,
+    "claims_checked": true,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "C=C(C)C(=O)O",
+     "name": "methacrylic acid",
+     "rationale": "Also has COOH, a vinyl group and an allylic CH3 (1, 4, 8). However, its =CH2 protons (about 6.25 and 5.66) and carbons (about 136 and 128) fit 2, 6 and 7 poorly. The 7.04 and 147.7 signals favour a \u03b2-CH.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "COOH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "=CHH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "=CHH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "allylic CH3"
+      }
+     ],
+     "confidence": 0.07
+    },
+    "canonical_smiles": "C=C(C)C(=O)O",
+    "inchikey": "CERQOIWHTDAKMF-UHFFFAOYSA-N",
+    "formula": "C4H6O2",
+    "exact_mass": 86.0368,
+    "degree_of_unsaturation": 2,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C4H6O2 == C4H6O2",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 2 == formula DoU 2",
+      "evidence": {
+       "structural": 2,
+       "expected": 2.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 observed 13C signals vs 4 distinct carbons (allowed 2..5)",
+      "evidence": {
+       "observed": 4,
+       "unique_carbons": 4,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 non-exchangeable 1H signals vs 2 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 4,
+       "environments": 2,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 3 matched group(s)",
+      "evidence": {
+       "carboxylic_acid": {
+        "1H": {
+         "peak_ids": [
+          1
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          5
+         ]
+        }
+       },
+       "alkene": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          6,
+          7
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.8605,
+    "claims_checked": false,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 3,
+     "smiles": "C=CCC(=O)O",
+     "name": "but-3-enoic acid",
+     "rationale": "Has the same formula and a COOH (1, 5). It would require a CH2 near 3.1 and terminal vinyl signals near 5.2. The 1.89 (4) and 18.0 (8) signals argue against it.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "COOH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "=CH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "CH2 alpha to C=O"
+      }
+     ],
+     "confidence": 0.02
+    },
+    "canonical_smiles": "C=CCC(=O)O",
+    "inchikey": "PVEOYINWKBTPIZ-UHFFFAOYSA-N",
+    "formula": "C4H6O2",
+    "exact_mass": 86.0368,
+    "degree_of_unsaturation": 2,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C4H6O2 == C4H6O2",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 2 == formula DoU 2",
+      "evidence": {
+       "structural": 2,
+       "expected": 2.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 observed 13C signals vs 4 distinct carbons (allowed 2..5)",
+      "evidence": {
+       "observed": 4,
+       "unique_carbons": 4,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 non-exchangeable 1H signals vs 3 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 4,
+       "environments": 3,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 2 matched group(s)",
+      "evidence": {
+       "carboxylic_acid": {
+        "1H": {
+         "peak_ids": [
+          1
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          5
+         ]
+        }
+       },
+       "alkene": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          6,
+          7
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.853,
+    "claims_checked": false,
+    "status": "accepted"
+   }
+  ]
+ },
+ "rescored": [
+  {
+   "smiles": "C/C=C/C(=O)O",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.982
+  },
+  {
+   "smiles": "C=C(C)C(=O)O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.8605
+  },
+  {
+   "smiles": "C=CCC(=O)O",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.853
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "C/C=C/C(=O)O",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "C=C(C)C(=O)O",
+   "model_rank": 2,
+   "status": "accepted"
+  },
+  {
+   "smiles": "C=CCC(=O)O",
+   "model_rank": 3,
+   "status": "accepted"
+  }
+ ]
+}

@@ -1,0 +1,75 @@
+{
+ "id": "60004209",
+ "truth": "COc1ccc2c(c1O)-c1c(OC)c(OC)cc3c1C(C2)N(C)CC3",
+ "truth_inchikey": "QELDJEKNFOQJOY-UHFFFAOYSA-N",
+ "solvent": "CDCl3",
+ "formula": "C20H23NO4",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "CN1CCc2cc(OC)c(OC)c3c2C1Cc1ccc(OC)c(O)c1-3",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.94
+  },
+  {
+   "smiles": "CN1CCc2cc(OC)c(O)c3c2C1Cc1ccc(OC)c(OC)c1-3",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.883
+  },
+  {
+   "smiles": "CN1CCc2cc(OC)c(OC)c3c2C1Cc1cc(O)c(OC)cc1-3",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.865
+  }
+ ],
+ "cost_usd": 0.130606,
+ "llm_calls": 1,
+ "llm_ms": 47312,
+ "warnings": [],
+ "rescored": [
+  {
+   "smiles": "CN1CCc2cc(OC)c(OC)c3c2C1Cc1ccc(OC)c(O)c1-3",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 1.0
+  },
+  {
+   "smiles": "CN1CCc2cc(OC)c(O)c3c2C1Cc1ccc(OC)c(OC)c1-3",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 1.0
+  },
+  {
+   "smiles": "CN1CCc2cc(OC)c(OC)c3c2C1Cc1cc(O)c(OC)cc1-3",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 1.0
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "CN1CCc2cc(OC)c(OC)c3c2C1Cc1ccc(OC)c(O)c1-3",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "CN1CCc2cc(OC)c(O)c3c2C1Cc1ccc(OC)c(OC)c1-3",
+   "model_rank": 2,
+   "status": "accepted"
+  },
+  {
+   "smiles": "CN1CCc2cc(OC)c(OC)c3c2C1Cc1cc(O)c(OC)cc1-3",
+   "model_rank": 3,
+   "status": "accepted"
+  }
+ ]
+}

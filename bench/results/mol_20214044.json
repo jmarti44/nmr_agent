@@ -1,0 +1,75 @@
+{
+ "id": "20214044",
+ "truth": "COc1cc(O)ccc1C1=Cc2ccc(O)c(CC=C(C)C)c2OC1",
+ "truth_inchikey": "VRTQHEPVVCLRMQ-UHFFFAOYSA-N",
+ "solvent": "CDCl3",
+ "formula": "C21H22O4",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "COc1ccc2C=C(COc2c1)c1ccc(O)c(CC=C(C)C)c1O",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.9325
+  },
+  {
+   "smiles": "Oc1ccc2C=C(COc2c1CC=C(C)C)c1ccc(OC)cc1O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.895
+  },
+  {
+   "smiles": "Oc1ccc2C=C(COc2c1)c1ccc(OC)c(CC=C(C)C)c1O",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.865
+  }
+ ],
+ "cost_usd": 0.094461,
+ "llm_calls": 1,
+ "llm_ms": 40154,
+ "warnings": [],
+ "rescored": [
+  {
+   "smiles": "COc1ccc2C=C(COc2c1)c1ccc(O)c(CC=C(C)C)c1O",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 1.0
+  },
+  {
+   "smiles": "Oc1ccc2C=C(COc2c1CC=C(C)C)c1ccc(OC)cc1O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 1.0
+  },
+  {
+   "smiles": "Oc1ccc2C=C(COc2c1)c1ccc(OC)c(CC=C(C)C)c1O",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 1.0
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "COc1ccc2C=C(COc2c1)c1ccc(O)c(CC=C(C)C)c1O",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "Oc1ccc2C=C(COc2c1CC=C(C)C)c1ccc(OC)cc1O",
+   "model_rank": 2,
+   "status": "accepted"
+  },
+  {
+   "smiles": "Oc1ccc2C=C(COc2c1)c1ccc(OC)c(CC=C(C)C)c1O",
+   "model_rank": 3,
+   "status": "accepted"
+  }
+ ]
+}

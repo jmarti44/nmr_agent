@@ -1,0 +1,1357 @@
+{
+ "id": "20033053",
+ "truth": "COc1ccc(OC)c(C=O)c1",
+ "truth_inchikey": "AFUKNJHPZAVHGQ-UHFFFAOYSA-N",
+ "solvent": "CDCl3",
+ "formula": "C9H10O3",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "COc1ccc(OC)c(C=O)c1",
+   "model_rank": 1,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.135
+  },
+  {
+   "smiles": "COc1cccc(C=O)c1OC",
+   "model_rank": 2,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.0075
+  },
+  {
+   "smiles": "COc1ccc(C=O)c(OC)c1",
+   "model_rank": 3,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.0045
+  }
+ ],
+ "cost_usd": 0.09907,
+ "llm_calls": 2,
+ "llm_ms": 34553,
+ "warnings": [
+  "no candidate was accepted; one repair round was used"
+ ],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 10.44,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 7.32,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 7.13,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 6.94,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "1H",
+     "shift_ppm": 3.89,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "1H",
+     "shift_ppm": 3.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "13C",
+     "shift_ppm": 189.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "13C",
+     "shift_ppm": 156.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "13C",
+     "shift_ppm": 153.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 10,
+     "nucleus": "13C",
+     "shift_ppm": 124.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 11,
+     "nucleus": "13C",
+     "shift_ppm": 123.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 12,
+     "nucleus": "13C",
+     "shift_ppm": 113.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 13,
+     "nucleus": "13C",
+     "shift_ppm": 110.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 14,
+     "nucleus": "13C",
+     "shift_ppm": 56.1,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 15,
+     "nucleus": "13C",
+     "shift_ppm": 55.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "CDCl3",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "none",
+   "processing_log": [
+    "integrals not normalised: not every analyte 1H peak has one"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C9H10O3",
+   "observed_exact_mass": null,
+   "solvent": "CDCl3",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C9H10O3",
+   "degree_of_unsaturation": 5,
+   "functional_groups": [
+    {
+     "group": "aldehyde",
+     "present": true,
+     "confidence": 0.97,
+     "evidence": {
+      "peak_ids": [
+       1,
+       7
+      ],
+      "note": "CHO proton at 10.44 ppm and C=O carbon at 189.6 ppm indicate a conjugated aryl aldehyde."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.97,
+     "evidence": {
+      "peak_ids": [
+       2,
+       3,
+       4,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13
+      ],
+      "note": "Three ArH (7.32, 7.13, 6.94) and six aromatic carbons (110-157 ppm) indicate a trisubstituted benzene."
+     }
+    },
+    {
+     "group": "methoxy",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       5,
+       6,
+       14,
+       15
+      ],
+      "note": "Two OCH3 singlets at 3.89/3.80 ppm with carbons at 56.1/55.8 ppm."
+     }
+    },
+    {
+     "group": "ether",
+     "present": true,
+     "confidence": 0.93,
+     "evidence": {
+      "peak_ids": [
+       8,
+       9,
+       14,
+       15
+      ],
+      "note": "Two oxygenated aromatic carbons at 156.7/153.5 ppm bear the OCH3 groups (aryl methyl ethers)."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       5,
+       6
+      ],
+      "note": "Both methyls are OCH3 groups."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "COc1ccc(OC)c(C=O)c1",
+     "name": "2,5-dimethoxybenzaldehyde",
+     "rationale": "CHO at 10.44 (1) is deshielded by the ortho OMe. ArH 7.32 (2, H6 ortho to CHO), 7.13 (3, H4) and 6.94 (4, H3 ortho to OMe) fit a 1,2,4-pattern. The 13C data (189.6, 156.7, 153.5, 124.8, 123.5, 113.3, 110.3, 56.1, 55.8) match literature values for 2,5-dimethoxybenzaldehyde. Nine carbon signals are seen for nine carbons.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArCHO"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-6 ortho to CHO"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-4"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "ArH-3 ortho to 2-OMe"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 3,
+       "environment": "2-OCH3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 3,
+       "environment": "5-OCH3"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "CHO carbon"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "C2-O"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "C5-O"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "C1"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "C4H"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 0,
+       "environment": "C3H"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "C6H"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 0,
+       "environment": "OCH3"
+      }
+     ],
+     "confidence": 0.9
+    },
+    {
+     "rank": 2,
+     "smiles": "COc1cccc(C=O)c1OC",
+     "name": "2,3-dimethoxybenzaldehyde",
+     "rationale": "This isomer also has an ortho-OMe aldehyde (CHO near 10.4 ppm, peak 1) and two OMe groups (5, 6). However, its OMe carbons would be near 62 and 56 ppm, which does not match peaks 14 and 15.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArCHO"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-6"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-5"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "ArH-4"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 3,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 3,
+       "environment": "OCH3"
+      }
+     ],
+     "confidence": 0.05
+    },
+    {
+     "rank": 3,
+     "smiles": "COc1ccc(C=O)c(OC)c1",
+     "name": "2,4-dimethoxybenzaldehyde",
+     "rationale": "Same functional groups: aldehyde (1, 7) and two OMe (5, 6). However, H6 would appear near 7.8 ppm and C4 near 166 ppm, neither of which is observed.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArCHO"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-6"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-5"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "ArH-3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 3,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 3,
+       "environment": "OCH3"
+      }
+     ],
+     "confidence": 0.03
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "C9H10O3 has DoU 5: a benzene ring plus one C=O. The 10.44/189.6 ppm pair (1, 7) indicates an aryl aldehyde; the shift near 10.4 points to an ortho alkoxy group. Two OMe groups appear at 3.89/3.80 (5, 6) with carbons at 56.1/55.8 (14, 15). There are three ArH (2-4) and two O-bearing aromatic carbons (156.7, 153.5). Both OMe carbons sit near 56 ppm, so neither OMe is flanked on both sides (which would give about 62 ppm), and no carbon appears near 165 ppm (which would indicate a para-OMe to CHO). Together these favour the 2,5-pattern. The full 1H/13C data set matches literature values for 2,5-dimethoxybenzaldehyde."
+  },
+  "repaired": {
+   "formula_inferred": "C9H10O3",
+   "degree_of_unsaturation": 5,
+   "functional_groups": [
+    {
+     "group": "aldehyde",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       1,
+       7
+      ],
+      "note": "CHO at 10.44 ppm (ortho-OMe deshielding puts it above the 9-10.1 range) with C=O at 189.6 ppm."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.97,
+     "evidence": {
+      "peak_ids": [
+       2,
+       3,
+       4,
+       10,
+       11,
+       12,
+       13
+      ],
+      "note": "Three ArH and six aromatic carbons indicate a trisubstituted benzene."
+     }
+    },
+    {
+     "group": "methoxy",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       5,
+       6,
+       14,
+       15
+      ],
+      "note": "Two OCH3 groups: 1H 3.89/3.80 ppm, 13C 56.1/55.8 ppm."
+     }
+    },
+    {
+     "group": "ether",
+     "present": true,
+     "confidence": 0.93,
+     "evidence": {
+      "peak_ids": [
+       8,
+       9,
+       14,
+       15
+      ],
+      "note": "Aromatic C-O carbons at 156.7/153.5 ppm bear the OMe groups."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       5,
+       6
+      ],
+      "note": "Both methyls are OMe."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "COc1ccc(OC)c(C=O)c1",
+     "name": "2,5-dimethoxybenzaldehyde",
+     "rationale": "Kept despite the V08 failure. The CHO at 10.44 (1) is above the checker's 9-10.1 aldehyde range because ortho-OMe aldehydes typically fall at 10.3-10.5 ppm. 189.6 ppm (7) is an aldehyde carbon. No CH3 near 2.5 ppm rules out a methyl ketone, and an ester would give C=O near 166. All 15 shifts match literature values for this compound.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArCHO"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-6"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-4"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "ArH-3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 3,
+       "environment": "2-OCH3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 3,
+       "environment": "5-OCH3"
+      }
+     ],
+     "confidence": 0.88
+    },
+    {
+     "rank": 2,
+     "smiles": "COc1cccc(C=O)c1OC",
+     "name": "2,3-dimethoxybenzaldehyde",
+     "rationale": "Also an ortho-OMe aldehyde, so it has the same expected aldehyde-range conflict for peak 1. Its OMe carbons would be near 62 and 56 ppm, which does not fit peaks 14/15.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArCHO"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 3,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 3,
+       "environment": "OCH3"
+      }
+     ],
+     "confidence": 0.05
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "I have not changed the structure. Peak 1 (10.44 ppm) with peak 7 (189.6 ppm) is an aryl aldehyde. The checker rejected it only because 10.44 lies above its 9-10.1 aldehyde window; ortho-methoxy benzaldehydes routinely appear at 10.3-10.5 ppm. No non-aldehyde C9H10O3 isomer fits the data: a ketone would need a CH3 or CH2 signal near 2.5 ppm (none observed), and an ester carbonyl would sit near 166 ppm, not 189.6. Two OMe groups appear at 3.89/3.80 ppm (5, 6) with carbons at 56.1/55.8 (14, 15), and three ArH (2-4) form a 1,2,4-pattern. The full data set matches literature values for 2,5-dimethoxybenzaldehyde. Expect the rank-1 candidate to fail V08 again; this is a range-window artifact, not a structural error."
+  },
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "COc1ccc(OC)c(C=O)c1",
+     "name": "2,5-dimethoxybenzaldehyde",
+     "rationale": "CHO at 10.44 (1) is deshielded by the ortho OMe. ArH 7.32 (2, H6 ortho to CHO), 7.13 (3, H4) and 6.94 (4, H3 ortho to OMe) fit a 1,2,4-pattern. The 13C data (189.6, 156.7, 153.5, 124.8, 123.5, 113.3, 110.3, 56.1, 55.8) match literature values for 2,5-dimethoxybenzaldehyde. Nine carbon signals are seen for nine carbons.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArCHO"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-6 ortho to CHO"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-4"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "ArH-3 ortho to 2-OMe"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 3,
+       "environment": "2-OCH3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 3,
+       "environment": "5-OCH3"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "CHO carbon"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "C2-O"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "C5-O"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 0,
+       "environment": "C1"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 0,
+       "environment": "C4H"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 0,
+       "environment": "C3H"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "C6H"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 0,
+       "environment": "OCH3"
+      }
+     ],
+     "confidence": 0.9
+    },
+    "canonical_smiles": "COc1ccc(OC)c(C=O)c1",
+    "inchikey": "AFUKNJHPZAVHGQ-UHFFFAOYSA-N",
+    "formula": "C9H10O3",
+    "exact_mass": 166.063,
+    "degree_of_unsaturation": 5,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C9H10O3 == C9H10O3",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 5 == formula DoU 5",
+      "evidence": {
+       "structural": 5,
+       "expected": 5.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 9 distinct carbons (allowed 7..10)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 9,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "6 non-exchangeable 1H signals vs 6 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 6,
+       "environments": 6,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "fail",
+      "severity": "hard",
+      "message": "aldehyde: no 1H peak in h_aldehyde",
+      "evidence": {
+       "aldehyde": {
+        "1H": {
+         "missing": [
+          "h_aldehyde"
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7
+         ]
+        }
+       },
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          5,
+          6
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          14,
+          15
+         ]
+        }
+       },
+       "methoxy": {
+        "1H": {
+         "peak_ids": [
+          5,
+          6
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          14,
+          15
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          5,
+          6
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "merged duplicate connectivity from rank(s) [4]",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.135,
+    "claims_checked": true,
+    "status": "rejected"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "COc1cccc(C=O)c1OC",
+     "name": "2,3-dimethoxybenzaldehyde",
+     "rationale": "This isomer also has an ortho-OMe aldehyde (CHO near 10.4 ppm, peak 1) and two OMe groups (5, 6). However, its OMe carbons would be near 62 and 56 ppm, which does not match peaks 14 and 15.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArCHO"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-6"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-5"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "ArH-4"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 3,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 3,
+       "environment": "OCH3"
+      }
+     ],
+     "confidence": 0.05
+    },
+    "canonical_smiles": "COc1cccc(C=O)c1OC",
+    "inchikey": "JIVGSHFYXPRRSZ-UHFFFAOYSA-N",
+    "formula": "C9H10O3",
+    "exact_mass": 166.063,
+    "degree_of_unsaturation": 5,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C9H10O3 == C9H10O3",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 5 == formula DoU 5",
+      "evidence": {
+       "structural": 5,
+       "expected": 5.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 9 distinct carbons (allowed 7..10)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 9,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "6 non-exchangeable 1H signals vs 6 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 6,
+       "environments": 6,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "fail",
+      "severity": "hard",
+      "message": "aldehyde: no 1H peak in h_aldehyde",
+      "evidence": {
+       "aldehyde": {
+        "1H": {
+         "missing": [
+          "h_aldehyde"
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7
+         ]
+        }
+       },
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          5,
+          6
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          14,
+          15
+         ]
+        }
+       },
+       "methoxy": {
+        "1H": {
+         "peak_ids": [
+          5,
+          6
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          14,
+          15
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          5,
+          6
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "merged duplicate connectivity from rank(s) [5]",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.0075,
+    "claims_checked": false,
+    "status": "rejected"
+   },
+   {
+    "candidate": {
+     "rank": 3,
+     "smiles": "COc1ccc(C=O)c(OC)c1",
+     "name": "2,4-dimethoxybenzaldehyde",
+     "rationale": "Same functional groups: aldehyde (1, 7) and two OMe (5, 6). However, H6 would appear near 7.8 ppm and C4 near 166 ppm, neither of which is observed.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArCHO"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH-6"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH-5"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "ArH-3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 3,
+       "environment": "OCH3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 3,
+       "environment": "OCH3"
+      }
+     ],
+     "confidence": 0.03
+    },
+    "canonical_smiles": "COc1ccc(C=O)c(OC)c1",
+    "inchikey": "LWRSYTXEQUUTKW-UHFFFAOYSA-N",
+    "formula": "C9H10O3",
+    "exact_mass": 166.063,
+    "degree_of_unsaturation": 5,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C9H10O3 == C9H10O3",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 5 == formula DoU 5",
+      "evidence": {
+       "structural": 5,
+       "expected": 5.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 9 distinct carbons (allowed 7..10)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 9,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "6 non-exchangeable 1H signals vs 6 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 6,
+       "environments": 6,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "fail",
+      "severity": "hard",
+      "message": "aldehyde: no 1H peak in h_aldehyde",
+      "evidence": {
+       "aldehyde": {
+        "1H": {
+         "missing": [
+          "h_aldehyde"
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          7
+         ]
+        }
+       },
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          5,
+          6
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          14,
+          15
+         ]
+        }
+       },
+       "methoxy": {
+        "1H": {
+         "peak_ids": [
+          5,
+          6
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          14,
+          15
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          5,
+          6
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.0045,
+    "claims_checked": false,
+    "status": "rejected"
+   }
+  ]
+ },
+ "rescored": [
+  {
+   "smiles": "COc1ccc(OC)c(C=O)c1",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.985
+  },
+  {
+   "smiles": "COc1cccc(C=O)c1OC",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.8575
+  },
+  {
+   "smiles": "COc1ccc(C=O)c(OC)c1",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.8545
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "COc1ccc(OC)c(C=O)c1",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "COc1cccc(C=O)c1OC",
+   "model_rank": 2,
+   "status": "accepted"
+  },
+  {
+   "smiles": "COc1ccc(C=O)c(OC)c1",
+   "model_rank": 3,
+   "status": "accepted"
+  }
+ ]
+}

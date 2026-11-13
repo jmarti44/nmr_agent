@@ -1,0 +1,972 @@
+{
+ "id": "10016750",
+ "truth": "CCCC(C)=O",
+ "truth_inchikey": "XNLICIUVMPYHGG-UHFFFAOYSA-N",
+ "solvent": "CDCl3",
+ "formula": "C5H10O",
+ "h_integrals_given": false,
+ "candidates": [
+  {
+   "smiles": "CC(=O)CCC",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.985
+  },
+  {
+   "smiles": "CC(=O)C(C)C",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.859
+  },
+  {
+   "smiles": "CCC(=O)CC",
+   "model_rank": 3,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.513
+  }
+ ],
+ "cost_usd": 0.045085,
+ "llm_calls": 1,
+ "llm_ms": 18175,
+ "warnings": [],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 2.34,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 2.07,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 1.54,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "water",
+     "exchangeable_hint": false,
+     "label": "CDCl3 water/HOD"
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 0.85,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "13C",
+     "shift_ppm": 209.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "13C",
+     "shift_ppm": 45.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "13C",
+     "shift_ppm": 29.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "13C",
+     "shift_ppm": 17.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "13C",
+     "shift_ppm": 13.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "CDCl3",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "none",
+   "processing_log": [
+    "1H 1.54 ppm tagged water: CDCl3 water/HOD",
+    "integrals not normalised: not every analyte 1H peak has one"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C5H10O",
+   "observed_exact_mass": null,
+   "solvent": "CDCl3",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C5H10O",
+   "degree_of_unsaturation": 1,
+   "functional_groups": [
+    {
+     "group": "ketone",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       5
+      ],
+      "note": "13C at 209.3 ppm is a typical dialkyl ketone C=O."
+     }
+    },
+    {
+     "group": "acetyl",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       2,
+       7
+      ],
+      "note": "1H at 2.07 and 13C at 29.9 fit a CH3-C(=O) methyl ketone."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       4,
+       9,
+       2,
+       7
+      ],
+      "note": "Terminal CH3 at 0.85/13.7 and acetyl CH3 at 2.07/29.9."
+     }
+    },
+    {
+     "group": "aldehyde",
+     "present": false,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       5
+      ],
+      "note": "No 1H signal at 9-10 ppm and the C=O at 209.3 has no CHO proton, so it is a ketone."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "CC(=O)CCC",
+     "name": "pentan-2-one",
+     "rationale": "Five distinct 13C signals: C=O 209.3 (5), COCH2 45.7 (6), COCH3 29.9 (7), CH2 17.3 (8), CH3 13.7 (9). 1H: CH2 alpha to C=O at 2.34 (1), acetyl CH3 at 2.07 (2), central CH2 near 1.54 (3, overlapping the water position), terminal CH3 at 0.85 (4). DoU of 1 is accounted for by the C=O.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "C(=O)CH2"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "CH3C(=O)"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "CH2CH3 (hidden under water)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "CH2CH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "ketone C=O"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C(=O)CH2"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "CH3C(=O)"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "CH2CH3"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "CH2CH3"
+      }
+     ],
+     "confidence": 0.9
+    },
+    {
+     "rank": 2,
+     "smiles": "CC(=O)C(C)C",
+     "name": "3-methylbutan-2-one",
+     "rationale": "Also a methyl ketone (5, 2). However, it has only 4 carbon environments versus the 5 observed, its CH would be a septet near 2.6 ppm, and its 13C shifts (about 41.6 and 18 ppm) fit less well.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "C(=O)CH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "CH3C(=O)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 6,
+       "environment": "CH(CH3)2"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "C=O"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "COCH3"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "CH(CH3)2"
+      }
+     ],
+     "confidence": 0.06
+    },
+    {
+     "rank": 3,
+     "smiles": "CCC(=O)CC",
+     "name": "pentan-3-one",
+     "rationale": "This is a ketone with C=O near 211 ppm (5), but by symmetry it has only 3 carbon environments and no acetyl singlet, so it is inconsistent with 13C peaks 7 and 8 and 1H peak 2.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "C(=O)CH2"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 6,
+       "environment": "CH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "C=O"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CH2"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "CH3"
+      }
+     ],
+     "confidence": 0.02
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "C5H10O with DoU 1. The 13C signal at 209.3 (5) indicates a ketone, and the absence of any 9-10 ppm proton excludes an aldehyde. Five 13C environments (5-9) rule out symmetric pentan-3-one and 3-methylbutan-2-one. The acetyl CH3 appears at 2.07 (2) and 29.9 (7). An alpha-CH2 at 2.34 (1) and 45.7 (6) plus an ethyl tail at 0.85 (4) and 13.7 (9) with the CH2 at 17.3 (8) give pentan-2-one. The central CH2 proton, expected near 1.5-1.6 ppm, coincides with the water-labelled peak 3; it is used as evidence because the structure requires it and nothing else explains it. Proton count: 2 + 3 + 2 + 3 = 10."
+  },
+  "repaired": null,
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "CC(=O)CCC",
+     "name": "pentan-2-one",
+     "rationale": "Five distinct 13C signals: C=O 209.3 (5), COCH2 45.7 (6), COCH3 29.9 (7), CH2 17.3 (8), CH3 13.7 (9). 1H: CH2 alpha to C=O at 2.34 (1), acetyl CH3 at 2.07 (2), central CH2 near 1.54 (3, overlapping the water position), terminal CH3 at 0.85 (4). DoU of 1 is accounted for by the C=O.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "C(=O)CH2"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "CH3C(=O)"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "CH2CH3 (hidden under water)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 3,
+       "environment": "CH2CH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "ketone C=O"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "C(=O)CH2"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "CH3C(=O)"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "CH2CH3"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "CH2CH3"
+      }
+     ],
+     "confidence": 0.9
+    },
+    "canonical_smiles": "CCCC(C)=O",
+    "inchikey": "XNLICIUVMPYHGG-UHFFFAOYSA-N",
+    "formula": "C5H10O",
+    "exact_mass": 86.0732,
+    "degree_of_unsaturation": 1,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C5H10O == C5H10O",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 1 == formula DoU 1",
+      "evidence": {
+       "structural": 1,
+       "expected": 1.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 observed 13C signals vs 5 distinct carbons (allowed 3..6)",
+      "evidence": {
+       "observed": 5,
+       "unique_carbons": 5,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "3 non-exchangeable 1H signals vs 4 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 3,
+       "environments": 4,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 3 matched group(s)",
+      "evidence": {
+       "ketone": {
+        "13C": {
+         "peak_ids": [
+          5
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          4
+         ]
+        }
+       },
+       "acetyl": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          5
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 claim(s) consistent with the structure and cited peaks",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.985,
+    "claims_checked": true,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "CC(=O)C(C)C",
+     "name": "3-methylbutan-2-one",
+     "rationale": "Also a methyl ketone (5, 2). However, it has only 4 carbon environments versus the 5 observed, its CH would be a septet near 2.6 ppm, and its 13C shifts (about 41.6 and 18 ppm) fit less well.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "C(=O)CH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "CH3C(=O)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 6,
+       "environment": "CH(CH3)2"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "C=O"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 0,
+       "environment": "COCH3"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 0,
+       "environment": "CH(CH3)2"
+      }
+     ],
+     "confidence": 0.06
+    },
+    "canonical_smiles": "CC(=O)C(C)C",
+    "inchikey": "SYBYTAAJFKOIEJ-UHFFFAOYSA-N",
+    "formula": "C5H10O",
+    "exact_mass": 86.0732,
+    "degree_of_unsaturation": 1,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C5H10O == C5H10O",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 1 == formula DoU 1",
+      "evidence": {
+       "structural": 1,
+       "expected": 1.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 observed 13C signals vs 4 distinct carbons (allowed 2..5)",
+      "evidence": {
+       "observed": 5,
+       "unique_carbons": 4,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "3 non-exchangeable 1H signals vs 3 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 3,
+       "environments": 3,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 3 matched group(s)",
+      "evidence": {
+       "ketone": {
+        "13C": {
+         "peak_ids": [
+          5
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          4
+         ]
+        }
+       },
+       "acetyl": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          5
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.859,
+    "claims_checked": false,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 3,
+     "smiles": "CCC(=O)CC",
+     "name": "pentan-3-one",
+     "rationale": "This is a ketone with C=O near 211 ppm (5), but by symmetry it has only 3 carbon environments and no acetyl singlet, so it is inconsistent with 13C peaks 7 and 8 and 1H peak 2.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "C(=O)CH2"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 6,
+       "environment": "CH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 0,
+       "environment": "C=O"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 0,
+       "environment": "CH2"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 0,
+       "environment": "CH3"
+      }
+     ],
+     "confidence": 0.02
+    },
+    "canonical_smiles": "CCC(=O)CC",
+    "inchikey": "FDPIMTJIUBPUKL-UHFFFAOYSA-N",
+    "formula": "C5H10O",
+    "exact_mass": 86.0732,
+    "degree_of_unsaturation": 1,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C5H10O == C5H10O",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 1 == formula DoU 1",
+      "evidence": {
+       "structural": 1,
+       "expected": 1.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "fail",
+      "severity": "soft",
+      "message": "5 observed 13C signals vs 3 distinct carbons (allowed 1..4)",
+      "evidence": {
+       "observed": 5,
+       "unique_carbons": 3,
+       "too_many": true,
+       "blocking": true
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "3 non-exchangeable 1H signals vs 2 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 3,
+       "environments": 2,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 2 matched group(s)",
+      "evidence": {
+       "ketone": {
+        "13C": {
+         "peak_ids": [
+          5
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          4
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.513,
+    "claims_checked": false,
+    "status": "flagged"
+   }
+  ]
+ },
+ "rescored": [
+  {
+   "smiles": "CC(=O)CCC",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.985
+  },
+  {
+   "smiles": "CC(=O)C(C)C",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.859
+  },
+  {
+   "smiles": "CCC(=O)CC",
+   "model_rank": 3,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.513
+  }
+ ],
+ "rescored_all": [
+  {
+   "smiles": "CC(=O)CCC",
+   "model_rank": 1,
+   "status": "accepted"
+  },
+  {
+   "smiles": "CC(=O)C(C)C",
+   "model_rank": 2,
+   "status": "accepted"
+  },
+  {
+   "smiles": "CCC(=O)CC",
+   "model_rank": 3,
+   "status": "flagged"
+  }
+ ]
+}
