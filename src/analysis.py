@@ -36,6 +36,13 @@ _REPORT_RULES_PER_CANDIDATE = 6
 _REPORT_MESSAGE_CHARS = 240
 
 
+class CallMeter:
+    """Counts the model calls an analysis made, even if it fails afterwards, so the daily budget is exact."""
+
+    def __init__(self) -> None:
+        self.calls = 0
+
+
 def new_request_id() -> str:
     return f"req_{uuid.uuid4().hex[:16]}"
 
@@ -76,6 +83,25 @@ def _verify(
 def _claimed_candidate(verified: list[VerifiedCandidate]) -> VerifiedCandidate | None:
     """The candidate the model's claims were checked against (it is marked by the verifier)."""
     return next((v for v in verified if v.claims_checked), None)
+
+
+def verify_after_repair(
+    table: PeakTable, context: SampleContext, first: LLMHypothesis, repaired: LLMHypothesis
+) -> tuple[list[VerifiedCandidate], LLMHypothesis]:
+    """Old and new candidates verified together. The newest claims describe the repair round's first candidate
+    only, so first-round candidates are not checked against them. Returns the verified list and the hypothesis
+    whose claims and DoU the response reports."""
+    extra = _renumber_after(first.candidates, repaired.candidates)
+    return _verify(table, [*first.candidates, *extra], repaired, context, extra[0].rank), repaired
+
+
+def reverify(
+    table: PeakTable, context: SampleContext, first: LLMHypothesis, repaired: LLMHypothesis | None = None
+) -> list[VerifiedCandidate]:
+    """Verify saved model answers with the current verifier, with no model call (used by bench rescoring)."""
+    if repaired is None:
+        return _verify(table, first.candidates, first, context, first.candidates[0].rank)
+    return verify_after_repair(table, context, first, repaired)[0]
 
 
 def _renumber_after(old: list[Any], new: list[Any]) -> list[Any]:
@@ -127,6 +153,28 @@ def run_analysis(
     client: Any,
     request_id: str | None = None,
     upload: bytes | None = None,
+    trace: dict[str, Any] | None = None,
+    meter: CallMeter | None = None,
+) -> AnalysisResponse:
+    """`trace`, if given, is filled with what is needed to re-verify offline: the table, the context and each
+    round's sanitized answer. `meter`, if given, ends up holding the number of model calls made, whatever the
+    outcome."""
+    convo_box: list[Conversation] = []
+    try:
+        return _run_analysis(request, settings, client, request_id, upload, trace, convo_box)
+    finally:
+        if meter is not None and convo_box:
+            meter.calls = len(convo_box[0].calls)
+
+
+def _run_analysis(
+    request: AnalysisRequest,
+    settings: Settings,
+    client: Any,
+    request_id: str | None,
+    upload: bytes | None,
+    trace: dict[str, Any] | None,
+    convo_box: list[Conversation],
 ) -> AnalysisResponse:
     from src.verify.verifier import verify_functional_groups
 
@@ -136,8 +184,11 @@ def run_analysis(
     prompt_ms = _ms(time.perf_counter() - started)
 
     convo = Conversation(prompt, settings, client, request_id=request_id)
+    convo_box.append(convo)
     raw = convo.elucidate()
     hypothesis, warnings = sanitize_hypothesis(raw, table)
+    first_round = hypothesis
+    repaired_round = None
     verify_s = 0.0
 
     t = time.perf_counter()
@@ -149,13 +200,10 @@ def run_analysis(
         try:
             raw2 = convo.repair(build_repair_report(verified))
             hyp2, warn2 = sanitize_hypothesis(raw2, table)
-            extra = _renumber_after(hypothesis.candidates, hyp2.candidates)
-            # Old and new candidates are verified together. The newest claims describe the repair round's
-            # first candidate only, so first-round candidates are not checked against them.
-            claims_rank = extra[0].rank
             t = time.perf_counter()
-            verified = _verify(table, [*hypothesis.candidates, *extra], hyp2, context, claims_rank)
+            verified, _ = verify_after_repair(table, context, hypothesis, hyp2)
             verify_s += time.perf_counter() - t
+            repaired_round = hyp2
             raw, hypothesis = raw2, hyp2
             warnings += ["no candidate was accepted; one repair round was used", *warn2]
         except LLMError as e:
@@ -163,6 +211,14 @@ def run_analysis(
                 f"repair round failed ({getattr(e, 'reason', type(e).__name__)}); kept the first answer"
             )
     warnings += convo.warnings
+    if trace is not None:
+        trace.update(
+            table=table.model_dump(mode="json"),
+            context=context.model_dump(mode="json"),
+            first=first_round.model_dump(mode="json"),
+            repaired=repaired_round.model_dump(mode="json") if repaired_round else None,
+            verified_untrimmed=[v.model_dump(mode="json") for v in verified],
+        )
     warnings += [
         line.removeprefix(WARNING_PREFIX) for line in table.processing_log if line.startswith(WARNING_PREFIX)
     ]

@@ -32,23 +32,49 @@ def check_api_key(settings: Settings, supplied: str | None) -> None:
 
 
 class UsageGuard:
+    """Hourly limit per client and a daily budget of model calls.
+
+    The budget is reserved when a request is admitted (up to `max_llm_calls`, or what is left of the day's
+    budget) and settled when it ends with the calls it actually made, successful or not. Concurrent requests
+    therefore cannot overshoot it, and a failed analysis still counts."""
+
+    SWEEP_EVERY_S = 60.0
+
     def __init__(self, clock=time.time) -> None:
         self._clock = clock
         self._lock = threading.Lock()
         self._hits: dict[str, deque[float]] = defaultdict(deque)
         self._day = ""
-        self._calls_today = 0
+        self._calls_today = 0  # settled calls
+        self._reserved = 0  # calls promised to analyses still running
+        self._last_sweep = 0.0
 
     def _today(self) -> str:
         return datetime.fromtimestamp(self._clock(), UTC).strftime("%Y-%m-%d")
 
-    def admit(self, client: str, settings: Settings) -> None:
-        """Raise GuardError(429) if this client is over its hourly limit or today's budget is spent."""
+    def _roll_day(self) -> None:
+        if self._day != self._today():
+            self._day, self._calls_today = self._today(), 0
+
+    def _sweep(self, now: float) -> None:
+        """Forget clients with no hit in the last hour, so the table cannot grow without bound."""
+        if now - self._last_sweep < self.SWEEP_EVERY_S:
+            return
+        self._last_sweep = now
+        for client in [c for c, hits in self._hits.items() if not hits or now - hits[-1] >= HOUR_S]:
+            del self._hits[client]
+
+    def admit(self, client: str, settings: Settings) -> int:
+        """Reserve model calls for one analysis and return how many it may make.
+
+        Raises GuardError(429) if the client is over its hourly limit or the day's budget is spent or fully
+        reserved. The caller must call `settle` with the returned number when the analysis ends."""
         now = self._clock()
         with self._lock:
-            if self._day != self._today():
-                self._day, self._calls_today = self._today(), 0
-            if self._calls_today >= settings.daily_llm_budget:
+            self._roll_day()
+            self._sweep(now)
+            free = settings.daily_llm_budget - self._calls_today - self._reserved
+            if free <= 0:
                 raise GuardError(
                     429, "DAILY_BUDGET_EXHAUSTED", "today's model-call budget is used up; try again tomorrow",
                     retry_after=self._seconds_to_midnight(now),
@@ -62,13 +88,16 @@ class UsageGuard:
                     429, "RATE_LIMITED", f"limit of {settings.per_ip_per_hour} analyses per hour", wait
                 )
             hits.append(now)
+            reserved = min(settings.max_llm_calls, free)
+            self._reserved += reserved
+            return reserved
 
-    def record_calls(self, n: int) -> None:
-        """Add the model calls an analysis actually made to today's total."""
+    def settle(self, reserved: int, calls_made: int) -> None:
+        """Give back the reservation and add the calls actually made to today's total."""
         with self._lock:
-            if self._day != self._today():
-                self._day, self._calls_today = self._today(), 0
-            self._calls_today += n
+            self._roll_day()
+            self._reserved = max(0, self._reserved - reserved)
+            self._calls_today += calls_made
 
     @staticmethod
     def _seconds_to_midnight(now: float) -> int:

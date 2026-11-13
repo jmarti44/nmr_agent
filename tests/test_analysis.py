@@ -346,3 +346,38 @@ def test_claimed_candidate_lookup_does_not_depend_on_the_wording_of_the_merge_me
     source = inspect.getsource(_claimed_candidate)
     assert "re." not in source and "regex" not in source
     assert _claimed_candidate([v for v in verified if not v.claims_checked]) is None
+
+
+def _reverified(trace):
+    from src.analysis import reverify
+    from src.schemas import LLMHypothesis, PeakTable, SampleContext
+
+    rep = trace["repaired"]
+    return reverify(
+        PeakTable.model_validate(trace["table"]),
+        SampleContext.model_validate(trace["context"]),
+        LLMHypothesis.model_validate(trace["first"]),
+        LLMHypothesis.model_validate(rep) if rep else None,
+    )
+
+
+@pytest.mark.parametrize(
+    "replies",
+    [
+        [message(hypothesis_json([ASPIRIN, ISOMER]))],  # accepted in one call
+        [message(hypothesis_json([ISOMER])), message(hypothesis_json([ASPIRIN]))],  # repair rescues it
+    ],
+)
+def test_the_saved_trace_reverifies_to_exactly_the_stored_result(replies):
+    """Offline rescoring (bench/benchmark.py rescore) must reproduce a live run on unchanged code."""
+    trace: dict = {}
+    r = run_analysis(aspirin_request(), Settings(), FakeAPI(list(replies)).client(), "req_test", trace=trace)
+    again = _reverified(trace)
+    got = [(v.candidate.smiles, v.status, v.verifier_score, v.final_confidence) for v in again][
+        : len(r.candidates)
+    ]
+    want = [(v.candidate.smiles, v.status, v.verifier_score, v.final_confidence) for v in r.candidates]
+    assert got == want
+    assert [v["candidate"]["smiles"] for v in trace["verified_untrimmed"]] == [
+        v.candidate.smiles for v in again
+    ]

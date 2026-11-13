@@ -64,20 +64,25 @@ async def analyze(
     client: Annotated[Any, Depends(get_llm_client)],
     guard: Annotated[UsageGuard, Depends(get_guard)],
 ):
-    from src.analysis import new_request_id, run_analysis
+    from src.analysis import CallMeter, new_request_id, run_analysis
 
     request_id = new_request_id()
     try:
         check_api_key(settings, request.headers.get("x-api-key"))
-        guard.admit(request.client.host if request.client else "unknown", settings)
+        reserved = guard.admit(request.client.host if request.client else "unknown", settings)
     except GuardError as e:
         headers = {"Retry-After": str(e.retry_after)} if e.retry_after else None
         return _error(e.status, e.code, e.detail, request_id, headers)
+    meter = CallMeter()
+    # An analysis may not make more calls than were reserved for it (fewer than usual near the day's end).
+    effective = (
+        settings.model_copy(update={"max_llm_calls": reserved})
+        if reserved < settings.max_llm_calls
+        else settings
+    )
     try:
         req, upload = await read_analysis_request(request)
-        result = await run_in_threadpool(run_analysis, req, settings, client, request_id, upload)
-        guard.record_calls(result.usage.llm_calls)
-        return result
+        return await run_in_threadpool(run_analysis, req, effective, client, request_id, upload, None, meter)
     except (PromptTooLarge, ValueError) as e:
         return _error(400, "INVALID_INPUT", str(e), request_id)
     except LLMRefused as e:
@@ -93,6 +98,8 @@ async def analyze(
             return _error(503, "LLM_UNAVAILABLE", e.detail, request_id)
         headers = {"Retry-After": e.retry_after} if e.retry_after else None
         return _error(502, "LLM_UNAVAILABLE", f"{e.reason}: {e.detail}", request_id, headers)
+    finally:
+        guard.settle(reserved, meter.calls)
 
 
 @router.post(
