@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import stat
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Annotated
@@ -227,9 +228,7 @@ def _outcome_problems(case: MemoryCase, expected: OutcomeConfig) -> list[str]:
 # --------------------------------------------------------------------------- loader
 
 
-def load_store(
-    root: Path, *, strict: bool, expected_outcome_config: OutcomeConfig | None = None
-) -> MemoryStore:
+def load_store(root: Path, *, strict: bool, expected_outcome_config: OutcomeConfig | None) -> MemoryStore:
     """Load ``root/cases/*.json`` against ``root/manifest.json``.
 
     A case file is rejected when:
@@ -242,7 +241,12 @@ def load_store(
        formula, Murcko scaffold or generic scaffold, or ``dou``, ``carbon_count`` or ``heavy_atoms`` differ
        from the formula;
     f. ``expected_outcome_config`` is given and ``agent_outcome`` differs in model_id, prompt_version or
-       settings_hash.
+       settings_hash;
+    g. the path matching ``cases/*.json`` is not a regular file (a symlink, directory, ...), or reading it
+       fails with an ``OSError``.
+
+    ``expected_outcome_config`` is a required keyword argument so that rule (f) cannot be skipped by omission;
+    pass ``None`` explicitly only to load without the check (the caller then owns that decision).
 
     ``strict=True``: the first rejection raises :class:`CaseRejectedError` naming file and reason.
     ``strict=False``: the case is skipped, a structlog error is emitted, and the rejection is returned in
@@ -255,7 +259,8 @@ def load_store(
     listed = {e.case_id: e.sha256 for e in manifest.cases}
     cases_dir = root / CASES_DIR
     if cases_dir.is_dir():
-        files = sorted(p for p in cases_dir.glob("*.json") if p.is_file())
+        # iterdir, not glob/is_file: a dangling or directory entry must be seen so it can be rejected
+        files = sorted(p for p in cases_dir.iterdir() if p.name.endswith(".json"))
     elif listed:
         raise ManifestError(f"{cases_dir}: directory missing but the manifest lists {len(listed)} case(s)")
     else:
@@ -273,7 +278,16 @@ def load_store(
     present_names = {p.name for p in files}
     for path in files:
         rel = f"{CASES_DIR}/{path.name}"
-        raw = path.read_bytes()
+        try:
+            mode = path.lstat().st_mode
+            if not stat.S_ISREG(mode):
+                kind = "a symlink" if stat.S_ISLNK(mode) else "not a regular file"
+                reject(rel, f"{kind}; only regular files are read from cases/")
+                continue
+            raw = path.read_bytes()
+        except OSError as e:
+            reject(rel, f"cannot read file: {e.strerror or e}")
+            continue
         try:
             case = MemoryCase.model_validate_json(raw)
         except ValidationError as e:

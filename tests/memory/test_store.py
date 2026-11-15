@@ -5,6 +5,7 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import os
 from pathlib import Path
 
 import pytest
@@ -256,7 +257,14 @@ def test_lenient_mode_skips_logs_and_reports(tmp_path, rule, build, needle):
     assert [(e["file"], e["reason"]) for e in errors] == [(r.file, r.reason) for r in store.rejections]
 
 
-def test_rule_f_not_applied_without_expected_config(tmp_path):
+def test_expected_outcome_config_is_required(tmp_path):
+    one_case_store(tmp_path, make_case())
+    for strict in (True, False):
+        with pytest.raises(TypeError):
+            load_store(tmp_path, strict=strict)  # type: ignore[call-arg]
+
+
+def test_rule_f_not_applied_when_config_is_explicitly_none(tmp_path):
     case = make_case()
     case["agent_outcome"]["model_id"] = "anything"
     one_case_store(tmp_path, case)
@@ -318,7 +326,7 @@ def test_empty_store_version_is_none(tmp_path):
 def test_empty_store_without_cases_dir(tmp_path):
     write_store(tmp_path, {}, {})
     (tmp_path / "cases").rmdir()
-    assert load_store(tmp_path, strict=True).memory_version == "none"
+    assert load_store(tmp_path, strict=True, expected_outcome_config=CONFIG).memory_version == "none"
 
 
 def test_pending_and_rejected_directories_are_ignored(tmp_path):
@@ -335,14 +343,17 @@ def test_pending_and_rejected_directories_are_ignored(tmp_path):
         store = load_store(tmp_path, strict=strict, expected_outcome_config=CONFIG)
         assert [c.case_id for c in store.cases] == ["mem-000001"]
         assert store.rejections == ()
-        assert store.memory_version == load_store(baseline, strict=True).memory_version
+        assert (
+            store.memory_version
+            == load_store(baseline, strict=True, expected_outcome_config=CONFIG).memory_version
+        )
 
 
 def test_only_json_files_in_cases_are_read(tmp_path):
     one_case_store(tmp_path, make_case())
     (tmp_path / "cases" / "README.md").write_text("notes")
     (tmp_path / "cases" / "sub").mkdir()
-    assert len(load_store(tmp_path, strict=True).cases) == 1
+    assert len(load_store(tmp_path, strict=True, expected_outcome_config=CONFIG).cases) == 1
 
 
 # --------------------------------------------------------------------------- store-level faults
@@ -352,7 +363,7 @@ def test_missing_manifest_raises_manifest_error_in_both_modes(tmp_path):
     (tmp_path / "cases").mkdir()
     for strict in (True, False):
         with pytest.raises(ManifestError):
-            load_store(tmp_path, strict=strict)
+            load_store(tmp_path, strict=strict, expected_outcome_config=CONFIG)
 
 
 @pytest.mark.parametrize(
@@ -377,7 +388,7 @@ def test_invalid_manifest_raises_manifest_error_in_both_modes(tmp_path, body):
     (tmp_path / "manifest.json").write_text(body)
     for strict in (True, False):
         with pytest.raises(ManifestError):
-            load_store(tmp_path, strict=strict)
+            load_store(tmp_path, strict=strict, expected_outcome_config=CONFIG)
 
 
 def test_missing_cases_dir_with_listed_cases_raises_manifest_error(tmp_path):
@@ -385,7 +396,7 @@ def test_missing_cases_dir_with_listed_cases_raises_manifest_error(tmp_path):
         json.dumps({"store_schema_version": "1", "cases": [{"case_id": "mem-000001", "sha256": "0" * 64}]})
     )
     with pytest.raises(ManifestError):
-        load_store(tmp_path, strict=False)
+        load_store(tmp_path, strict=False, expected_outcome_config=CONFIG)
 
 
 # --------------------------------------------------------------------------- MemoryCase model
@@ -449,3 +460,105 @@ def test_extra_fields_forbidden_in_nested_models():
 def test_unknown_solvent_rejected():
     with pytest.raises(ValidationError):
         MemoryCase.model_validate(make_case(solvent="toluene-d8"))
+
+
+# --------------------------------------------------------------------------- RM1-1: unreadable files
+
+
+@pytest.mark.skipif(os.geteuid() == 0, reason="root can read mode-000 files")
+def test_unreadable_file_is_a_rejection_strict(tmp_path):
+    one_case_store(tmp_path, make_case())
+    path = tmp_path / "cases" / "mem-000001.json"
+    path.chmod(0o000)
+    try:
+        with pytest.raises(CaseRejectedError) as exc:
+            load_store(tmp_path, strict=True, expected_outcome_config=CONFIG)
+    finally:
+        path.chmod(0o644)
+    assert exc.value.file == "cases/mem-000001.json"
+    assert "cannot read file" in exc.value.reason
+
+
+@pytest.mark.skipif(os.geteuid() == 0, reason="root can read mode-000 files")
+def test_unreadable_file_is_skipped_lenient_and_other_case_loads(tmp_path):
+    good, locked = dump(make_case("mem-000001")), dump(make_case("mem-000002", chem=ETHYL_ACETATE))
+    write_store(tmp_path, {"mem-000001.json": good, "mem-000002.json": locked})
+    path = tmp_path / "cases" / "mem-000002.json"
+    path.chmod(0o000)
+    try:
+        with structlog.testing.capture_logs() as logs:
+            store = load_store(tmp_path, strict=False, expected_outcome_config=CONFIG)
+    finally:
+        path.chmod(0o644)
+    assert [c.case_id for c in store.cases] == ["mem-000001"]
+    assert [r.file for r in store.rejections] == ["cases/mem-000002.json"]
+    assert "cannot read file" in store.rejections[0].reason
+    assert [e["file"] for e in logs if e["log_level"] == "error"] == ["cases/mem-000002.json"]
+
+
+@pytest.mark.parametrize("strict", [True, False])
+def test_oserror_on_read_is_a_rejection_even_as_root(tmp_path, monkeypatch, strict):
+    """Same rule without relying on file modes: the read itself raises."""
+    one_case_store(tmp_path, make_case())
+    real = Path.read_bytes
+
+    def flaky(self):
+        if self.name == "mem-000001.json":
+            raise PermissionError(13, "Permission denied")
+        return real(self)
+
+    monkeypatch.setattr(Path, "read_bytes", flaky)
+    if strict:
+        with pytest.raises(CaseRejectedError, match="cannot read file: Permission denied"):
+            load_store(tmp_path, strict=True, expected_outcome_config=CONFIG)
+    else:
+        store = load_store(tmp_path, strict=False, expected_outcome_config=CONFIG)
+        assert store.cases == ()
+        assert "Permission denied" in store.rejections[0].reason
+
+
+# --------------------------------------------------------------------------- RM1-3: not a regular file
+
+
+def _symlinked_store(root: Path, outside: Path) -> None:
+    data = dump(make_case())
+    target = outside / "elsewhere.json"
+    target.write_bytes(data)
+    (root / "cases").mkdir()
+    os.symlink(target, root / "cases" / "mem-000001.json")
+    write_store(root, {}, {"mem-000001": hashlib.sha256(data).hexdigest()})
+
+
+def test_symlinked_case_file_rejected_strict(tmp_path):
+    root, outside = tmp_path / "store", tmp_path / "outside"
+    root.mkdir()
+    outside.mkdir()
+    _symlinked_store(root, outside)
+    with pytest.raises(CaseRejectedError, match="symlink") as exc:
+        load_store(root, strict=True, expected_outcome_config=CONFIG)
+    assert exc.value.file == "cases/mem-000001.json"
+
+
+def test_symlinked_case_file_rejected_lenient_with_single_rejection(tmp_path):
+    root, outside = tmp_path / "store", tmp_path / "outside"
+    root.mkdir()
+    outside.mkdir()
+    _symlinked_store(root, outside)
+    store = load_store(root, strict=False, expected_outcome_config=CONFIG)
+    assert store.cases == ()
+    assert [r.file for r in store.rejections] == ["cases/mem-000001.json"]
+    assert "symlink" in store.rejections[0].reason
+
+
+@pytest.mark.parametrize("strict", [True, False])
+def test_dangling_symlink_and_directory_named_json_are_rejected(tmp_path, strict):
+    one_case_store(tmp_path, make_case())
+    os.symlink(tmp_path / "nowhere.json", tmp_path / "cases" / "mem-000002.json")
+    (tmp_path / "cases" / "mem-000003.json").mkdir()
+    if strict:
+        with pytest.raises(CaseRejectedError):
+            load_store(tmp_path, strict=True, expected_outcome_config=CONFIG)
+        return
+    store = load_store(tmp_path, strict=False, expected_outcome_config=CONFIG)
+    assert [c.case_id for c in store.cases] == ["mem-000001"]
+    assert [r.file for r in store.rejections] == ["cases/mem-000002.json", "cases/mem-000003.json"]
