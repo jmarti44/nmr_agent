@@ -148,7 +148,7 @@ Peak matching is what makes cases from different scaffolds still useful: two mol
 - Each rendered case: formula, DoU, solvent if known, ¹H shifts with integrals where known, ¹³C shifts, the correct SMILES, and one assignment line per signal where the database assigns it.
 - A `missed` case is rendered **with the contrast**: the agent's earlier first candidate is shown and labelled wrong, then the correct structure with its assignments. No explanation of *why* it was wrong is generated; only stored facts are rendered, so nothing invented reaches the prompt.
 - A `solved` or `no_answer` case is rendered as a plain worked example.
-- Estimated 250-550 tokens per case for a 20-30 heavy-atom molecule (to be measured at implementation).
+- Measured (2026-11-15, M6, the first 25 real pending cases with assignments, `case_cost`): median 276 tokens for more than 20 heavy atoms (max 495), 194 for 11-20 (max 282), 100 for 10 or fewer (max 130). Without assignments (M5): median 94, 70 and 56. Three large cases fit the 2,000-token cap (worst case about 1,500).
 - Hard cap on the whole example block: **2,000 estimated tokens**. Cases are added best-first while they fit; a case that does not fit is skipped, not truncated.
 - The example block is built after the peak table and context block are sized. If the three together would exceed `MAX_USER_TOKENS_ESTIMATE`, examples are dropped one by one until they fit. Memory never raises `PromptTooLarge` (C3).
 
