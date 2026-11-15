@@ -1,16 +1,25 @@
 """Render stored cases as the worked-examples block of the user message (spec §5.4).
 
-Only stored, structured fields are rendered. ``approval`` (including ``approval.note``), provenance and every
-other free-text field of a case never reach the prompt, and no explanation of why a proposal was wrong is
-generated. Pure functions of the case: no randomness, no clock, no model.
+Only stored, structured fields are rendered. An earlier proposal is model output, so it is parsed with RDKit
+and rendered in canonical form; one that does not parse is not rendered at all. ``approval`` (including
+``approval.note``), provenance and every other free-text field of a case never reach the prompt, and no
+explanation of why a proposal was wrong is generated. Pure functions of the case: no randomness, no clock,
+no model.
 """
 
 from __future__ import annotations
 
 from collections.abc import Sequence
 
+import structlog
+from rdkit import Chem, RDLogger
+
 from src.memory.case import MemoryCase
 from src.prompting.templates import estimate_tokens
+
+RDLogger.DisableLog("rdApp.*")
+
+log = structlog.get_logger("nmr_agent.memory")
 
 EXAMPLES_HEADER = (
     "Worked examples: other molecules, shown only for their reasoning pattern. They are not the sample to "
@@ -34,18 +43,37 @@ def _c_line(case: MemoryCase) -> str:
     return "13C shifts (ppm): " + (", ".join(f"{s:.1f}" for s in sorted(case.c_peaks)) or "none")
 
 
+def _earlier_proposal(case: MemoryCase) -> str | None:
+    """Canonical SMILES of the first proposal of a missed case, or None when there is none to show.
+
+    ``proposed_smiles`` is never validated at load time, so it is parsed here; an unparseable value (including
+    free text) is dropped from the prompt and logged.
+    """
+    outcome = case.agent_outcome
+    if outcome.status != "missed" or not outcome.proposed_smiles:
+        return None
+    mol = Chem.MolFromSmiles(outcome.proposed_smiles[0])
+    if mol is None or mol.GetNumAtoms() == 0:
+        log.warning(
+            "memory_proposal_not_rendered", case_id=case.case_id, reason="proposed SMILES does not parse"
+        )
+        return None
+    return Chem.MolToSmiles(mol)
+
+
 def render_case(case: MemoryCase) -> str:
-    """One case as text. A ``missed`` case with a stored proposal shows its first proposed SMILES, labelled
-    as an earlier wrong proposal, before the correct structure; every other case is a plain worked example."""
+    """One case as text. A ``missed`` case with a parseable stored proposal shows its first proposed SMILES
+    (canonical), labelled as an earlier wrong proposal, before the correct structure; every other case is a
+    plain worked example."""
     solvent = f", solvent {case.solvent.value}" if case.solvent else ""
     lines = [
         f"Example molecule: formula {case.formula}, DoU {_fmt_dou(case.dou)}{solvent}",
         _h_line(case),
         _c_line(case),
     ]
-    outcome = case.agent_outcome
-    if outcome.status == "missed" and outcome.proposed_smiles:
-        lines.append(f"Earlier wrong proposal for this spectrum: {outcome.proposed_smiles[0]}")
+    earlier = _earlier_proposal(case)
+    if earlier is not None:
+        lines.append(f"Earlier wrong proposal for this spectrum: {earlier}")
         lines.append(f"Correct structure: {case.smiles}")
     else:
         lines.append(f"Structure: {case.smiles}")
