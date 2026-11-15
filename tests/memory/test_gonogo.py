@@ -56,15 +56,55 @@ def test_committed_samples_match_a_redraw():
     if not path.exists():
         pytest.skip("gonogo_samples.json is not committed yet")
     by_id, halves = g.read_selection()
-    drawn = g.draw_all_samples(by_id, halves)
+    excluded = g.read_excluded()
+    drawn = g.draw_all_samples(by_id, halves, excluded)
     committed = json.loads(path.read_text())["samples"]
     assert [(r["half"], r["index"], r["seed"], r["ids"]) for r in committed] == [
         (h, s["index"], s["seed"], s["ids"]) for h in g.HALVES for s in drawn[h]
     ]
     for r in committed:
-        assert all(halves[i] == r["half"] for i in r["ids"])
+        assert all(halves[i] == r["half"] and i not in excluded for i in r["ids"])
         counts = {k: sum(by_id[i]["stratum"] == k for i in r["ids"]) for k in g.SAMPLE_QUOTA}
         assert counts == g.SAMPLE_QUOTA
+
+
+# ------------------------------------------------------------------ molecules the service cannot take
+
+
+def _record(h_spec: str) -> dict:
+    return {
+        "id": "1",
+        "smiles": "CCO",
+        "formula": "C2H6O",
+        "solvent": "CDCl3",
+        "h_spec": h_spec,
+        "c_spec": "18.0;0.0;0|58.0;0.0;1|",
+    }
+
+
+def test_request_error_accepts_a_valid_record():
+    assert g.request_error(_record("1.2;0.0;1|3.6;0.0;2|")) is None
+
+
+@pytest.mark.parametrize(
+    ("h_spec", "expected"),
+    [("", "At least one 1H peak"), ("1.2;0.0;1|16.5;0.0;2|", "outside plausible range")],
+)
+def test_request_error_reports_what_the_service_rejects(h_spec, expected):
+    err = g.request_error(_record(h_spec))
+    assert err is not None and expected in err
+
+
+def test_excluded_ids_never_enter_a_sample():
+    s = _strata()
+    banned = frozenset(s[">20"][:70] + s["<=10"][:55])
+    by_id = {i: {"stratum": k} for k, ids in s.items() for i in ids}
+    halves = {i: "tuning" for i in by_id} | {f"9{n}": "check" for n in range(1000)}
+    by_id |= {f"9{n}": {"stratum": ("<=10", "11-20", ">20")[n % 3]} for n in range(1000)}
+    drawn = g.draw_all_samples(by_id, halves, banned)
+    for half in g.HALVES:
+        for sample in drawn[half]:
+            assert len(sample["ids"]) == 200 and not banned & set(sample["ids"])
 
 
 # --------------------------------------------------------------------------- pool construction
@@ -227,7 +267,7 @@ def test_fast_path_selects_the_same_cases_as_retrieve():
     frozen = json.loads(params_file.read_text())["parameters"]
     by_id, halves = g.read_selection()
     samples = g.read_samples()["tuning"]
-    mols = g.load_molecules(by_id, halves)
+    mols = g.load_molecules(by_id, halves, g.read_excluded())
     queries = sorted((m for m in mols if mols[m].half == "tuning"), key=g.id_order)[:40]  # 40 x 5 = 200 pairs
     fs = g.FastScorer(mols, queries, samples, workers=1)
     weight_sets = [

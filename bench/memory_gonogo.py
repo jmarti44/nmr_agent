@@ -163,12 +163,15 @@ def draw_sample(ids_by_stratum: dict[str, Sequence[str]], seed: int) -> list[str
     return sorted(chosen, key=id_order)
 
 
-def draw_all_samples(by_id: dict[str, dict], halves: dict[str, str]) -> dict[str, list[dict]]:
+def draw_all_samples(
+    by_id: dict[str, dict], halves: dict[str, str], excluded: frozenset[str] = frozenset()
+) -> dict[str, list[dict]]:
+    """The 5 samples of each half, drawn from the half's molecules minus ``excluded``."""
     out: dict[str, list[dict]] = {}
     for half in HALVES:
         strata: dict[str, list[str]] = {s: [] for s in SAMPLE_QUOTA}
         for mol_id, h in halves.items():
-            if h == half:
+            if h == half and mol_id not in excluded:
                 strata[by_id[mol_id]["stratum"]].append(mol_id)
         out[half] = [
             {"index": i, "seed": seed, "ids": draw_sample(strata, seed)}
@@ -177,19 +180,83 @@ def draw_all_samples(by_id: dict[str, dict], halves: dict[str, str]) -> dict[str
     return out
 
 
+def load_records() -> dict[str, dict[str, dict]]:
+    """Records of bench.benchmark.pool() (named) and pool(unreported=True), by id."""
+    from bench import benchmark
+
+    benchmark.SD = str(ROOT / benchmark.SD)
+    return {
+        "named": {r["id"]: r for r in benchmark.pool()},
+        "unreported": {r["id"]: r for r in benchmark.pool(unreported=True)},
+    }
+
+
+def service_inputs(rec: dict):
+    """(normalized table, context) exactly as the service builds them from a benchmark record."""
+    from bench import benchmark
+    from src.prompting import prepare_request
+
+    req, _ = benchmark.request_for(rec)
+    table, _, context = prepare_request(req)
+    return table, context
+
+
+def request_error(rec: dict) -> str | None:
+    """None if the record becomes a valid service request; else the validation error, verbatim."""
+    from pydantic import ValidationError
+
+    try:
+        service_inputs(rec)
+    except ValidationError as e:
+        return f"{type(e).__name__}: " + "; ".join(err["msg"] for err in e.errors())
+    except ValueError as e:
+        return f"{type(e).__name__}: {e}"
+    return None
+
+
+def find_excluded(by_id: dict[str, dict], halves: dict[str, str]) -> list[dict]:
+    """Molecules whose service request fails: left out of every sample, query and case (needs the SD file)."""
+    records = load_records()
+    rows = []
+    for mol_id in sorted(by_id, key=id_order):
+        e = by_id[mol_id]
+        rec = records[e["pool"]].get(mol_id)
+        if rec is None or rec["smiles"] != e["smiles"]:
+            raise SystemExit(f"record {mol_id} not found in the {e['pool']} pool, or its structure differs")
+        err = request_error(rec)
+        if err is not None:
+            rows.append(
+                {
+                    "id": mol_id,
+                    "half": halves[mol_id],
+                    "stratum": e["stratum"],
+                    "position": e["position"],
+                    "within_first_200": e["position"] <= 200,
+                    "error": err,
+                }
+            )
+    return rows
+
+
 def cmd_samples() -> None:
     refuse_if_exists("samples")
     require_clean_code()
     by_id, halves = read_selection()
-    drawn = draw_all_samples(by_id, halves)
+    excluded = find_excluded(by_id, halves)
+    drawn = draw_all_samples(by_id, halves, frozenset(r["id"] for r in excluded))
     header = {
         "description": "5 memory-sized samples (80 >20, 80 11-20, 40 <=10 heavy atoms) per half, drawn once",
         "sample_index_base": 0,
         "git_commit": git_commit(),
+        "excluded": excluded,
     }
     rows = [{"half": h, **s} for h in HALVES for s in drawn[h]]
     dump_rows(FILES["samples"], header, "samples", rows)
     print(f"wrote {FILES['samples'].relative_to(ROOT)}: {len(rows)} samples")
+
+
+def read_excluded() -> frozenset[str]:
+    return frozenset(r["id"] for r in json.loads(FILES["samples"].read_text())["excluded"])
 
 
 def read_samples() -> dict[str, list[list[str]]]:
@@ -292,29 +359,25 @@ def make_case(
     )
 
 
-def load_molecules(by_id: dict[str, dict], halves: dict[str, str]) -> dict[str, Molecule]:
-    """Every molecule of memory_order.json with its features, in-memory case and fragment groups.
+def load_molecules(
+    by_id: dict[str, dict], halves: dict[str, str], excluded: frozenset[str] = frozenset()
+) -> dict[str, Molecule]:
+    """Every molecule of memory_order.json (minus ``excluded``) with its features, in-memory case, groups.
 
     Spectra come from the record with the same id in bench.benchmark.pool() (named) or
     pool(unreported=True); features are built the way the service builds them.
     """
-    from bench import benchmark
-    from src.prompting import prepare_request
-
-    benchmark.SD = str(ROOT / benchmark.SD)
-    records = {
-        "named": {r["id"]: r for r in benchmark.pool()},
-        "unreported": {r["id"]: r for r in benchmark.pool(unreported=True)},
-    }
+    records = load_records()
     case_ids = {mid: f"mem-{e['position']:06d}" for mid, e in by_id.items()}
     out: dict[str, Molecule] = {}
     for mol_id in sorted(by_id, key=id_order):
+        if mol_id in excluded:
+            continue
         e = by_id[mol_id]
         rec = records[e["pool"]].get(mol_id)
         if rec is None or rec["smiles"] != e["smiles"]:
             raise SystemExit(f"record {mol_id} not found in the {e['pool']} pool, or its structure differs")
-        req, _ = benchmark.request_for(rec)
-        table, _, context = prepare_request(req)
+        table, context = service_inputs(rec)
         feats = query_features(table, context)
         h_peaks = [HPeak(shift_ppm=p.shift_ppm, integral=p.integral) for p in table.analyte_peaks(Nucleus.H1)]
         case = make_case(case_ids[mol_id], e, feats, h_peaks, context.molecular_formula or "")
@@ -669,7 +732,7 @@ def cmd_tune(workers: int) -> None:
     t0 = time.time()
     by_id, halves = read_selection()
     samples = read_samples()["tuning"]
-    mols = load_molecules(by_id, halves)
+    mols = load_molecules(by_id, halves, read_excluded())
     t1 = time.time()
     queries = sorted((m for m in mols if mols[m].half == "tuning"), key=id_order)
     fs = FastScorer(mols, queries, samples, workers)
@@ -728,7 +791,7 @@ def cmd_check(workers: int) -> None:
     by_id, halves = read_selection()
     samples = read_samples()
     t0 = time.time()
-    mols = load_molecules(by_id, halves)
+    mols = load_molecules(by_id, halves, read_excluded())
     check_pairs = run_half(mols, samples["check"], "check", params, workers)
     t1 = time.time()
     tuning_pairs = run_half(mols, samples["tuning"], "tuning", params, workers)
