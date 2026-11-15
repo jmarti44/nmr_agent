@@ -417,3 +417,13 @@ def test_outcome_status_uses_the_connectivity_block():
     assert bm.outcome_status([ISOMER, ASPIRIN], key) == "missed"
     assert bm.outcome_status(["not a smiles"], key) == "missed"
     assert bm.outcome_status([], key) == "missed"
+
+
+def test_the_committed_list_passes_leakage_rules_1_2_4_against_mem_eval():
+    from src.memory.leakage import rule1_structure_key, rule2_scaffold, rule4_similarity
+
+    large = bm.load_large()["entries"]
+    mem_eval = json.loads(bm.FILES["mem_eval"].read_text())["records"]
+    assert len(mem_eval) == 100
+    assert rule1_structure_key(large, mem_eval, bm.old_structure_keys()) == []
+    assert rule2_scaffold(large, mem_eval) == [] and rule4_similarity(large, mem_eval) == []
