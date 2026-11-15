@@ -246,8 +246,47 @@ def select(n: int, set_name: str = "pilot") -> None:
     print(f"selected {len(chosen)}: {dict(collections.Counter(solvent_group(r['solvent']) for r in chosen))}")
 
 
-def request_for(r: dict) -> tuple[AnalysisRequest, bool]:
-    mol = Chem.MolFromSmiles(r["smiles"])
+_ID_TAG = re.compile(r"> <nmrshiftdb2 ID>\n(\S+)")
+_MOLBLOCKS: dict[str, dict[str, str]] = {}  # SD path -> {nmrshiftdb2 id: molblock text}; one read per path
+
+
+class MolblockError(LookupError):
+    """The record's molblock is missing or is not the record's structure. Deliberately not a ValueError: callers
+    that treat ValueError as "the service rejects this request" (memory_gonogo.request_error) must not absorb it."""
+
+
+def molblock_of(record_id: str) -> str | None:
+    """The molblock text of one record. The SD file is read once per process (per path) for all records."""
+    if SD not in _MOLBLOCKS:
+        blocks: dict[str, str] = {}
+        for rec in records():
+            m = _ID_TAG.search(rec)
+            if m and m[1] not in blocks:
+                blocks[m[1]] = rec[: rec.find("M  END") + 6]
+        _MOLBLOCKS[SD] = blocks
+    return _MOLBLOCKS[SD].get(record_id)
+
+
+def molblock_mol(r: dict, mol: Chem.Mol | None = None) -> Chem.Mol:
+    """The molecule the record's spectrum atom indices refer to: its SD molblock (RDKit defaults, 0-based, the one
+    pool() parses). ``mol`` may be passed when the caller already holds it. Raises MolblockError if the record is not
+    found or the molecule's canonical SMILES differs from ``r["smiles"]``; never falls back to the SMILES molecule."""
+    if mol is None:
+        block = molblock_of(r["id"])
+        if block is None:
+            raise MolblockError(f"record {r['id']}: no molblock in {SD}")
+        mol = Chem.MolFromMolBlock(block)
+    if mol is None or Chem.MolToSmiles(mol) != r["smiles"]:
+        raise MolblockError(
+            f"record {r['id']}: the molblock's structure does not match the stored SMILES {r['smiles']}"
+        )
+    return mol
+
+
+def request_for(r: dict, mol: Chem.Mol | None = None) -> tuple[AnalysisRequest, bool]:
+    """The request the service sees for one record. The 1H integrals use the molblock molecule (see molblock_mol);
+    pass ``mol`` to supply it instead of looking it up in the SD file."""
+    mol = molblock_mol(r, mol)
     hs: dict[float, set[int]] = collections.defaultdict(set)
     shifts_of: dict[int, set[float]] = collections.defaultdict(set)
     for e in r["h_spec"].strip().strip("|").split("|"):
@@ -259,15 +298,19 @@ def request_for(r: dict) -> tuple[AnalysisRequest, bool]:
                 hs[s].add(int(p[2]))
                 shifts_of[int(p[2])].add(s)
     need = {a.GetIdx() for a in mol.GetAtoms() if a.GetTotalNumHs() and a.GetSymbol() == "C"}
-    complete = need <= set(shifts_of)
+    # Complete: every H-bearing carbon has a 1H shift, and every 1H entry names an atom of the molecule that has at
+    # least one attached H. An entry that names no atom, an atom that does not exist or an atom without H makes the
+    # assignment inconsistent: no integrals are given then, and no observed peak is ever dropped.
+    consistent = all(
+        hs[s] and all(i < mol.GetNumAtoms() and mol.GetAtomWithIdx(i).GetTotalNumHs() > 0 for i in hs[s])
+        for s in hs
+    )
+    complete = need <= set(shifts_of) and consistent
     peaks: list[Peak] = []
     for shift in sorted(hs, reverse=True):
         integral = None
         if complete:
-            atoms = [i for i in hs[shift] if i < mol.GetNumAtoms()]
-            n_h = sum(mol.GetAtomWithIdx(i).GetTotalNumHs() / len(shifts_of[i]) for i in atoms)
-            if n_h == 0:
-                continue  # assigned only to atoms without hydrogen: not a 1H signal
+            n_h = sum(mol.GetAtomWithIdx(i).GetTotalNumHs() / len(shifts_of[i]) for i in hs[shift])
             integral = round(float(n_h), 2)
         peaks.append(Peak(id=len(peaks) + 1, nucleus=Nucleus.H1, shift_ppm=shift, integral=integral))
     cs = sorted(

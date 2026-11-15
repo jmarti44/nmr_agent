@@ -71,6 +71,21 @@ def test_committed_samples_match_a_redraw():
 # ------------------------------------------------------------------ molecules the service cannot take
 
 
+@pytest.fixture(autouse=True)
+def _molblock_for_the_synthetic_record(request, monkeypatch):
+    """request_for reads the record's molblock from the SD export; the synthetic record "1" is in none, so
+    its molblock (built with RDKit from its SMILES) is put where the lookup finds it."""
+    if not request.node.name.startswith("test_request_error"):
+        return
+    from rdkit import Chem
+
+    from bench import benchmark
+
+    monkeypatch.setitem(
+        benchmark._MOLBLOCKS, benchmark.SD, {"1": Chem.MolToMolBlock(Chem.MolFromSmiles("CCO"))}
+    )
+
+
 def _record(h_spec: str) -> dict:
     return {
         "id": "1",

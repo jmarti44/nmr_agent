@@ -168,7 +168,7 @@ def test_the_peaks_are_what_the_service_would_see(env):
 
     env.propose()
     p = env.pending("mem-000001")
-    req, _ = benchmark.request_for(env.records["m1"].pool_record())
+    req, _ = benchmark.request_for(env.records["m1"].pool_record(), env.records["m1"].mol)
     table, _, _ = prepare_request(req)
     assert [(h.shift_ppm, h.integral) for h in p.h_peaks] == [
         (x.shift_ppm, x.integral) for x in table.analyte_peaks(Nucleus.H1)

@@ -774,7 +774,7 @@ def build_request(row: dict, rec: SdRecord | None):
         raise ValueError("no usable record in the SD export (missing, or no same-solvent 1H + 13C pair)")
     if rec.smiles != row["smiles"] or rec.inchikey != row["inchikey"]:
         raise ValueError(f"SD record structure {rec.smiles} differs from the listed {row['smiles']}")
-    req, complete = b.request_for(rec.pool_record())
+    req, complete = b.request_for(rec.pool_record(), rec.mol)
     table, prompt, context = prepare_request(req)
     return req, complete, table, prompt, context
 

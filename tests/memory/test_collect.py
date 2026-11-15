@@ -323,7 +323,7 @@ def test_collect_sends_no_examples_and_the_benchmark_request(tmp_path):
     run_collect(tmp_path, large, recs, api)
     user = api.requests[0]["body"]["messages"][0]["content"]
     text = user if isinstance(user, str) else "".join(b.get("text", "") for b in user)
-    req, _ = benchmark.request_for(recs["a1"].pool_record())
+    req, _ = benchmark.request_for(recs["a1"].pool_record(), recs["a1"].mol)
     assert str(req.peaks.peaks[0].shift_ppm) in text and "worked example" not in text.lower()
 
 
