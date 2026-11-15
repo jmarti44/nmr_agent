@@ -1,0 +1,39 @@
+experience-memory offline go/no-go (code commit 8bed9d64758c622f5947619589bc56a6eae863ed)
+frozen parameters sha256 bf933bfc891372472f6826e3daa80ad987af96a0ce10d18169e0f885067ac951
+weights (13C, 1H, elements, DoU): (0.5, 0.3, 0.2, 0.0)
+
+== check half (the decision)
+  pairs 11775, queries 2355
+  mean best similarity: retrieved 0.2010, random 0.1238, difference +0.0772
+  mean fragment coverage: retrieved 0.6604, random 0.5677, difference +0.0927 (65 pairs excluded: truth has no group)
+  win rate: 0.7924
+
+== check half by the query's heavy-atom stratum
+stratum >20
+  pairs 1055, queries 211
+  mean best similarity: retrieved 0.2435, random 0.1375, difference +0.1060
+  mean fragment coverage: retrieved 0.7519, random 0.6046, difference +0.1472 (0 pairs excluded: truth has no group)
+  win rate: 0.8521
+stratum 11-20
+  pairs 6155, queries 1231
+  mean best similarity: retrieved 0.2246, random 0.1396, difference +0.0850
+  mean fragment coverage: retrieved 0.6749, random 0.5932, difference +0.0817 (15 pairs excluded: truth has no group)
+  win rate: 0.8052
+stratum <=10
+  pairs 4565, queries 913
+  mean best similarity: retrieved 0.1594, random 0.0993, difference +0.0600
+  mean fragment coverage: retrieved 0.6193, random 0.5242, difference +0.0950 (50 pairs excluded: truth has no group)
+  win rate: 0.7612
+
+== tuning half with the frozen weights (in-sample, for comparison only)
+  pairs 11835, queries 2367
+  mean best similarity: retrieved 0.1968, random 0.1237, difference +0.0730
+  mean fragment coverage: retrieved 0.6844, random 0.5803, difference +0.1041 (45 pairs excluded: truth has no group)
+  win rate: 0.7970
+
+== thresholds (spec 7.0), check half
+mean best similarity, retrieved - random: 0.0772 vs threshold >= 0.10: FAIL
+mean fragment coverage, retrieved - random: 0.0927 vs threshold >= 0.15: FAIL
+win rate (retrieved > random): 0.7924 vs threshold >= 0.60: PASS
+
+VERDICT: NO-GO
