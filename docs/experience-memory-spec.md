@@ -389,3 +389,21 @@ Expectation, stated before any work: with plain database cases and coarse retrie
 ```
 
 Steps 2-7 change no behaviour when memory is disabled: with `NMR_AGENT_MEMORY_DIR` unset, `/v1/analyze` is identical to today except for the new prompt version and the `memory_version: "none"` field.
+
+## 14. Implementation phases
+
+Each phase is built by one supervised worker on the `experience-memory` branch and reviewed by the coordinator; the same worker addresses review items until every item is Closed. Findings go in `docs/phase-mN-findings.md`, reviews in `docs/review-phase-mN.md` (both internal, gitignored by `docs/phase*` and `docs/review-phase*.md`). Phases run in order, since each builds on the previous one.
+
+| Phase | Builds | Spec | Model API cost | Gate after it |
+|---|---|---|---|---|
+| M1 | Case format, store and loader: `MemoryCase`, `manifest.json` with hashes, `memory_version`, rejection of invalid cases | §4 | $0 | coordinator review |
+| M2 | Retrieval: features, spectral peak matching, scoring, tie-break, k = 3, size caps | §5.1-5.4 | $0 | coordinator review |
+| M3 | Selections and leakage checks: `MEM-EVAL`, the ordered memory list, the tuning/check split, the `check` command, the CI test | §7.1, §7.2, §9 | $0 | coordinator review |
+| M4 | Offline go/no-go: tune on one half, check on the other, report | §7.0 | $0 | **owner decides** go or stop |
+| M5 | Prompt integration: examples in the user message, contrast rendering, new system rule and version bump, response fields, settings | §5.4, §5.5 | $0 | coordinator review; behaviour unchanged with memory off |
+| M6 | `collect`, `propose` and `approve` commands, review sheets | §6, §7.2a | about $26 when collection runs | **owner approves** the spend, then the cases |
+| M7 | Benchmark arms, `compare` command, stage 1 | §7.3-7.6, §8 | about $52 | **owner approves** the spend; verdict |
+| M8 | Stage 2 and `bench/memory-report.md` | §7.3, §13 | about $39 | only if stage 1 supports H |
+
+Workers never run anything that spends model API money without the owner's go-ahead, and never run `approve` on real cases.
+
