@@ -10,6 +10,7 @@ A verbatim copy of that license is in [NMRSHIFTDB2-DATABASE-LICENSE.txt](NMRSHIF
 |---|---|
 | `bench/results/`, `bench/results_main/`, `bench/results_unreported/` | Selected records (ids, structures, peak lists) and the service's answers on them |
 | `bench/nmrshiftdb2_*_output.txt`, `bench/nmrshiftdb2_spotcheck_sample.txt`, `bench/verifier_nonbench_*_output.txt` | Statistics and samples computed from the database |
+| `bench/memory/` | The held-out evaluation set (ids, structures, peak lists), the ordered memory candidates (ids, structures) and the tuning/check split |
 | `bench/report.md` | Results produced from the records above |
 | `src/verify/shift_tables.py` | Shift ranges whose sources are listed as `NSDB2` or `NSDB2-P5` were derived from distributions computed on the database |
 

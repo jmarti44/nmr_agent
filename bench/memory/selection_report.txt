@@ -1,0 +1,46 @@
+selection report (code commit 16d332a5ac742af22d9d350f39b068b6cc0e3f5a, uncommitted code changes: False)
+
+== pools (13C-incomplete records dropped, then one record per structure key)
+named-solvent pool:  {"records": 828, "removed_13c_incomplete": 50, "removed_duplicate_structure": 31, "kept": 747}
+unreported pool:     {"records": 4656, "removed_13c_incomplete": 175, "removed_duplicate_structure": 4, "kept": 4477, "removed_structure_also_in_named": 98, "kept_after_named_overlap": 4379}
+
+== MEM-EVAL (seed 20261114)
+named pool after dedup: 747
+  removed (fewer than 11 heavy atoms): 269
+  removed (old-set structure): 48
+  removed (scaffold of an old-set molecule): 126
+  removed (acyclic): 39
+  removed (benzene scaffold): 0
+eligible: 265 in 206 scaffolds, by bin {'11-20': 125, '>20': 140}
+chosen: 100; 11-20 heavy atoms: 50; >20: 50
+scaffolds used: 84; max per scaffold: 2
+solvents: {'CDCl3': 60, 'D2O': 9, 'DMSO-d6': 14, 'CD3OD': 8, 'acetone-d6': 8, 'CD3CN': 1}
+
+== memory candidates (seed 20261115 for the order)
+union of both pools: 5126
+  removed (MEM-EVAL structure): 100
+  removed (scaffold shared with MEM-EVAL): 204
+  removed (old-set structure): 88
+  removed (Tanimoto >= 0.70 to a MEM-EVAL molecule): 3
+candidates: 4731 {'named': 544, 'unreported': 4187}
+by stratum: {'>20': 382, '11-20': 2451, '<=10': 1898}
+
+== stratified mix of every prefix (>20 / 11-20 / <=10)
+first 25: 10 / 10 / 5
+first 50: 20 / 20 / 10
+first 100: 40 / 40 / 20
+first 200: 80 / 80 / 40
+first 200 by pool: {'unreported': 168, 'named': 32}
+first 200 solvents: {None: 168, 'CDCl3': 18, 'DMSO-d6': 5, 'D2O': 6, 'CD3CN': 1, 'acetone-d6': 1, 'CD3OD': 1}
+
+== nearest-neighbour Morgan Tanimoto (radius 2, 2048 bits): per MEM-EVAL molecule, the highest value
+percentiles: numpy linear interpolation; max is over the 100 MEM-EVAL molecules
+any memory candidate: median 0.362, 90th percentile 0.571, max 0.690
+any of the first 200: median 0.246, 90th percentile 0.376, max 0.571
+
+== generic-scaffold overlap (reported, not enforced; spec §9)
+MEM-EVAL molecules whose generic scaffold also occurs in the first 200: 24 of 100
+(eval molecule, memory item) pairs with the same generic scaffold: 278
+
+== tuning/check split (seed 20261116)
+per half: {'tuning': 2372, 'check': 2359}
