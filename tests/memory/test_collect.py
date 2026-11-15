@@ -427,3 +427,61 @@ def test_the_committed_list_passes_leakage_rules_1_2_4_against_mem_eval():
     assert len(mem_eval) == 100
     assert rule1_structure_key(large, mem_eval, bm.old_structure_keys()) == []
     assert rule2_scaffold(large, mem_eval) == [] and rule4_similarity(large, mem_eval) == []
+
+
+# --------------------------------------------------------------------------- stale results (RM6-2)
+
+
+def test_collect_saves_the_hash_of_the_message_it_sent(tmp_path):
+    import hashlib
+
+    large, recs = fake_large(tmp_path, [("a1", ASPIRIN)])
+    api = FakeAPI([message(hypothesis_json([ASPIRIN]))])
+    run_collect(tmp_path, large, recs, api)
+    sent = api.requests[0]["body"]["messages"][0]["content"]
+    text = sent if isinstance(sent, str) else "".join(b.get("text", "") for b in sent)
+    assert result(tmp_path, "a1")["request_sha256"] == hashlib.sha256(text.encode()).hexdigest()
+
+
+def test_a_changed_request_on_resume_stops_the_run_and_names_the_molecule(tmp_path):
+    large, recs = fake_large(tmp_path, [("a1", ASPIRIN), ("a2", ASPIRIN)])
+    run_collect(tmp_path, large, recs, FakeAPI([message(hypothesis_json([ASPIRIN]))]), ids=["a1"])
+    changed = dict(recs)
+    changed["a1"] = bm.SdRecord(
+        **{**recs["a1"].__dict__, "h_spec": recs["a1"].h_spec.replace("2.25", "2.26")}
+    )
+    api = FakeAPI([message(hypothesis_json([ASPIRIN]))])
+    before = (tmp_path / "collect" / "a1.json").read_bytes()
+    with pytest.raises(SystemExit, match=r"a1: the request built now differs"):
+        run_collect(tmp_path, large, changed, api)
+    assert api.requests == [] and not (tmp_path / "collect" / "a2.json").exists()
+    assert (tmp_path / "collect" / "a1.json").read_bytes() == before
+
+
+def test_a_saved_result_without_a_hash_also_stops_the_run(tmp_path):
+    large, recs = fake_large(tmp_path, [("a1", ASPIRIN)])
+    run_collect(tmp_path, large, recs, FakeAPI([message(hypothesis_json([ASPIRIN]))]))
+    f = tmp_path / "collect" / "a1.json"
+    doc = json.loads(f.read_text())
+    del doc["request_sha256"]
+    f.write_text(json.dumps(doc))
+    api = FakeAPI([])
+    with pytest.raises(SystemExit, match="a1: the saved result has no request_sha256"):
+        run_collect(tmp_path, large, recs, api)
+    assert api.requests == []
+
+
+def test_an_unchanged_request_resumes_normally_and_the_dry_run_lists_stale_results(tmp_path, capsys):
+    large, recs = fake_large(tmp_path, [("a1", ASPIRIN), ("a2", ASPIRIN)])
+    run_collect(tmp_path, large, recs, FakeAPI([message(hypothesis_json([ASPIRIN]))]), ids=["a1"])
+    api = FakeAPI([message(hypothesis_json([ASPIRIN]))])
+    run_collect(tmp_path, large, recs, api)
+    assert len(api.requests) == 1
+    changed = dict(recs)
+    changed["a1"] = bm.SdRecord(
+        **{**recs["a1"].__dict__, "h_spec": recs["a1"].h_spec.replace("2.25", "2.26")}
+    )
+    report = bm.collect(
+        dry_run=True, large_file=large, out_dir=tmp_path / "collect", read_records=reader(changed)
+    )
+    assert list(report["stale"]) == ["a1"] and "STALE RESULT a1" in capsys.readouterr().out

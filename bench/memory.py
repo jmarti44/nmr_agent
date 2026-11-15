@@ -662,6 +662,8 @@ class SdRecord:
     c_spec: str
     h_spectrum: int
     c_spectrum: int
+    # file atom index -> atom index of ``mol`` (see bench.benchmark.atom_index_map); None: indices are used as they are
+    index_map: tuple[int | None, ...] | None = None
 
     def pool_record(self) -> dict:
         """The dict pool() returns for this record (the input of bench.benchmark.request_for)."""
@@ -713,6 +715,7 @@ def sd_record_from_text(rec: str, unreported: bool) -> SdRecord | None:
     if not pairs:
         return None
     h, c = pairs[0]
+    index_map = b.atom_index_map(rec[: end + 6], mol)
     return SdRecord(
         id=tags.get("nmrshiftdb2 ID", "?").strip(),
         mol=mol,
@@ -724,6 +727,7 @@ def sd_record_from_text(rec: str, unreported: bool) -> SdRecord | None:
         c_spec=sp["13C"][c],
         h_spectrum=h,
         c_spectrum=c,
+        index_map=index_map,
     )
 
 
@@ -774,9 +778,34 @@ def build_request(row: dict, rec: SdRecord | None):
         raise ValueError("no usable record in the SD export (missing, or no same-solvent 1H + 13C pair)")
     if rec.smiles != row["smiles"] or rec.inchikey != row["inchikey"]:
         raise ValueError(f"SD record structure {rec.smiles} differs from the listed {row['smiles']}")
-    req, complete = b.request_for(rec.pool_record(), rec.mol)
+    req, complete = b.request_for(rec.pool_record(), rec.mol, rec.index_map)
     table, prompt, context = prepare_request(req)
     return req, complete, table, prompt, context
+
+
+def request_hash(prompt) -> str:
+    """SHA-256 of the exact user message a collect run sends (memory is off, so it is the whole request content)."""
+    return hashlib.sha256(prompt.user_text.encode("utf-8")).hexdigest()
+
+
+def stale_results(rows: list[dict], records: Mapping[str, SdRecord], out_dir: Path) -> dict[str, str]:
+    """Saved results whose request is no longer the one the code builds now (or that carry no request hash)."""
+    stale: dict[str, str] = {}
+    for row in rows:
+        f = out_dir / f"{row['id']}.json"
+        if not f.exists():
+            continue
+        saved = json.loads(f.read_text()).get("request_sha256")
+        try:
+            *_, prompt, _ = build_request(row, records.get(row["id"]))
+        except Exception as e:  # noqa: BLE001 - reported, the run does not continue
+            stale[row["id"]] = f"the request cannot be rebuilt ({type(e).__name__}: {e})"
+            continue
+        if saved is None:
+            stale[row["id"]] = "the saved result has no request_sha256"
+        elif saved != request_hash(prompt):
+            stale[row["id"]] = "the request built now differs from the one that was sent"
+    return stale
 
 
 def collect_dry_run(rows: list[dict], records: Mapping[str, SdRecord], large: dict) -> dict:
@@ -831,6 +860,9 @@ def collect(
     records = read_records({r["id"]: r["pool"] for r in rows})
     if dry_run:
         report = collect_dry_run(rows, records, large)
+        report["stale"] = stale_results(rows, records, out_dir)
+        for i, why in report["stale"].items():
+            print(f"  STALE RESULT {i}: {why}")
         failed = [r for r in rows if r["id"] in report["failures"]]
         if failed:
             taken = {r["id"] for r in large["entries"]}
@@ -840,6 +872,13 @@ def collect(
             report["replacements"] = subs
         return report
 
+    stale = stale_results(rows, records, out_dir)
+    if stale:
+        lines = "\n".join(f"  {i}: {why}" for i, why in stale.items())
+        sys.exit(
+            f"stopping before any model call: {len(stale)} saved result(s) do not match the request built now.\n"
+            f"{lines}\nMove them to {rel(out_dir.parent / 'collect_superseded')}/ (or fix the cause) and run again."
+        )
     out_dir.mkdir(parents=True, exist_ok=True)
     cfg = outcome_config(settings).model_dump()
     client = (client_factory or default_client)(settings)
@@ -853,7 +892,7 @@ def collect(
             print(f"spend cap ${cap:.2f} reached (${spent:.2f}); stopping")
             break
         try:
-            req, complete, *_ = build_request(row, records.get(row["id"]))
+            req, complete, _, prompt, _ = build_request(row, records.get(row["id"]))
         except Exception as e:  # noqa: BLE001 - not an analysis: nothing was sent, nothing is saved
             print(row["id"], f"REQUEST NOT BUILT, skipped: {type(e).__name__}: {e}")
             continue
@@ -863,6 +902,7 @@ def collect(
             "id": row["id"], "stratum": row["stratum"], "position": row["position"],
             "truth": row["smiles"], "truth_inchikey": row["inchikey"], "solvent": row["solvent"],
             "formula": records[row["id"]].formula, "h_integrals_given": complete,
+            "request_sha256": request_hash(prompt),
             "collected_on": (today or utc_today()).isoformat(), "outcome_config": cfg,
         }  # fmt: skip
         try:
@@ -925,8 +965,11 @@ def build_assignments(rec: SdRecord) -> tuple[list[dict], dict[str, int]]:
             if not p[0]:
                 continue
             stats["entries"] += 1
-            if len(p) >= 3 and p[2].strip().isdigit() and int(p[2]) < n_atoms:
-                atom = rec.mol.GetAtomWithIdx(int(p[2]))
+            k = int(p[2]) if len(p) >= 3 and p[2].strip().isdigit() else None
+            if k is not None and rec.index_map is not None:
+                k = rec.index_map[k] if k < len(rec.index_map) else None
+            if k is not None and k < n_atoms:
+                atom = rec.mol.GetAtomWithIdx(k)
                 out.append(
                     {
                         "nucleus": nucleus,

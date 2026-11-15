@@ -267,43 +267,100 @@ def molblock_of(record_id: str) -> str | None:
     return _MOLBLOCKS[SD].get(record_id)
 
 
-def molblock_mol(r: dict, mol: Chem.Mol | None = None) -> Chem.Mol:
-    """The molecule the record's spectrum atom indices refer to: its SD molblock (RDKit defaults, 0-based, the one
-    pool() parses). ``mol`` may be passed when the caller already holds it. Raises MolblockError if the record is not
-    found or the molecule's canonical SMILES differs from ``r["smiles"]``; never falls back to the SMILES molecule."""
+def atom_index_map(block: str, mol: Chem.Mol) -> tuple[int | None, ...]:
+    """File atom index -> atom index in ``mol`` (the H-removed molecule), for every atom of the molblock.
+
+    The nmrshiftdb2 spectrum indices count the atoms of the SD file in file order, explicit H atoms included; RDKit
+    removes those on reading, so every heavy atom after an H shifts down. An index naming a removed H atom maps to its
+    single heavy neighbour; an index naming an atom RDKit kept maps to itself; None if the H has no heavy neighbour or
+    several. Raises MolblockError unless the surviving atoms are exactly ``mol``'s atoms, element by element, in order."""
+    raw = Chem.MolFromMolBlock(block, removeHs=False, sanitize=False)
+    if raw is None:
+        raise MolblockError("the molblock cannot be parsed")
+    for a in raw.GetAtoms():
+        a.SetIntProp("file_idx", a.GetIdx())
+    try:
+        kept = Chem.RemoveHs(Chem.Mol(raw))
+    except Exception as e:  # noqa: BLE001 - RDKit raises several exception types
+        raise MolblockError(f"the molblock's explicit H atoms cannot be removed: {e}") from e
+    survivors = [a.GetIntProp("file_idx") for a in kept.GetAtoms()]
+    if len(survivors) != mol.GetNumAtoms() or any(
+        raw.GetAtomWithIdx(f).GetSymbol() != a.GetSymbol()
+        for f, a in zip(survivors, mol.GetAtoms(), strict=True)
+    ):
+        raise MolblockError("the molblock's atoms do not correspond one to one to the H-removed molecule")
+    new_of = {f: i for i, f in enumerate(survivors)}
+    out: list[int | None] = []
+    for a in raw.GetAtoms():
+        if a.GetIdx() in new_of:
+            out.append(new_of[a.GetIdx()])
+            continue
+        heavy = [n.GetIdx() for n in a.GetNeighbors() if n.GetIdx() in new_of]
+        out.append(new_of[heavy[0]] if len(heavy) == 1 and a.GetDegree() == 1 else None)
+    return tuple(out)
+
+
+def molblock_mol_map(
+    r: dict, mol: Chem.Mol | None = None, index_map: tuple[int | None, ...] | None = None
+) -> tuple[Chem.Mol, tuple[int | None, ...] | None]:
+    """The molecule the record's spectrum atom indices refer to (the H-removed SD molblock molecule, which pool()
+    parses) and the file-index map onto it (see atom_index_map). Raises MolblockError if the record is not found, the
+    molecule's canonical SMILES differs from ``r["smiles"]`` or the map cannot be verified; never falls back to the
+    SMILES molecule. ``mol`` (and ``index_map``) may be passed by a caller that holds them; a passed ``mol`` without a
+    map means "no explicit H atoms in the file" (indices are used as they are): None is returned for the map."""
     if mol is None:
         block = molblock_of(r["id"])
         if block is None:
             raise MolblockError(f"record {r['id']}: no molblock in {SD}")
         mol = Chem.MolFromMolBlock(block)
+        if mol is not None and Chem.MolToSmiles(mol) == r["smiles"]:
+            index_map = atom_index_map(block, mol)
     if mol is None or Chem.MolToSmiles(mol) != r["smiles"]:
         raise MolblockError(
             f"record {r['id']}: the molblock's structure does not match the stored SMILES {r['smiles']}"
         )
-    return mol
+    return mol, index_map
 
 
-def request_for(r: dict, mol: Chem.Mol | None = None) -> tuple[AnalysisRequest, bool]:
-    """The request the service sees for one record. The 1H integrals use the molblock molecule (see molblock_mol);
-    pass ``mol`` to supply it instead of looking it up in the SD file."""
-    mol = molblock_mol(r, mol)
+def molblock_mol(r: dict, mol: Chem.Mol | None = None) -> Chem.Mol:
+    """The H-removed molblock molecule of a record (see molblock_mol_map)."""
+    return molblock_mol_map(r, mol)[0]
+
+
+def request_for(
+    r: dict, mol: Chem.Mol | None = None, index_map: tuple[int | None, ...] | None = None
+) -> tuple[AnalysisRequest, bool]:
+    """The request the service sees for one record. 1H integrals use the molblock molecule and the file-order index
+    map (see molblock_mol_map); pass ``mol`` (and ``index_map``) to supply them instead of looking them up."""
+    mol, index_map = molblock_mol_map(r, mol, index_map)
+
+    def atom_of(k: int) -> int | None:
+        if index_map is None:
+            return k if k < mol.GetNumAtoms() else None
+        return index_map[k] if k < len(index_map) else None
+
     hs: dict[float, set[int]] = collections.defaultdict(set)
     shifts_of: dict[int, set[float]] = collections.defaultdict(set)
+    unmapped = False
     for e in r["h_spec"].strip().strip("|").split("|"):
         p = e.split(";")
         if len(p) >= 2 and p[0]:
             s = round(float(p[0]), 2)
             hs[s]
             if len(p) >= 3 and p[2].strip().isdigit():
-                hs[s].add(int(p[2]))
-                shifts_of[int(p[2])].add(s)
+                i = atom_of(int(p[2]))
+                if i is None:
+                    unmapped = True
+                else:
+                    hs[s].add(i)
+                    shifts_of[i].add(s)
     need = {a.GetIdx() for a in mol.GetAtoms() if a.GetTotalNumHs() and a.GetSymbol() == "C"}
     # Complete: every H-bearing carbon has a 1H shift, and every 1H entry names an atom of the molecule that has at
-    # least one attached H. An entry that names no atom, an atom that does not exist or an atom without H makes the
-    # assignment inconsistent: no integrals are given then, and no observed peak is ever dropped.
-    consistent = all(
-        hs[s] and all(i < mol.GetNumAtoms() and mol.GetAtomWithIdx(i).GetTotalNumHs() > 0 for i in hs[s])
-        for s in hs
+    # least one attached H (an explicit H atom counts as its heavy neighbour). An entry that names no atom, an atom
+    # that does not exist or an atom without H makes the assignment inconsistent: no integrals are given then, and
+    # no observed peak is ever dropped.
+    consistent = not unmapped and all(
+        hs[s] and all(mol.GetAtomWithIdx(i).GetTotalNumHs() > 0 for i in hs[s]) for s in hs
     )
     complete = need <= set(shifts_of) and consistent
     peaks: list[Peak] = []
