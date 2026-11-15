@@ -1,6 +1,6 @@
 # Spec: experience-memory layer for candidate generation
 
-**Status:** draft for review, 2026-11-14. Spec only; no implementation exists and none should start before review.
+**Status:** draft, 2026-11-14; review decisions recorded the same day (§12). Spec only: no implementation exists yet. Work follows the order in §13.
 **Scope:** add a store of approved, solved cases and inject the most relevant ones into the proposal prompt as worked examples. Nothing else in the pipeline changes.
 
 Numbers marked *(census)* come from a read-only analysis of the NMRShiftDB2 pools run for this spec with the existing `bench/benchmark.py` filters (same-solvent ¹H/¹³C pairs, ¹³C-complete, one record per structure). Numbers marked *(simulation)* come from one seeded dry run of the proposed split (seed 20261114); the real selection will differ slightly.
@@ -27,17 +27,17 @@ Flagged here rather than worked around. Each needs a decision at review.
 | C2 | The model needs one new rule on how to treat examples. That changes the system prompt, so `PROMPT_VERSION` bumps and **every arm, including empty memory, runs on the new prompt**. Results are not comparable with the report's 34/50. | `templates.py` rule list | Accept; the empty-memory arm is the baseline, rerun under the new prompt. |
 | C3 | `MAX_USER_TOKENS_ESTIMATE = 8000` covers the whole user message. Examples count toward it, so a long peak list plus examples could raise `PromptTooLarge` (HTTP 400) for a request that works today. | `builder.py` | Examples have their own cap (§5.4) and are **dropped first**; memory must never cause `PromptTooLarge`. |
 | C4 | Constraint 2 lists formula, DoU and carbon count, but `molecular_formula` is optional in the API. Without it, DoU and carbon count are unknown. | `SampleContext` | Retrieval degrades to shift-region features plus signal counts (§5.2). The experiment always supplies the formula. |
-| C5 | Constraint 2 lists solvent, but **90% of scaffold-eligible memory candidates have no reported solvent** (4,269 of 4,734 *(simulation)*; they come from the unreported-solvent pool). | NMRShiftDB2 | Solvent is a soft feature: a match adds to the score, unknown is neutral, a mismatch is not penalised. Alternative: restrict memory to named-solvent records (465 candidates in total *(simulation)*; how many of those are large molecules was not counted, and large cases are the ones the eval set needs; see §7.2). |
-| C6 | **Murcko scaffolds are undefined for acyclic molecules**: 175 of 747 named-pool molecules (23%) and 1,215 of 4,477 unreported-pool molecules (27%) have an empty scaffold *(census)*. A scaffold split treats them all as one group. | Constraint 3 | All acyclic molecules go to the memory side; the eval set contains none (§7.1). |
-| C7 | **One scaffold dominates**: bare benzene is the scaffold of 156 named-pool (21%) and 1,360 unreported-pool (30%) molecules *(census)*. It also must sit wholly on one side. | Constraint 3 | Same: benzene-scaffold molecules go to the memory side only. |
-| C8 | The existing eval sets (pilot 20, main 50, unreported 20) are small, 24 of the 90 are acyclic, 12 of the main 50 are at the ceiling (10 or fewer heavy atoms, 12/12), and they were used to find the verifier range fixes. | `bench/results*/` | A **new held-out set** for this experiment (§7.1). The 90 old molecules are excluded from memory too, so the old sets stay usable. |
+| C5 | Constraint 2 lists solvent, but **90% of scaffold-eligible memory candidates have no reported solvent** (4,269 of 4,734 *(simulation)*; they come from the unreported-solvent pool). | NMRShiftDB2 | **Decided:** solvent is a soft feature: a match adds to the score, unknown is neutral, a mismatch is not penalised; unreported-solvent cases are allowed. Alternative: restrict memory to named-solvent records (465 candidates in total *(simulation)*; how many of those are large molecules was not counted, and large cases are the ones the eval set needs; see §7.2). |
+| C6 | **Murcko scaffolds are undefined for acyclic molecules**: 175 of 747 named-pool molecules (23%) and 1,215 of 4,477 unreported-pool molecules (27%) have an empty scaffold *(census)*. A scaffold split treats them all as one group. | Constraint 3 | **Decided:** all acyclic molecules go to the memory side; the eval set contains none (§7.1). |
+| C7 | **One scaffold dominates**: bare benzene is the scaffold of 156 named-pool (21%) and 1,360 unreported-pool (30%) molecules *(census)*. It also must sit wholly on one side. | Constraint 3 | **Decided:** benzene-scaffold molecules go to the memory side only. |
+| C8 | The existing eval sets (pilot 20, main 50, unreported 20) are small, 24 of the 90 are acyclic, 12 of the main 50 are at the ceiling (10 or fewer heavy atoms, 12/12), and they were used to find the verifier range fixes. | `bench/results*/` | **Decided:** a **new held-out set** for this experiment (§7.1). The 90 old molecules are excluded from memory too, so the old sets stay usable. |
 | C9 | The service is stateless and the image contains only `src/` (`Dockerfile`: `COPY src ./src`); the free host's disk is ephemeral. There is nowhere for the running service to write cases, and no feedback route. | `Dockerfile`, `src/api/` | The store is **read-only data shipped with the code**; cases are added offline through the approval command (§6). This also enforces constraint 4. Deployment needs one more `COPY`. |
 | C10 | "Experience" implies the agent's own past analyses. With no feedback path (C9), the experiment's cases are **database records with known structures**, not past agent runs. | — | State it in the report. The stored-case format has optional fields for a past agent outcome (§4), unused in v1. |
 | C11 | `Versions` and `AnalysisResponse` use `extra="forbid"`. Reporting which cases were injected changes the response schema. | `src/schemas.py` | Add `versions.memory_version` and `memory_cases`; bump `SCHEMA_VERSION` (§5.5). |
 | C12 | Constraint 1 forbids routing memory into the verifier's confidence. `final_confidence = 0.85 × verifier + 0.15 × model confidence`, and examples can change the model's self-reported confidence, so memory can move the ranking indirectly. | `src/verify/verifier.py` | No code path from memory to the verifier. Report the model's own order next to service order so an indirect effect is visible. |
 | C13 | Opus 5.5 accepts no `temperature`, so runs are not repeatable; the report's numbers are single runs. A learning curve needs a noise estimate. | `src/llm/orchestrator.py` | Run the empty arm twice (§7.3). |
 | C14 | `bench/benchmark.py` has three hard-wired sets and builds settings globally; arms that differ only in memory need the store passed in. | `bench/benchmark.py`, `src/analysis.py` | Pass the store as an argument, like `client` (§5.5). |
-| C15 | Cases would put NMRShiftDB2 peak lists and structures into a public repository. `bench/results*/` already does. | — | Confirm the database's licence terms before committing the store; I have not verified them. |
+| C15 | Cases would put NMRShiftDB2 peak lists and structures into a public repository. `bench/results*/` already does. | — | **Decided:** check the licence before committing any case. If redistribution is not allowed, the store lives outside git (§12). |
 
 ---
 
@@ -135,7 +135,7 @@ The normalized `PeakTable` (analyte-role peaks only) and the `SampleContext`. No
 - Deterministic: ties break on `case_id`.
 - **k = 3** cases at most. At most one case per Murcko scaffold among those injected, so three near-identical examples cannot crowd the prompt.
 - A case below a minimum similarity is not injected; a query can get fewer than three, or none.
-- **Weights and the threshold are fixed before any eval model call.** They are tuned only on the memory side, with no model calls: for each memory case, retrieve from the other memory cases with its scaffold removed, and maximise the mean structural similarity (Morgan Tanimoto) between the query's true structure and its retrieved cases, against a random-retrieval baseline. No eval molecule takes part.
+- **Weights and the threshold are fixed before any eval model call.** They are tuned without model calls on the tuning half of the memory-side pool, then frozen; the check half decides go or no-go (§7.0). No eval molecule takes part.
 
 ### 5.4 Size limits (prompt-length control)
 
@@ -183,6 +183,18 @@ For the experiment this means a person approves up to 200 cases (§7.2) before a
 
 Existing methodology is kept: fixed seeds; every selection written to disk before any model call and never changed; a first-attempt timeout counts as a miss; every number comes from the report command.
 
+The evaluation runs in three steps, each a gate for the next: an offline check with no model calls (§7.0), stage 1 (§7.3, four arms), and stage 2 (§7.3, the learning curve) only if stage 1 supports the hypothesis.
+
+### 7.0 Offline go/no-go (no model calls, no eval data)
+
+Question: does retrieval find cases whose *structures* are closer to the query's true structure than random cases are? If not, injecting them cannot plausibly help the model, and the experiment stops before any cost.
+
+- **Data:** the memory-side candidate pool only (§7.2). It is split by Murcko scaffold, with a fixed seed, into a **tuning half** and a **check half**. No `MEM-EVAL` molecule is used.
+- **Tuning:** the retrieval weights and the minimum-similarity threshold (§5.3) are set on the tuning half only, then frozen and hashed.
+- **Check:** for each check-half molecule as a query, retrieve k = 3 cases from the rest of the check half, excluding its own scaffold, and draw 3 random cases (seeded) from the same set. Score each set by the highest Morgan (radius 2, 2048 bits) Tanimoto similarity between a returned case and the query's true structure.
+- **Go**, fixed now: the mean score of retrieved sets exceeds that of random sets by at least **0.10**, and the retrieved set scores higher than the random set for at least **60%** of queries. Otherwise **no-go**: stop and report the result.
+- The check is cheap and deterministic; its output file is committed with the selections.
+
 ### 7.1 Held-out set (`MEM-EVAL`)
 
 - 100 molecules from the named-solvent pool: 50 with 11-20 heavy atoms, 50 with more than 20. No molecules with 10 or fewer (they are at the ceiling).
@@ -202,25 +214,45 @@ Consequence to state in the report: `MEM-EVAL` has no acyclic and no benzene-onl
 
 ### 7.3 Arms
 
+**Stage 1** (runs only after a "go" in §7.0):
+
 | Arm | Memory | Purpose |
 |---|---|---|
 | M0-a, M0-b | empty (twice) | baseline and run-to-run noise (C13) |
-| M25, M50, M100, M200 | first N approved cases, retrieved | the learning curve |
-| R200 | 200 cases, but k cases chosen **at random** (seeded) instead of retrieved | separates "relevant cases help" from "any examples or a longer prompt help" |
+| M200 | all 200 approved cases, retrieved | the effect of memory |
+| R200 | the same 200 cases, but k cases chosen **at random** (seeded) instead of retrieved | separates "relevant cases help" from "any examples or a longer prompt help" |
 
-All arms: same 100 molecules, same prompt version, same model and settings, k = 3, one attempt each. 700 analyses.
+400 analyses. The verdict on the hypothesis (§8) comes from stage 1 alone.
+
+**Stage 2** (runs only if stage 1 supports the hypothesis):
+
+| Arm | Memory | Purpose |
+|---|---|---|
+| M25, M50, M100 | the first 25, 50, 100 of the ordered list, retrieved | the learning curve, with M0 and M200 from stage 1 as its ends |
+
+300 analyses.
+
+All arms in both stages: the same 100 molecules, the same prompt version, model and settings, k = 3, one attempt each. Stage 2 must run on the same prompt version, model id and settings as stage 1; if any of them has changed, stage 2 reruns M0-a and M200 as well.
 
 ### 7.4 Measures
 
 - **Primary:** service top-1 on `MEM-EVAL`, per arm.
 - **Secondary:** true structure proposed in any round (the direct target of memory); top-3; the model's own order top-1 (C12); first-attempt timeouts; mean model time; cost per molecule; examples injected per query.
-- **Curve:** top-1 against memory size 0, 25, 50, 100, 200, with the M0-a/M0-b spread drawn as the noise band and R200 as a reference line.
+- **Curve (stage 2):** top-1 against memory size 0, 25, 50, 100, 200, with the M0-a/M0-b spread drawn as the noise band and R200 as a reference line.
 - **Paired comparison:** per-molecule discordant counts between M200 and M0 (both replicates), exact McNemar test.
 - **Leakage diagnostic:** for each eval molecule, the highest Tanimoto similarity between its true structure and any case injected for it; top-1 gain split at 0.5 similarity. If the gain sits only in the high-similarity half, the effect is near-duplicate retrieval.
 
 ### 7.5 Cost and time (estimate, to approve before the run)
 
-The main set averaged $0.089 and 42 s per molecule; `MEM-EVAL` is larger molecules plus up to 2k more input tokens, so assume about $0.13 and 50 s. 700 analyses: **about $90, cap $110**, roughly 10 hours of model time (less in parallel). A leaner design (M0-a, M0-b, M50, M200, R200 = 500 analyses) is about $65 and loses the middle of the curve.
+The main set averaged $0.089 and 42 s per molecule; `MEM-EVAL` is larger molecules plus up to 2k more input tokens, so assume about $0.13 and 50 s.
+
+| Step | Analyses | Estimate | Spend cap |
+|---|---|---|---|
+| §7.0 offline check | 0 | $0 | — |
+| Stage 1 | 400 | about $52, about 6 h of model time | $65 |
+| Stage 2 (only if stage 1 supports H) | 300 | about $39 | $50 |
+
+If the hypothesis is not supported at stage 1, the experiment costs about $52 in total.
 
 ### 7.6 Power, stated before the run
 
@@ -234,10 +266,12 @@ Let Δ = top-1(M200) − mean top-1(M0-a, M0-b), in molecules out of 100, and N 
 
 | Outcome | Condition |
 |---|---|
-| **H supported** | Δ ≥ +8, and Δ > 2N, and exact McNemar p < 0.05 for M200 against each M0 replicate, and top-1(M200) − top-1(R200) ≥ +4, and top-1(M200) ≥ top-1(M25) |
+| **H supported** | Δ ≥ +8, and Δ > 2N, and exact McNemar p < 0.05 for M200 against each M0 replicate, and top-1(M200) − top-1(R200) ≥ +4 |
 | **H falsified** | Δ ≤ +3 or Δ ≤ N (no gain beyond noise); **or** top-1(R200) ≥ top-1(M200) (retrieval adds nothing over random examples); **or** the gain is confined to eval molecules whose injected cases exceed 0.5 Tanimoto to the truth (near-duplicate effect, not learning) |
 | **Inconclusive** | anything else; report as such, with the power statement |
 | **Harmful, stop** | first-attempt timeouts in M200 exceed the M0 mean by more than 5 molecules, or mean cost per molecule rises by more than 30% |
+
+All of these are evaluated on stage 1. Stage 2 is descriptive: it shows how the gain grows with memory size, and it cannot change the stage-1 verdict. A curve that is flat or falls between 25 and 200 cases is reported as such.
 
 No arm is rerun, no threshold is moved, and no retrieval weight is changed after the first eval call. A second experiment needs a new held-out set.
 
@@ -290,11 +324,38 @@ Not addressed by any of this: the model may have seen NMRShiftDB2 in training. T
 
 ---
 
-## 12. Decisions needed at review
+## 12. Decisions (recorded 2026-11-14)
 
-1. Accept that the held-out set excludes acyclic and benzene-only molecules (C6, C7), or choose another rule for those two groups.
-2. Soft solvent feature with unreported-solvent cases allowed (C5), or named-solvent cases only and a much smaller memory.
-3. New held-out set of 100 (recommended) versus reusing the main 50.
-4. Full design (700 analyses, about $90) versus the lean one (500, about $65).
-5. The numeric thresholds in §8.
-6. Licence check for committing database-derived cases (C15).
+| # | Question | Decision | Reason |
+|---|---|---|---|
+| 1 | Acyclic and benzene-only molecules (C6, C7) | Excluded from `MEM-EVAL`, allowed in memory | They cannot be split by scaffold. The test targets larger ring systems, where the misses are. The report states that `MEM-EVAL` is harder by construction. |
+| 2 | Solvent (C5) | Soft feature; unreported-solvent cases allowed | 90% of eligible memory has no reported solvent; excluding it would leave memory with few large molecules |
+| 3 | Held-out set (C8) | A new set of 100 (§7.1) | The main 50 has 12 molecules at the ceiling and was used to find the verifier range fixes |
+| 4 | Budget | Staged: offline check, then stage 1 (400 analyses, about $52), stage 2 (300, about $39) only if stage 1 supports H | No money is spent on the curve if memory does not help |
+| 5 | Thresholds | As in §7.0 and §8 | Strict enough that a "supported" result is believable at 100 molecules |
+| 6 | Licence (C15) | Check the NMRShiftDB2 terms before committing any case. If redistribution is not allowed, keep `memory/cases/` out of git (gitignored), commit only `manifest.json` with the case ids and hashes, and rebuild the cases from the database with the propose command | The experiment can run either way |
+
+Expectation, stated before any work: a small or inconclusive effect is more likely than a large one. The median Tanimoto similarity between a test molecule and its nearest memory case is 0.36 *(simulation)*, the hard misses are large molecules that were never proposed at all, and the design detects only gains of about 8 points or more. A controlled negative result is still a usable outcome.
+
+## 13. Order of work
+
+```
+1. Licence check (§12.6)                                   no cost
+2. Build the offline parts: case schema, store loader,     no model calls
+   retrieval, leakage checks, propose/approve/check CLI,
+   tests (the leakage check runs in CI)
+3. Write and freeze the selections: MEM-EVAL, the          no model calls
+   ordered memory list, the tuning/check split
+4. Offline go/no-go (§7.0)                                 free
+     no-go ──► stop; report the retrieval result
+5. Approve the 200 cases (8 batches of 25, §6)             reviewer time
+6. Prompt change (one new system rule), version bump,      no model calls
+   response fields; freeze settings and hash the store
+7. Stage 1: M0-a, M0-b, M200, R200                         about $52
+     not supported ──► report the negative or inconclusive result
+8. Stage 2: M25, M50, M100                                 about $39
+9. Report: bench/memory-report.md, every number from
+   the compare command
+```
+
+Steps 2-6 change no behaviour when memory is disabled: with `NMR_AGENT_MEMORY_DIR` unset, `/v1/analyze` is identical to today except for the new prompt version and the `memory_version: "none"` field.
