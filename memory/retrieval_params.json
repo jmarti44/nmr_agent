@@ -1,0 +1,127 @@
+{
+ "description": "retrieval parameters tuned on the tuning half (memory-sized pools) and frozen",
+ "git_commit": "8bed9d64758c622f5947619589bc56a6eae863ed",
+ "parameters": {
+  "weight_c13": 0.5,
+  "weight_h1": 0.3,
+  "weight_elements": 0.2,
+  "weight_dou": 0.0,
+  "solvent_bonus": 0.03,
+  "c13_tolerance_ppm": 2.0,
+  "h1_tolerance_ppm": 0.15,
+  "tie_epsilon": 0.02,
+  "k": 3,
+  "min_similarity": 0.0
+ },
+ "sha256": "bf933bfc891372472f6826e3daa80ad987af96a0ce10d18169e0f885067ac951",
+ "objective": "mean best Morgan Tanimoto of the retrieved sets over all tuning (query, sample) pairs",
+ "objective_value": 0.19679035034060163,
+ "pairs": 11835,
+ "grid_points": 286,
+ "top10": [
+  {
+   "weights": {
+    "weight_c13": 0.5,
+    "weight_h1": 0.3,
+    "weight_elements": 0.2,
+    "weight_dou": 0.0
+   },
+   "objective": 0.19679035034060163
+  },
+  {
+   "weights": {
+    "weight_c13": 0.6,
+    "weight_h1": 0.3,
+    "weight_elements": 0.1,
+    "weight_dou": 0.0
+   },
+   "objective": 0.19634196175250881
+  },
+  {
+   "weights": {
+    "weight_c13": 0.5,
+    "weight_h1": 0.4,
+    "weight_elements": 0.1,
+    "weight_dou": 0.0
+   },
+   "objective": 0.1960806337334274
+  },
+  {
+   "weights": {
+    "weight_c13": 0.6,
+    "weight_h1": 0.2,
+    "weight_elements": 0.2,
+    "weight_dou": 0.0
+   },
+   "objective": 0.19593432101465683
+  },
+  {
+   "weights": {
+    "weight_c13": 0.4,
+    "weight_h1": 0.4,
+    "weight_elements": 0.2,
+    "weight_dou": 0.0
+   },
+   "objective": 0.1951865218440466
+  },
+  {
+   "weights": {
+    "weight_c13": 0.5,
+    "weight_h1": 0.2,
+    "weight_elements": 0.3,
+    "weight_dou": 0.0
+   },
+   "objective": 0.1946620007052945
+  },
+  {
+   "weights": {
+    "weight_c13": 0.4,
+    "weight_h1": 0.3,
+    "weight_elements": 0.3,
+    "weight_dou": 0.0
+   },
+   "objective": 0.19464926436691965
+  },
+  {
+   "weights": {
+    "weight_c13": 0.7,
+    "weight_h1": 0.2,
+    "weight_elements": 0.1,
+    "weight_dou": 0.0
+   },
+   "objective": 0.19451672201666056
+  },
+  {
+   "weights": {
+    "weight_c13": 0.6,
+    "weight_h1": 0.4,
+    "weight_elements": 0.0,
+    "weight_dou": 0.0
+   },
+   "objective": 0.19432185662137205
+  },
+  {
+   "weights": {
+    "weight_c13": 0.7,
+    "weight_h1": 0.3,
+    "weight_elements": 0.0,
+    "weight_dou": 0.0
+   },
+   "objective": 0.19419072757375955
+  }
+ ],
+ "provisional_default": {
+  "weights": {
+   "weight_c13": 0.35,
+   "weight_h1": 0.3,
+   "weight_elements": 0.2,
+   "weight_dou": 0.15
+  },
+  "objective": 0.17995526177890678
+ },
+ "run_seconds": {
+  "load_molecules": 27.6,
+  "closeness": 7.7,
+  "grid": 5.7
+ }
+}
