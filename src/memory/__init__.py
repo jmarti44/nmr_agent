@@ -11,6 +11,7 @@ from src.memory.leakage import (
     rule4_similarity,
     rule5_proposed,
 )
+from src.memory.pending import PendingCase, finalize
 from src.memory.render import case_cost, render_case, render_examples
 from src.memory.retrieval import RetrievalParams, RetrievalResult, retrieve, score_case, select_random
 from src.memory.runtime import MemoryRuntime, ParamsError, outcome_config
@@ -34,6 +35,7 @@ __all__ = [
     "MemoryCase",
     "MemoryRuntime",
     "MemoryStore",
+    "PendingCase",
     "OutcomeConfig",
     "ParamsError",
     "RetrievalParams",
@@ -43,6 +45,7 @@ __all__ = [
     "case_cost",
     "case_features",
     "check_injected",
+    "finalize",
     "load_store",
     "memory_version",
     "outcome_config",

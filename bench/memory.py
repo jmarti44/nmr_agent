@@ -4,6 +4,15 @@
     PYTHONPATH=. uv run python bench/memory.py select           # once: writes the four files in bench/memory/
     PYTHONPATH=. uv run python bench/memory.py check [--store <dir>]
 
+Phase M6 (spec §6, §7.2a, §15.4):
+
+    select-large                 write bench/memory/memory_large.json (once)
+    setup-store                  create the empty memory/ store skeleton
+    collect [--ids ..] [--cap 35] [--dry-run]   THE PAID STEP: run the service on each memory molecule, memory off
+    propose [--ids ..]           pending cases + review sheets from the collected outcomes (never approves)
+    approve <case_id>.. --by "<name>"           a person only: asks for the typed word APPROVE
+    reject <case_id>.. --reason "<text>"
+
 `select` needs the NMRShiftDB2 export (bench/data/, untracked) and refuses to run if any output exists:
 the selections are written once, before any model call, and never rewritten. `check` reads only the
 committed files (and a store, if given) and exits non-zero on any violation.
@@ -13,15 +22,21 @@ from __future__ import annotations
 
 import argparse
 import collections
+import datetime as dt
+import hashlib
 import json
 import random
+import re
 import subprocess
 import sys
+from collections.abc import Mapping
+from dataclasses import dataclass
 from pathlib import Path
 
 import numpy as np
+import rdkit
 from rdkit import Chem, DataStructs
-from rdkit.Chem import rdFingerprintGenerator
+from rdkit.Chem import Descriptors, rdFingerprintGenerator, rdMolDescriptors
 
 from src.memory import load_store
 from src.memory.leakage import (
@@ -34,6 +49,7 @@ from src.memory.leakage import (
     rule5_proposed,
 )
 from src.memory.store import chemistry_fields
+from src.schemas import Nucleus
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "bench" / "memory"
@@ -478,17 +494,938 @@ def check(store_dir: str | None) -> int:
     return 0 if ok else 1
 
 
+# --------------------------------------------------------------------------- M6: the large-weighted memory list (§15.4)
+
+LARGE_FILE = OUT / "memory_large.json"
+COLLECT_DIR = OUT / "collect"
+STORE = ROOT / "memory"
+LARGE_QUOTAS = {">20": 120, "11-20": 60, "<=10": 20}
+LEAKAGE_RULES_LARGE = (1, 2, 4)
+SD_PATH = ROOT / "bench" / "data" / "nmrshiftdb2" / "nmrshiftdb2withsignals.sd"
+SPEND_CAP_DEFAULT = 35.0
+BATCH_SIZE = 25
+CONFIRM_WORD = "APPROVE"
+
+
+def sha256_file(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def rel(path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(ROOT))
+    except ValueError:
+        return str(path)
+
+
+def utc_today() -> dt.date:
+    return dt.datetime.now(dt.UTC).date()
+
+
+def build_large(entries: list[dict], excluded: set[str]) -> tuple[list[dict], dict[str, list[str]]]:
+    """§15.4: per stratum, the first LARGE_QUOTAS[s] usable entries in memory_order; the rest of that stratum, in
+    the same order, is its replacement order. The chosen rows are listed in memory_order (position) order."""
+    usable = [e for e in entries if e["id"] not in excluded]
+    chosen: list[dict] = []
+    replacements: dict[str, list[str]] = {}
+    for s, n in LARGE_QUOTAS.items():
+        rows = [e for e in usable if e["stratum"] == s]
+        if len(rows) < n:
+            sys.exit(f"stratum {s}: only {len(rows)} usable entries, need {n}")
+        chosen += rows[:n]
+        replacements[s] = [e["id"] for e in rows[n:]]
+    order = {e["id"]: i for i, e in enumerate(entries)}
+    chosen.sort(key=lambda e: order[e["id"]])
+    keep = ("stratum", "position", "id", "pool", "smiles", "inchikey", "heavy_atoms", "scaffold", "solvent")
+    return [{"index": i, **{k: e[k] for k in keep}} for i, e in enumerate(chosen, 1)], replacements
+
+
+def select_large(
+    out: Path = LARGE_FILE,
+    order_file: Path | None = None,
+    samples_file: Path | None = None,
+    eval_file: Path | None = None,
+    old_keys: set[str] | None = None,
+    git: dict | None = None,
+) -> dict:
+    """Write bench/memory/memory_large.json once; refuses to overwrite it, and refuses to write a list that
+    breaks leakage rules 1, 2 or 4 against MEM-EVAL (spec §15.4: it must be clean)."""
+    order_file = order_file or FILES["memory_order"]
+    samples_file = samples_file or OUT / "gonogo_samples.json"
+    eval_file = eval_file or FILES["mem_eval"]
+    if out.exists():
+        sys.exit(f"refusing to run: {rel(out)} exists; the list is written once, before any model call")
+    entries = json.loads(order_file.read_text())["entries"]
+    excluded = [x["id"] for x in json.loads(samples_file.read_text())["excluded"]]
+    mem_eval = json.loads(eval_file.read_text())["records"]
+    rows, replacements = build_large(entries, set(excluded))
+    old = old_structure_keys() if old_keys is None else old_keys
+    violations = [
+        *rule1_structure_key(rows, mem_eval, old),
+        *rule2_scaffold(rows, mem_eval),
+        *rule4_similarity(rows, mem_eval),
+    ]
+    leakage = {
+        "rules": list(LEAKAGE_RULES_LARGE),
+        "memory_items": len(rows),
+        "mem_eval_molecules": len(mem_eval),
+        "rule_1_also_against_old_set_structure_keys": True,
+        "violations": [str(v) for v in violations],
+        "clean": not violations,
+    }
+    if violations:
+        sys.exit(
+            "the selected list breaks the leakage rules, nothing written:\n  "
+            + "\n  ".join(leakage["violations"][:20])
+        )
+    git = git or git_state()
+    header = {
+        "description": "Large-weighted 200-case memory list (spec §15.4); written once, before any model call",
+        "git_commit": git["git_commit"],
+        "git_dirty_code": git["git_dirty_code"],
+        "sources": {rel(p): sha256_file(p) for p in (order_file, samples_file, eval_file)},
+        "excluded_ids": excluded,
+        "quotas": LARGE_QUOTAS,
+        "counts": {
+            "selected_by_stratum": dict(collections.Counter(r["stratum"] for r in rows)),
+            "selected_by_pool": dict(collections.Counter(r["pool"] for r in rows)),
+            "available_by_stratum_after_exclusions": {
+                s: LARGE_QUOTAS[s] + len(replacements[s]) for s in LARGE_QUOTAS
+            },
+        },
+        "leakage": leakage,
+        "replacement_order": replacements,
+    }
+    out.parent.mkdir(parents=True, exist_ok=True)
+    dump_json(out, header, "entries", rows)
+    return json.loads(out.read_text())
+
+
+def load_large(path: Path = LARGE_FILE) -> dict:
+    if not path.exists():
+        sys.exit(f"{rel(path)} does not exist; run select-large first")
+    return json.loads(path.read_text())
+
+
+def resolve_rows(large: dict, ids: list[str] | None, order_file: Path | None = None) -> list[dict]:
+    """The memory_large entries (all, or those named); a replacement id is resolved through memory_order."""
+    by_id = {r["id"]: r for r in large["entries"]}
+    if not ids:
+        return list(large["entries"])
+    replacement_ids = {i for lst in large["replacement_order"].values() for i in lst}
+    order = None
+    rows = []
+    for i in ids:
+        if i in by_id:
+            rows.append(by_id[i])
+        elif i in replacement_ids:
+            if order is None:
+                order = {
+                    e["id"]: e
+                    for e in json.loads((order_file or FILES["memory_order"]).read_text())["entries"]
+                }
+            rows.append(
+                {
+                    k: order[i][k]
+                    for k in (
+                        "stratum",
+                        "position",
+                        "id",
+                        "pool",
+                        "smiles",
+                        "inchikey",
+                        "heavy_atoms",
+                        "scaffold",
+                        "solvent",
+                    )
+                }
+            )
+        else:
+            sys.exit(f"{i} is neither in memory_large.json nor in its replacement order")
+    return rows
+
+
+# --------------------------------------------------------------------------- M6: the SD record behind a pool record
+
+
+@dataclass(frozen=True)
+class SdRecord:
+    """What pool() leaves out: the spectrum numbers and the molecule, for one record."""
+
+    id: str
+    mol: Chem.Mol
+    smiles: str
+    inchikey: str
+    formula: str
+    solvent: str | None
+    h_spec: str
+    c_spec: str
+    h_spectrum: int
+    c_spectrum: int
+
+    def pool_record(self) -> dict:
+        """The dict pool() returns for this record (the input of bench.benchmark.request_for)."""
+        return {
+            "id": self.id,
+            "smiles": self.smiles,
+            "inchikey": self.inchikey,
+            "formula": self.formula,
+            "solvent": self.solvent,
+            "h_spec": self.h_spec,
+            "c_spec": self.c_spec,
+        }
+
+
+def sd_record_from_text(rec: str, unreported: bool) -> SdRecord | None:
+    """The same filters and the same "first matching pair" rule as bench.benchmark.pool(), for one record."""
+    from bench import benchmark as b
+
+    end = rec.find("M  END")
+    mol = Chem.MolFromMolBlock(rec[: end + 6])
+    if mol is None or len(Chem.GetMolFrags(mol)) != 1 or Chem.GetFormalCharge(mol) != 0:
+        return None
+    if {a.GetSymbol() for a in mol.GetAtoms()} - b.ALLOWED or mol.GetNumAtoms() > 30:
+        return None
+    if Descriptors.MolWt(mol) > 450:
+        return None
+    tags = dict(b.TAG.findall(rec[end:]))
+    pred = {i for t in ("Program", "NMRProgram") for i, v in b.idx(tags.get(t, "")).items() if v}
+    solv = b.idx(tags.get("Solvent", ""))
+    sp: dict[str, dict[int, str]] = {"1H": {}, "13C": {}}
+    for k, v in tags.items():
+        m = re.fullmatch(r"Spectrum (1H|13C) (\d+)", k)
+        if m and int(m[2]) not in pred:
+            sp[m[1]][int(m[2])] = v
+    if unreported:
+        pairs = [
+            (h, c)
+            for h in sp["1H"]
+            for c in sp["13C"]
+            if solv.get(h, "").lower() in b.UNREPORTED and solv.get(c, "").lower() in b.UNREPORTED
+        ]
+    else:
+        pairs = [
+            (h, c)
+            for h in sp["1H"]
+            for c in sp["13C"]
+            if b.map_solv(solv.get(h, "")) and b.map_solv(solv.get(h, "")) == b.map_solv(solv.get(c, ""))
+        ]
+    if not pairs:
+        return None
+    h, c = pairs[0]
+    return SdRecord(
+        id=tags.get("nmrshiftdb2 ID", "?").strip(),
+        mol=mol,
+        smiles=Chem.MolToSmiles(mol),
+        inchikey=Chem.MolToInchiKey(mol),
+        formula=rdMolDescriptors.CalcMolFormula(mol),
+        solvent=None if unreported else b.map_solv(solv[h]).value,
+        h_spec=sp["1H"][h],
+        c_spec=sp["13C"][c],
+        h_spectrum=h,
+        c_spectrum=c,
+    )
+
+
+_SD_ID = re.compile(r"> <nmrshiftdb2 ID>\n(\S+)")
+
+
+def read_sd_records(wanted: Mapping[str, str], path: Path | None = None) -> dict[str, SdRecord]:
+    """One pass over the SD export. ``wanted`` maps an nmrshiftdb2 id to its pool ("named" or "unreported").
+    Ids that are absent, or that pool() would not have kept, are missing from the result."""
+    path = path or SD_PATH
+    found: dict[str, SdRecord] = {}
+    buf: list[str] = []
+    with open(path, errors="replace") as fh:
+        for line in fh:
+            if not line.startswith("$$$$"):
+                buf.append(line)
+                continue
+            rec = "".join(buf)
+            buf = []
+            m = _SD_ID.search(rec)
+            if m and m[1] in wanted and m[1] not in found:
+                r = sd_record_from_text(rec, wanted[m[1]] == "unreported")
+                if r is not None:
+                    found[r.id] = r
+    return found
+
+
+def read_sd_record(record_id: str, pool: str = "named", path: Path | None = None) -> SdRecord | None:
+    return read_sd_records({record_id: pool}, path).get(record_id)
+
+
+# --------------------------------------------------------------------------- M6: collect (the paid step)
+
+
+def outcome_status(candidates: list[str], truth_inchikey: str) -> str:
+    """ "solved" if the first candidate has the truth's InChIKey connectivity block, else "missed"."""
+    from bench import benchmark as b
+
+    return "solved" if candidates and b.key(candidates[0]) == key_of(truth_inchikey) else "missed"
+
+
+def build_request(row: dict, rec: SdRecord | None):
+    """The benchmark's request for one memory molecule, plus its prompt. Raises ValueError on a problem."""
+    from bench import benchmark as b
+    from src.prompting import prepare_request
+
+    if rec is None:
+        raise ValueError("no usable record in the SD export (missing, or no same-solvent 1H + 13C pair)")
+    if rec.smiles != row["smiles"] or rec.inchikey != row["inchikey"]:
+        raise ValueError(f"SD record structure {rec.smiles} differs from the listed {row['smiles']}")
+    req, complete = b.request_for(rec.pool_record())
+    table, prompt, context = prepare_request(req)
+    return req, complete, table, prompt, context
+
+
+def collect_dry_run(rows: list[dict], records: Mapping[str, SdRecord], large: dict) -> dict:
+    failures: dict[str, str] = {}
+    tokens = static = n = 0
+    for row in rows:
+        try:
+            *_, prompt, _ = build_request(row, records.get(row["id"]))
+        except Exception as e:  # noqa: BLE001 - every failure is reported, none stops the dry run
+            failures[row["id"]] = f"{type(e).__name__}: {e}"
+            continue
+        n += 1
+        tokens += prompt.total_tokens_est
+        static += prompt.static_tokens_est
+    print(f"dry run: {len(rows)} molecules, {n} buildable, {len(failures)} failed; no model call was made")
+    print(f"estimated input tokens: {tokens} in total ({tokens // max(n, 1)} per molecule; "
+          f"{static // max(n, 1)} of them the cacheable system prompt)")  # fmt: skip
+    for i, why in failures.items():
+        print(f"  FAILS {i}: {why}")
+    return {"molecules": len(rows), "buildable": n, "failures": failures, "input_tokens_est": tokens}
+
+
+def replacements_for(failed: list[dict], large: dict, taken: set[str]) -> dict[str, str]:
+    """For each failed row, the next unused id of its stratum's replacement order."""
+    queues = {s: [i for i in ids if i not in taken] for s, ids in large["replacement_order"].items()}
+    return {r["id"]: queues[r["stratum"]].pop(0) for r in failed if queues[r["stratum"]]}
+
+
+def collect(
+    ids: list[str] | None = None,
+    cap: float = SPEND_CAP_DEFAULT,
+    dry_run: bool = False,
+    large_file: Path = LARGE_FILE,
+    out_dir: Path = COLLECT_DIR,
+    read_records=read_sd_records,
+    client_factory=None,
+    settings=None,
+    today: dt.date | None = None,
+) -> dict:
+    """Run the analysis once per memory molecule with memory disabled and save one file per molecule.
+
+    A molecule with a result file is skipped (resume). The run stops before the next molecule once the money
+    spent (the files' ``cost_usd``, including earlier runs) reaches ``cap``.
+    """
+    from src.analysis import CallMeter, run_analysis
+    from src.core.settings import Settings
+    from src.memory.runtime import outcome_config
+
+    settings = settings or Settings()
+    large = load_large(large_file)
+    rows = resolve_rows(large, ids)
+    records = read_records({r["id"]: r["pool"] for r in rows})
+    if dry_run:
+        report = collect_dry_run(rows, records, large)
+        failed = [r for r in rows if r["id"] in report["failures"]]
+        if failed:
+            taken = {r["id"] for r in large["entries"]}
+            subs = replacements_for(failed, large, taken)
+            for i, new in subs.items():
+                print(f"  replacement for {i}: {new} (next unused in its stratum's replacement order)")
+            report["replacements"] = subs
+        return report
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    cfg = outcome_config(settings).model_dump()
+    client = (client_factory or default_client)(settings)
+    spent = sum(json.loads(f.read_text()).get("cost_usd", 0) for f in out_dir.glob("*.json"))
+    done: list[str] = []
+    for row in rows:
+        out = out_dir / f"{row['id']}.json"
+        if out.exists():
+            continue
+        if spent >= cap:
+            print(f"spend cap ${cap:.2f} reached (${spent:.2f}); stopping")
+            break
+        try:
+            req, complete, *_ = build_request(row, records.get(row["id"]))
+        except Exception as e:  # noqa: BLE001 - not an analysis: nothing was sent, nothing is saved
+            print(row["id"], f"REQUEST NOT BUILT, skipped: {type(e).__name__}: {e}")
+            continue
+        trace: dict = {}
+        meter = CallMeter()
+        base = {
+            "id": row["id"], "stratum": row["stratum"], "position": row["position"],
+            "truth": row["smiles"], "truth_inchikey": row["inchikey"], "solvent": row["solvent"],
+            "formula": records[row["id"]].formula, "h_integrals_given": complete,
+            "collected_on": (today or utc_today()).isoformat(), "outcome_config": cfg,
+        }  # fmt: skip
+        try:
+            resp = run_analysis(req, settings, client, trace=trace, meter=meter, memory=None)
+        except Exception as e:  # noqa: BLE001 - recorded as no_answer; a rerun never changes it
+            result = {**base, "status": "no_answer", "error": f"{type(e).__name__}: {str(e)[:200]}",
+                      "candidates": [], "trace": trace, "cost_usd": 0, "llm_calls": meter.calls,
+                      "timing_ms": {}, "warnings": []}  # fmt: skip
+            out.write_text(json.dumps(result, indent=1))
+            print(row["id"], "no_answer", result["error"])
+            done.append(row["id"])
+            continue
+        cands = [
+            {"smiles": v.candidate.smiles, "model_rank": v.candidate.rank, "status": v.status,
+             "score": v.verifier_score, "confidence": v.final_confidence}
+            for v in resp.candidates
+        ]  # fmt: skip
+        spent += resp.usage.estimated_cost_usd
+        result = {
+            **base, "status": outcome_status([c["smiles"] for c in cands], row["inchikey"]),
+            "candidates": cands, "trace": trace, "cost_usd": resp.usage.estimated_cost_usd,
+            "llm_calls": resp.usage.llm_calls, "timing_ms": resp.timing_ms, "warnings": resp.warnings,
+        }  # fmt: skip
+        out.write_text(json.dumps(result, indent=1))
+        print(row["id"], result["status"], f"${resp.usage.estimated_cost_usd:.3f}")
+        done.append(row["id"])
+    print(f"collected {len(done)} molecule(s) this run; total spent in {rel(out_dir)}: ${spent:.2f}")
+    return {"collected": done, "spent": spent}
+
+
+def default_client(settings):
+    import anthropic
+
+    return anthropic.Anthropic(max_retries=0, timeout=settings.llm_call_timeout_s)
+
+
+# --------------------------------------------------------------------------- M6: propose
+
+
+def environment_of(atom: Chem.Atom) -> str:
+    """ "C, 2 H, ring" or "C, aromatic, 1 H": element, aromatic, attached hydrogens, ring membership.
+    Built only from the molecule graph, never from text in the record."""
+    parts = [atom.GetSymbol()]
+    if atom.GetIsAromatic():
+        parts.append("aromatic")
+    parts.append(f"{atom.GetTotalNumHs()} H")
+    if atom.IsInRing() and not atom.GetIsAromatic():
+        parts.append("ring")
+    return ", ".join(parts)
+
+
+def build_assignments(rec: SdRecord) -> tuple[list[dict], dict[str, int]]:
+    """One assignment per spectrum entry that names an atom of the molecule; the rest are counted, not guessed."""
+    out: list[dict] = []
+    stats = {"entries": 0, "left_out": 0}
+    n_atoms = rec.mol.GetNumAtoms()
+    for nucleus, spec, digits in (("1H", rec.h_spec, 2), ("13C", rec.c_spec, 1)):
+        for entry in spec.strip().strip("|").split("|"):
+            p = entry.split(";")
+            if not p[0]:
+                continue
+            stats["entries"] += 1
+            if len(p) >= 3 and p[2].strip().isdigit() and int(p[2]) < n_atoms:
+                atom = rec.mol.GetAtomWithIdx(int(p[2]))
+                out.append(
+                    {
+                        "nucleus": nucleus,
+                        "shift_ppm": round(float(p[0]), digits),
+                        "environment": environment_of(atom),
+                    }
+                )
+            else:
+                stats["left_out"] += 1
+    return out, stats
+
+
+def build_pending(row: dict, rec: SdRecord, result: dict, case_id: str, git_label: str, today: dt.date):
+    """The pending case and its notes. Raises ValueError for a record that cannot become a case."""
+    from src.memory.case import AgentOutcome, Provenance
+    from src.memory.pending import PendingCase
+
+    _, _, table, _, context = build_request(row, rec)
+    chem = chemistry_fields(rec.smiles)
+    if chem is None:
+        raise ValueError(f"RDKit cannot parse {rec.smiles}")
+    if chem["formula"] != context.molecular_formula:
+        raise ValueError(f"formula {chem['formula']} differs from the request's {context.molecular_formula}")
+    assignments, stats = build_assignments(rec)
+    cfg = result["outcome_config"]
+    status = result["status"]
+    proposed = [] if status == "no_answer" else [c["smiles"] for c in result["candidates"]]
+    pending = PendingCase(
+        case_id=case_id,
+        schema_version="1",
+        provenance=Provenance(
+            source="nmrshiftdb2",
+            source_record_id=rec.id,
+            spectrum_ids={"1H": rec.h_spectrum, "13C": rec.c_spectrum},
+            truth_basis="database-assigned structure",
+            extracted_by=f"bench/memory.py propose @ {git_label}, RDKit {rdkit.__version__}",
+            proposed_on=today,
+        ),
+        **{
+            k: chem[k]
+            for k in (
+                "formula",
+                "dou",
+                "carbon_count",
+                "heavy_atoms",
+                "smiles",
+                "inchikey",
+                "murcko_scaffold",
+                "generic_scaffold",
+            )
+        },
+        solvent=context.solvent if context.solvent is not None else table.solvent,
+        h_peaks=[{"shift_ppm": p.shift_ppm, "integral": p.integral} for p in table.analyte_peaks(Nucleus.H1)],
+        c_peaks=[p.shift_ppm for p in table.analyte_peaks(Nucleus.C13)],
+        assignments=assignments or None,
+        agent_outcome=AgentOutcome(
+            collected_on=dt.date.fromisoformat(result["collected_on"]),
+            model_id=cfg["model_id"],
+            prompt_version=cfg["prompt_version"],
+            settings_hash=cfg["settings_hash"],
+            status=status,
+            proposed_smiles=proposed,
+        ),
+    )
+    return pending, {"assignments_entries": stats["entries"], "assignments_left_out": stats["left_out"]}
+
+
+def case_ids_in(store: Path) -> dict[str, str]:
+    """source_record_id -> case id, over pending, approved and rejected cases (ids are never reused)."""
+    found: dict[str, str] = {}
+    for sub in ("pending", "cases", "rejected"):
+        for f in sorted((store / sub).glob("mem-*.json")):
+            doc = json.loads(f.read_text())
+            doc = doc.get("case", doc)
+            found[doc["provenance"]["source_record_id"]] = doc["case_id"]
+    return found
+
+
+def used_case_numbers(store: Path) -> set[int]:
+    return {
+        int(f.stem[4:]) for sub in ("pending", "cases", "rejected") for f in (store / sub).glob("mem-*.json")
+    }
+
+
+def structure_keys_in(store: Path) -> dict[str, str]:
+    """Structure key -> case id for the pending and the approved cases (the duplicate rule)."""
+    keys: dict[str, str] = {}
+    for sub in ("pending", "cases"):
+        for f in sorted((store / sub).glob("mem-*.json")):
+            doc = json.loads(f.read_text())
+            keys.setdefault(key_of(doc["inchikey"]), doc["case_id"])
+    return keys
+
+
+def leakage_problems(case, mem_eval: list[dict], old_keys: set[str]) -> list[str]:
+    """Rules 1, 2, 4 and 5 for one case (a MemoryCase, or a placeholder view of a pending case)."""
+    v = [
+        *rule1_structure_key([case], mem_eval, old_keys),
+        *rule2_scaffold([case], mem_eval),
+        *rule4_similarity([case], mem_eval),
+        *rule5_proposed([case], mem_eval),
+    ]
+    return [str(x) for x in v]
+
+
+def propose(
+    ids: list[str] | None = None,
+    store: Path = STORE,
+    collect_dir: Path = COLLECT_DIR,
+    large_file: Path = LARGE_FILE,
+    eval_file: Path | None = None,
+    read_records=read_sd_records,
+    settings=None,
+    today: dt.date | None = None,
+    git: dict | None = None,
+    old_keys: set[str] | None = None,
+) -> dict:
+    """Build pending cases for every collected molecule that has no case yet, refusing the ones that fail a
+    check, then write the review sheets. Never touches cases/ or the manifest."""
+    from src.core.settings import Settings
+    from src.memory.pending import chemistry_problems, dump_case, placeholder_case
+    from src.memory.runtime import outcome_config
+
+    settings = settings or Settings()
+    today = today or utc_today()
+    git = git or git_state()
+    git_label = git["git_commit"] + ("+uncommitted changes" if git["git_dirty_code"] else "")
+    large = load_large(large_file)
+    rows = resolve_rows(large, ids)
+    mem_eval = json.loads((eval_file or FILES["mem_eval"]).read_text())["records"]
+    old = old_structure_keys() if old_keys is None else old_keys
+    expected = outcome_config(settings).model_dump()
+    pending_dir = store / "pending"
+    pending_dir.mkdir(parents=True, exist_ok=True)
+    for sub in ("cases", "rejected"):
+        (store / sub).mkdir(parents=True, exist_ok=True)
+
+    have = case_ids_in(store)
+    index_of = {r["id"]: r["index"] for r in large["entries"]}
+    next_free = max([len(large["entries"]), *used_case_numbers(store)]) + 1
+    todo = []
+    skipped: dict[str, str] = {}
+    for row in rows:
+        f = collect_dir / f"{row['id']}.json"
+        if row["id"] in have:
+            skipped[row["id"]] = f"already has case {have[row['id']]}"
+        elif not f.exists():
+            skipped[row["id"]] = "not collected"
+        else:
+            todo.append((row, json.loads(f.read_text())))
+    records = read_records({r["id"]: r["pool"] for r, _ in todo}) if todo else {}
+    notes_file = pending_dir / "propose-notes.json"
+    notes = json.loads(notes_file.read_text()) if notes_file.exists() else {}
+    keys = structure_keys_in(store)
+    refused: dict[str, list[str]] = {}
+    written: list[str] = []
+    for row, result in todo:
+        problems: list[str] = []
+        if result["outcome_config"] != expected:
+            problems.append("collected under a different configuration than the current Settings")
+        if result["truth_inchikey"] != row["inchikey"]:
+            problems.append("collect result is for a different structure than memory_large lists")
+        if problems:
+            refused[row["id"]] = problems
+            continue
+        if row["id"] in index_of:
+            case_id = f"mem-{index_of[row['id']]:06d}"
+        else:
+            case_id, next_free = f"mem-{next_free:06d}", next_free + 1
+        try:
+            pending, meta = build_pending(row, records.get(row["id"]), result, case_id, git_label, today)
+            problems += chemistry_problems(pending)
+        except Exception as e:  # noqa: BLE001 - reported as a refusal
+            refused[row["id"]] = [f"inconsistent or unusable record: {type(e).__name__}: {e}"]
+            continue
+        if key_of(pending.inchikey) in keys:
+            problems.append(f"structure key duplicates case {keys[key_of(pending.inchikey)]}")
+        problems += leakage_problems(placeholder_case(pending), mem_eval, old)
+        if problems:
+            refused[row["id"]] = problems
+            continue
+        (pending_dir / f"{case_id}.json").write_text(dump_case(pending), encoding="utf-8")
+        keys[key_of(pending.inchikey)] = case_id
+        notes[case_id] = {**meta, "molecule": row["id"]}
+        written.append(case_id)
+    if written:
+        notes_file.write_text(json.dumps(dict(sorted(notes.items())), indent=1) + "\n", encoding="utf-8")
+    sheets = write_review_sheets(store, collect_dir, mem_eval, old)
+    print(
+        f"proposed {len(written)} case(s) into {rel(pending_dir)}; skipped {len(skipped)}; refused {len(refused)}"
+    )
+    for i, why in skipped.items():
+        print(f"  skipped {i}: {why}")
+    for i, why in refused.items():
+        print(f"  REFUSED {i}: {'; '.join(why)}")
+    print(f"review sheets: {', '.join(p.name for p in sheets) or 'none'}")
+    return {"written": written, "skipped": skipped, "refused": refused, "sheets": [p.name for p in sheets]}
+
+
+def batch_of(case_id: str) -> int:
+    return (int(case_id[4:]) - 1) // BATCH_SIZE + 1
+
+
+def write_review_sheets(
+    store: Path, collect_dir: Path, mem_eval: list[dict], old_keys: set[str]
+) -> list[Path]:
+    """One sheet per batch of 25 case numbers, listing the cases of that batch that are pending now."""
+    from src.memory.pending import PendingCase, placeholder_case
+
+    pending_dir = store / "pending"
+    for stale in pending_dir.glob("review-batch-*.md"):
+        stale.unlink()
+    cases = [PendingCase.model_validate_json(f.read_text()) for f in sorted(pending_dir.glob("mem-*.json"))]
+    notes_file = pending_dir / "propose-notes.json"
+    notes = json.loads(notes_file.read_text()) if notes_file.exists() else {}
+    batches: dict[int, list[PendingCase]] = collections.defaultdict(list)
+    for c in cases:
+        batches[batch_of(c.case_id)].append(c)
+    paths = []
+    for n, members in sorted(batches.items()):
+        ids = " ".join(c.case_id for c in members)
+        lines = [
+            f"# Review sheet, batch {n:02d} ({len(members)} cases)",
+            "",
+            "**The owner approves or rejects each case with the commands below.** Nothing in this sheet is "
+            "approved; an AI agent must not run them.",
+            "",
+            "```",
+            f'.venv/bin/python bench/memory.py approve {ids} --by "<your name>"',
+            '.venv/bin/python bench/memory.py reject <case_id>... --reason "<why>"',
+            "```",
+            "",
+            "Check at least: the structure matches the formula; the peak list is plausible for it; for a `missed` "
+            "case, that the proposal really is wrong and the miss is not a database problem (wrong structure, "
+            "missing peaks, a difference only in stereochemistry); nothing personal or confidential. A doubtful "
+            "`missed` case is rejected, not relabelled.",
+            "",
+        ]
+        for c in members:
+            lines += review_entry(c, notes.get(c.case_id, {}), mem_eval, old_keys, placeholder_case(c))
+        path = pending_dir / f"review-batch-{n:02d}.md"
+        path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        paths.append(path)
+    return paths
+
+
+def first_proposal_text(proposed: list[str]) -> str:
+    if not proposed:
+        return "none"
+    mol = Chem.MolFromSmiles(proposed[0])
+    return f"`{Chem.MolToSmiles(mol)}`" if mol is not None else "not shown (does not parse as SMILES)"
+
+
+def review_entry(c, note: dict, mem_eval: list[dict], old_keys: set[str], as_case) -> list[str]:
+    leak = leakage_problems(as_case, mem_eval, old_keys)
+    out = c.agent_outcome
+    n_assign = len(c.assignments or [])
+    left = note.get("assignments_left_out")
+    h = ", ".join(
+        f"{p.shift_ppm}" + (f" ({p.integral} H)" if p.integral is not None else "") for p in c.h_peaks
+    )
+    return [
+        f"## {c.case_id}: {c.formula}, {c.solvent.value if c.solvent else 'solvent not reported'}",
+        "",
+        f"- nmrshiftdb2 record {c.provenance.source_record_id}, spectra {c.provenance.spectrum_ids}",
+        f"- structure: `{c.smiles}`; scaffold: `{c.murcko_scaffold or '(acyclic)'}`; {c.heavy_atoms} heavy atoms",
+        f"- 1H peaks ({len(c.h_peaks)}): {h}",
+        f"- 13C peaks ({len(c.c_peaks)}): {', '.join(str(p) for p in c.c_peaks)}",
+        f"- agent outcome: **{out.status}**, {len(out.proposed_smiles)} candidate(s); first proposal: "
+        f"{first_proposal_text(out.proposed_smiles)}",
+        "- leakage rules 1, 2, 4, 5 against the 100 MEM-EVAL molecules: "
+        + ("clean" if not leak else "FAILED: " + "; ".join(leak)),
+        f"- assignments: {n_assign}"
+        + (f" ({left} spectrum entries without an atom index left out)" if left is not None else ""),
+        "",
+    ]
+
+
+# --------------------------------------------------------------------------- M6: approve and reject
+
+
+def confirm(stdin, stdout, prompt: str) -> bool:
+    """True only if the typed line is exactly CONFIRM_WORD on an interactive input."""
+    if not (hasattr(stdin, "isatty") and stdin.isatty()):
+        print("refusing: approval needs an interactive terminal (stdin is not one)", file=sys.stderr)
+        return False
+    stdout.write(prompt)
+    stdout.flush()
+    return stdin.readline().rstrip("\r\n") == CONFIRM_WORD
+
+
+def append_log(store: Path, line: str) -> None:
+    with open(store / "APPROVALS.log", "a", encoding="utf-8") as fh:
+        fh.write(line + "\n")
+
+
+def oneline(text: str) -> str:
+    return " ".join(text.split())
+
+
+def report_store(store: Path, settings, run_check) -> int:
+    from src.memory.runtime import outcome_config
+
+    s = load_store(store, strict=True, expected_outcome_config=outcome_config(settings))
+    print(
+        f"memory_version: {s.memory_version} ({len(s.cases)} approved case(s), strict load with the current outcome configuration: ok)"
+    )
+    rc = run_check(str(store))
+    print(f"check --store {rel(store)}: exit {rc}")
+    return rc
+
+
+def approve(
+    case_ids: list[str],
+    by: str,
+    store: Path = STORE,
+    stdin=None,
+    stdout=None,
+    eval_file: Path | None = None,
+    settings=None,
+    today: dt.date | None = None,
+    run_check=None,
+    old_keys: set[str] | None = None,
+) -> int:
+    """Spec §6. All checks run before anything is written; the typed word is read from an interactive stdin."""
+    from src.core.settings import Settings
+    from src.memory.pending import PendingCase, dump_case, finalize, placeholder_case
+    from src.memory.runtime import outcome_config
+    from src.memory.store import ManifestEntry, load_manifest, sha256_hex, write_manifest
+
+    stdin, stdout = stdin or sys.stdin, stdout or sys.stdout
+    settings = settings or Settings()
+    today = today or utc_today()
+    run_check = run_check or (lambda s: check(s))
+    by = oneline(by)
+    if not by:
+        print("refusing: --by needs the approver's name", file=sys.stderr)
+        return 2
+    if len(set(case_ids)) != len(case_ids):
+        print("refusing: a case id is given twice", file=sys.stderr)
+        return 2
+    mem_eval = json.loads((eval_file or FILES["mem_eval"]).read_text())["records"]
+    old = old_structure_keys() if old_keys is None else old_keys
+    expected = outcome_config(settings).model_dump()
+    manifest = load_manifest(store)
+    approved_keys = structure_keys_in(store)
+    staged = []
+    for cid in case_ids:
+        path = store / "pending" / f"{cid}.json"
+        if not path.is_file():
+            print(f"refusing: {cid} is not in {rel(store / 'pending')}", file=sys.stderr)
+            return 2
+        pending = PendingCase.model_validate_json(path.read_text())
+        problems = leakage_problems(placeholder_case(pending), mem_eval, old)
+        cfg = pending.agent_outcome
+        if (cfg.model_id, cfg.prompt_version, cfg.settings_hash) != tuple(expected.values()):
+            problems.append("outcome configuration differs from the current Settings; recollect it")
+        dup = [c for k, c in approved_keys.items() if k == key_of(pending.inchikey) and c != cid]
+        if dup:
+            problems.append(f"structure key duplicates case {dup[0]}")
+        if problems:
+            print(f"refusing: {cid}: " + "; ".join(problems), file=sys.stderr)
+            return 2
+        case = finalize(pending, by, today)
+        staged.append((path, case))
+    print("About to APPROVE these cases into the store (this adds them to the memory the service reads):")
+    for _, c in staged:
+        print(f"  {c.case_id}  {c.formula}  {c.agent_outcome.status}  {c.smiles}")
+    print(f"Approver: {by}")
+    if not confirm(stdin, stdout, f"Type {CONFIRM_WORD} to approve {len(staged)} case(s): "):
+        print("not approved; nothing changed")
+        return 1
+    entries = list(manifest.cases)
+    for path, case in staged:
+        text = dump_case(case)
+        (store / "cases").mkdir(parents=True, exist_ok=True)
+        (store / "cases" / f"{case.case_id}.json").write_text(text, encoding="utf-8")
+        path.unlink()
+        entries.append(ManifestEntry(case_id=case.case_id, sha256=sha256_hex(text.encode("utf-8"))))
+        write_manifest(store, entries)
+        append_log(store, f"{today.isoformat()} {case.case_id} approve {by}")
+        print(f"approved {case.case_id}")
+    return report_store(store, settings, run_check)
+
+
+def reject(
+    case_ids: list[str],
+    reason: str,
+    store: Path = STORE,
+    settings=None,
+    today: dt.date | None = None,
+    run_check=None,
+) -> int:
+    from src.core.settings import Settings
+
+    settings = settings or Settings()
+    today = today or utc_today()
+    run_check = run_check or (lambda s: check(s))
+    reason = oneline(reason)
+    if not reason:
+        print("refusing: --reason needs a text", file=sys.stderr)
+        return 2
+    if len(set(case_ids)) != len(case_ids):
+        print("refusing: a case id is given twice", file=sys.stderr)
+        return 2
+    for cid in case_ids:
+        if not (store / "pending" / f"{cid}.json").is_file():
+            print(f"refusing: {cid} is not in {rel(store / 'pending')}", file=sys.stderr)
+            return 2
+    (store / "rejected").mkdir(parents=True, exist_ok=True)
+    for cid in case_ids:
+        src = store / "pending" / f"{cid}.json"
+        doc = {"rejected_on": today.isoformat(), "reason": reason, "case": json.loads(src.read_text())}
+        (store / "rejected" / f"{cid}.json").write_text(
+            json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        )
+        src.unlink()
+        append_log(store, f"{today.isoformat()} {cid} reject {reason}")
+        print(f"rejected {cid}")
+    return report_store(store, settings, run_check)
+
+
+# --------------------------------------------------------------------------- M6: the store skeleton
+
+NOTICE_TEXT = """# NMRShiftDB2 data notice
+
+Contains information from nmrshiftdb2 ([www.nmrshiftdb.org](https://nmrshiftdb.nmr.uni-koeln.de)), which is made available here under the [nmrshiftdb2 Database License](https://nmrshiftdb.nmr.uni-koeln.de/nmrshiftdbhtml/nmrshiftdb2datalicense.txt).
+
+A verbatim copy of that license is in [bench/NMRSHIFTDB2-DATABASE-LICENSE.txt](../bench/NMRSHIFTDB2-DATABASE-LICENSE.txt). This data is not covered by the repository's MIT License.
+
+## What in this directory comes from nmrshiftdb2
+
+| Path | Contents |
+|---|---|
+| `cases/` | Approved memory cases: for each, the nmrshiftdb2 record id and spectrum numbers, the structure (SMILES, scaffold), the formula, the solvent, the peak lists, and the atom-level environments taken from the database's atom assignments |
+| `rejected/` | Cases that were proposed from nmrshiftdb2 records and rejected, with the reason |
+
+Each case also holds the service's own output on that molecule (its proposed structures), which is not nmrshiftdb2 data. The derived database stays under the nmrshiftdb2 Database License; the machine-readable form is the JSON in `cases/`.
+"""
+
+
+def setup_store(store: Path = STORE, params_source: Path | None = None) -> None:
+    """Create the empty repository store (committed). Refuses if a manifest already exists."""
+    from src.memory.store import write_manifest
+
+    params_source = params_source or OUT / "retrieval_params.json"
+    if (store / "manifest.json").exists():
+        sys.exit(f"refusing to run: {rel(store / 'manifest.json')} exists")
+    for sub in ("cases", "rejected"):
+        (store / sub).mkdir(parents=True, exist_ok=True)
+        (store / sub / ".gitkeep").write_bytes(b"")
+    write_manifest(store, [])
+    (store / "retrieval_params.json").write_bytes(params_source.read_bytes())
+    (store / "NMRSHIFTDB2-NOTICE.md").write_text(NOTICE_TEXT, encoding="utf-8")
+    (store / "APPROVALS.log").write_bytes(b"")
+    print(f"created the empty store in {rel(store)}")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("select", help="write the four selection files (once)")
     c = sub.add_parser("check", help="run leakage rules 1-4 on the selections, 1, 2, 4, 5 on a store")
     c.add_argument("--store", help="a memory store directory (manifest.json + cases/)")
+    sub.add_parser("select-large", help="write bench/memory/memory_large.json (once)")
+    sub.add_parser("setup-store", help="create the empty memory/ store skeleton")
+    co = sub.add_parser("collect", help="the paid step: run the service on the memory molecules, memory off")
+    co.add_argument("--ids", nargs="+", help="only these nmrshiftdb2 ids")
+    co.add_argument("--cap", type=float, default=SPEND_CAP_DEFAULT, help="spend cap in USD (default 35)")
+    co.add_argument("--dry-run", action="store_true", help="build every request, call nothing")
+    pr = sub.add_parser("propose", help="build pending cases and review sheets from collected outcomes")
+    pr.add_argument("--ids", nargs="+")
+    pr.add_argument("--store", default=str(STORE))
+    ap_ = sub.add_parser("approve", help="a person approves pending cases (asks for a typed confirmation)")
+    ap_.add_argument("case_ids", nargs="+")
+    ap_.add_argument("--by", required=True, help="the approver's name")
+    ap_.add_argument("--store", default=str(STORE))
+    rj = sub.add_parser("reject", help="move pending cases to rejected/ with a reason")
+    rj.add_argument("case_ids", nargs="+")
+    rj.add_argument("--reason", required=True)
+    rj.add_argument("--store", default=str(STORE))
     args = ap.parse_args()
     if args.cmd == "select":
         select()
-    else:
+    elif args.cmd == "check":
         sys.exit(check(args.store))
+    elif args.cmd == "select-large":
+        out = select_large()
+        print(json.dumps({k: out[k] for k in ("counts", "leakage")}, indent=1))
+    elif args.cmd == "setup-store":
+        setup_store()
+    elif args.cmd == "collect":
+        collect(args.ids, args.cap, args.dry_run)
+    elif args.cmd == "propose":
+        propose(args.ids, Path(args.store))
+    elif args.cmd == "approve":
+        sys.exit(approve(args.case_ids, args.by, Path(args.store)))
+    else:
+        sys.exit(reject(args.case_ids, args.reason, Path(args.store)))
 
 
 if __name__ == "__main__":
