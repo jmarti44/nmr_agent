@@ -198,12 +198,13 @@ The evaluation runs in three steps, each a gate for the next: an offline check w
 
 Question: does retrieval find cases whose *structures* are closer to the query's true structure than random cases are? If not, injecting them cannot plausibly help the model, and the experiment stops before any cost.
 
-- **Data:** the memory-side candidate pool only (§7.2). It is split by Murcko scaffold, with a fixed seed, into a **tuning half** and a **check half**. No `MEM-EVAL` molecule is used.
-- **Tuning:** the retrieval weights and the minimum-similarity threshold (§5.3) are set on the tuning half only, then frozen and hashed.
-- **Check:** for each check-half molecule as a query, retrieve k = 3 cases from the rest of the check half, excluding its own scaffold, and draw 3 random cases (seeded) from the same set. Score each set two ways against the query's true structure:
+- **Data:** the memory-side candidate pool only (§7.2). It is split by Murcko scaffold, with a fixed seed, into a **tuning half** and a **check half** (`bench/memory/split.json`). No `MEM-EVAL` molecule is used.
+- **Memory-sized pools** (changed 2026-11-14, before M4): retrieval is never run against a whole half, which holds about 2,360 molecules, twelve times the real memory, where close relatives are far easier to find. Instead, each half provides **5 fixed samples of 200 molecules**, stratified 40/40/20 by heavy atoms like the real memory (80 above 20 heavy atoms, 80 with 11-20, 40 with 10 or fewer), drawn with fixed seeds and written to a file before any measurement. Every query is run against each of its half's 5 samples; results are averaged over all (query, sample) pairs. Reason: on M3's frozen selections the nearest of the 200 memory cases to a test molecule has median Tanimoto 0.25 and maximum 0.57, so a check over a larger pool would overstate retrieval quality.
+- **Tuning:** the retrieval weights and the minimum-similarity threshold (§5.3) are set on the tuning half only, with the same memory-sized pools (queries from the tuning half against the tuning half's 5 samples), then frozen and hashed.
+- **Check:** for each check-half molecule as a query and each of the check half's 5 samples, retrieve k = 3 cases from the sample, leaving out the query itself and every case with its scaffold, and draw 3 random cases (seeded) from the same reduced sample. Score each set two ways against the query's true structure:
   - **similarity:** the highest Morgan (radius 2, 2048 bits) Tanimoto similarity between a returned case and the truth;
   - **fragment coverage:** the share of the truth's functional groups (the SMARTS groups the verifier already defines in `src/verify/smarts.py`) that appear in at least one returned case. This is what an example can teach across scaffolds.
-- **Go**, fixed now: retrieved sets beat random sets on both measures, by at least **0.10** in mean similarity and **0.15** in mean fragment coverage, and score higher than the random set on similarity for at least **60%** of queries. Otherwise **no-go**: stop and report the result.
+- **Go**, fixed now: retrieved sets beat random sets on both measures, by at least **0.10** in mean similarity and **0.15** in mean fragment coverage, and score higher than the random set on similarity for at least **60%** of (query, sample) pairs. The thresholds are unchanged by the switch to memory-sized pools. Otherwise **no-go**: stop and report the result.
 - The check is cheap and deterministic; its output file is committed with the selections.
 
 ### 7.1 Held-out set (`MEM-EVAL`)
