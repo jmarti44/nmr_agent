@@ -11,7 +11,9 @@ from src.memory.leakage import (
     rule4_similarity,
     rule5_proposed,
 )
+from src.memory.render import case_cost, render_case, render_examples
 from src.memory.retrieval import RetrievalParams, RetrievalResult, retrieve, score_case, select_random
+from src.memory.runtime import MemoryRuntime, ParamsError, outcome_config
 from src.memory.store import (
     STORE_SCHEMA_VERSION,
     CaseRejectedError,
@@ -30,17 +32,23 @@ __all__ = [
     "Features",
     "ManifestError",
     "MemoryCase",
+    "MemoryRuntime",
     "MemoryStore",
     "OutcomeConfig",
+    "ParamsError",
     "RetrievalParams",
     "RetrievalResult",
     "Rejection",
     "Violation",
+    "case_cost",
     "case_features",
     "check_injected",
     "load_store",
     "memory_version",
+    "outcome_config",
     "query_features",
+    "render_case",
+    "render_examples",
     "retrieve",
     "rule1_structure_key",
     "rule2_scaffold",

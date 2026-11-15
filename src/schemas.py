@@ -442,6 +442,13 @@ class Versions(BaseModel):
     model_id: str
     nmrglue: str
     rdkit: str
+    memory_version: str = Field("none", description="version of the experience-memory store; 'none' when off")
+
+
+class MemoryCaseRef(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    case_id: str
+    similarity: float | None = Field(None, description="null when the case was picked at random")
 
 
 class Usage(BaseModel):
@@ -477,6 +484,10 @@ class AnalysisResponse(BaseModel):
     warnings: list[str]
     timing_ms: dict[str, int]
     usage: Usage
+    memory_cases: list[MemoryCaseRef] = Field(
+        default_factory=list,
+        description="worked examples injected into the prompt, best first; empty if none",
+    )
 
 
 class JobStatus(BaseModel):

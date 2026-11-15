@@ -7,12 +7,18 @@ here imports an SDK or sends anything.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from collections.abc import Sequence
+from dataclasses import dataclass, field
+from typing import TYPE_CHECKING
 
 from src.processing.normalize import normalize_peaklist
 from src.prompting.render import render_context_block, render_peak_table
 from src.prompting.templates import FULL_VERSION, estimate_tokens, prompt_hash, system_prompt
 from src.schemas import AnalysisRequest, PeakTable, SampleContext
+
+if TYPE_CHECKING:  # memory imports prompting.templates, so it is imported lazily at run time
+    from src.memory.retrieval import RetrievalResult
+    from src.memory.runtime import MemoryRuntime
 
 MAX_USER_TOKENS_ESTIMATE = (
     8000  # the spec caps peak lists at 200 entries; this guards against anything larger
@@ -31,17 +37,31 @@ class Prompt:
     user_text: str
     static_tokens_est: int
     user_tokens_est: int
+    examples: tuple[RetrievalResult, ...] = field(default=())  # the cases actually injected, best first
 
     @property
     def total_tokens_est(self) -> int:
         return self.static_tokens_est + self.user_tokens_est
 
 
-def build_user_message(table: PeakTable, context: SampleContext, max_candidates: int) -> str:
-    return render_peak_table(table, context) + "\n\n" + render_context_block(context, max_candidates)
+def build_user_message(
+    table: PeakTable, context: SampleContext, max_candidates: int, examples: str = ""
+) -> str:
+    """Examples block (if any), peak table, context block, separated by blank lines. With no examples the
+    text is exactly what it was before memory existed."""
+    base = render_peak_table(table, context) + "\n\n" + render_context_block(context, max_candidates)
+    return examples + "\n\n" + base if examples else base
 
 
-def build_prompt(table: PeakTable, context: SampleContext | None = None, max_candidates: int = 3) -> Prompt:
+def build_prompt(
+    table: PeakTable,
+    context: SampleContext | None = None,
+    max_candidates: int = 3,
+    examples: Sequence[RetrievalResult] = (),
+) -> Prompt:
+    """``examples`` are dropped lowest-ranked (last) first until the user message fits
+    MAX_USER_TOKENS_ESTIMATE. Memory is never the cause of PromptTooLarge: a message too large without
+    examples raises exactly as before."""
     if not 1 <= max_candidates <= 5:
         raise ValueError("max_candidates must be between 1 and 5")
     context = context or SampleContext(solvent=table.solvent)
@@ -49,6 +69,18 @@ def build_prompt(table: PeakTable, context: SampleContext | None = None, max_can
     user_tokens = estimate_tokens(user)
     if user_tokens > MAX_USER_TOKENS_ESTIMATE:
         raise PromptTooLarge(f"user message is about {user_tokens} tokens (limit {MAX_USER_TOKENS_ESTIMATE})")
+    kept = list(examples)
+    while kept:
+        from src.memory.render import render_examples
+
+        with_examples = build_user_message(
+            table, context, max_candidates, render_examples([r.case for r in kept])
+        )
+        with_tokens = estimate_tokens(with_examples)
+        if with_tokens <= MAX_USER_TOKENS_ESTIMATE:
+            user, user_tokens = with_examples, with_tokens
+            break
+        kept.pop()
     system = system_prompt()
     return Prompt(
         version=FULL_VERSION,
@@ -57,27 +89,40 @@ def build_prompt(table: PeakTable, context: SampleContext | None = None, max_can
         user_text=user,
         static_tokens_est=estimate_tokens(system),
         user_tokens_est=user_tokens,
+        examples=tuple(kept),
     )
 
 
-def build_prompt_for_request(request: AnalysisRequest) -> tuple[PeakTable, Prompt]:
+def build_prompt_for_request(
+    request: AnalysisRequest, memory: MemoryRuntime | None = None
+) -> tuple[PeakTable, Prompt]:
     """Peak-list request -> (normalized table, prompt). Raw-spectrum formats arrive in a later phase."""
     if request.input_format != "peaklist" or request.peaks is None:
         raise ValueError("only input_format='peaklist' is supported until raw-data ingestion exists")
     table = normalize_peaklist(request.peaks, request.context)
-    return table, build_prompt(table, request.context, request.max_candidates)
+    return table, build_prompt(
+        table, request.context, request.max_candidates, _examples(memory, table, request.context)
+    )
+
+
+def _examples(
+    memory: MemoryRuntime | None, table: PeakTable, context: SampleContext
+) -> list[RetrievalResult]:
+    """Retrieved after normalization; nothing here is passed to the verifier or the scoring."""
+    return memory.examples_for(table, context) if memory is not None else []
 
 
 def prepare_request(
-    request: AnalysisRequest, upload: bytes | None = None
+    request: AnalysisRequest, upload: bytes | None = None, memory: MemoryRuntime | None = None
 ) -> tuple[PeakTable, Prompt, SampleContext]:
     """Any request -> (normalized table, prompt, context to verify with).
 
     Raw formats are processed first; the context comes back completed with the solvent and spectrometer
-    frequency read from the file when the caller did not give them.
+    frequency read from the file when the caller did not give them. With a ``memory`` runtime, worked examples
+    are retrieved after normalization and injected into the user message (``Prompt.examples`` lists them).
     """
     if request.input_format == "peaklist":
-        table, prompt = build_prompt_for_request(request)
+        table, prompt = build_prompt_for_request(request, memory)
         return table, prompt, request.context
     if upload is None:
         raise ValueError(f"input_format={request.input_format!r} requires an uploaded file")
@@ -97,4 +142,5 @@ def prepare_request(
             "processing_log": [*processed.log, *table.processing_log],
         }
     )
-    return table, build_prompt(table, processed.context, request.max_candidates), processed.context
+    examples = _examples(memory, table, processed.context)
+    return table, build_prompt(table, processed.context, request.max_candidates, examples), processed.context

@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import time
 import uuid
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import structlog
 
@@ -23,6 +23,7 @@ from src.schemas import (
     AnalysisRequest,
     AnalysisResponse,
     LLMHypothesis,
+    MemoryCaseRef,
     PeakTable,
     RuleStatus,
     SampleContext,
@@ -30,6 +31,9 @@ from src.schemas import (
     VerifiedCandidate,
     Versions,
 )
+
+if TYPE_CHECKING:
+    from src.memory.runtime import MemoryRuntime
 
 log = structlog.get_logger("nmr_agent.analysis")
 _REPORT_RULES_PER_CANDIDATE = 6
@@ -110,7 +114,7 @@ def _renumber_after(old: list[Any], new: list[Any]) -> list[Any]:
     return [c.model_copy(update={"rank": start + i}) for i, c in enumerate(new, start=1)]
 
 
-def _versions(settings: Settings, prompt_version: str) -> Versions:
+def _versions(settings: Settings, prompt_version: str, memory_version: str = "none") -> Versions:
     import nmrglue
     from rdkit import rdBase
 
@@ -121,6 +125,7 @@ def _versions(settings: Settings, prompt_version: str) -> Versions:
         model_id=settings.model,
         nmrglue=str(nmrglue.__version__),
         rdkit=str(rdBase.rdkitVersion),
+        memory_version=memory_version,
     )
 
 
@@ -155,13 +160,15 @@ def run_analysis(
     upload: bytes | None = None,
     trace: dict[str, Any] | None = None,
     meter: CallMeter | None = None,
+    memory: MemoryRuntime | None = None,
 ) -> AnalysisResponse:
-    """`trace`, if given, is filled with what is needed to re-verify offline: the table, the context and each
-    round's sanitized answer. `meter`, if given, ends up holding the number of model calls made, whatever the
-    outcome."""
+    """`memory`, if given, supplies worked examples for the prompt only; nothing from it reaches the verifier,
+    the scoring or the ranking. `trace`, if given, is filled with what is needed to re-verify offline: the
+    table, the context, each round's sanitized answer and the injected case ids. `meter`, if given, ends up
+    holding the number of model calls made, whatever the outcome."""
     convo_box: list[Conversation] = []
     try:
-        return _run_analysis(request, settings, client, request_id, upload, trace, convo_box)
+        return _run_analysis(request, settings, client, request_id, upload, trace, convo_box, memory)
     finally:
         if meter is not None and convo_box:
             meter.calls = len(convo_box[0].calls)
@@ -175,13 +182,15 @@ def _run_analysis(
     upload: bytes | None,
     trace: dict[str, Any] | None,
     convo_box: list[Conversation],
+    memory: MemoryRuntime | None = None,
 ) -> AnalysisResponse:
     from src.verify.verifier import verify_functional_groups
 
     request_id = request_id or new_request_id()
     started = time.perf_counter()
-    table, prompt, context = prepare_request(request, upload)  # ValueError / PromptTooLarge -> 400
+    table, prompt, context = prepare_request(request, upload, memory)  # ValueError / PromptTooLarge -> 400
     prompt_ms = _ms(time.perf_counter() - started)
+    memory_cases = [MemoryCaseRef(case_id=r.case.case_id, similarity=r.similarity) for r in prompt.examples]
 
     convo = Conversation(prompt, settings, client, request_id=request_id)
     convo_box.append(convo)
@@ -218,6 +227,7 @@ def _run_analysis(
             first=first_round.model_dump(mode="json"),
             repaired=repaired_round.model_dump(mode="json") if repaired_round else None,
             verified_untrimmed=[v.model_dump(mode="json") for v in verified],
+            memory_cases=[m.model_dump(mode="json") for m in memory_cases],
         )
     warnings += [
         line.removeprefix(WARNING_PREFIX) for line in table.processing_log if line.startswith(WARNING_PREFIX)
@@ -236,7 +246,7 @@ def _run_analysis(
     )
     return AnalysisResponse(
         request_id=request_id,
-        versions=_versions(settings, prompt.version),
+        versions=_versions(settings, prompt.version, memory.memory_version if memory is not None else "none"),
         peak_table=table,
         hypothesis_raw=raw,
         candidates=verified,
@@ -249,6 +259,7 @@ def _run_analysis(
             "total": _ms(time.perf_counter() - started),
         },
         usage=usage,
+        memory_cases=memory_cases,
     )
 
 

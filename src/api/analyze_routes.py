@@ -7,8 +7,9 @@ API key or demo mode (SPEC §9.4, planned for the hardening phase).
 from __future__ import annotations
 
 from functools import lru_cache
-from typing import Annotated, Any
+from typing import TYPE_CHECKING, Annotated, Any
 
+import structlog
 from fastapi import APIRouter, Depends, Request
 from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import JSONResponse
@@ -19,6 +20,10 @@ from src.core.settings import Settings, get_settings
 from src.llm.errors import LLMRefused, LLMSchemaFailure, LLMUnavailable
 from src.prompting.builder import PromptTooLarge
 from src.schemas import AnalysisResponse, ErrorResponse, PeakTable
+
+log = structlog.get_logger("nmr_agent.api")
+if TYPE_CHECKING:  # the memory package loads RDKit, which the app import must not
+    from src.memory.runtime import MemoryRuntime
 
 router = APIRouter(prefix="/v1")
 
@@ -37,6 +42,30 @@ def _client() -> Any:
 def get_llm_client() -> Any:
     """Dependency so tests can substitute a client; the real one is built on first use."""
     return _client()
+
+
+@lru_cache(maxsize=1)
+def _memory() -> MemoryRuntime | None:
+    from src.memory.runtime import MemoryRuntime
+
+    s = get_settings()
+    if s.memory_dir is None:
+        return None
+    try:
+        runtime = MemoryRuntime.from_directory(s.memory_dir, s, strict=False, mode="retrieved")
+    except Exception as e:  # any load problem: run without memory rather than fail the service
+        log.error(
+            "memory_disabled", memory_dir=str(s.memory_dir), error=type(e).__name__, detail=str(e)[:500]
+        )
+        return None
+    log.info("memory_loaded", memory_version=runtime.memory_version, cases=len(runtime.store.cases))
+    return runtime
+
+
+def get_memory() -> MemoryRuntime | None:
+    """Dependency so tests can substitute a runtime; None (memory off) when NMR_AGENT_MEMORY_DIR is unset or
+    the directory cannot be loaded."""
+    return _memory()
 
 
 def _error(status: int, code: str, detail: str, request_id: str, headers: dict | None = None) -> JSONResponse:
@@ -63,6 +92,7 @@ async def analyze(
     settings: Annotated[Settings, Depends(get_settings)],
     client: Annotated[Any, Depends(get_llm_client)],
     guard: Annotated[UsageGuard, Depends(get_guard)],
+    memory: Annotated[Any, Depends(get_memory)],
 ):
     from src.analysis import CallMeter, new_request_id, run_analysis
 
@@ -82,7 +112,9 @@ async def analyze(
     )
     try:
         req, upload = await read_analysis_request(request)
-        return await run_in_threadpool(run_analysis, req, effective, client, request_id, upload, None, meter)
+        return await run_in_threadpool(
+            run_analysis, req, effective, client, request_id, upload, None, meter, memory
+        )
     except (PromptTooLarge, ValueError) as e:
         return _error(400, "INVALID_INPUT", str(e), request_id)
     except LLMRefused as e:

@@ -9,6 +9,7 @@ elucidation effort and `repair_effort` the repair effort, both configurable.
 from __future__ import annotations
 
 from functools import lru_cache
+from pathlib import Path
 from typing import Literal
 
 from pydantic import Field
@@ -38,6 +39,9 @@ class Settings(BaseSettings):
     daily_llm_budget: int = Field(100, ge=0)  # model calls per UTC day
     per_ip_per_hour: int = Field(10, ge=1)  # analyses per client address per hour
     api_key: str | None = None  # when set, /v1/analyze requires X-API-Key
+    # Experience memory (docs/experience-memory-spec.md): a directory holding manifest.json, cases/ and
+    # retrieval_params.json. Unset means memory is disabled and the service behaves as without it.
+    memory_dir: Path | None = None
     # Defined for later phases; not used yet.
     max_upload_mb: int = 25
     pubchem: bool = False

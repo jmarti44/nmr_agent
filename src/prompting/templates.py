@@ -11,6 +11,8 @@ DEVIATIONS from the SPEC text, each deliberate:
   Impurity tagging is off for peak-list input, so impurity_suspect only appears on the raw-spectrum path.
 - Rule 4: carbon-count bounds match what rule V06 actually checks (observed - 1 .. observed + 2 distinct carbons);
   the SPEC wording had the two bounds swapped relative to V06.
+- Rule 10 (added in 2026.11.1) is in the prompt whether or not worked examples are injected, so the cached prefix
+  is the same for every request; the examples themselves go only in the user message.
 - The number of candidates is not in the system prompt (it is in the user message), so the cached prefix is the
   same for every request.
 """
@@ -29,7 +31,7 @@ from src.verify.shift_tables import (
 )
 from src.verify.smarts import SPECS
 
-PROMPT_VERSION = "2026.10.3"
+PROMPT_VERSION = "2026.11.1"
 FULL_VERSION = f"{PROMPT_VERSION}+shifts.{SHIFT_TABLE_VERSION}"
 
 _HEAD = """\
@@ -64,6 +66,9 @@ Hard rules:
 9. Multiplicity gives neighbours (n+1). Typical couplings: ortho-aromatic 7-9 Hz, meta about 2 Hz, vicinal
    alkyl about 7 Hz, cis alkene 10-12 Hz, trans alkene 14-18 Hz. Treat these as guidance, not law. "m" and
    unknown multiplicity are not evidence for or against a structure.
+10. The user message may begin with worked examples. They are other molecules, shown only for their reasoning
+   pattern; some show an earlier wrong proposal next to the correct answer. Never copy a structure from them.
+   Your answer must fit the present peak table and formula.
 """
 
 _OUTPUT = """\
