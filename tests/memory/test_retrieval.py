@@ -160,6 +160,36 @@ def test_peak_matching_is_optimal_not_greedy():
     assert peak_closeness((0.0, 1.9), (1.0, 2.9), 2.0) == pytest.approx((0.5 + 0.5) / 2)
 
 
+def _brute_force_peak_score(q, c, tol):
+    """Maximum over all one-to-one matchings of the sum of (1 - |d|/tol) for in-tolerance pairs."""
+
+    def best(i, used):
+        if i == len(q):
+            return 0.0
+        top = best(i + 1, used)  # leave q[i] unmatched
+        for j, cj in enumerate(c):
+            if j not in used and abs(q[i] - cj) <= tol:
+                top = max(top, 1.0 - abs(q[i] - cj) / tol + best(i + 1, used | {j}))
+        return top
+
+    return best(0, frozenset()) / max(len(q), len(c))
+
+
+@pytest.mark.parametrize("tol", [2.0, 0.15])
+def test_peak_matching_equals_brute_force_maximum(tol):
+    rng = random.Random(20261114)
+    for _ in range(300):
+        q = tuple(rng.uniform(0, 3 * tol) for _ in range(rng.randint(1, 6)))
+        c = tuple(rng.uniform(0, 3 * tol) for _ in range(rng.randint(1, 6)))
+        assert peak_closeness(q, c, tol) == pytest.approx(_brute_force_peak_score(q, c, tol), abs=1e-9)
+
+
+def test_peak_matching_prefers_score_over_match_count():
+    # tol 2: the single exact pair 1-1 scores 1.0; the two-pair matching 1-0 and 3-1 scores 0.5 + 0.0.
+    q, c = (1.0, 3.0), (0.0, 1.0)
+    assert peak_closeness(q, c, 2.0) == pytest.approx(1.0 / 2)
+
+
 def test_peak_unequal_lengths_and_empty():
     assert peak_closeness((10.0, 20.0), (10.0, 20.0, 30.0, 40.0), 2.0) == pytest.approx(0.5)
     assert peak_closeness((), (10.0,), 2.0) == 0.0

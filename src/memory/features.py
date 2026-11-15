@@ -21,10 +21,6 @@ from src.schemas import (
     parse_formula,
 )
 
-# Cost of a pair outside the tolerance. Far above any sum of in-tolerance costs, so the assignment
-# first maximises the number of in-tolerance pairs, then minimises their total |delta|.
-_FORBIDDEN = 1e6
-
 
 @dataclass(frozen=True)
 class Features:
@@ -67,16 +63,17 @@ def case_features(case: MemoryCase) -> Features:
 def peak_closeness(query: tuple[float, ...], case: tuple[float, ...], tolerance: float) -> float:
     """One-to-one matching of two shift lists, in [0, 1].
 
-    Optimal assignment (``linear_sum_assignment``) on cost |dq - dc|; pairs further apart than
-    ``tolerance`` cannot match. Each matched pair contributes ``1 - |delta| / tolerance``; the score is
-    the sum of contributions divided by the longer list's length. 0 if either list is empty.
+    Optimal one-to-one assignment (``linear_sum_assignment``) that maximises the score directly: the cost
+    of a pair within ``tolerance`` is ``-(1 - |delta| / tolerance)`` and of a pair outside it 0, so a
+    pair outside never helps. Only matched pairs within the tolerance count; the score is their summed
+    contributions divided by the longer list's length. 0 if either list is empty.
     """
     if not query or not case:
         return 0.0
     q = np.asarray(query, dtype=float)
     c = np.asarray(case, dtype=float)
     delta = np.abs(q[:, None] - c[None, :])
-    cost = np.where(delta <= tolerance, delta, _FORBIDDEN)
+    cost = np.where(delta <= tolerance, -(1.0 - delta / tolerance), 0.0)
     rows, cols = linear_sum_assignment(cost)
     matched = delta[rows, cols]
     matched = matched[matched <= tolerance]
