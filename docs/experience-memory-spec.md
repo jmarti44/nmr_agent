@@ -402,9 +402,89 @@ Each phase is built by one supervised worker on the `experience-memory` branch a
 | M3 | Selections and leakage checks: `MEM-EVAL`, the ordered memory list, the tuning/check split, the `check` command, the CI test | §7.1, §7.2, §9 | $0 | coordinator review |
 | M4 | Offline go/no-go: tune on one half, check on the other, report | §7.0 | $0 | **owner decides** go or stop |
 | M5 | Prompt integration: examples in the user message, contrast rendering, new system rule and version bump, response fields, settings | §5.4, §5.5 | $0 | coordinator review; behaviour unchanged with memory off |
-| M6 | `collect`, `propose` and `approve` commands, review sheets | §6, §7.2a | about $26 when collection runs | **owner approves** the spend, then the cases |
-| M7 | Benchmark arms, `compare` command, stage 1 | §7.3-7.6, §8 | about $52 | **owner approves** the spend; verdict |
-| M8 | Stage 2 and `bench/memory-report.md` | §7.3, §13 | about $39 | only if stage 1 supports H |
+| M6 | `collect`, `propose` and `approve` commands, review sheets; the large-weighted memory list (§15.4) | §6, §7.2a, §15 | about $26 when collection runs | **owner approves** the spend, then the cases |
+| M7 | Benchmark arms, `compare` command, and the large-molecule run (§15); report `bench/memory-report.md` | §15 | about $30 | **owner approves** the spend; verdict on H-large |
+| ~~M8~~ | ~~Stage 2 learning curve~~ | — | — | dropped 2026-11-15: the original hypothesis stopped at the offline gate (§15.1) |
 
 Workers never run anything that spends model API money without the owner's go-ahead, and never run `approve` on real cases.
+
+## 15. Pre-registration: does memory help large molecules? (H-large)
+
+Written 2026-11-15, before any measurement for this hypothesis. Nothing below may change after the first model call of this experiment.
+
+### 15.1 Status of the original hypothesis
+
+The original hypothesis H (§1) **stopped at the offline gate**: M4's check (commit `7dd3a88`, verified independently) found retrieved cases better than random in 79% of pairs, but by +0.077 in best similarity (bar 0.10) and +0.093 in fragment coverage (bar 0.15). Verdict NO-GO, as pre-registered. Stage 1 and stage 2 of §7.3 for H will not run.
+
+### 15.2 Why a new hypothesis, and why these data
+
+M4's breakdown by query size (post hoc) showed the largest margins for molecules above 20 heavy atoms (+0.106 similarity, +0.147 coverage), which is also where the benchmark's misses concentrate (3/14 top-1 in the main set). A subgroup found after seeing a result cannot confirm itself, so H-large is tested only on data no step of this work has used for measurement: the 50 `MEM-EVAL` molecules with more than 20 heavy atoms. M4 used memory-side data only, so `MEM-EVAL` is untouched.
+
+**H-large:** for molecules with more than 20 heavy atoms, injecting 3 retrieved cases from a large-weighted 200-case memory brings the service's first candidate structurally closer to the true structure than no memory, and closer than 3 random cases from the same memory.
+
+### 15.3 Test set
+
+- The 50 molecules of `bench/memory/mem_eval.json` with `heavy_atoms > 20`, frozen since M3 (`f60738c`). The other 50 `MEM-EVAL` molecules are not used and stay untouched.
+- Input to the service as in §7.1: shifts, formula, solvent; integrals only where the assignment is complete.
+
+### 15.4 Memory
+
+- 200 cases drawn once from the frozen M3 candidate pool (`bench/memory/memory_order.json`), minus the 9 molecules the service cannot take (`bench/memory/gonogo_samples.json`, `excluded`): **120** with more than 20 heavy atoms, **60** with 11-20, **20** with 10 or fewer, using each stratum's order in `memory_order.json` restricted to that stratum; the replacement order for rejected cases is the rest of each stratum in the same order. Seed: none needed beyond M3's frozen order. Written to `bench/memory/memory_large.json` before any model call. (Available: 380, 2,444 and 1,898.)
+- All §9 leakage rules apply against all 100 `MEM-EVAL` molecules; `bench/memory.py check` must pass on the final 200.
+- Outcomes collected as in §7.2a, memory disabled, under the frozen configuration; cases approved by the owner as in §6.
+
+### 15.5 Retrieval and prompt
+
+- Retrieval parameters frozen by M4 (`bench/memory/retrieval_params.json`, SHA-256 `bf933bfc891372472f6826e3daa80ad987af96a0ce10d18169e0f885067ac951`): weights 13C 0.5, 1H 0.3, elements 0.2, DoU 0.0; solvent bonus 0.03; k = 3; min_similarity 0.0; tie_epsilon 0.02. Token cap 2,000 (§5.4).
+- One prompt version, model, effort and settings for every arm and for outcome collection, frozen and hashed before collection.
+
+### 15.6 Arms
+
+| Arm | Memory | Analyses |
+|---|---|---|
+| M0-a, M0-b | none (twice, for run-to-run noise) | 50 + 50 |
+| M200L | the 200 cases of §15.4, retrieved | 50 |
+| R200L | the same 200 cases, 3 chosen at random (seeded as in M4: SHA-256 of "<molecule id>:0") | 50 |
+
+200 analyses. One attempt each; a first-attempt timeout or error counts as no answer.
+
+### 15.7 Measures
+
+- **Primary:** for each molecule, the Morgan (radius 2, 2048 bits) Tanimoto similarity between the service's first candidate and the true structure; 0 when there is no answer. `S(arm)` is its mean over the 50 molecules.
+- **Secondary (reported, not decisive):** top-1 and top-3 by InChIKey connectivity; true structure proposed at all; the model's own order; timeouts; time and cost per molecule; the highest Tanimoto between any injected case and the truth (leakage diagnostic).
+
+### 15.8 Criteria (fixed now)
+
+Let Δ = S(M200L) − mean(S(M0-a), S(M0-b)), N = |S(M0-a) − S(M0-b)|, and d_i = sim(M200L) − mean(sim(M0-a), sim(M0-b)) per molecule.
+
+| Outcome | Condition |
+|---|---|
+| **H-large supported** | Δ ≥ +0.05, and Δ > 2N, and a two-sided Wilcoxon signed-rank test on the d_i gives p < 0.05, and S(M200L) − S(R200L) ≥ +0.03 |
+| **H-large falsified** | Δ ≤ +0.02, or Δ ≤ N, or S(R200L) ≥ S(M200L), or the gain is confined to molecules whose injected cases reach Tanimoto 0.5 or more to the truth |
+| **Inconclusive** | anything else; reported as such |
+| **Harmful, stop** | first-attempt timeouts in M200L exceed the M0 mean by more than 3 molecules, or cost per molecule rises by more than 30% |
+
+Power, stated before the run: 50 paired molecules detect only a moderate shift in mean similarity; an effect below about +0.05 will probably not reach significance, so a flat result means "no moderate effect", not "no effect".
+
+### 15.9 Cost (estimate; owner approves each spend)
+
+| Step | Analyses | Estimate | Cap |
+|---|---|---|---|
+| Outcome collection on the 200 memory molecules | 200 | about $26 | $35 |
+| The four arms on 50 large molecules | 200 | about $30 | $40 |
+| **Total** | 400 | **about $56** | $75 |
+
+### 15.10 Order of work for H-large
+
+```
+1. M5: prompt integration (one new system rule, version bump,     no model calls
+   response fields, settings), memory off unchanged
+2. M6: write memory_large.json; collect, propose, approve         about $26
+   commands; owner approves the spend, then the 200 cases;
+   bench/memory.py check passes; store hashed
+3. M7: arms, compare command; owner approves the spend;           about $30
+   run M0-a, M0-b, M200L, R200L once
+4. Report: bench/memory-report.md, every number from the
+   compare command, with the §15.8 verdict
+```
 
