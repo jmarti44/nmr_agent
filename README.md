@@ -98,4 +98,6 @@ The real-data test fixture is experiment 10 of "Wadpressine" (Ben Bakrim et al.,
 
 ## License
 
-No license has been chosen yet.
+The code is released under the [MIT License](LICENSE).
+
+The MIT License does not cover third-party data. The benchmark selections and results in `bench/results*/` contain data from NMRShiftDB2, which is available under the [nmrshiftdb2 Data License](https://nmrshiftdb.nmr.uni-koeln.de/nmrshiftdbhtml/nmrshiftdb2datalicense.txt); the test fixture data is under CC-BY 4.0 (see Data attribution above).
