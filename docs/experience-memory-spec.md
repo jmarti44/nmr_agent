@@ -37,7 +37,7 @@ Flagged here rather than worked around. Each needs a decision at review.
 | C12 | Constraint 1 forbids routing memory into the verifier's confidence. `final_confidence = 0.85 × verifier + 0.15 × model confidence`, and examples can change the model's self-reported confidence, so memory can move the ranking indirectly. | `src/verify/verifier.py` | No code path from memory to the verifier. Report the model's own order next to service order so an indirect effect is visible. |
 | C13 | Opus 5.5 accepts no `temperature`, so runs are not repeatable; the report's numbers are single runs. A learning curve needs a noise estimate. | `src/llm/orchestrator.py` | Run the empty arm twice (§7.3). |
 | C14 | `bench/benchmark.py` has three hard-wired sets and builds settings globally; arms that differ only in memory need the store passed in. | `bench/benchmark.py`, `src/analysis.py` | Pass the store as an argument, like `client` (§5.5). |
-| C15 | Cases would put NMRShiftDB2 peak lists and structures into a public repository. `bench/results*/` already does. | — | **Decided:** check the licence before committing any case. If redistribution is not allowed, the store lives outside git (§12). |
+| C15 | Cases would put NMRShiftDB2 peak lists and structures into a public repository. `bench/results*/` already does. | — | **Checked 2026-11-14:** redistribution is allowed under the nmrshiftdb2 Database License with conditions (§12, decision 6). |
 
 ---
 
@@ -70,6 +70,7 @@ memory/
   rejected/<case_id>.json     rejected, kept with the reason
   manifest.json               store version, list of case ids with SHA-256 of each file
   APPROVALS.log               append-only: date, case id, decision, approver, note
+  NMRSHIFTDB2-NOTICE.md       attribution notice and a copy of the nmrshiftdb2 Database License (§12, decision 6)
 ```
 
 One JSON file per case, so a pull request shows each case as its own diff. Data lives in `memory/`, code in `src/memory/`.
@@ -353,7 +354,7 @@ Not addressed by any of this: the model may have seen NMRShiftDB2 in training. T
 | 3 | Held-out set (C8) | A new set of 100 (§7.1) | The main 50 has 12 molecules at the ceiling and was used to find the verifier range fixes |
 | 4 | Budget | Staged: offline check (free), outcome collection (about $26), stage 1 (400 analyses, about $52), stage 2 (300, about $39) only if stage 1 supports H | No money is spent on the curve if memory does not help |
 | 5 | Thresholds | As in §7.0 and §8 | Strict enough that a "supported" result is believable at 100 molecules |
-| 6 | Licence (C15) | Check the NMRShiftDB2 terms before committing any case. If redistribution is not allowed, keep `memory/cases/` out of git (gitignored), commit only `manifest.json` with the case ids and hashes, and rebuild the cases from the database with the propose command | The experiment can run either way |
+| 6 | Licence (C15) | **Checked 2026-11-14.** The nmrshiftdb2 Database License (derived from ODbL, plus §4.5) allows redistribution, including commercially, with conditions: attribution notice on public produced works (§4.3); a derivative database used publicly stays under that license (§4.4), so `memory/` carries a copy of it and the notice, like `bench/`; machine-readable access (§4.7), met by plain JSON; and software relying on the data must be under an OSI-approved license (§4.5), met by the repository's MIT License (added on `main`, commit `1b72cd2`). Notice and license copy: `bench/NMRSHIFTDB2-NOTICE.md`, `bench/NMRSHIFTDB2-DATABASE-LICENSE.txt` (`6fcd53d`). | Cases can be committed |
 
 | 7 | What memory stores | Every memory molecule with the agent's own outcome, marked `solved` or `missed`; missed cases shown with the contrast and preferred on near-ties (§5.3, §5.4, §7.2a) | Keeps memory broad, where coverage is the weakest link, while targeting the agent's weak spots |
 | 8 | Retrieval | Peak-by-peak spectral matching plus formula features (§5.2) | Coarse region histograms lose the fragment-level signal that crosses scaffolds |
@@ -365,7 +366,7 @@ Expectation, stated before any work: with plain database cases and coarse retrie
 ## 13. Order of work
 
 ```
-1. Licence check (§12.6)                                   no cost
+1. Licence check (§12.6)                                   done 2026-11-14
 2. Build the offline parts: case schema, store loader,     no model calls
    spectral retrieval, leakage checks,
    propose/collect/approve/check CLI, tests (the leakage
