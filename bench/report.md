@@ -93,4 +93,4 @@ PYTHONPATH=. uv run python bench/benchmark.py run --set main --cap 5.5   # new m
 
 Sets: `pilot`, `main`, `unreported`. Selections are never rewritten once they exist.
 
-Data: NMRShiftDB2 (<https://nmrshiftdb.nmr.uni-koeln.de>), open-content database of assigned NMR spectra.
+Data: Contains information from nmrshiftdb2 ([www.nmrshiftdb.org](https://nmrshiftdb.nmr.uni-koeln.de)), which is made available here under the [nmrshiftdb2 Database License](https://nmrshiftdb.nmr.uni-koeln.de/nmrshiftdbhtml/nmrshiftdb2datalicense.txt). What in this repository comes from it: [NMRSHIFTDB2-NOTICE.md](NMRSHIFTDB2-NOTICE.md).

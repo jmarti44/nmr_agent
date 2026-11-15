@@ -96,8 +96,10 @@ Of these, `api/`, `core/`, `ingest/`, `processing/`, `prompting/`, `llm/` and `v
 
 The real-data test fixture is experiment 10 of "Wadpressine" (Ben Bakrim et al., Zenodo [10.5281/zenodo.1233301](https://doi.org/10.5281/zenodo.1233301)), released under CC-BY 4.0. See [tests/fixtures/bruker/wadpressine_1h/README.md](tests/fixtures/bruker/wadpressine_1h/README.md).
 
+The benchmark uses NMRShiftDB2. Contains information from nmrshiftdb2 ([www.nmrshiftdb.org](https://nmrshiftdb.nmr.uni-koeln.de)), which is made available here under the [nmrshiftdb2 Database License](https://nmrshiftdb.nmr.uni-koeln.de/nmrshiftdbhtml/nmrshiftdb2datalicense.txt). Details: [bench/NMRSHIFTDB2-NOTICE.md](bench/NMRSHIFTDB2-NOTICE.md).
+
 ## License
 
 The code is released under the [MIT License](LICENSE).
 
-The MIT License does not cover third-party data. The benchmark selections and results in `bench/results*/` contain data from NMRShiftDB2, which is available under the [nmrshiftdb2 Data License](https://nmrshiftdb.nmr.uni-koeln.de/nmrshiftdbhtml/nmrshiftdb2datalicense.txt); the test fixture data is under CC-BY 4.0 (see Data attribution above).
+The MIT License does not cover third-party data: the NMRShiftDB2-derived benchmark data stays under the nmrshiftdb2 Database License (see [bench/NMRSHIFTDB2-NOTICE.md](bench/NMRSHIFTDB2-NOTICE.md)), and the test fixture data under CC-BY 4.0 (see Data attribution above).
