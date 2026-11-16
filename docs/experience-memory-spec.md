@@ -495,3 +495,19 @@ Power, stated before the run: 50 paired molecules detect only a moderate shift i
    compare command, with the §15.8 verdict
 ```
 
+
+### 15.11 Operational definitions (fixed 2026-11-16, before any eval call)
+
+§15.6-15.8 leave these points open. They are settled here, after M6 and before the first model call on `MEM-EVAL`, and do not change afterwards.
+
+- **Store.** The M200L and R200L arms load `memory/` in strict mode with the outcome configuration of the run's Settings. The run records the manifest SHA-256 and `memory_version`, and refuses to start if the store does not hold exactly 200 cases or if `bench/memory.py check --store memory` fails. Frozen store: commit `f3c33fb`.
+- **Requests.** Built exactly as `collect` builds them: `bench.benchmark.request_for` with the SD file's atom-index map, integrals only where the assignment is complete. Every result records `request_sha256`. The four arms of one molecule send the same request; only the memory differs.
+- **Run order.** Molecule by molecule, in `mem_eval.json` order. For each molecule the four arms run in a shuffled order, seeded with `int(sha256(f"{id}:order").hexdigest()[:8], 16)`, so drift in the service over the day affects every arm alike.
+- **R200L seed.** `int(sha256(f"{id}:0").hexdigest()[:8], 16)`, the M4 rule with sample index 0, passed to `MemoryRuntime` mode "random".
+- **No answer.** Only a service failure counts as no answer: a timeout, an unusable model answer, or the call budget exhausted (the `collect` classes, `bench/memory.py` `is_service_failure`). It scores similarity 0 and counts as a timeout for the harm check only when its reason is `timeout`. Any other failure (account, credit, rate limit, network, HTTP status) stops the run and saves nothing for that analysis; a resume runs it again.
+- **First candidate.** The service's first returned candidate (its own ranking), as in `collect`. An unparseable SMILES scores 0.
+- **Wilcoxon.** `scipy.stats.wilcoxon(d, alternative="two-sided", zero_method="wilcox", method="auto")` (scipy 1.18): zero differences are dropped. The number of non-zero d_i is reported with p.
+- **"Confined to near-duplicates".** For each molecule, m_i is the highest Tanimoto between its truth and any case injected in **M200L**. The gain is confined if Δ, recomputed over the molecules with m_i < 0.5, is ≤ +0.02. If no molecule has m_i < 0.5, the gain counts as confined.
+- **Harm.** Timeouts: M200L's count of `timeout` no-answers minus the mean of the two M0 counts, > 3. Cost: M200L's mean cost per molecule against the mean of the two M0 means, > +30%. Harm is reported with the verdict and does not replace it.
+- **Verdict precedence.** Falsified if any falsifying condition holds; otherwise supported if every supporting condition holds; otherwise inconclusive.
+- **Spend cap** for the four arms: $40 over all arm results (§15.9).
