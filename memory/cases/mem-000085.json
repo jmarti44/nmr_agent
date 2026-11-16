@@ -1,0 +1,88 @@
+{
+  "case_id": "mem-000085",
+  "schema_version": "1",
+  "provenance": {
+    "source": "nmrshiftdb2",
+    "source_record_id": "10024505",
+    "spectrum_ids": {
+      "1H": 4,
+      "13C": 3
+    },
+    "truth_basis": "database-assigned structure",
+    "extracted_by": "bench/memory.py propose @ 24a39d9bbba088a34b854a975ed49d58258fc7fa, RDKit 2026.03.6",
+    "proposed_on": "2026-11-16"
+  },
+  "approval": {
+    "approved_by": "Jose Martinez (owner, not a chemist)",
+    "date_added": "2026-11-16",
+    "note": null
+  },
+  "formula": "C3H6O3",
+  "dou": 1.0,
+  "carbon_count": 3,
+  "heavy_atoms": 6,
+  "solvent": "D2O",
+  "h_peaks": [
+    {
+      "shift_ppm": 4.4,
+      "integral": 4.0
+    }
+  ],
+  "c_peaks": [
+    214.8,
+    67.5
+  ],
+  "smiles": "O=C(CO)CO",
+  "inchikey": "RXKJFZQQPQGTFL-UHFFFAOYSA-N",
+  "murcko_scaffold": "",
+  "generic_scaffold": "",
+  "assignments": [
+    {
+      "nucleus": "1H",
+      "shift_ppm": 4.4,
+      "environment": "C, 2 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 4.4,
+      "environment": "C, 2 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 4.4,
+      "environment": "C, 2 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 4.4,
+      "environment": "C, 2 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 214.8,
+      "environment": "C, 0 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 67.5,
+      "environment": "C, 2 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 67.5,
+      "environment": "C, 2 H"
+    }
+  ],
+  "agent_outcome": {
+    "collected_on": "2026-11-16",
+    "model_id": "claude-opus-5-5",
+    "prompt_version": "2026.11.1+shifts.2026.11.1",
+    "settings_hash": "2bb0d0ca67ec316062df7dc89a03d65e1b83ea75a0f86352c0a7a64abae0178d",
+    "status": "solved",
+    "proposed_smiles": [
+      "OCC(=O)CO",
+      "O=CC(O)CO",
+      "C1OCOCO1"
+    ]
+  }
+}

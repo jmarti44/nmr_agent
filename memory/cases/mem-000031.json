@@ -1,0 +1,300 @@
+{
+  "case_id": "mem-000031",
+  "schema_version": "1",
+  "provenance": {
+    "source": "nmrshiftdb2",
+    "source_record_id": "10021773",
+    "spectrum_ids": {
+      "1H": 1,
+      "13C": 0
+    },
+    "truth_basis": "database-assigned structure",
+    "extracted_by": "bench/memory.py propose @ 24a39d9bbba088a34b854a975ed49d58258fc7fa, RDKit 2026.03.6",
+    "proposed_on": "2026-11-16"
+  },
+  "approval": {
+    "approved_by": "Jose Martinez (owner, not a chemist)",
+    "date_added": "2026-11-16",
+    "note": null
+  },
+  "formula": "C24H30O5",
+  "dou": 10.0,
+  "carbon_count": 24,
+  "heavy_atoms": 29,
+  "solvent": null,
+  "h_peaks": [
+    {
+      "shift_ppm": 7.34,
+      "integral": 2.0
+    },
+    {
+      "shift_ppm": 7.31,
+      "integral": 2.0
+    },
+    {
+      "shift_ppm": 6.76,
+      "integral": 2.0
+    },
+    {
+      "shift_ppm": 6.69,
+      "integral": 2.0
+    },
+    {
+      "shift_ppm": 4.17,
+      "integral": 4.0
+    },
+    {
+      "shift_ppm": 3.99,
+      "integral": 4.0
+    },
+    {
+      "shift_ppm": 3.71,
+      "integral": 8.0
+    },
+    {
+      "shift_ppm": 2.33,
+      "integral": 6.0
+    }
+  ],
+  "c_peaks": [
+    156.4,
+    138.0,
+    128.6,
+    126.4,
+    125.0,
+    121.5,
+    112.9,
+    71.5,
+    71.2,
+    69.9,
+    67.7,
+    21.6
+  ],
+  "smiles": "Cc1ccc2c(c1)OCCOCCOCCOCCOc1cc(C)ccc1/C=C/2",
+  "inchikey": "FWHHRCGCGPFRGU-BQYQJAHWSA-N",
+  "murcko_scaffold": "C1=C/c2ccccc2OCCOCCOCCOCCOc2ccccc2/1",
+  "generic_scaffold": "C1CCCCCCC2CCCCC2CCC2CCCCC2CCCCCC1",
+  "assignments": [
+    {
+      "nucleus": "1H",
+      "shift_ppm": 2.33,
+      "environment": "C, 3 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 2.33,
+      "environment": "C, 3 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 3.71,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 3.71,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 3.71,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 3.71,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 3.99,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 3.99,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 4.17,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 4.17,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 6.69,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 6.69,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 6.76,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 6.76,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 7.31,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 7.31,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 7.34,
+      "environment": "C, 1 H, ring"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 7.34,
+      "environment": "C, 1 H, ring"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 21.6,
+      "environment": "C, 3 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 21.6,
+      "environment": "C, 3 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 67.7,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 67.7,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 69.9,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 69.9,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 71.2,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 71.2,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 71.5,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 71.5,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 112.9,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 112.9,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 121.5,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 121.5,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 125.0,
+      "environment": "C, aromatic, 0 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 125.0,
+      "environment": "C, aromatic, 0 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 126.4,
+      "environment": "C, 1 H, ring"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 126.4,
+      "environment": "C, 1 H, ring"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 128.6,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 128.6,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 138.0,
+      "environment": "C, aromatic, 0 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 138.0,
+      "environment": "C, aromatic, 0 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 156.4,
+      "environment": "C, aromatic, 0 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 156.4,
+      "environment": "C, aromatic, 0 H"
+    }
+  ],
+  "agent_outcome": {
+    "collected_on": "2026-11-16",
+    "model_id": "claude-opus-5-5",
+    "prompt_version": "2026.11.1+shifts.2026.11.1",
+    "settings_hash": "2bb0d0ca67ec316062df7dc89a03d65e1b83ea75a0f86352c0a7a64abae0178d",
+    "status": "solved",
+    "proposed_smiles": [
+      "Cc1ccc2C=Cc3ccc(C)cc3OCCOCCOCCOCCOc2c1",
+      "Cc1ccc2OCCOCCOCCOCCOc3ccc(C)cc3C=Cc2c1"
+    ]
+  }
+}

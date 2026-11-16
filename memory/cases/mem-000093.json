@@ -1,0 +1,104 @@
+{
+  "case_id": "mem-000093",
+  "schema_version": "1",
+  "provenance": {
+    "source": "nmrshiftdb2",
+    "source_record_id": "20208190",
+    "spectrum_ids": {
+      "1H": 1,
+      "13C": 0
+    },
+    "truth_basis": "database-assigned structure",
+    "extracted_by": "bench/memory.py propose @ 24a39d9bbba088a34b854a975ed49d58258fc7fa, RDKit 2026.03.6",
+    "proposed_on": "2026-11-16"
+  },
+  "approval": {
+    "approved_by": "Jose Martinez (owner, not a chemist)",
+    "date_added": "2026-11-16",
+    "note": null
+  },
+  "formula": "C19H15ClS",
+  "dou": 12.0,
+  "carbon_count": 19,
+  "heavy_atoms": 21,
+  "solvent": null,
+  "h_peaks": [
+    {
+      "shift_ppm": 7.35,
+      "integral": null
+    },
+    {
+      "shift_ppm": 7.33,
+      "integral": null
+    },
+    {
+      "shift_ppm": 7.31,
+      "integral": null
+    }
+  ],
+  "c_peaks": [
+    141.9,
+    129.9,
+    128.2,
+    127.9,
+    72.3
+  ],
+  "smiles": "ClSC(c1ccccc1)(c1ccccc1)c1ccccc1",
+  "inchikey": "ZTQHJLXIUQQVST-UHFFFAOYSA-N",
+  "murcko_scaffold": "c1ccc(C(c2ccccc2)c2ccccc2)cc1",
+  "generic_scaffold": "C1CCC(C(C2CCCCC2)C2CCCCC2)CC1",
+  "assignments": [
+    {
+      "nucleus": "1H",
+      "shift_ppm": 7.31,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 7.33,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 7.35,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 72.3,
+      "environment": "C, 0 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 127.9,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 128.2,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 129.9,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 141.9,
+      "environment": "C, aromatic, 0 H"
+    }
+  ],
+  "agent_outcome": {
+    "collected_on": "2026-11-16",
+    "model_id": "claude-opus-5-5",
+    "prompt_version": "2026.11.1+shifts.2026.11.1",
+    "settings_hash": "2bb0d0ca67ec316062df7dc89a03d65e1b83ea75a0f86352c0a7a64abae0178d",
+    "status": "solved",
+    "proposed_smiles": [
+      "ClSC(c1ccccc1)(c1ccccc1)c1ccccc1",
+      "SC(c1ccccc1)(c1ccccc1)c1ccc(Cl)cc1",
+      "ClC(c1ccccc1)(c1ccccc1)c1ccc(S)cc1"
+    ]
+  }
+}

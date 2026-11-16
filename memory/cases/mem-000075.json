@@ -1,0 +1,169 @@
+{
+  "case_id": "mem-000075",
+  "schema_version": "1",
+  "provenance": {
+    "source": "nmrshiftdb2",
+    "source_record_id": "20208384",
+    "spectrum_ids": {
+      "1H": 1,
+      "13C": 0
+    },
+    "truth_basis": "database-assigned structure",
+    "extracted_by": "bench/memory.py propose @ 24a39d9bbba088a34b854a975ed49d58258fc7fa, RDKit 2026.03.6",
+    "proposed_on": "2026-11-16"
+  },
+  "approval": {
+    "approved_by": "Jose Martinez (owner, not a chemist)",
+    "date_added": "2026-11-16",
+    "note": null
+  },
+  "formula": "C8H14",
+  "dou": 2.0,
+  "carbon_count": 8,
+  "heavy_atoms": 8,
+  "solvent": null,
+  "h_peaks": [
+    {
+      "shift_ppm": 5.77,
+      "integral": null
+    },
+    {
+      "shift_ppm": 4.95,
+      "integral": null
+    },
+    {
+      "shift_ppm": 4.87,
+      "integral": null
+    },
+    {
+      "shift_ppm": 1.95,
+      "integral": null
+    },
+    {
+      "shift_ppm": 1.72,
+      "integral": null
+    },
+    {
+      "shift_ppm": 1.65,
+      "integral": null
+    },
+    {
+      "shift_ppm": 1.26,
+      "integral": null
+    },
+    {
+      "shift_ppm": 1.17,
+      "integral": null
+    },
+    {
+      "shift_ppm": 1.07,
+      "integral": null
+    }
+  ],
+  "c_peaks": [
+    144.9,
+    111.6,
+    41.7,
+    32.7,
+    26.3,
+    26.1
+  ],
+  "smiles": "C=CC1CCCCC1",
+  "inchikey": "LDLDYFCCDKENPD-UHFFFAOYSA-N",
+  "murcko_scaffold": "C1CCCCC1",
+  "generic_scaffold": "C1CCCCC1",
+  "assignments": [
+    {
+      "nucleus": "1H",
+      "shift_ppm": 1.07,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 1.17,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 1.26,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 1.65,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 1.72,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 1.72,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 1.95,
+      "environment": "C, 1 H, ring"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 4.87,
+      "environment": "C, 2 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 4.95,
+      "environment": "C, 2 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 5.77,
+      "environment": "C, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 26.1,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 26.3,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 32.7,
+      "environment": "C, 2 H, ring"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 41.7,
+      "environment": "C, 1 H, ring"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 111.6,
+      "environment": "C, 2 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 144.9,
+      "environment": "C, 1 H"
+    }
+  ],
+  "agent_outcome": {
+    "collected_on": "2026-11-16",
+    "model_id": "claude-opus-5-5",
+    "prompt_version": "2026.11.1+shifts.2026.11.1",
+    "settings_hash": "2bb0d0ca67ec316062df7dc89a03d65e1b83ea75a0f86352c0a7a64abae0178d",
+    "status": "missed",
+    "proposed_smiles": [
+      "C=CC1CCC(C)C1",
+      "C=CC1CCCCC1",
+      "C=CCC1CCCC1"
+    ]
+  }
+}

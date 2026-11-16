@@ -1,0 +1,239 @@
+{
+  "rejected_on": "2026-11-16",
+  "reason": "1H peak list incomplete: no OMe signal",
+  "case": {
+    "case_id": "mem-000171",
+    "schema_version": "1",
+    "provenance": {
+      "source": "nmrshiftdb2",
+      "source_record_id": "20209816",
+      "spectrum_ids": {
+        "1H": 1,
+        "13C": 0
+      },
+      "truth_basis": "database-assigned structure",
+      "extracted_by": "bench/memory.py propose @ 24a39d9bbba088a34b854a975ed49d58258fc7fa, RDKit 2026.03.6",
+      "proposed_on": "2026-11-16"
+    },
+    "formula": "C19H19N3O6",
+    "dou": 12.0,
+    "carbon_count": 19,
+    "heavy_atoms": 28,
+    "solvent": null,
+    "h_peaks": [
+      {
+        "shift_ppm": 10.3,
+        "integral": null
+      },
+      {
+        "shift_ppm": 8.08,
+        "integral": null
+      },
+      {
+        "shift_ppm": 7.99,
+        "integral": null
+      },
+      {
+        "shift_ppm": 7.67,
+        "integral": null
+      },
+      {
+        "shift_ppm": 7.62,
+        "integral": null
+      },
+      {
+        "shift_ppm": 4.84,
+        "integral": null
+      },
+      {
+        "shift_ppm": 2.32,
+        "integral": null
+      },
+      {
+        "shift_ppm": 1.2,
+        "integral": null
+      },
+      {
+        "shift_ppm": 1.03,
+        "integral": null
+      }
+    ],
+    "c_peaks": [
+      165.1,
+      163.9,
+      147.6,
+      146.2,
+      134.3,
+      130.1,
+      122.0,
+      118.6,
+      113.6,
+      112.8,
+      100.9,
+      67.0,
+      52.0,
+      39.1,
+      21.7,
+      21.3,
+      17.9
+    ],
+    "smiles": "COC(=O)C1=C(C#N)NC(C)=C(C(=O)OC(C)C)C1c1cccc([N+](=O)[O-])c1",
+    "inchikey": "FAIIFDPAEUKBEP-UHFFFAOYSA-N",
+    "murcko_scaffold": "C1=CC(c2ccccc2)C=CN1",
+    "generic_scaffold": "C1CCC(C2CCCCC2)CC1",
+    "assignments": [
+      {
+        "nucleus": "1H",
+        "shift_ppm": 1.03,
+        "environment": "C, 3 H"
+      },
+      {
+        "nucleus": "1H",
+        "shift_ppm": 1.2,
+        "environment": "C, 3 H"
+      },
+      {
+        "nucleus": "1H",
+        "shift_ppm": 2.32,
+        "environment": "C, 3 H"
+      },
+      {
+        "nucleus": "1H",
+        "shift_ppm": 4.84,
+        "environment": "C, 1 H"
+      },
+      {
+        "nucleus": "1H",
+        "shift_ppm": 7.62,
+        "environment": "C, aromatic, 1 H"
+      },
+      {
+        "nucleus": "1H",
+        "shift_ppm": 7.67,
+        "environment": "C, aromatic, 1 H"
+      },
+      {
+        "nucleus": "1H",
+        "shift_ppm": 7.99,
+        "environment": "C, aromatic, 1 H"
+      },
+      {
+        "nucleus": "1H",
+        "shift_ppm": 8.08,
+        "environment": "C, aromatic, 1 H"
+      },
+      {
+        "nucleus": "1H",
+        "shift_ppm": 10.3,
+        "environment": "N, 1 H, ring"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 17.9,
+        "environment": "C, 3 H"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 21.3,
+        "environment": "C, 3 H"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 21.7,
+        "environment": "C, 3 H"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 39.1,
+        "environment": "C, 1 H, ring"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 52.0,
+        "environment": "C, 3 H"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 67.0,
+        "environment": "C, 1 H"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 100.9,
+        "environment": "C, 0 H, ring"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 112.8,
+        "environment": "C, 0 H, ring"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 113.6,
+        "environment": "C, 0 H, ring"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 118.6,
+        "environment": "C, 0 H"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 122.0,
+        "environment": "C, aromatic, 1 H"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 122.0,
+        "environment": "C, aromatic, 1 H"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 130.1,
+        "environment": "C, aromatic, 1 H"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 134.3,
+        "environment": "C, aromatic, 1 H"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 146.2,
+        "environment": "C, 0 H, ring"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 147.6,
+        "environment": "C, aromatic, 0 H"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 147.6,
+        "environment": "C, aromatic, 0 H"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 163.9,
+        "environment": "C, 0 H"
+      },
+      {
+        "nucleus": "13C",
+        "shift_ppm": 165.1,
+        "environment": "C, 0 H"
+      }
+    ],
+    "agent_outcome": {
+      "collected_on": "2026-11-16",
+      "model_id": "claude-opus-5-5",
+      "prompt_version": "2026.11.1+shifts.2026.11.1",
+      "settings_hash": "2bb0d0ca67ec316062df7dc89a03d65e1b83ea75a0f86352c0a7a64abae0178d",
+      "status": "missed",
+      "proposed_smiles": [
+        "OC(=O)C1=C(C#N)NC(CC)=C(C(=O)OC(C)C)C1c1cccc(N(=O)=O)c1",
+        "OC(=O)C1=C(C#N)NC(C)=C(C(=O)OC(C)CC)C1c1cccc(N(=O)=O)c1",
+        "COC(=O)C1=C(C#N)NC(C)=C(C(=O)OC(C)C)C1c1cccc(N(=O)=O)c1"
+      ]
+    }
+  }
+}
