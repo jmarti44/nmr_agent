@@ -907,9 +907,17 @@ def collect(
         }  # fmt: skip
         try:
             resp = run_analysis(req, settings, client, trace=trace, meter=meter, memory=None)
-        except Exception as e:  # noqa: BLE001 - recorded as no_answer; a rerun never changes it
+        except Exception as e:  # noqa: BLE001 - classified below
+            if not is_service_failure(e):
+                sys.exit(
+                    f"STOPPED at {row['id']}: the call did not reach the model or the account failed "
+                    f"({type(e).__name__}: {str(e)[:300]}); nothing was saved for this molecule.\n"
+                    f"{len(done)} molecule(s) collected in this run, ${spent:.2f} spent in {rel(out_dir)}.\n"
+                    f"Fix the cause (credit, key, rate limit, network) and resume with the same command: "
+                    f"finished molecules are skipped."
+                )
             result = {**base, "status": "no_answer", "error": f"{type(e).__name__}: {str(e)[:200]}",
-                      "candidates": [], "trace": trace, "cost_usd": 0, "llm_calls": meter.calls,
+                      "error_reason": getattr(e, "reason", type(e).__name__), "candidates": [], "trace": trace, "cost_usd": 0, "llm_calls": meter.calls,
                       "timing_ms": {}, "warnings": []}  # fmt: skip
             out.write_text(json.dumps(result, indent=1))
             print(row["id"], "no_answer", result["error"])
@@ -931,6 +939,22 @@ def collect(
         done.append(row["id"])
     print(f"collected {len(done)} molecule(s) this run; total spent in {rel(out_dir)}: ${spent:.2f}")
     return {"collected": done, "spent": spent}
+
+
+# What counts as the service failing on a molecule (a no_answer outcome): the model ran out of time, or its answer could
+# not be used. Everything else (the request never reached the model, the account or the network failed) says nothing
+# about the service and stops the run. Derived from src.llm's exception types and LLMUnavailable.reason codes.
+SERVICE_FAILURE_REASONS = frozenset(
+    {"timeout", "output_truncated", "unexpected_stop_reason", "call_budget_exhausted"}
+)
+
+
+def is_service_failure(e: BaseException) -> bool:
+    from src.llm.errors import LLMRefused, LLMSchemaFailure, LLMUnavailable
+
+    if isinstance(e, LLMRefused | LLMSchemaFailure):
+        return True
+    return isinstance(e, LLMUnavailable) and e.reason in SERVICE_FAILURE_REASONS
 
 
 def default_client(settings):

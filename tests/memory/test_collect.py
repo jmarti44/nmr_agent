@@ -7,6 +7,7 @@ import hashlib
 import json
 from pathlib import Path
 
+import httpx2
 import pytest
 from rdkit import Chem
 from rdkit.Chem import rdMolDescriptors
@@ -275,13 +276,19 @@ def reader(recs):
     return lambda wanted, path=None: {i: recs[i] for i in wanted if i in recs}
 
 
+NO_RETRY = Settings(
+    sdk_max_retries=0
+)  # a failed call is final at once, so the fake queue is one reply per call
+TIMEOUT = httpx2.ReadTimeout("timed out")
+
+
 def run_collect(tmp: Path, large: Path, recs, api: FakeAPI, **kw):
     return bm.collect(
         large_file=large,
         out_dir=tmp / "collect",
         read_records=reader(recs),
         client_factory=lambda settings: api.client(),
-        **kw,
+        **({"settings": NO_RETRY} | kw),
     )
 
 
@@ -295,7 +302,7 @@ def test_collect_records_solved_missed_and_no_answer(tmp_path):
         [
             message(hypothesis_json([ASPIRIN])),  # truth aspirin: solved
             message(hypothesis_json([ASPIRIN])),  # truth is the isomer: missed
-            error(400, "invalid_request_error", "bad"),  # no_answer
+            TIMEOUT,  # no_answer: the model call timed out
         ]
     )
     run_collect(tmp_path, large, recs, api)
@@ -339,7 +346,7 @@ def test_collect_resumes_and_skips_finished_molecules(tmp_path):
 
 def test_a_failed_molecule_stays_no_answer_on_a_rerun(tmp_path):
     large, recs = fake_large(tmp_path, [("a1", ASPIRIN)])
-    run_collect(tmp_path, large, recs, FakeAPI([error(400, "invalid_request_error", "bad")]))
+    run_collect(tmp_path, large, recs, FakeAPI([TIMEOUT]))
     api = FakeAPI([message(hypothesis_json([ASPIRIN]))])
     run_collect(tmp_path, large, recs, api)
     assert api.requests == [] and result(tmp_path, "a1")["status"] == "no_answer"
@@ -485,3 +492,83 @@ def test_an_unchanged_request_resumes_normally_and_the_dry_run_lists_stale_resul
         dry_run=True, large_file=large, out_dir=tmp_path / "collect", read_records=reader(changed)
     )
     assert list(report["stale"]) == ["a1"] and "STALE RESULT a1" in capsys.readouterr().out
+
+
+# ------------------------------------------------------ failures that are not service outcomes (RM6-3)
+
+CREDIT = (400, "invalid_request_error", "Your credit balance is too low to access the Anthropic API")
+
+
+@pytest.mark.parametrize(
+    "failure",
+    [
+        CREDIT,
+        (401, "authentication_error", "invalid x-api-key"),
+        (403, "permission_error", "forbidden"),
+        (404, "not_found_error", "model not found"),
+        (413, "request_too_large", "too big"),
+        (429, "rate_limit_error", "slow down"),
+        (500, "api_error", "boom"),
+        (529, "overloaded_error", "busy"),
+    ],
+)
+def test_an_api_or_account_failure_stops_the_run_and_saves_nothing_for_that_molecule(tmp_path, failure):
+    large, recs = fake_large(tmp_path, [("a1", ASPIRIN), ("a2", ASPIRIN), ("a3", ASPIRIN)])
+    api = FakeAPI([message(hypothesis_json([ASPIRIN])), error(*failure), message(hypothesis_json([ASPIRIN]))])
+    with pytest.raises(SystemExit) as stop:
+        run_collect(tmp_path, large, recs, api)
+    text = str(stop.value)
+    assert "STOPPED at a2" in text and "nothing was saved" in text and "1 molecule(s) collected" in text
+    assert "resume" in text
+    assert sorted(p.name for p in (tmp_path / "collect").glob("*.json")) == ["a1.json"]
+    assert result(tmp_path, "a1")["status"] == "solved"
+    assert len(api.requests) == 2  # a3 was never attempted
+
+
+def test_a_connection_error_stops_the_run(tmp_path):
+    large, recs = fake_large(tmp_path, [("a1", ASPIRIN)])
+    with pytest.raises(SystemExit, match="STOPPED at a1"):
+        run_collect(tmp_path, large, recs, FakeAPI([httpx2.ConnectError("down")]))
+    assert not list((tmp_path / "collect").glob("*.json"))
+
+
+def test_a_timeout_is_still_saved_as_no_answer_and_the_run_goes_on(tmp_path):
+    large, recs = fake_large(tmp_path, [("a1", ASPIRIN), ("a2", ASPIRIN)])
+    api = FakeAPI([TIMEOUT, message(hypothesis_json([ASPIRIN]))])
+    run_collect(tmp_path, large, recs, api)
+    first = result(tmp_path, "a1")
+    assert first["status"] == "no_answer" and first["error_reason"] == "timeout" and first["candidates"] == []
+    assert result(tmp_path, "a2")["status"] == "solved"
+
+
+def test_resume_after_a_stop_collects_the_remaining_molecules(tmp_path):
+    large, recs = fake_large(tmp_path, [("a1", ASPIRIN), ("a2", ASPIRIN), ("a3", ASPIRIN)])
+    api = FakeAPI([message(hypothesis_json([ASPIRIN])), error(*CREDIT)])
+    with pytest.raises(SystemExit):
+        run_collect(tmp_path, large, recs, api)
+    first = (tmp_path / "collect" / "a1.json").read_bytes()
+    api = FakeAPI([message(hypothesis_json([ASPIRIN])), message(hypothesis_json([ASPIRIN]))])
+    run_collect(tmp_path, large, recs, api)
+    assert len(api.requests) == 2 and (tmp_path / "collect" / "a1.json").read_bytes() == first
+    assert sorted(p.stem for p in (tmp_path / "collect").glob("*.json")) == ["a1", "a2", "a3"]
+    assert {result(tmp_path, i)["status"] for i in ("a1", "a2", "a3")} == {"solved"}
+
+
+def test_which_failures_count_as_the_service_failing():
+    from src.llm.errors import LLMRefused, LLMSchemaFailure, LLMUnavailable
+
+    for reason in ("timeout", "output_truncated", "unexpected_stop_reason", "call_budget_exhausted"):
+        assert bm.is_service_failure(LLMUnavailable(reason))
+    assert bm.is_service_failure(LLMSchemaFailure("invalid after corrections"))
+    assert bm.is_service_failure(LLMRefused("cyber"))
+    for reason in (
+        "status_400",
+        "status_401",
+        "status_529",
+        "rate_limited",
+        "connection",
+        "api_error",
+        "no_credentials",
+    ):
+        assert not bm.is_service_failure(LLMUnavailable(reason))
+    assert not bm.is_service_failure(RuntimeError("anything else"))
