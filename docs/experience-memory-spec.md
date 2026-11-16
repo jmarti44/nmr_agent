@@ -186,6 +186,13 @@ Rule for AI agents working in this repository: they may run `propose`; they must
 
 For the experiment this means a person approves up to 200 cases (§7.2) before any eval model call. Batches of 25 with one review sheet each keep that manageable.
 
+**Who reviewed the H-large cases (2026-11-16).** The project owner approved them and is not a chemist; each case records `approved_by` "Jose Martinez (owner, not a chemist)". No chemist reviewed the cases. Their correctness rests on:
+- the nmrshiftdb2 structure assignment (the same truth source the benchmark scores against);
+- the automatic checks in `propose`: chemistry consistency, structure-key duplicates, leakage rules 1, 2, 4 and 5;
+- an AI reviewer's screen of the `missed` cases, which recommended rejections where the database looked doubtful (`docs/review-phase-m6.md`, missed-case pre-screen).
+
+The owner's review covers inclusion and the personal or confidential check, not expert chemistry. Solved cases carry the least risk, because the database and the agent reached the same structure independently. `memory-report.md` states this limitation.
+
 ---
 
 ## 7. Evaluation plan
