@@ -13,6 +13,11 @@ Phase M6 (spec §6, §7.2a, §15.4):
     approve <case_id>.. --by "<name>"           a person only: asks for the typed word APPROVE
     reject <case_id>.. --reason "<text>"
 
+Phase M7 (spec §15.6-15.8, §15.11):
+
+    eval [--arms ..] [--ids ..] [--cap 40] [--dry-run]   THE PAID STEP: M0-a, M0-b, M200L, R200L on the 50 large MEM-EVAL molecules
+    compare                      the §15.7 measures and the §15.8 verdict from bench/memory/eval/ (no model call)
+
 `select` needs the NMRShiftDB2 export (bench/data/, untracked) and refuses to run if any output exists:
 the selections are written once, before any model call, and never rewritten. `check` reads only the
 committed files (and a store, if given) and exits non-zero on any violation.
@@ -22,6 +27,7 @@ from __future__ import annotations
 
 import argparse
 import collections
+import dataclasses
 import datetime as dt
 import hashlib
 import json
@@ -1452,6 +1458,671 @@ def setup_store(store: Path = STORE, params_source: Path | None = None) -> None:
     print(f"created the empty store in {rel(store)}")
 
 
+# --------------------------------------------------------------------------- M7: the four H-large arms (spec §15.6, §15.11)
+
+EVAL_DIR = OUT / "eval"
+ARMS = ("M0-a", "M0-b", "M200L", "R200L")
+MEMORY_ARMS = ("M200L", "R200L")
+EVAL_MIN_HEAVY = 20  # the molecules with heavy_atoms > 20
+EVAL_STORE_CASES = 200
+EVAL_SPEND_CAP_DEFAULT = 40.0
+NEAR_DUPLICATE = 0.5  # §15.11: an injected case at or above this Tanimoto to the truth
+RUN_FILE = "run.json"
+RUN_FILE_IGNORED = ("created_on", "git_commit")  # recorded, not compared on resume
+
+
+def seed_of(text: str) -> int:
+    return int(hashlib.sha256(text.encode("utf-8")).hexdigest()[:8], 16)
+
+
+def order_seed(rid: str) -> int:
+    """§15.11 run order: int(sha256(f"{id}:order").hexdigest()[:8], 16)."""
+    return seed_of(f"{rid}:order")
+
+
+def random_seed(rid: str) -> int:
+    """§15.11 R200L seed: the M4 rule with sample index 0, int(sha256(f"{id}:0").hexdigest()[:8], 16)."""
+    return seed_of(f"{rid}:0")
+
+
+def arm_order(rid: str, arms: tuple[str, ...] = ARMS) -> list[str]:
+    """The four arms of one molecule in the seeded shuffled order (the shuffle of all four, then the
+    chosen subset in that order)."""
+    order = list(ARMS)
+    random.Random(order_seed(rid)).shuffle(order)
+    return [a for a in order if a in arms]
+
+
+def eval_rows(eval_file: Path | None = None) -> list[dict]:
+    """The MEM-EVAL records with more than 20 heavy atoms, in file order. ``pool`` is "unreported" for a
+    record without a solvent and "named" otherwise (the records of mem_eval.json carry no pool field)."""
+    records = json.loads((eval_file or FILES["mem_eval"]).read_text())["records"]
+    return [
+        {**r, "pool": r.get("pool") or ("unreported" if r.get("solvent") is None else "named")}
+        for r in records
+        if r["heavy_atoms"] > EVAL_MIN_HEAVY
+    ]
+
+
+_MORGAN = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
+
+
+def tanimoto(smiles_a: str, smiles_b: str) -> float:
+    """Morgan (radius 2, 2048 bits) Tanimoto similarity; 0.0 when either SMILES does not parse."""
+    a, b = Chem.MolFromSmiles(smiles_a), Chem.MolFromSmiles(smiles_b)
+    if a is None or b is None:
+        return 0.0
+    return DataStructs.TanimotoSimilarity(_MORGAN.GetFingerprint(a), _MORGAN.GetFingerprint(b))
+
+
+@dataclass(frozen=True)
+class Built:
+    """One analysis ready to run: the request, the prompt with and without the examples, the runtime."""
+
+    req: object
+    complete: bool
+    base_prompt: object
+    prompt: object
+    memory: object  # MemoryRuntime | None
+
+
+def arm_memory(arm: str, runtime, rid: str):
+    if arm == "M200L":
+        return runtime
+    if arm == "R200L":
+        return dataclasses.replace(runtime, mode="random", seed=random_seed(rid))
+    return None
+
+
+def build_arm(row: dict, rec: SdRecord | None, arm: str, runtime) -> Built:
+    from src.prompting import prepare_request
+
+    req, complete, _, base_prompt, _ = build_request(row, rec)
+    memory = arm_memory(arm, runtime, row["id"])
+    prompt = base_prompt if memory is None else prepare_request(req, None, memory)[1]
+    return Built(req, complete, base_prompt, prompt, memory)
+
+
+def build_all(
+    rows: list[dict], records: Mapping[str, SdRecord], arms: tuple[str, ...], runtime
+) -> tuple[dict[tuple[str, str], Built], dict[tuple[str, str], str]]:
+    """Every (arm, molecule) analysis built, and the failures: (arm, id) -> reason."""
+    built: dict[tuple[str, str], Built] = {}
+    failures: dict[tuple[str, str], str] = {}
+    for row in rows:
+        rec = records.get(row["id"])
+        if rec is not None and (rec.h_spec != row["h_spec"] or rec.c_spec != row["c_spec"]):
+            for arm in arms:
+                failures[(arm, row["id"])] = "the SD record's spectra differ from mem_eval.json"
+            continue
+        for arm in arms:
+            try:
+                built[(arm, row["id"])] = build_arm(row, rec, arm, runtime)
+            except Exception as e:  # noqa: BLE001 - reported, the run does not start
+                failures[(arm, row["id"])] = f"{type(e).__name__}: {e}"
+    return built, failures
+
+
+def injected_of(prompt, truth_smiles: str) -> list[dict]:
+    """The cases the prompt carries, best first, with the Tanimoto of each to the truth."""
+    return [
+        {
+            "case_id": r.case.case_id,
+            "similarity": r.similarity,
+            "tanimoto_to_truth": round(tanimoto(r.case.smiles, truth_smiles), 6),
+        }
+        for r in prompt.examples
+    ]
+
+
+def store_leakage_violations(cases, mem_eval: list[dict], old_keys: set[str]) -> list[str]:
+    """Rules 1, 2, 4 and 5 for a store against all MEM-EVAL records (what ``check --store`` runs)."""
+    out: list[str] = []
+    for name, rule in (
+        ("rule 1 structure key", lambda: rule1_structure_key(cases, mem_eval, old_keys)),
+        ("rule 2 scaffold", lambda: rule2_scaffold(cases, mem_eval)),
+        ("rule 4 similarity", lambda: rule4_similarity(cases, mem_eval)),
+        ("rule 5 proposed SMILES", lambda: rule5_proposed(cases, mem_eval)),
+    ):
+        out += [f"{name}: {v}" for v in rule()]
+    return out
+
+
+def eval_run_record(store: Path, runtime, settings, rows: list[dict], cases_expected: int) -> dict:
+    from src.memory.runtime import outcome_config, params_hash
+
+    doc = json.loads((store / "retrieval_params.json").read_text())
+    return {
+        "manifest_sha256": sha256_file(store / "manifest.json"),
+        "memory_version": runtime.memory_version,
+        "cases": len(runtime.store.cases),
+        "cases_expected": cases_expected,
+        "retrieval_params_sha256": params_hash(doc["parameters"]),
+        "outcome_config": outcome_config(settings).model_dump(),
+        "arms": list(ARMS),
+        "molecule_ids": [r["id"] for r in rows],
+        "created_on": utc_today().isoformat(),
+        "git_commit": git_state().get("git_commit"),
+    }
+
+
+def check_run_file(path: Path, record: dict, results_exist: bool) -> None:
+    """Write run.json once; on a resume refuse if anything in it differs from this run."""
+    if not path.exists():
+        if results_exist:
+            sys.exit(f"{rel(path)} is missing but result files exist; refusing to continue")
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(record, indent=1) + "\n")
+        return
+    saved = json.loads(path.read_text())
+    differ = [
+        k for k in sorted(set(saved) | set(record))
+        if k not in RUN_FILE_IGNORED and saved.get(k) != record.get(k)
+    ]  # fmt: skip
+    if differ:
+        lines = "\n".join(f"  {k}: saved {saved.get(k)!r}, now {record.get(k)!r}" for k in differ)
+        sys.exit(f"{rel(path)} does not match this run; refusing to start.\n{lines}")
+
+
+def eval_result_files(out_dir: Path) -> list[Path]:
+    return [f for arm in ARMS for f in sorted((out_dir / arm).glob("*.json"))]
+
+
+def eval_spent(out_dir: Path) -> float:
+    return sum(json.loads(f.read_text()).get("cost_usd", 0) for f in eval_result_files(out_dir))
+
+
+def eval_stale(built: Mapping[tuple[str, str], Built], out_dir: Path) -> dict[tuple[str, str], str]:
+    """Saved results whose request (or examples block) is not the one built now, or that carry no hash."""
+    stale: dict[tuple[str, str], str] = {}
+    for (arm, rid), b in built.items():
+        f = out_dir / arm / f"{rid}.json"
+        if not f.exists():
+            continue
+        saved = json.loads(f.read_text())
+        if saved.get("request_sha256") is None:
+            stale[(arm, rid)] = "the saved result has no request_sha256"
+        elif saved["request_sha256"] != request_hash(b.base_prompt):
+            stale[(arm, rid)] = "the request built now differs from the one that was sent"
+        elif saved.get("prompt_sha256") != request_hash(b.prompt):
+            stale[(arm, rid)] = "the prompt (examples block) built now differs from the one that was sent"
+    return stale
+
+
+def eval_cost_estimate(
+    arm_tokens: Mapping[str, int], collect_dir: Path, large: dict, records, n_per_arm: int
+):
+    """Estimated cost of the run from the collect results, or None when there are none.
+
+    Method 1 (per molecule): the mean cost of the priced collect results of the ">20" stratum, times the number
+    of analyses. Method 2 (per input token): total cost over the estimated input tokens of those same collect
+    requests (rebuilt now), times each arm's estimated input tokens. Output and thinking tokens dominate real
+    cost, so method 2 only scales the input side; neither method is a bound."""
+    priced = {}
+    for f in sorted(collect_dir.glob("*.json")):
+        r = json.loads(f.read_text())
+        if r.get("cost_usd", 0) > 0 and r.get("stratum") == ">20":
+            priced[r["id"]] = r["cost_usd"]
+    if not priced:
+        return None
+    per_molecule = sum(priced.values()) / len(priced)
+    rows = [r for r in resolve_rows(large, None) if r["id"] in priced]
+    tokens = 0
+    used_cost = 0.0
+    for row in rows:
+        try:
+            *_, prompt, _ = build_request(row, records.get(row["id"]))
+        except Exception:  # noqa: BLE001 - such a molecule is left out of method 2
+            continue
+        tokens += prompt.total_tokens_est
+        used_cost += priced[row["id"]]
+    per_token = used_cost / tokens if tokens else None
+    return {
+        "priced_collect_results": len(priced),
+        "mean_cost_per_molecule": per_molecule,
+        "method_1_total": per_molecule * sum(n_per_arm for _ in arm_tokens),
+        "cost_per_input_token": per_token,
+        "method_2_total": per_token * sum(arm_tokens.values()) if per_token else None,
+    }
+
+
+def eval_run(
+    arms: tuple[str, ...] = ARMS,
+    ids: list[str] | None = None,
+    cap: float = EVAL_SPEND_CAP_DEFAULT,
+    dry_run: bool = False,
+    eval_file: Path | None = None,
+    store: Path = STORE,
+    out_dir: Path = EVAL_DIR,
+    collect_dir: Path = COLLECT_DIR,
+    large_file: Path = LARGE_FILE,
+    read_records=read_sd_records,
+    client_factory=None,
+    settings=None,
+    cases_expected: int = EVAL_STORE_CASES,
+    old_keys: set[str] | None = None,
+) -> dict:
+    """The four arms on the large MEM-EVAL molecules (§15.6, §15.11). The paid step unless ``dry_run``.
+
+    Molecule by molecule in mem_eval.json order; the arms of a molecule in its seeded order. An analysis with a
+    result file is skipped (resume). A service failure is saved as no_answer; any other failure stops the run
+    and saves nothing for that analysis. The run stops before the next analysis once the money in the result
+    files reaches ``cap``.
+    """
+    from src.analysis import CallMeter, run_analysis
+    from src.core.settings import Settings
+    from src.memory import MemoryRuntime
+    from src.memory.runtime import outcome_config
+
+    settings = settings or Settings()
+    all_rows = eval_rows(eval_file)
+    rows = all_rows
+    if ids:
+        unknown = [i for i in ids if i not in {r["id"] for r in all_rows}]
+        if unknown:
+            sys.exit(f"not among the {len(all_rows)} large MEM-EVAL molecules: {', '.join(unknown)}")
+        rows = [r for r in all_rows if r["id"] in set(ids)]
+
+    try:
+        runtime = MemoryRuntime.from_directory(store, settings, strict=True)
+    except Exception as e:  # noqa: BLE001 - any load problem refuses the run
+        sys.exit(f"the memory store {rel(store)} cannot be loaded strictly: {type(e).__name__}: {e}")
+    if len(runtime.store.cases) != cases_expected:
+        sys.exit(f"the store holds {len(runtime.store.cases)} cases, not {cases_expected}; refusing to run")
+    mem_eval = json.loads((eval_file or FILES["mem_eval"]).read_text())["records"]
+    problems = store_leakage_violations(
+        runtime.store.cases, mem_eval, old_structure_keys() if old_keys is None else old_keys
+    )
+    if problems:
+        sys.exit("the store breaks the leakage rules; refusing to run:\n  " + "\n  ".join(problems[:10]))
+
+    records = read_records({r["id"]: r["pool"] for r in rows})
+    built, failures = build_all(rows, records, arms, runtime)
+    if dry_run:
+        return eval_dry_run(
+            rows, arms, built, failures, runtime, collect_dir, large_file, read_records, out_dir
+        )
+    if failures:
+        lines = "\n".join(f"  {a} {i}: {why}" for (a, i), why in failures.items())
+        sys.exit(f"stopping before any model call: {len(failures)} request(s) cannot be built.\n{lines}")
+    stale = eval_stale(built, out_dir)
+    if stale:
+        lines = "\n".join(f"  {a} {i}: {why}" for (a, i), why in stale.items())
+        sys.exit(
+            f"stopping before any model call: {len(stale)} saved result(s) do not match the request built now.\n"
+            f"{lines}"
+        )
+    record = eval_run_record(store, runtime, settings, all_rows, cases_expected)
+    check_run_file(out_dir / RUN_FILE, record, bool(eval_result_files(out_dir)))
+
+    cfg = outcome_config(settings).model_dump()
+    client = (client_factory or default_client)(settings)
+    spent = eval_spent(out_dir)
+    ran: list[tuple[str, str]] = []
+    for row in rows:
+        for arm in arm_order(row["id"], arms):
+            out = out_dir / arm / f"{row['id']}.json"
+            if out.exists():
+                continue
+            if spent >= cap:
+                print(f"spend cap ${cap:.2f} reached (${spent:.2f}); stopping")
+                return {"ran": ran, "spent": spent, "stopped": "cap"}
+            b = built[(arm, row["id"])]
+            injected = injected_of(b.prompt, row["smiles"])
+            trace: dict = {}
+            meter = CallMeter()
+            base = {
+                "arm": arm, "id": row["id"], "truth": row["smiles"], "truth_inchikey": row["inchikey"],
+                "heavy_atoms": row["heavy_atoms"], "h_integrals_given": b.complete,
+                "request_sha256": request_hash(b.base_prompt), "prompt_sha256": request_hash(b.prompt),
+                "outcome_config": cfg, "run_on": utc_today().isoformat(),
+                "memory_version": None if b.memory is None else runtime.memory_version,
+                "injected": injected,
+            }  # fmt: skip
+            try:
+                resp = run_analysis(b.req, settings, client, trace=trace, meter=meter, memory=b.memory)
+            except Exception as e:  # noqa: BLE001 - classified below
+                if not is_service_failure(e):
+                    sys.exit(
+                        f"STOPPED at {arm} {row['id']}: the call did not reach the model or the account failed "
+                        f"({type(e).__name__}: {str(e)[:300]}); nothing was saved for this analysis.\n"
+                        f"{len(ran)} analysis(es) run this time, ${spent:.2f} spent in {rel(out_dir)}.\n"
+                        f"Fix the cause (credit, key, rate limit, network) and resume with the same command: "
+                        f"finished analyses are skipped."
+                    )
+                result = {
+                    **base, "status": "no_answer", "error": f"{type(e).__name__}: {str(e)[:200]}",
+                    "error_reason": getattr(e, "reason", type(e).__name__), "candidates": [],
+                    "trace": trace, "cost_usd": 0, "llm_calls": meter.calls, "timing_ms": {}, "warnings": [],
+                }  # fmt: skip
+                out.parent.mkdir(parents=True, exist_ok=True)
+                out.write_text(json.dumps(result, indent=1))
+                print(arm, row["id"], "no_answer", result["error"])
+                ran.append((row["id"], arm))
+                continue
+            cands = [
+                {"smiles": v.candidate.smiles, "model_rank": v.candidate.rank, "status": v.status,
+                 "score": v.verifier_score, "confidence": v.final_confidence}
+                for v in resp.candidates
+            ]  # fmt: skip
+            spent += resp.usage.estimated_cost_usd
+            result = {
+                **base, "status": outcome_status([c["smiles"] for c in cands], row["inchikey"]),
+                "candidates": cands, "trace": trace, "cost_usd": resp.usage.estimated_cost_usd,
+                "llm_calls": resp.usage.llm_calls, "timing_ms": resp.timing_ms, "warnings": resp.warnings,
+            }  # fmt: skip
+            out.parent.mkdir(parents=True, exist_ok=True)
+            out.write_text(json.dumps(result, indent=1))
+            print(arm, row["id"], result["status"], f"${resp.usage.estimated_cost_usd:.3f}")
+            ran.append((row["id"], arm))
+    print(f"ran {len(ran)} analysis(es) this time; total spent in {rel(out_dir)}: ${spent:.2f}")
+    return {"ran": ran, "spent": spent, "stopped": None}
+
+
+def eval_dry_run(
+    rows, arms, built, failures, runtime, collect_dir, large_file, read_records, out_dir
+) -> dict:
+    """No model call: what the run would send, how much input, and a cost estimate with its method."""
+    tokens = {a: sum(b.prompt.total_tokens_est for (x, _), b in built.items() if x == a) for a in arms}
+    n = collections.Counter(a for a, _ in built)
+    examples = {
+        a: [len(b.prompt.examples) for (x, _), b in built.items() if x == a] for a in MEMORY_ARMS if a in arms
+    }
+    done = sum(1 for a in arms for r in rows if (out_dir / a / f"{r['id']}.json").exists())
+    print(
+        f"dry run: {len(rows)} molecules x {len(arms)} arm(s) = {len(rows) * len(arms)} analyses, "
+        f"{len(built)} buildable, {len(failures)} failed; {done} already have a result; no model call was made"
+    )
+    for a in arms:
+        print(f"  {a}: estimated input tokens {tokens[a]} ({tokens[a] // max(n[a], 1)} per molecule)")
+    for a, counts in examples.items():
+        print(
+            f"  {a}: examples injected per molecule: mean {sum(counts) / max(len(counts), 1):.2f}, "
+            f"counts {dict(sorted(collections.Counter(counts).items()))}"
+        )
+    for (a, i), why in failures.items():
+        print(f"  FAILS {a} {i}: {why}")
+    stale = eval_stale(built, out_dir)
+    for (a, i), why in stale.items():
+        print(f"  STALE RESULT {a} {i}: {why}")
+    estimate = None
+    if collect_dir.exists() and built:
+        large = load_large(large_file)
+        wanted = {r["id"]: r["pool"] for r in resolve_rows(large, None)}
+        extra = read_records(wanted)
+        estimate = eval_cost_estimate(tokens, collect_dir, large, extra, len(rows))
+    if estimate is None:
+        print("cost estimate: no priced collect results to estimate from")
+    else:
+        print(
+            f"cost estimate, method 1 (mean cost per molecule of the {estimate['priced_collect_results']} priced "
+            f"collect results of the >20 stratum, ${estimate['mean_cost_per_molecule']:.3f}, times "
+            f"{len(rows) * len(arms)} analyses): ${estimate['method_1_total']:.2f}"
+        )
+        if estimate["method_2_total"] is not None:
+            print(
+                f"cost estimate, method 2 (collect cost per estimated input token, "
+                f"${estimate['cost_per_input_token']:.6f}, times the estimated input tokens above): "
+                f"${estimate['method_2_total']:.2f}"
+            )
+        print("  Output and thinking tokens dominate real cost, so neither figure is a bound.")
+    return {
+        "analyses": len(rows) * len(arms), "buildable": len(built), "failures": {f"{a}/{i}": w for (a, i), w in failures.items()},
+        "input_tokens_est": tokens, "examples_per_molecule": examples, "estimate": estimate, "already_done": done,
+        "stale": {f"{a}/{i}": w for (a, i), w in stale.items()},
+    }  # fmt: skip
+
+
+# --------------------------------------------------------------------------- M7: compare (spec §15.7, §15.8, §15.11)
+
+COMPARE_JSON = "compare.json"
+COMPARE_TXT = "compare.txt"
+
+
+def first_smiles(res: dict | None) -> str | None:
+    if not res or res.get("status") == "no_answer" or not res.get("candidates"):
+        return None
+    return res["candidates"][0]["smiles"]
+
+
+def trace_smiles(res: dict) -> list[str]:
+    """Every candidate SMILES of every round of the trace (first answer, repair) plus the final candidates."""
+    out = [c["smiles"] for c in res.get("candidates", [])]
+    for round_ in ("first", "repaired"):
+        h = (res.get("trace") or {}).get(round_)
+        if isinstance(h, dict):
+            out += [c.get("smiles") for c in h.get("candidates", []) if c.get("smiles")]
+    return out
+
+
+def molecule_measures(res: dict | None, row: dict) -> dict | None:
+    """The §15.7 numbers of one analysis; None when the result file is missing."""
+    from bench import benchmark as b
+
+    if res is None:
+        return None
+    truth_key = key_of(row["inchikey"])
+    first = first_smiles(res)
+    keys = [b.key(c["smiles"]) for c in res.get("candidates", [])] if first is not None else []
+    own = sorted(res.get("candidates", []), key=lambda c: c.get("model_rank", 0)) if first is not None else []
+    injected = res.get("injected") or []
+    timing = res.get("timing_ms") or {}
+    return {
+        "similarity": tanimoto(first, row["smiles"]) if first is not None else 0.0,
+        "no_answer": res.get("status") == "no_answer",
+        "timeout": res.get("status") == "no_answer" and res.get("error_reason") == "timeout",
+        "top1": bool(keys) and keys[0] == truth_key,
+        "top3": truth_key in keys[:3],
+        "proposed": truth_key in {b.key(s) for s in trace_smiles(res)},
+        "own_top1": bool(own) and b.key(own[0]["smiles"]) == truth_key,
+        "cost": res.get("cost_usd", 0.0),
+        "time_ms": timing.get("total"),
+        "examples": len(injected),
+        "m": max((i["tanimoto_to_truth"] for i in injected), default=None),
+    }
+
+
+def _mean(xs) -> float | None:
+    xs = list(xs)
+    return sum(xs) / len(xs) if xs else None
+
+
+def arm_summary(per: dict[str, dict | None]) -> dict:
+    got = [m for m in per.values() if m is not None]
+    n = len(got)
+    return {
+        "n": n,
+        "S": _mean(m["similarity"] for m in got),
+        "top1": sum(m["top1"] for m in got),
+        "top3": sum(m["top3"] for m in got),
+        "proposed_any_round": sum(m["proposed"] for m in got),
+        "own_order_top1": sum(m["own_top1"] for m in got),
+        "no_answer": sum(m["no_answer"] for m in got),
+        "timeouts": sum(m["timeout"] for m in got),
+        "mean_time_s": (lambda t: None if t is None else t / 1000)(
+            _mean(m["time_ms"] for m in got if m["time_ms"] is not None)
+        ),
+        "mean_cost_usd": _mean(m["cost"] for m in got),
+        "mean_examples": _mean(m["examples"] for m in got),
+    }
+
+
+def _r(x: float) -> float:
+    """Rounded before a threshold comparison, so a difference of means that is 0.05 on paper is not 0.04999999."""
+    return round(x, 9)
+
+
+def wilcoxon_p(d: list[float]) -> tuple[float | None, int]:
+    """(p, number of non-zero differences); the §15.11 call. No non-zero difference: p is None."""
+    import warnings
+
+    from scipy.stats import wilcoxon
+
+    nonzero = sum(1 for x in d if x != 0)
+    if nonzero == 0:
+        return None, 0
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        res = wilcoxon(d, alternative="two-sided", zero_method="wilcox", method="auto")
+    return float(res.pvalue), nonzero
+
+
+def verdict_of(per: dict[str, dict[str, dict]], arms: dict[str, dict], ids: list[str]) -> dict:
+    """§15.8 as §15.11 defines it. ``per[arm][id]`` are complete molecule measures."""
+    s = {a: arms[a]["S"] for a in ARMS}
+    m0 = (s["M0-a"] + s["M0-b"]) / 2
+    delta = s["M200L"] - m0
+    noise = abs(s["M0-a"] - s["M0-b"])
+    d = [
+        per["M200L"][i]["similarity"] - (per["M0-a"][i]["similarity"] + per["M0-b"][i]["similarity"]) / 2
+        for i in ids
+    ]
+    p, nonzero = wilcoxon_p(d)
+    gap = s["M200L"] - s["R200L"]
+    low = [
+        k for k, i in enumerate(ids) if per["M200L"][i]["m"] is None or per["M200L"][i]["m"] < NEAR_DUPLICATE
+    ]
+    delta_low = _mean(d[k] for k in low)
+    confined = True if delta_low is None else _r(delta_low) <= 0.02
+    c = []
+
+    def add(role: str, name: str, value: str, holds: bool) -> None:
+        c.append({"role": role, "condition": name, "value": value, "holds": bool(holds)})
+
+    add("supports", "Δ ≥ +0.05", f"Δ = {delta:+.4f}", _r(delta) >= 0.05)
+    add("supports", "Δ > 2N", f"Δ = {delta:+.4f}, 2N = {2 * noise:.4f}", _r(delta) > _r(2 * noise))
+    add(
+        "supports", "Wilcoxon two-sided p < 0.05",
+        f"p = {'n/a' if p is None else f'{p:.4f}'} over {nonzero} non-zero d_i of {len(d)}",
+        p is not None and p < 0.05,
+    )  # fmt: skip
+    add("supports", "S(M200L) − S(R200L) ≥ +0.03", f"{gap:+.4f}", _r(gap) >= 0.03)
+    add("falsifies", "Δ ≤ +0.02", f"Δ = {delta:+.4f}", _r(delta) <= 0.02)
+    add("falsifies", "Δ ≤ N", f"Δ = {delta:+.4f}, N = {noise:.4f}", _r(delta) <= _r(noise))
+    add(
+        "falsifies",
+        "S(R200L) ≥ S(M200L)",
+        f"S(R200L) = {s['R200L']:.4f}, S(M200L) = {s['M200L']:.4f}",
+        _r(s["R200L"]) >= _r(s["M200L"]),
+    )
+    add(
+        "falsifies", f"gain confined to molecules with m_i ≥ {NEAR_DUPLICATE}",
+        f"Δ over the {len(low)} molecule(s) with m_i < {NEAR_DUPLICATE} = "
+        + ("n/a (none: counts as confined)" if delta_low is None else f"{delta_low:+.4f}"),
+        confined,
+    )  # fmt: skip
+    t_m = arms["M200L"]["timeouts"]
+    t_0 = (arms["M0-a"]["timeouts"] + arms["M0-b"]["timeouts"]) / 2
+    add("harm", "timeouts: M200L − mean(M0) > 3", f"{t_m} − {t_0:g} = {t_m - t_0:g}", t_m - t_0 > 3)
+    cost_m = arms["M200L"]["mean_cost_usd"]
+    cost_0 = (arms["M0-a"]["mean_cost_usd"] + arms["M0-b"]["mean_cost_usd"]) / 2
+    rise = None if cost_0 == 0 else cost_m / cost_0 - 1
+    add(
+        "harm", "cost per molecule rises by more than 30%",
+        f"${cost_m:.4f} vs ${cost_0:.4f} ({'n/a' if rise is None else f'{rise:+.1%}'})",
+        rise is not None and _r(rise) > 0.30,
+    )  # fmt: skip
+    falsified = [x for x in c if x["role"] == "falsifies" and x["holds"]]
+    supported = all(x["holds"] for x in c if x["role"] == "supports")
+    verdict = "H-large falsified" if falsified else "H-large supported" if supported else "inconclusive"
+    return {
+        "verdict": verdict, "delta": delta, "N": noise, "mean_S_M0": m0, "S_M200L_minus_S_R200L": gap,
+        "wilcoxon_p": p, "nonzero_d": nonzero, "d": dict(zip(ids, d, strict=True)),
+        "delta_low_m": delta_low, "n_low_m": len(low), "conditions": c,
+        "harm": [x for x in c if x["role"] == "harm" and x["holds"]],
+    }  # fmt: skip
+
+
+def compare(out_dir: Path = EVAL_DIR, eval_file: Path | None = None, write: bool = True) -> dict:
+    """§15.7 per arm and the §15.8 verdict, from the result files only (no model call). Fewer than all
+    analyses: the partial measures, labelled PARTIAL, and no verdict."""
+    rows = eval_rows(eval_file)
+    ids = [r["id"] for r in rows]
+    per: dict[str, dict[str, dict | None]] = {}
+    for a in ARMS:
+        per[a] = {}
+        for r in rows:
+            f = out_dir / a / f"{r['id']}.json"
+            per[a][r["id"]] = molecule_measures(json.loads(f.read_text()) if f.exists() else None, r)
+    arms = {a: arm_summary(per[a]) for a in ARMS}
+    have = sum(v["n"] for v in arms.values())
+    total = len(ARMS) * len(rows)
+    complete = have == total and total > 0
+    report = {
+        "complete": complete, "results": have, "expected": total, "molecules": len(rows),
+        "arms": arms, "verdict": None,
+        "m_i_M200L": {i: per["M200L"][i]["m"] for i in ids if per["M200L"][i] is not None},
+        "per_molecule": {
+            a: {i: m for i, m in per[a].items() if m is not None} for a in ARMS
+        },
+    }  # fmt: skip
+    if complete:
+        report["verdict"] = verdict_of(per, arms, ids)
+    text = compare_text(report)
+    if write:
+        out_dir.mkdir(parents=True, exist_ok=True)
+        (out_dir / COMPARE_JSON).write_text(json.dumps(report, indent=1) + "\n")
+        (out_dir / COMPARE_TXT).write_text(text)
+    print(text, end="")
+    return report
+
+
+def _fmt(x, spec: str = ".4f") -> str:
+    return "n/a" if x is None else format(x, spec)
+
+
+def compare_text(report: dict) -> str:
+    tag = "" if report["complete"] else "PARTIAL "
+    lines = [
+        f"{tag}H-large comparison: {report['results']} of {report['expected']} analyses have a result "
+        f"({report['molecules']} molecules x {len(ARMS)} arms)"
+    ]
+    if not report["complete"]:
+        lines.append(
+            "PARTIAL: no verdict is given until all analyses have results; the measures below use what exists."
+        )
+    head = f"{'arm':7} {'n':>3} {'S':>7} {'top1':>5} {'top3':>5} {'any':>4} {'own1':>5} {'noans':>5} {'tmo':>4} {'time_s':>7} {'cost$':>7} {'ex':>5}"
+    lines += ["", head]
+    for a, v in report["arms"].items():
+        lines.append(
+            f"{a:7} {v['n']:>3} {_fmt(v['S']):>7} {v['top1']:>5} {v['top3']:>5} {v['proposed_any_round']:>4} "
+            f"{v['own_order_top1']:>5} {v['no_answer']:>5} {v['timeouts']:>4} {_fmt(v['mean_time_s'], '.1f'):>7} "
+            f"{_fmt(v['mean_cost_usd'], '.4f'):>7} {_fmt(v['mean_examples'], '.2f'):>5}"
+        )
+    lines.append(
+        "S: mean Morgan r2 2048-bit Tanimoto of the first candidate to the truth (0 without an answer)."
+    )
+    lines.append(
+        "top1/top3: InChIKey connectivity match among the first 1/3 candidates; any: truth proposed in any round;"
+    )
+    lines.append(
+        "own1: truth is the model's own rank-1 candidate; noans: no_answer; tmo: no_answer with reason timeout;"
+    )
+    lines.append("time_s, cost$: mean per analysis with a value; ex: mean examples injected.")
+    ms = [v for v in report["m_i_M200L"].values() if v is not None]
+    if ms:
+        lines.append(
+            f"m_i (highest Tanimoto of an injected M200L case to the truth): mean {sum(ms) / len(ms):.3f}, "
+            f"max {max(ms):.3f}, {sum(1 for v in ms if v >= NEAR_DUPLICATE)} molecule(s) at or above {NEAR_DUPLICATE}"
+        )
+    v = report["verdict"]
+    if v is None:
+        return "\n".join(lines) + "\n"
+    lines += [
+        "",
+        f"Δ = S(M200L) − mean(S(M0-a), S(M0-b)) = {v['delta']:+.4f}; N = |S(M0-a) − S(M0-b)| = {v['N']:.4f}",
+        f"Wilcoxon (two-sided, zero_method=wilcox, method=auto) on d_i: p = {_fmt(v['wilcoxon_p'])}, non-zero d_i = {v['nonzero_d']}",
+        f"S(M200L) − S(R200L) = {v['S_M200L_minus_S_R200L']:+.4f}",
+        "",
+        "conditions:",
+    ]
+    for c in v["conditions"]:
+        lines.append(f"  [{'HOLDS' if c['holds'] else 'no   '}] {c['role']:9} {c['condition']}: {c['value']}")
+    lines += ["", f"VERDICT: {v['verdict']}"]
+    lines.append("harm: " + ("; ".join(x["condition"] for x in v["harm"]) if v["harm"] else "none"))
+    return "\n".join(lines) + "\n"
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -1475,6 +2146,14 @@ def main() -> None:
     rj.add_argument("case_ids", nargs="+")
     rj.add_argument("--reason", required=True)
     rj.add_argument("--store", default=str(STORE))
+    ev = sub.add_parser("eval", help="the paid step: the four H-large arms on the large MEM-EVAL molecules")
+    ev.add_argument("--arms", nargs="+", choices=ARMS, help="only these arms (default: all four)")
+    ev.add_argument("--ids", nargs="+", help="only these nmrshiftdb2 ids (default: all 50)")
+    ev.add_argument("--cap", type=float, default=EVAL_SPEND_CAP_DEFAULT, help="spend cap in USD (default 40)")
+    ev.add_argument("--dry-run", action="store_true", help="build every request and prompt, call nothing")
+    sub.add_parser(
+        "compare", help="the §15.7 measures and the §15.8 verdict from bench/memory/eval/ (no model call)"
+    )
     args = ap.parse_args()
     if args.cmd == "select":
         select()
@@ -1487,6 +2166,10 @@ def main() -> None:
         setup_store()
     elif args.cmd == "collect":
         collect(args.ids, args.cap, args.dry_run)
+    elif args.cmd == "eval":
+        eval_run(tuple(args.arms or ARMS), args.ids, args.cap, args.dry_run)
+    elif args.cmd == "compare":
+        compare()
     elif args.cmd == "propose":
         propose(args.ids, Path(args.store))
     elif args.cmd == "approve":
