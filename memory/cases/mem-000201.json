@@ -1,0 +1,210 @@
+{
+  "case_id": "mem-000201",
+  "schema_version": "1",
+  "provenance": {
+    "source": "nmrshiftdb2",
+    "source_record_id": "20097225",
+    "spectrum_ids": {
+      "1H": 1,
+      "13C": 0
+    },
+    "truth_basis": "database-assigned structure",
+    "extracted_by": "bench/memory.py propose @ a088eecdcfc66d1381abbb93d00fb43ecc8d257f, RDKit 2026.03.6",
+    "proposed_on": "2026-11-16"
+  },
+  "approval": {
+    "approved_by": "Jose Martinez (owner, not a chemist)",
+    "date_added": "2026-11-16",
+    "note": null
+  },
+  "formula": "C21H18O5S",
+  "dou": 13.0,
+  "carbon_count": 21,
+  "heavy_atoms": 27,
+  "solvent": null,
+  "h_peaks": [
+    {
+      "shift_ppm": 8.89,
+      "integral": null
+    },
+    {
+      "shift_ppm": 8.03,
+      "integral": null
+    },
+    {
+      "shift_ppm": 7.75,
+      "integral": null
+    },
+    {
+      "shift_ppm": 7.69,
+      "integral": null
+    },
+    {
+      "shift_ppm": 7.48,
+      "integral": null
+    },
+    {
+      "shift_ppm": 6.99,
+      "integral": null
+    },
+    {
+      "shift_ppm": 6.93,
+      "integral": null
+    },
+    {
+      "shift_ppm": 6.76,
+      "integral": null
+    },
+    {
+      "shift_ppm": 2.06,
+      "integral": null
+    }
+  ],
+  "c_peaks": [
+    158.5,
+    140.9,
+    133.4,
+    133.1,
+    130.7,
+    130.1,
+    127.8,
+    126.7,
+    124.6,
+    122.6,
+    115.1,
+    108.8,
+    16.0
+  ],
+  "smiles": "Cc1cc(C2(c3ccc(O)c(C)c3)OS(=O)(=O)c3ccccc32)ccc1O",
+  "inchikey": "OBRMNDMBJQTZHV-UHFFFAOYSA-N",
+  "murcko_scaffold": "O=S1(=O)OC(c2ccccc2)(c2ccccc2)c2ccccc21",
+  "generic_scaffold": "CC1(C)CC(C2CCCCC2)(C2CCCCC2)C2CCCCC21",
+  "assignments": [
+    {
+      "nucleus": "1H",
+      "shift_ppm": 2.06,
+      "environment": "C, 3 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 6.76,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 6.93,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 6.99,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 7.48,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 7.69,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 7.75,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 8.03,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "1H",
+      "shift_ppm": 8.89,
+      "environment": "O, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 16.0,
+      "environment": "C, 3 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 108.8,
+      "environment": "C, 0 H, ring"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 115.1,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 122.6,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 124.6,
+      "environment": "C, aromatic, 0 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 126.7,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 127.8,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 130.1,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 130.7,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 133.1,
+      "environment": "C, aromatic, 1 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 133.4,
+      "environment": "C, aromatic, 0 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 140.9,
+      "environment": "C, aromatic, 0 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 158.5,
+      "environment": "C, aromatic, 0 H"
+    },
+    {
+      "nucleus": "13C",
+      "shift_ppm": 130.1,
+      "environment": "C, aromatic, 0 H"
+    }
+  ],
+  "agent_outcome": {
+    "collected_on": "2026-11-16",
+    "model_id": "claude-opus-5-5",
+    "prompt_version": "2026.11.1+shifts.2026.11.1",
+    "settings_hash": "2bb0d0ca67ec316062df7dc89a03d65e1b83ea75a0f86352c0a7a64abae0178d",
+    "status": "solved",
+    "proposed_smiles": [
+      "Cc1cc(ccc1O)C1(c2ccc(O)c(C)c2)OS(=O)(=O)c2ccccc21",
+      "CC1=CC(=C(c2ccc(O)c(C)c2)c2ccccc2S(=O)(=O)O)C=CC1=O"
+    ]
+  }
+}
