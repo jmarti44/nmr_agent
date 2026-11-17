@@ -1,0 +1,2014 @@
+{
+ "arm": "M200L",
+ "id": "20102965",
+ "truth": "C=C[C@]1(C)C[C@@H]2OC(=O)C(C)=C2C[C@H]1C(=C)CO[C@@H]1OC(CO)[C@@H](O)[C@H](O)C1O",
+ "truth_inchikey": "JQVQMIABESRMFA-URSDFGFESA-N",
+ "heavy_atoms": 29,
+ "h_integrals_given": true,
+ "request_sha256": "d6c3dd359607699b14f69aa818733e2aba3a1cef7658f63b01d120fc39d6a647",
+ "prompt_sha256": "9a51c5adc485f515cbdba967cbd0f684d7ab5940ab1d3d86c35118a9b77ec83b",
+ "outcome_config": {
+  "model_id": "claude-opus-5-5",
+  "prompt_version": "2026.11.1+shifts.2026.11.1",
+  "settings_hash": "2bb0d0ca67ec316062df7dc89a03d65e1b83ea75a0f86352c0a7a64abae0178d"
+ },
+ "run_on": "2026-11-17",
+ "memory_version": "20de57c79d4d",
+ "injected": [
+  {
+   "case_id": "mem-000113",
+   "similarity": 0.36156556645851895,
+   "tanimoto_to_truth": 0.120879
+  },
+  {
+   "case_id": "mem-000101",
+   "similarity": 0.3710257177033492,
+   "tanimoto_to_truth": 0.14
+  },
+  {
+   "case_id": "mem-000172",
+   "similarity": 0.3580786749482399,
+   "tanimoto_to_truth": 0.105769
+  }
+ ],
+ "status": "missed",
+ "candidates": [
+  {
+   "smiles": "C=CC12CC(O)C(=C(C)C(=O)O)CC1C(=C)C2CC1OC(CO)C(O)C(O)C1O",
+   "model_rank": 4,
+   "status": "accepted",
+   "score": 0.85,
+   "confidence": 0.745
+  },
+  {
+   "smiles": "C=CC1(C)CC2OC(=O)C(C)=C2CC1C(=C)COC1OC(CO)C(O)C(O)C1O",
+   "model_rank": 1,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.0825
+  },
+  {
+   "smiles": "C=CC1(C)CCC2=C(C)C(=O)OC2C1C(=C)COC1OC(CO)C(O)C(O)C1O",
+   "model_rank": 2,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.03
+  }
+ ],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 5.77,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 5.34,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 5.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 4.94,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "1H",
+     "shift_ppm": 4.92,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "water",
+     "exchangeable_hint": false,
+     "label": "CD3OD water/HOD"
+    },
+    {
+     "id": 6,
+     "nucleus": "1H",
+     "shift_ppm": 4.23,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "1H",
+     "shift_ppm": 4.19,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "1H",
+     "shift_ppm": 4.02,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "1H",
+     "shift_ppm": 3.92,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 10,
+     "nucleus": "1H",
+     "shift_ppm": 3.54,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 11,
+     "nucleus": "1H",
+     "shift_ppm": 3.28,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "solvent",
+     "exchangeable_hint": false,
+     "label": "CD3OD residual"
+    },
+    {
+     "id": 12,
+     "nucleus": "1H",
+     "shift_ppm": 3.21,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 13,
+     "nucleus": "1H",
+     "shift_ppm": 3.18,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 14,
+     "nucleus": "1H",
+     "shift_ppm": 3.14,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 15,
+     "nucleus": "1H",
+     "shift_ppm": 2.74,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 16,
+     "nucleus": "1H",
+     "shift_ppm": 2.69,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 17,
+     "nucleus": "1H",
+     "shift_ppm": 2.28,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 18,
+     "nucleus": "1H",
+     "shift_ppm": 2.08,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 19,
+     "nucleus": "1H",
+     "shift_ppm": 1.74,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 3.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 20,
+     "nucleus": "1H",
+     "shift_ppm": 1.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 21,
+     "nucleus": "1H",
+     "shift_ppm": 1.15,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 3.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 22,
+     "nucleus": "13C",
+     "shift_ppm": 177.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 23,
+     "nucleus": "13C",
+     "shift_ppm": 165.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 24,
+     "nucleus": "13C",
+     "shift_ppm": 148.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 25,
+     "nucleus": "13C",
+     "shift_ppm": 147.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 26,
+     "nucleus": "13C",
+     "shift_ppm": 120.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 27,
+     "nucleus": "13C",
+     "shift_ppm": 115.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 28,
+     "nucleus": "13C",
+     "shift_ppm": 112.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 29,
+     "nucleus": "13C",
+     "shift_ppm": 104.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 30,
+     "nucleus": "13C",
+     "shift_ppm": 79.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 31,
+     "nucleus": "13C",
+     "shift_ppm": 78.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 32,
+     "nucleus": "13C",
+     "shift_ppm": 78.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 33,
+     "nucleus": "13C",
+     "shift_ppm": 75.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 34,
+     "nucleus": "13C",
+     "shift_ppm": 74.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 35,
+     "nucleus": "13C",
+     "shift_ppm": 71.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 36,
+     "nucleus": "13C",
+     "shift_ppm": 62.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 37,
+     "nucleus": "13C",
+     "shift_ppm": 48.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "solvent",
+     "exchangeable_hint": false,
+     "label": "CD3OD residual"
+    },
+    {
+     "id": 38,
+     "nucleus": "13C",
+     "shift_ppm": 47.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 39,
+     "nucleus": "13C",
+     "shift_ppm": 42.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 40,
+     "nucleus": "13C",
+     "shift_ppm": 29.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 41,
+     "nucleus": "13C",
+     "shift_ppm": 16.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 42,
+     "nucleus": "13C",
+     "shift_ppm": 8.1,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "CD3OD",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "formula_H",
+   "processing_log": [
+    "1H 4.92 ppm tagged water: CD3OD water/HOD",
+    "1H 3.28 ppm tagged solvent: CD3OD residual",
+    "13C 48.8 ppm tagged solvent: CD3OD residual",
+    "integrals sum to 23 and look like proton counts, consistent with H = 30: kept",
+    "1H 4.92 ppm is tagged water but would be 2.00 H; left tagged (it may overlap an analyte signal)",
+    "1H 3.28 ppm is tagged solvent but would be 1.00 H; left tagged (it may overlap an analyte signal)"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C21H30O8",
+   "observed_exact_mass": null,
+   "solvent": "CD3OD",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C21H30O8",
+   "degree_of_unsaturation": 7,
+   "functional_groups": [
+    {
+     "group": "ester",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       22,
+       23,
+       26,
+       30,
+       42
+      ],
+      "note": "177.3 C=O with 165.2/120.6 and CH3 8.1 (1.74 s) fit an alpha-methyl butenolide; C-O at 79.8."
+     }
+    },
+    {
+     "group": "alkene",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       24,
+       25,
+       27,
+       28,
+       1,
+       2,
+       3,
+       4
+      ],
+      "note": "148.2/112.6 vinyl and 147.3/115.4 1,1-disubstituted alkene; vinyl H at 5.77, 5.34, 5.00, 4.94."
+     }
+    },
+    {
+     "group": "ether",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       29,
+       32,
+       31,
+       34,
+       6
+      ],
+      "note": "Anomeric C 104.3 with H ~4.23 shows a beta-glucopyranoside ether linkage to an allylic CH2."
+     }
+    },
+    {
+     "group": "alcohol",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       31,
+       32,
+       33,
+       35,
+       36
+      ],
+      "note": "Glucose carbinol carbons 78.2, 78.0, 75.2, 71.8, 62.8 bear free OH groups."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       19,
+       21,
+       41,
+       42
+      ],
+      "note": "Two CH3: 1.74 (vinylic, C 8.1) and 1.15 (on quaternary C, C 16.7)."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "C=CC1(C)CC2OC(=O)C(C)=C2CC1C(=C)COC1OC(CO)C(O)C(O)C1O",
+     "name": "15-O-beta-D-glucopyranosyl-elema-1,3,7(11)-trien-8,12-olide",
+     "rationale": "Glucose (29,31,32,33,35,36). Butenolide: 22 C=O, 23 C7, 26 C11, 30 C8, 42/19 C13 methyl. Elemane vinyl 24/28 (H 1,4) and exomethylene 25/27 (H 2) bearing CH2OGlc (34; H 7,8). Quaternary C10 39 with CH3 41/21; CH2 38, 40; C5 likely hidden under CD3OD at 48.8. Formula C21H30O8, DoU 7.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "H1 vinyl CH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "H3a exomethylene"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H8 lactone CH-O"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "H2a vinyl CH2"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "Glc H1' anomeric"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "H15a CH2-OGlc"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "H15b CH2-OGlc"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 1,
+       "environment": "Glc H6'a"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 1,
+       "environment": "Glc H6'b"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 1,
+       "environment": "Glc H2'"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 1,
+       "environment": "Glc H4'"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 1,
+       "environment": "Glc H5'"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 1,
+       "environment": "H6a allylic"
+      },
+      {
+       "peak_id": 16,
+       "proton_count": 1,
+       "environment": "H5 allylic CH"
+      },
+      {
+       "peak_id": 17,
+       "proton_count": 1,
+       "environment": "H6b allylic"
+      },
+      {
+       "peak_id": 18,
+       "proton_count": 1,
+       "environment": "H9a"
+      },
+      {
+       "peak_id": 19,
+       "proton_count": 3,
+       "environment": "C13 vinylic CH3 on butenolide"
+      },
+      {
+       "peak_id": 20,
+       "proton_count": 1,
+       "environment": "H9b"
+      },
+      {
+       "peak_id": 21,
+       "proton_count": 3,
+       "environment": "C14 CH3 on quaternary C10"
+      },
+      {
+       "peak_id": 22,
+       "proton_count": 0,
+       "environment": "C12 lactone C=O"
+      },
+      {
+       "peak_id": 23,
+       "proton_count": 0,
+       "environment": "C7 butenolide beta-C"
+      },
+      {
+       "peak_id": 24,
+       "proton_count": 0,
+       "environment": "C1 vinyl CH"
+      },
+      {
+       "peak_id": 25,
+       "proton_count": 0,
+       "environment": "C4 quaternary alkene"
+      },
+      {
+       "peak_id": 26,
+       "proton_count": 0,
+       "environment": "C11 butenolide alpha-C"
+      },
+      {
+       "peak_id": 27,
+       "proton_count": 0,
+       "environment": "C3 =CH2"
+      },
+      {
+       "peak_id": 28,
+       "proton_count": 0,
+       "environment": "C2 =CH2"
+      },
+      {
+       "peak_id": 29,
+       "proton_count": 0,
+       "environment": "Glc C1'"
+      },
+      {
+       "peak_id": 30,
+       "proton_count": 0,
+       "environment": "C8 lactone CH-O"
+      },
+      {
+       "peak_id": 31,
+       "proton_count": 0,
+       "environment": "Glc C5'"
+      },
+      {
+       "peak_id": 32,
+       "proton_count": 0,
+       "environment": "Glc C3'"
+      },
+      {
+       "peak_id": 33,
+       "proton_count": 0,
+       "environment": "Glc C2'"
+      },
+      {
+       "peak_id": 34,
+       "proton_count": 0,
+       "environment": "C15 CH2-OGlc"
+      },
+      {
+       "peak_id": 35,
+       "proton_count": 0,
+       "environment": "Glc C4'"
+      },
+      {
+       "peak_id": 36,
+       "proton_count": 0,
+       "environment": "Glc C6'"
+      },
+      {
+       "peak_id": 38,
+       "proton_count": 0,
+       "environment": "C9 CH2"
+      },
+      {
+       "peak_id": 39,
+       "proton_count": 0,
+       "environment": "C10 quaternary"
+      },
+      {
+       "peak_id": 40,
+       "proton_count": 0,
+       "environment": "C6 CH2"
+      },
+      {
+       "peak_id": 41,
+       "proton_count": 0,
+       "environment": "C14 CH3"
+      },
+      {
+       "peak_id": 42,
+       "proton_count": 0,
+       "environment": "C13 CH3"
+      }
+     ],
+     "confidence": 0.55
+    },
+    {
+     "rank": 2,
+     "smiles": "C=CC1(C)CCC2=C(C)C(=O)OC2C1C(=C)COC1OC(CO)C(O)C(O)C1O",
+     "name": "15-O-beta-D-glucopyranosyl-elema-1,3,7(11)-trien-6,12-olide",
+     "rationale": "Same butenolide (22,23,26,42), vinyl (24,28), exomethylene CH2OGlc (25,27,34) and glucose (29,31-36) but lactone closed to C6 (30); fits formula, slightly less typical shifts for C5/C9 (38,40).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "vinyl CH"
+      },
+      {
+       "peak_id": 19,
+       "proton_count": 3,
+       "environment": "butenolide CH3"
+      },
+      {
+       "peak_id": 21,
+       "proton_count": 3,
+       "environment": "C10 CH3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "Glc anomeric H"
+      }
+     ],
+     "confidence": 0.2
+    },
+    {
+     "rank": 3,
+     "smiles": "C=CC1(COC2OC(CO)C(O)C(O)C2O)CC2OC(=O)C(C)=C2CC1C(C)=C",
+     "name": "14-O-beta-D-glucopyranosyl-elema-1,3,7(11)-trien-8,12-olide",
+     "rationale": "Glucose on C14 instead of C15; isopropenyl CH3 would be expected near 1.7/25 ppm, poorly matching 16.7 (41) and 1.15 (21), so ranked lower.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "vinyl CH"
+      },
+      {
+       "peak_id": 19,
+       "proton_count": 3,
+       "environment": "butenolide CH3"
+      },
+      {
+       "peak_id": 21,
+       "proton_count": 3,
+       "environment": "isopropenyl CH3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "Glc anomeric H"
+      }
+     ],
+     "confidence": 0.1
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "Six carbons 104.3, 78.2, 78.0, 75.2, 71.8, 62.8 define a beta-glucopyranoside, leaving a C15 sesquiterpene aglycone. 177.3 (C=O), 165.2, 120.6, 79.8 and a CH3 at 8.1 (1H 1.74) are diagnostic of an alpha-methyl-alpha,beta-unsaturated gamma-lactone (butenolide). Remaining sp2 carbons 148.2/112.6 (vinyl) and 147.3/115.4 (1,1-disubstituted alkene), quaternary C 42.0 with CH3 16.7 (1.15) indicate an elemane skeleton; with only one carbocycle DoU 7 is satisfied (3 C=C, C=O, lactone, carbocycle, pyranose). The isopropenyl methyl is oxidized to CH2-O-Glc (74.7; H 4.19/4.02). C5 methine is probably hidden under the CD3OD 48.8 signal; missing 1H (second =CH2 H, Glc H3') are likely under water 4.92 and solvent 3.28; 4 OH exchanged."
+  },
+  "repaired": {
+   "formula_inferred": "C21H30O8",
+   "degree_of_unsaturation": 7,
+   "functional_groups": [
+    {
+     "group": "carboxylic_acid",
+     "present": true,
+     "confidence": 0.4,
+     "evidence": {
+      "peak_ids": [
+       22,
+       23,
+       26
+      ],
+      "note": "Carbonyl at 177.3 is conjugated with C=C at 165.2/120.6."
+     }
+    },
+    {
+     "group": "alkene",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       24,
+       25,
+       27,
+       28,
+       1,
+       2,
+       3,
+       4
+      ],
+      "note": "Alkene carbons 148.2/112.6 and 147.3/115.4 with vinyl H at 5.77-4.94."
+     }
+    },
+    {
+     "group": "alcohol",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       30,
+       31,
+       32,
+       33,
+       35,
+       36
+      ],
+      "note": "Carbinol carbons at 79.8 and 78-62.8 ppm."
+     }
+    },
+    {
+     "group": "ether",
+     "present": true,
+     "confidence": 0.6,
+     "evidence": {
+      "peak_ids": [
+       29,
+       31
+      ],
+      "note": "Pyranose ring C-O carbons."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       19,
+       21,
+       41,
+       42
+      ],
+      "note": "Methyl groups at 1.74 and 1.15 ppm (13C 8.1 and 16.7)."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "C=CC12CC(O)C(=C(C)C(=O)O)CC1C(=C)C2CC1OC(CO)C(O)C(O)C1O",
+     "name": null,
+     "rationale": "Revised to meet proton accounting: 6 exchangeable H (acid, ring OH, 4 sugar OH), so 24 C-H vs 23 integrated. Uses vinyl 24/28, exomethylene 25/27, conjugated acid 22/23/26 with CH3 42/19, carbinol 30, glucosyl 29,31-36. A lactone-glycoside would fit shifts better but fails the H count.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "vinyl CH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "=CH2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "=CH2"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "=CH2"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "sugar H1'"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "CH-OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "sugar H"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 1,
+       "environment": "sugar H6'a"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 1,
+       "environment": "sugar H6'b"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 1,
+       "environment": "sugar H"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 1,
+       "environment": "sugar H"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 1,
+       "environment": "sugar H"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 1,
+       "environment": "allylic CH2"
+      },
+      {
+       "peak_id": 16,
+       "proton_count": 1,
+       "environment": "allylic CH2"
+      },
+      {
+       "peak_id": 17,
+       "proton_count": 1,
+       "environment": "allylic CH"
+      },
+      {
+       "peak_id": 18,
+       "proton_count": 1,
+       "environment": "CH2"
+      },
+      {
+       "peak_id": 19,
+       "proton_count": 3,
+       "environment": "vinylic CH3"
+      },
+      {
+       "peak_id": 20,
+       "proton_count": 1,
+       "environment": "CH2"
+      },
+      {
+       "peak_id": 21,
+       "proton_count": 1,
+       "environment": "CH / CH2 overlap"
+      }
+     ],
+     "confidence": 0.15
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "Glucosyl carbons (104.3, 78.2, 78.0, 75.2, 71.8, 62.8), conjugated carbonyl 177.3/165.2/120.6 with CH3 8.1, two terminal alkenes (148.2/112.6, 147.3/115.4). Earlier butenolide glycoside fitted shifts but had only 4 exchangeable H versus 23 integrated H; revised structure carries 6 OH/COOH protons to satisfy the 30-H formula with 23 observed C-H integrals."
+  },
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 4,
+     "smiles": "C=CC12CC(O)C(=C(C)C(=O)O)CC1C(=C)C2CC1OC(CO)C(O)C(O)C1O",
+     "name": null,
+     "rationale": "Revised to meet proton accounting: 6 exchangeable H (acid, ring OH, 4 sugar OH), so 24 C-H vs 23 integrated. Uses vinyl 24/28, exomethylene 25/27, conjugated acid 22/23/26 with CH3 42/19, carbinol 30, glucosyl 29,31-36. A lactone-glycoside would fit shifts better but fails the H count.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "vinyl CH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "=CH2"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "=CH2"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "=CH2"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "sugar H1'"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "CH-OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "sugar H"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 1,
+       "environment": "sugar H6'a"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 1,
+       "environment": "sugar H6'b"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 1,
+       "environment": "sugar H"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 1,
+       "environment": "sugar H"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 1,
+       "environment": "sugar H"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 1,
+       "environment": "allylic CH2"
+      },
+      {
+       "peak_id": 16,
+       "proton_count": 1,
+       "environment": "allylic CH2"
+      },
+      {
+       "peak_id": 17,
+       "proton_count": 1,
+       "environment": "allylic CH"
+      },
+      {
+       "peak_id": 18,
+       "proton_count": 1,
+       "environment": "CH2"
+      },
+      {
+       "peak_id": 19,
+       "proton_count": 3,
+       "environment": "vinylic CH3"
+      },
+      {
+       "peak_id": 20,
+       "proton_count": 1,
+       "environment": "CH2"
+      },
+      {
+       "peak_id": 21,
+       "proton_count": 1,
+       "environment": "CH / CH2 overlap"
+      }
+     ],
+     "confidence": 0.15
+    },
+    "canonical_smiles": "C=CC12CC(O)C(=C(C)C(=O)O)CC1C(=C)C2CC1OC(CO)C(O)C(O)C1O",
+    "inchikey": "HVCCBLKANZPAGM-UHFFFAOYSA-N",
+    "formula": "C21H30O8",
+    "exact_mass": 410.1941,
+    "degree_of_unsaturation": 7,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C21H30O8 == C21H30O8",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 7 == formula DoU 7",
+      "evidence": {
+       "structural": 7,
+       "expected": 7.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "warn",
+      "severity": "hard",
+      "message": "integrals agree but model assignments account for 21 H of 30",
+      "evidence": {
+       "candidate_H": 30,
+       "exchangeable_H": 6,
+       "integral_sum": 23.0,
+       "tolerance": 1.0,
+       "assigned": 21
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "20 observed 13C signals vs 21 distinct carbons (allowed 19..22)",
+      "evidence": {
+       "observed": 20,
+       "unique_carbons": 21,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "19 non-exchangeable 1H signals vs 16 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 19,
+       "environments": 16,
+       "diastereotopic_allowance": 6
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 5 matched group(s)",
+      "evidence": {
+       "carboxylic_acid": {
+        "13C": {
+         "peak_ids": [
+          22,
+          23
+         ]
+        }
+       },
+       "alcohol": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36
+         ]
+        }
+       },
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36
+         ]
+        }
+       },
+       "alkene": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3,
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 claim(s) consistent with the structure and cited peaks",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.85,
+    "final_confidence": 0.745,
+    "claims_checked": true,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "C=CC1(C)CC2OC(=O)C(C)=C2CC1C(=C)COC1OC(CO)C(O)C(O)C1O",
+     "name": "15-O-beta-D-glucopyranosyl-elema-1,3,7(11)-trien-8,12-olide",
+     "rationale": "Glucose (29,31,32,33,35,36). Butenolide: 22 C=O, 23 C7, 26 C11, 30 C8, 42/19 C13 methyl. Elemane vinyl 24/28 (H 1,4) and exomethylene 25/27 (H 2) bearing CH2OGlc (34; H 7,8). Quaternary C10 39 with CH3 41/21; CH2 38, 40; C5 likely hidden under CD3OD at 48.8. Formula C21H30O8, DoU 7.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "H1 vinyl CH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "H3a exomethylene"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H8 lactone CH-O"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "H2a vinyl CH2"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "Glc H1' anomeric"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "H15a CH2-OGlc"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "H15b CH2-OGlc"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 1,
+       "environment": "Glc H6'a"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 1,
+       "environment": "Glc H6'b"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 1,
+       "environment": "Glc H2'"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 1,
+       "environment": "Glc H4'"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 1,
+       "environment": "Glc H5'"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 1,
+       "environment": "H6a allylic"
+      },
+      {
+       "peak_id": 16,
+       "proton_count": 1,
+       "environment": "H5 allylic CH"
+      },
+      {
+       "peak_id": 17,
+       "proton_count": 1,
+       "environment": "H6b allylic"
+      },
+      {
+       "peak_id": 18,
+       "proton_count": 1,
+       "environment": "H9a"
+      },
+      {
+       "peak_id": 19,
+       "proton_count": 3,
+       "environment": "C13 vinylic CH3 on butenolide"
+      },
+      {
+       "peak_id": 20,
+       "proton_count": 1,
+       "environment": "H9b"
+      },
+      {
+       "peak_id": 21,
+       "proton_count": 3,
+       "environment": "C14 CH3 on quaternary C10"
+      },
+      {
+       "peak_id": 22,
+       "proton_count": 0,
+       "environment": "C12 lactone C=O"
+      },
+      {
+       "peak_id": 23,
+       "proton_count": 0,
+       "environment": "C7 butenolide beta-C"
+      },
+      {
+       "peak_id": 24,
+       "proton_count": 0,
+       "environment": "C1 vinyl CH"
+      },
+      {
+       "peak_id": 25,
+       "proton_count": 0,
+       "environment": "C4 quaternary alkene"
+      },
+      {
+       "peak_id": 26,
+       "proton_count": 0,
+       "environment": "C11 butenolide alpha-C"
+      },
+      {
+       "peak_id": 27,
+       "proton_count": 0,
+       "environment": "C3 =CH2"
+      },
+      {
+       "peak_id": 28,
+       "proton_count": 0,
+       "environment": "C2 =CH2"
+      },
+      {
+       "peak_id": 29,
+       "proton_count": 0,
+       "environment": "Glc C1'"
+      },
+      {
+       "peak_id": 30,
+       "proton_count": 0,
+       "environment": "C8 lactone CH-O"
+      },
+      {
+       "peak_id": 31,
+       "proton_count": 0,
+       "environment": "Glc C5'"
+      },
+      {
+       "peak_id": 32,
+       "proton_count": 0,
+       "environment": "Glc C3'"
+      },
+      {
+       "peak_id": 33,
+       "proton_count": 0,
+       "environment": "Glc C2'"
+      },
+      {
+       "peak_id": 34,
+       "proton_count": 0,
+       "environment": "C15 CH2-OGlc"
+      },
+      {
+       "peak_id": 35,
+       "proton_count": 0,
+       "environment": "Glc C4'"
+      },
+      {
+       "peak_id": 36,
+       "proton_count": 0,
+       "environment": "Glc C6'"
+      },
+      {
+       "peak_id": 38,
+       "proton_count": 0,
+       "environment": "C9 CH2"
+      },
+      {
+       "peak_id": 39,
+       "proton_count": 0,
+       "environment": "C10 quaternary"
+      },
+      {
+       "peak_id": 40,
+       "proton_count": 0,
+       "environment": "C6 CH2"
+      },
+      {
+       "peak_id": 41,
+       "proton_count": 0,
+       "environment": "C14 CH3"
+      },
+      {
+       "peak_id": 42,
+       "proton_count": 0,
+       "environment": "C13 CH3"
+      }
+     ],
+     "confidence": 0.55
+    },
+    "canonical_smiles": "C=CC1(C)CC2OC(=O)C(C)=C2CC1C(=C)COC1OC(CO)C(O)C(O)C1O",
+    "inchikey": "JQVQMIABESRMFA-UHFFFAOYSA-N",
+    "formula": "C21H30O8",
+    "exact_mass": 410.1941,
+    "degree_of_unsaturation": 7,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C21H30O8 == C21H30O8",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 7 == formula DoU 7",
+      "evidence": {
+       "structural": 7,
+       "expected": 7.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "fail",
+      "severity": "hard",
+      "message": "integrals sum to 23; candidate has 30 H (4 exchangeable), allowed [25, 31]",
+      "evidence": {
+       "candidate_H": 30,
+       "exchangeable_H": 4,
+       "integral_sum": 23.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.0825,
+    "claims_checked": false,
+    "status": "rejected"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "C=CC1(C)CCC2=C(C)C(=O)OC2C1C(=C)COC1OC(CO)C(O)C(O)C1O",
+     "name": "15-O-beta-D-glucopyranosyl-elema-1,3,7(11)-trien-6,12-olide",
+     "rationale": "Same butenolide (22,23,26,42), vinyl (24,28), exomethylene CH2OGlc (25,27,34) and glucose (29,31-36) but lactone closed to C6 (30); fits formula, slightly less typical shifts for C5/C9 (38,40).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "vinyl CH"
+      },
+      {
+       "peak_id": 19,
+       "proton_count": 3,
+       "environment": "butenolide CH3"
+      },
+      {
+       "peak_id": 21,
+       "proton_count": 3,
+       "environment": "C10 CH3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "Glc anomeric H"
+      }
+     ],
+     "confidence": 0.2
+    },
+    "canonical_smiles": "C=CC1(C)CCC2=C(C)C(=O)OC2C1C(=C)COC1OC(CO)C(O)C(O)C1O",
+    "inchikey": "SBWDAAMMDRAPQG-UHFFFAOYSA-N",
+    "formula": "C21H30O8",
+    "exact_mass": 410.1941,
+    "degree_of_unsaturation": 7,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C21H30O8 == C21H30O8",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 7 == formula DoU 7",
+      "evidence": {
+       "structural": 7,
+       "expected": 7.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "fail",
+      "severity": "hard",
+      "message": "integrals sum to 23; candidate has 30 H (4 exchangeable), allowed [25, 31]",
+      "evidence": {
+       "candidate_H": 30,
+       "exchangeable_H": 4,
+       "integral_sum": 23.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.03,
+    "claims_checked": false,
+    "status": "rejected"
+   },
+   {
+    "candidate": {
+     "rank": 3,
+     "smiles": "C=CC1(COC2OC(CO)C(O)C(O)C2O)CC2OC(=O)C(C)=C2CC1C(C)=C",
+     "name": "14-O-beta-D-glucopyranosyl-elema-1,3,7(11)-trien-8,12-olide",
+     "rationale": "Glucose on C14 instead of C15; isopropenyl CH3 would be expected near 1.7/25 ppm, poorly matching 16.7 (41) and 1.15 (21), so ranked lower.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "vinyl CH"
+      },
+      {
+       "peak_id": 19,
+       "proton_count": 3,
+       "environment": "butenolide CH3"
+      },
+      {
+       "peak_id": 21,
+       "proton_count": 3,
+       "environment": "isopropenyl CH3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "Glc anomeric H"
+      }
+     ],
+     "confidence": 0.1
+    },
+    "canonical_smiles": "C=CC1(COC2OC(CO)C(O)C(O)C2O)CC2OC(=O)C(C)=C2CC1C(=C)C",
+    "inchikey": "VVDQDHUZYPFZKE-UHFFFAOYSA-N",
+    "formula": "C21H30O8",
+    "exact_mass": 410.1941,
+    "degree_of_unsaturation": 7,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C21H30O8 == C21H30O8",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 7 == formula DoU 7",
+      "evidence": {
+       "structural": 7,
+       "expected": 7.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "fail",
+      "severity": "hard",
+      "message": "integrals sum to 23; candidate has 30 H (4 exchangeable), allowed [25, 31]",
+      "evidence": {
+       "candidate_H": 30,
+       "exchangeable_H": 4,
+       "integral_sum": 23.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.015,
+    "claims_checked": false,
+    "status": "rejected"
+   }
+  ],
+  "memory_cases": [
+   {
+    "case_id": "mem-000113",
+    "similarity": 0.36156556645851895
+   },
+   {
+    "case_id": "mem-000101",
+    "similarity": 0.3710257177033492
+   },
+   {
+    "case_id": "mem-000172",
+    "similarity": 0.3580786749482399
+   }
+  ]
+ },
+ "cost_usd": 0.368798,
+ "llm_calls": 2,
+ "timing_ms": {
+  "prompt": 45,
+  "llm": 135414,
+  "verify": 42,
+  "total": 135515
+ },
+ "warnings": [
+  "no candidate was accepted; one repair round was used"
+ ]
+}

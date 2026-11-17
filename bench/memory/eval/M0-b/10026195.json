@@ -1,0 +1,1019 @@
+{
+ "arm": "M0-b",
+ "id": "10026195",
+ "truth": "O=C(/C=C/C=C/c1ccccc1)CCc1ccc(O)cc1",
+ "truth_inchikey": "GIXGHUAQPPUMRA-KBXRYBNXSA-N",
+ "heavy_atoms": 21,
+ "h_integrals_given": true,
+ "request_sha256": "d31e865e8f5145662cfe5584504ef4dba272a44596c3c8f04959a03194edce3e",
+ "prompt_sha256": "d31e865e8f5145662cfe5584504ef4dba272a44596c3c8f04959a03194edce3e",
+ "outcome_config": {
+  "model_id": "claude-opus-5-5",
+  "prompt_version": "2026.11.1+shifts.2026.11.1",
+  "settings_hash": "2bb0d0ca67ec316062df7dc89a03d65e1b83ea75a0f86352c0a7a64abae0178d"
+ },
+ "run_on": "2026-11-17",
+ "memory_version": null,
+ "injected": [],
+ "status": "solved",
+ "candidates": [
+  {
+   "smiles": "O=C(C=CC=Cc1ccccc1)CCc1ccc(O)cc1",
+   "model_rank": 1,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.105
+  },
+  {
+   "smiles": "O=C(C=CC=Cc1ccc(O)cc1)CCc1ccccc1",
+   "model_rank": 2,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.03
+  }
+ ],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 7.37,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 7.26,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 3.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 7.23,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 7.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "1H",
+     "shift_ppm": 6.84,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "1H",
+     "shift_ppm": 6.77,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "1H",
+     "shift_ppm": 6.67,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "1H",
+     "shift_ppm": 6.19,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "1H",
+     "shift_ppm": 2.83,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 10,
+     "nucleus": "1H",
+     "shift_ppm": 2.82,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "water",
+     "exchangeable_hint": false,
+     "label": "acetone-d6 water/HOD"
+    },
+    {
+     "id": 11,
+     "nucleus": "13C",
+     "shift_ppm": 199.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 12,
+     "nucleus": "13C",
+     "shift_ppm": 154.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 13,
+     "nucleus": "13C",
+     "shift_ppm": 142.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 14,
+     "nucleus": "13C",
+     "shift_ppm": 141.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 15,
+     "nucleus": "13C",
+     "shift_ppm": 135.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 16,
+     "nucleus": "13C",
+     "shift_ppm": 133.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 17,
+     "nucleus": "13C",
+     "shift_ppm": 129.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 18,
+     "nucleus": "13C",
+     "shift_ppm": 128.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 19,
+     "nucleus": "13C",
+     "shift_ppm": 128.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 20,
+     "nucleus": "13C",
+     "shift_ppm": 127.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 21,
+     "nucleus": "13C",
+     "shift_ppm": 126.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 22,
+     "nucleus": "13C",
+     "shift_ppm": 115.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 23,
+     "nucleus": "13C",
+     "shift_ppm": 42.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 24,
+     "nucleus": "13C",
+     "shift_ppm": 30.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "solvent",
+     "exchangeable_hint": false,
+     "label": "acetone-d6 residual"
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "acetone-d6",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "formula_H",
+   "processing_log": [
+    "1H 2.83 ppm tagged water: acetone-d6 water/HOD",
+    "1H 2.82 ppm tagged water: acetone-d6 water/HOD",
+    "13C 30.3 ppm tagged solvent: acetone-d6 residual",
+    "1H 2.83 ppm is at the water position, but with it the integrals fit H = 18 and without it they do not: restored as analyte",
+    "integrals sum to 15 and look like proton counts, consistent with H = 18: kept",
+    "1H 2.82 ppm is tagged water but would be 2.00 H; left tagged (it may overlap an analyte signal)"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C19H18O2",
+   "observed_exact_mass": null,
+   "solvent": "acetone-d6",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C19H18O2",
+   "degree_of_unsaturation": 11,
+   "functional_groups": [
+    {
+     "group": "ketone",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       11,
+       9
+      ],
+      "note": "199.7 ppm conjugated ketone C=O; 2.83 CH2 alpha to carbonyl (13C 42.9)."
+     }
+    },
+    {
+     "group": "phenol",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       12,
+       22,
+       4,
+       7
+      ],
+      "note": "154.0 aryl C-OH, 115.2 CH ortho to OH; AA'BB' pair at 7.00/6.67."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2,
+       4,
+       7,
+       17,
+       18,
+       19,
+       20
+      ],
+      "note": "Monosubstituted phenyl (7.37 2H, 7.26 3H) plus para-disubstituted phenol ring."
+     }
+    },
+    {
+     "group": "alkene",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       3,
+       5,
+       6,
+       8,
+       13,
+       14
+      ],
+      "note": "Four 1H vinyl signals 7.23, 6.84, 6.77, 6.19 indicate a conjugated dienone."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "O=C(C=CC=Cc1ccccc1)CCc1ccc(O)cc1",
+     "name": "1-(4-hydroxyphenyl)-7-phenylhepta-4,6-dien-3-one",
+     "rationale": "Diarylheptanoid dienone: ketone 199.7 (11), alpha-CH2 2.83/42.9 (9,23), benzylic CH2 hidden under HOD at 2.82 (10) and solvent 13C (24). Para-phenol AA'BB' 7.00/6.67 (4,7) with 154.0/115.2 (12,22). Phenyl 7.37/7.26 (1,2). Diene H 7.23, 6.84, 6.77, 6.19 (3,5,6,8); 6.19 is H alpha to C=O. H count 15 listed + 2 hidden + OH = 18.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "Ph ortho H"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "Ph meta/para H"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H5 dienone (beta to C=O)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "ArH meta to OH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "H6 diene"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "H7 styryl CH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 2,
+       "environment": "ArH ortho to OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "H4 alpha to C=O"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "C(=O)CH2"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "ArCH2 hidden under HOD"
+      }
+     ],
+     "confidence": 0.7
+    },
+    {
+     "rank": 2,
+     "smiles": "O=C(C=CC=Cc1ccc(O)cc1)CCc1ccccc1",
+     "name": "7-(4-hydroxyphenyl)-1-phenylhepta-4,6-dien-3-one",
+     "rationale": "Same skeleton with phenol on the styryl end; fits the counts, but the 6.67/7.00 AA'BB' pair fits better a saturated hydroxyphenethyl unit than a hydroxystyryl (expected ~7.45/6.85).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "ArH meta to OH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "Ph H"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "dienone H5"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "Ph ortho H"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "diene H"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "diene H"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 2,
+       "environment": "ArH ortho to OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "H alpha to C=O"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "C(=O)CH2"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "PhCH2 hidden"
+      }
+     ],
+     "confidence": 0.2
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "C19H18O2, DoU 11. 13C 199.7 = conjugated ketone; 154.0/115.2 = para-substituted phenol (1H 7.00/6.67, 2H each). Phenyl 7.37 (2H)/7.26 (3H). Four remaining 1H sp2 singlets (7.23, 6.84, 6.77, 6.19) = conjugated diene between phenyl and C=O; 2 rings + diene + C=O = 11 DoU. Aliphatic: 2.83 (2H, CH2 alpha to C=O, 42.9) plus a second CH2 masked by HOD at 2.82 and by the acetone-d6 13C at ~30. Integrals 15 + 2 hidden + phenol OH = 18. Best fit: 1-(4-hydroxyphenyl)-7-phenylhepta-4,6-dien-3-one (likely 4E,6E), a known diarylheptanoid."
+  },
+  "repaired": {
+   "formula_inferred": "C19H18O2",
+   "degree_of_unsaturation": 11,
+   "functional_groups": [
+    {
+     "group": "ketone",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       11,
+       9
+      ],
+      "note": "199.7 ppm conjugated ketone C=O; 2.83 CH2 alpha to carbonyl (13C 42.9)."
+     }
+    },
+    {
+     "group": "phenol",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       12,
+       22,
+       4,
+       7
+      ],
+      "note": "154.0 aryl C-OH and 115.2 CH ortho to OH; AA'BB' pair at 7.00/6.67."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2,
+       4,
+       7
+      ],
+      "note": "Monosubstituted phenyl (7.37 2H, 7.26 3H) plus a para-disubstituted phenol ring."
+     }
+    },
+    {
+     "group": "alkene",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       3,
+       5,
+       6,
+       8,
+       13,
+       14
+      ],
+      "note": "Four 1H vinyl signals at 7.23, 6.84, 6.77 and 6.19 indicate a conjugated dienone."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "O=C(C=CC=Cc1ccccc1)CCc1ccc(O)cc1",
+     "name": "1-(4-hydroxyphenyl)-7-phenylhepta-4,6-dien-3-one",
+     "rationale": "Ketone at 199.7 (11); alpha-CH2 at 2.83/42.9 (9,23). The benzylic CH2 is assigned to the HOD-overlapped peak 10 (2.82), whose integral is not reported; its carbon sits under the solvent at 30.3 (24). Phenol AA'BB' at 7.00/6.67 (4,7) with carbons 154.0/115.2 (12,22). Phenyl at 7.37/7.26 (1,2). Diene H at 7.23, 6.84, 6.77, 6.19 (3,5,6,8). The OH is unlisted.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "Ph ortho H"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "Ph meta/para H"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H5 dienone"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "ArH meta to OH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "H6 diene"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "H7 styryl"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 2,
+       "environment": "ArH ortho to OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "H4 alpha to C=O"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "C(=O)CH2"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "ArCH2 hidden under HOD"
+      }
+     ],
+     "confidence": 0.65
+    },
+    {
+     "rank": 2,
+     "smiles": "O=C(C=CC=Cc1ccc(O)cc1)CCc1ccccc1",
+     "name": "7-(4-hydroxyphenyl)-1-phenylhepta-4,6-dien-3-one",
+     "rationale": "Same skeleton with the phenol on the styryl end. The 6.67/7.00 pair fits a saturated hydroxyphenethyl unit better than a hydroxystyryl unit. The second CH2 is again under HOD peak 10.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "ArH meta to OH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "Ph H"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "dienone H"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "Ph ortho H"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "diene H"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "diene H"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 2,
+       "environment": "ArH ortho to OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "H alpha to C=O"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "C(=O)CH2"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "PhCH2 hidden"
+      }
+     ],
+     "confidence": 0.2
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "Neither candidate is changed. The V05 failure comes from reporting gaps, not from the structures: the listed integrals sum to 15 because the benzylic CH2 sits under the HOD peak (10, 2.82 ppm, no integral) and the phenol OH is unlisted. 15 + 2 hidden + 1 OH = 18 matches C19H18O2, as rule 2 allows when nothing else explains the hidden signal. No structure with this formula fits the 199.7 ketone, the 154.0 phenol carbon and only 15 integrated H. Evidence: C=O 199.7; para-phenol 154.0/115.2 (1H 7.00/6.67); phenyl 7.37/7.26; four diene H (7.23, 6.84, 6.77, 6.19); CH2 2.83/42.9; second CH2 under the solvent near 30 ppm. Most likely structure: (4E,6E)-1-(4-hydroxyphenyl)-7-phenylhepta-4,6-dien-3-one, E geometry not shown. Both candidates will likely fail V05 again unless the checker counts the 2H under the water peak."
+  },
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "O=C(C=CC=Cc1ccccc1)CCc1ccc(O)cc1",
+     "name": "1-(4-hydroxyphenyl)-7-phenylhepta-4,6-dien-3-one",
+     "rationale": "Diarylheptanoid dienone: ketone 199.7 (11), alpha-CH2 2.83/42.9 (9,23), benzylic CH2 hidden under HOD at 2.82 (10) and solvent 13C (24). Para-phenol AA'BB' 7.00/6.67 (4,7) with 154.0/115.2 (12,22). Phenyl 7.37/7.26 (1,2). Diene H 7.23, 6.84, 6.77, 6.19 (3,5,6,8); 6.19 is H alpha to C=O. H count 15 listed + 2 hidden + OH = 18.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "Ph ortho H"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "Ph meta/para H"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H5 dienone (beta to C=O)"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "ArH meta to OH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "H6 diene"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "H7 styryl CH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 2,
+       "environment": "ArH ortho to OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "H4 alpha to C=O"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "C(=O)CH2"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "ArCH2 hidden under HOD"
+      }
+     ],
+     "confidence": 0.7
+    },
+    "canonical_smiles": "O=C(C=CC=Cc1ccccc1)CCc1ccc(O)cc1",
+    "inchikey": "GIXGHUAQPPUMRA-UHFFFAOYSA-N",
+    "formula": "C19H18O2",
+    "exact_mass": 278.1307,
+    "degree_of_unsaturation": 11,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C19H18O2 == C19H18O2",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 11 == formula DoU 11",
+      "evidence": {
+       "structural": 11,
+       "expected": 11.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "fail",
+      "severity": "hard",
+      "message": "integrals sum to 15; candidate has 18 H (1 exchangeable), allowed [16, 19]",
+      "evidence": {
+       "candidate_H": 18,
+       "exchangeable_H": 1,
+       "integral_sum": 15.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "merged duplicate connectivity from rank(s) [3]",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.105,
+    "claims_checked": true,
+    "status": "rejected"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "O=C(C=CC=Cc1ccc(O)cc1)CCc1ccccc1",
+     "name": "7-(4-hydroxyphenyl)-1-phenylhepta-4,6-dien-3-one",
+     "rationale": "Same skeleton with phenol on the styryl end; fits the counts, but the 6.67/7.00 AA'BB' pair fits better a saturated hydroxyphenethyl unit than a hydroxystyryl (expected ~7.45/6.85).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "ArH meta to OH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "Ph H"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "dienone H5"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "Ph ortho H"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "diene H"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "diene H"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 2,
+       "environment": "ArH ortho to OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "H alpha to C=O"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "C(=O)CH2"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "PhCH2 hidden"
+      }
+     ],
+     "confidence": 0.2
+    },
+    "canonical_smiles": "O=C(C=CC=Cc1ccc(O)cc1)CCc1ccccc1",
+    "inchikey": "NVNTZRWASUCWOR-UHFFFAOYSA-N",
+    "formula": "C19H18O2",
+    "exact_mass": 278.1307,
+    "degree_of_unsaturation": 11,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C19H18O2 == C19H18O2",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 11 == formula DoU 11",
+      "evidence": {
+       "structural": 11,
+       "expected": 11.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "fail",
+      "severity": "hard",
+      "message": "integrals sum to 15; candidate has 18 H (1 exchangeable), allowed [16, 19]",
+      "evidence": {
+       "candidate_H": 18,
+       "exchangeable_H": 1,
+       "integral_sum": 15.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "merged duplicate connectivity from rank(s) [4]",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.03,
+    "claims_checked": false,
+    "status": "rejected"
+   }
+  ],
+  "memory_cases": []
+ },
+ "cost_usd": 0.148142,
+ "llm_calls": 2,
+ "timing_ms": {
+  "prompt": 0,
+  "llm": 56477,
+  "verify": 19,
+  "total": 56512
+ },
+ "warnings": [
+  "no candidate was accepted; one repair round was used"
+ ]
+}

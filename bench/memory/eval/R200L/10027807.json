@@ -1,0 +1,43 @@
+{
+ "arm": "R200L",
+ "id": "10027807",
+ "truth": "CC(=O)c1c(O)c2ccc3c(c2c2ocnc12)CCCC3(C)C",
+ "truth_inchikey": "PFWZZLBGBKUQMP-UHFFFAOYSA-N",
+ "heavy_atoms": 23,
+ "h_integrals_given": false,
+ "request_sha256": "0d8975b72118e410e4bbf763e8520a35a7a941dd27af10fcef2de65ae4b3a6a4",
+ "prompt_sha256": "d9068fca5e1d303f5915f7ca5bff39a1f71bd1fc2e41324d49087204232e09b9",
+ "outcome_config": {
+  "model_id": "claude-opus-5-5",
+  "prompt_version": "2026.11.1+shifts.2026.11.1",
+  "settings_hash": "2bb0d0ca67ec316062df7dc89a03d65e1b83ea75a0f86352c0a7a64abae0178d"
+ },
+ "run_on": "2026-11-16",
+ "memory_version": "20de57c79d4d",
+ "injected": [
+  {
+   "case_id": "mem-000107",
+   "similarity": null,
+   "tanimoto_to_truth": 0.072289
+  },
+  {
+   "case_id": "mem-000016",
+   "similarity": null,
+   "tanimoto_to_truth": 0.093333
+  },
+  {
+   "case_id": "mem-000032",
+   "similarity": null,
+   "tanimoto_to_truth": 0.061538
+  }
+ ],
+ "status": "no_answer",
+ "error": "LLMUnavailable: timeout: the model call timed out",
+ "error_reason": "timeout",
+ "candidates": [],
+ "trace": {},
+ "cost_usd": 0,
+ "llm_calls": 0,
+ "timing_ms": {},
+ "warnings": []
+}

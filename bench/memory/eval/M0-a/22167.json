@@ -1,0 +1,1589 @@
+{
+ "arm": "M0-a",
+ "id": "22167",
+ "truth": "CC(=O)OCC1(COC(=O)c2ccccc2)O[C@@H]1/C=C\\COC(=O)c1ccccc1",
+ "truth_inchikey": "VLJXAFYYXGWQHV-RUJXEEGCSA-N",
+ "heavy_atoms": 30,
+ "h_integrals_given": true,
+ "request_sha256": "0c866e336fb7ffc89853f45a63a9b6a135a5cd5e69eab5a3d94c7d0b0d596f44",
+ "prompt_sha256": "0c866e336fb7ffc89853f45a63a9b6a135a5cd5e69eab5a3d94c7d0b0d596f44",
+ "outcome_config": {
+  "model_id": "claude-opus-5-5",
+  "prompt_version": "2026.11.1+shifts.2026.11.1",
+  "settings_hash": "2bb0d0ca67ec316062df7dc89a03d65e1b83ea75a0f86352c0a7a64abae0178d"
+ },
+ "run_on": "2026-11-17",
+ "memory_version": null,
+ "injected": [],
+ "status": "solved",
+ "candidates": [
+  {
+   "smiles": "CC(=O)OCC1(COC(=O)c2ccccc2)OC1C=CCOC(=O)c1ccccc1",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.9175
+  },
+  {
+   "smiles": "CC(=O)OCC1(COC(=O)c2ccccc2)OC1(C=C)COC(=O)c1ccccc1",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 0.85,
+   "confidence": 0.73
+  },
+  {
+   "smiles": "CC(=O)OCC=CC1OC1(COC(=O)c1ccccc1)COC(=O)c1ccccc1",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.54
+  }
+ ],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 8.01,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 4.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 7.53,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 7.38,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 4.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 6.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "1H",
+     "shift_ppm": 5.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "1H",
+     "shift_ppm": 5.01,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "1H",
+     "shift_ppm": 4.53,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "1H",
+     "shift_ppm": 4.46,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "1H",
+     "shift_ppm": 4.29,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 10,
+     "nucleus": "1H",
+     "shift_ppm": 3.98,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 11,
+     "nucleus": "1H",
+     "shift_ppm": 2.03,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 3.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 12,
+     "nucleus": "13C",
+     "shift_ppm": 170.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 13,
+     "nucleus": "13C",
+     "shift_ppm": 166.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 14,
+     "nucleus": "13C",
+     "shift_ppm": 166.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 15,
+     "nucleus": "13C",
+     "shift_ppm": 133.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 16,
+     "nucleus": "13C",
+     "shift_ppm": 133.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 17,
+     "nucleus": "13C",
+     "shift_ppm": 131.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 18,
+     "nucleus": "13C",
+     "shift_ppm": 130.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 19,
+     "nucleus": "13C",
+     "shift_ppm": 129.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 20,
+     "nucleus": "13C",
+     "shift_ppm": 129.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 21,
+     "nucleus": "13C",
+     "shift_ppm": 129.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 22,
+     "nucleus": "13C",
+     "shift_ppm": 128.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 23,
+     "nucleus": "13C",
+     "shift_ppm": 128.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 24,
+     "nucleus": "13C",
+     "shift_ppm": 126.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 25,
+     "nucleus": "13C",
+     "shift_ppm": 64.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 26,
+     "nucleus": "13C",
+     "shift_ppm": 62.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 27,
+     "nucleus": "13C",
+     "shift_ppm": 60.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 28,
+     "nucleus": "13C",
+     "shift_ppm": 60.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 29,
+     "nucleus": "13C",
+     "shift_ppm": 57.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 30,
+     "nucleus": "13C",
+     "shift_ppm": 20.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "CDCl3",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "formula_H",
+   "processing_log": [
+    "integrals sum to 22 and look like proton counts, consistent with H = 22: kept"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C23H22O7",
+   "observed_exact_mass": null,
+   "solvent": "CDCl3",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C23H22O7",
+   "degree_of_unsaturation": 13,
+   "functional_groups": [
+    {
+     "group": "ester",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       12,
+       13,
+       14,
+       25,
+       26,
+       27
+      ],
+      "note": "One acetate C=O (170.5) and two benzoate C=O (166.3, 166.2), with three CH2-O ester carbons at 60-65 ppm."
+     }
+    },
+    {
+     "group": "acetyl",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       11,
+       30,
+       12
+      ],
+      "note": "CH3 singlet at 2.03 (3H) with 13C 20.8 and C=O 170.5 shows an acetate."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2,
+       3,
+       15,
+       16,
+       18,
+       19,
+       22,
+       23
+      ],
+      "note": "10 ArH in a 4:2:4 pattern (ortho/para/meta) fit two monosubstituted benzoyl groups."
+     }
+    },
+    {
+     "group": "alkene",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       4,
+       5,
+       17,
+       24
+      ],
+      "note": "Two vinyl CH protons at 6.00 and 5.60 with sp2 carbons at 131.6 and 126.8."
+     }
+    },
+    {
+     "group": "ether",
+     "present": true,
+     "confidence": 0.75,
+     "evidence": {
+      "peak_ids": [
+       10,
+       28,
+       29
+      ],
+      "note": "Trisubstituted epoxide: quaternary C at 60.6, CH at 57.5, and the epoxide H at 3.98."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       11,
+       30
+      ],
+      "note": "Acetate methyl."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "CC(=O)OCC1(COC(=O)c2ccccc2)OC1C=CCOC(=O)c1ccccc1",
+     "name": "4-benzoyloxy-1-(2-acetoxymethyl-2-benzoyloxymethyl-oxiranyl)but-2-ene",
+     "rationale": "Two OBz and one OAc account for C16H13O6, leaving C7H9O with 2 DoU. That residue is an alkene (131.6/126.8) plus a trisubstituted epoxide (60.6 Cq, 57.5 CH). The 13C data allow no further ring. Three CH2O carbons are present: the allylic CH2OBz at 5.01 (2H) and the AB pair on the quaternary carbon at 4.53/4.46. The CH2OAc sits at 4.29 and the epoxide CH at 3.98. All 22 H are assigned.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "benzoate ortho ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "benzoate para ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 4,
+       "environment": "benzoate meta ArH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "vinyl CH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "vinyl CH next to epoxide"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 2,
+       "environment": "allylic CH2OBz"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "CqCH2OBz Ha"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "CqCH2OBz Hb"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "CqCH2OAc"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 1,
+       "environment": "epoxide CH"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 3,
+       "environment": "OAc CH3"
+      }
+     ],
+     "confidence": 0.45
+    },
+    {
+     "rank": 2,
+     "smiles": "CC(=O)OCC=CC1OC1(COC(=O)c1ccccc1)COC(=O)c1ccccc1",
+     "name": null,
+     "rationale": "Same skeleton with the acetate moved to the allylic CH2. This is less consistent: an allylic CH2OAc would be expected near 4.6 ppm, not 5.01 (peak 6). It would also make the two Cq-CH2OBz groups more alike than peaks 7-9 suggest.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "benzoate ortho ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "benzoate para ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 4,
+       "environment": "benzoate meta ArH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "vinyl CH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "vinyl CH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 2,
+       "environment": "allylic CH2OAc"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "CH2OBz"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "CH2OBz"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "CH2OBz"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 1,
+       "environment": "epoxide CH"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 3,
+       "environment": "OAc CH3"
+      }
+     ],
+     "confidence": 0.2
+    },
+    {
+     "rank": 3,
+     "smiles": "CC(=O)OCC1(COC(=O)c2ccccc2)OC1(C=C)COC(=O)c1ccccc1",
+     "name": null,
+     "rationale": "Alternative tetrasubstituted epoxide bearing a vinyl group. It is disfavoured because it needs a terminal CH2= (3 vinyl H), but only two vinyl H are observed (peaks 4 and 5). It also lacks the epoxide CH implied by 57.5 and peak 10.",
+     "assignments": [
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "vinyl CH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "vinyl CH2 part"
+      }
+     ],
+     "confidence": 0.05
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "Signals at 8.01, 7.53 and 7.38 (4:2:4 H) with 13C 166.3/166.2 identify two benzoates; 2.03 (3H) with 170.5 and 20.8 identifies an acetate. Subtracting these from C23H22O7 leaves C7H9O with 2 DoU. The 13C data show two alkene CH carbons (131.6, 126.8) and five sp3 C-O carbons (64.6, 62.5, 60.8, 60.6, 57.5). The 1H integrals total 22, so there is no OH. The remaining O must therefore form an epoxide, and the 2 DoU are the alkene plus the epoxide, giving an acyclic chain. The H count (7 sp3 H on 5 C) requires three CH2O groups, one epoxide CH and one epoxide quaternary carbon. A 1,2-disubstituted alkene (6.00/5.60) links an allylic CH2OBz (5.01, 2H) to the epoxide CH (3.98). The quaternary epoxide carbon carries CH2OBz (4.53/4.46 AB pair) and CH2OAc (4.29)."
+  },
+  "repaired": null,
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "CC(=O)OCC1(COC(=O)c2ccccc2)OC1C=CCOC(=O)c1ccccc1",
+     "name": "4-benzoyloxy-1-(2-acetoxymethyl-2-benzoyloxymethyl-oxiranyl)but-2-ene",
+     "rationale": "Two OBz and one OAc account for C16H13O6, leaving C7H9O with 2 DoU. That residue is an alkene (131.6/126.8) plus a trisubstituted epoxide (60.6 Cq, 57.5 CH). The 13C data allow no further ring. Three CH2O carbons are present: the allylic CH2OBz at 5.01 (2H) and the AB pair on the quaternary carbon at 4.53/4.46. The CH2OAc sits at 4.29 and the epoxide CH at 3.98. All 22 H are assigned.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "benzoate ortho ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "benzoate para ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 4,
+       "environment": "benzoate meta ArH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "vinyl CH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "vinyl CH next to epoxide"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 2,
+       "environment": "allylic CH2OBz"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "CqCH2OBz Ha"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "CqCH2OBz Hb"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "CqCH2OAc"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 1,
+       "environment": "epoxide CH"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 3,
+       "environment": "OAc CH3"
+      }
+     ],
+     "confidence": 0.45
+    },
+    "canonical_smiles": "CC(=O)OCC1(COC(=O)c2ccccc2)OC1C=CCOC(=O)c1ccccc1",
+    "inchikey": "VLJXAFYYXGWQHV-UHFFFAOYSA-N",
+    "formula": "C23H22O7",
+    "exact_mass": 410.1366,
+    "degree_of_unsaturation": 13,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C23H22O7 == C23H22O7",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 13 == formula DoU 13",
+      "evidence": {
+       "structural": 13,
+       "expected": 13.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "pass",
+      "severity": "hard",
+      "message": "integrals sum to 22; candidate has 22 H",
+      "evidence": {
+       "candidate_H": 22,
+       "exchangeable_H": 0,
+       "integral_sum": 22.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "19 observed 13C signals vs 19 distinct carbons (allowed 17..20)",
+      "evidence": {
+       "observed": 19,
+       "unique_carbons": 19,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "11 non-exchangeable 1H signals vs 13 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 11,
+       "environments": 13,
+       "diastereotopic_allowance": 3
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 6 matched group(s)",
+      "evidence": {
+       "ester": {
+        "1H": {
+         "peak_ids": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          12,
+          13,
+          14
+         ]
+        }
+       },
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          25,
+          26,
+          27,
+          28,
+          29
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3,
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+         ]
+        }
+       },
+       "alkene": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+         ]
+        }
+       },
+       "acetyl": {
+        "1H": {
+         "peak_ids": [
+          11
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          12,
+          13,
+          14
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "pass",
+      "severity": "soft",
+      "message": "6 claim(s) consistent with the structure and cited peaks",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.9175,
+    "claims_checked": true,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 3,
+     "smiles": "CC(=O)OCC1(COC(=O)c2ccccc2)OC1(C=C)COC(=O)c1ccccc1",
+     "name": null,
+     "rationale": "Alternative tetrasubstituted epoxide bearing a vinyl group. It is disfavoured because it needs a terminal CH2= (3 vinyl H), but only two vinyl H are observed (peaks 4 and 5). It also lacks the epoxide CH implied by 57.5 and peak 10.",
+     "assignments": [
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "vinyl CH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "vinyl CH2 part"
+      }
+     ],
+     "confidence": 0.05
+    },
+    "canonical_smiles": "C=CC1(COC(=O)c2ccccc2)OC1(COC(C)=O)COC(=O)c1ccccc1",
+    "inchikey": "LKOVEKAPCRFSIT-UHFFFAOYSA-N",
+    "formula": "C23H22O7",
+    "exact_mass": 410.1366,
+    "degree_of_unsaturation": 13,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C23H22O7 == C23H22O7",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 13 == formula DoU 13",
+      "evidence": {
+       "structural": 13,
+       "expected": 13.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "warn",
+      "severity": "hard",
+      "message": "integrals agree but model assignments account for 2 H of 22",
+      "evidence": {
+       "candidate_H": 22,
+       "exchangeable_H": 0,
+       "integral_sum": 22.0,
+       "tolerance": 1.0,
+       "assigned": 2
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "19 observed 13C signals vs 19 distinct carbons (allowed 17..20)",
+      "evidence": {
+       "observed": 19,
+       "unique_carbons": 19,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "11 non-exchangeable 1H signals vs 12 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 11,
+       "environments": 12,
+       "diastereotopic_allowance": 4
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 6 matched group(s)",
+      "evidence": {
+       "ester": {
+        "1H": {
+         "peak_ids": [
+          6,
+          7,
+          8,
+          9,
+          10
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          12,
+          13,
+          14
+         ]
+        }
+       },
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          25,
+          26,
+          27,
+          28,
+          29
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3,
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+         ]
+        }
+       },
+       "alkene": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          10,
+          11
+         ]
+        }
+       },
+       "acetyl": {
+        "1H": {
+         "peak_ids": [
+          11
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          12,
+          13,
+          14
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.85,
+    "final_confidence": 0.73,
+    "claims_checked": false,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "CC(=O)OCC=CC1OC1(COC(=O)c1ccccc1)COC(=O)c1ccccc1",
+     "name": null,
+     "rationale": "Same skeleton with the acetate moved to the allylic CH2. This is less consistent: an allylic CH2OAc would be expected near 4.6 ppm, not 5.01 (peak 6). It would also make the two Cq-CH2OBz groups more alike than peaks 7-9 suggest.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 4,
+       "environment": "benzoate ortho ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "benzoate para ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 4,
+       "environment": "benzoate meta ArH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "vinyl CH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "vinyl CH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 2,
+       "environment": "allylic CH2OAc"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "CH2OBz"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "CH2OBz"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "CH2OBz"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 1,
+       "environment": "epoxide CH"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 3,
+       "environment": "OAc CH3"
+      }
+     ],
+     "confidence": 0.2
+    },
+    "canonical_smiles": "CC(=O)OCC=CC1OC1(COC(=O)c1ccccc1)COC(=O)c1ccccc1",
+    "inchikey": "YOMPBFUXVNUVPK-UHFFFAOYSA-N",
+    "formula": "C23H22O7",
+    "exact_mass": 410.1366,
+    "degree_of_unsaturation": 13,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C23H22O7 == C23H22O7",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 13 == formula DoU 13",
+      "evidence": {
+       "structural": 13,
+       "expected": 13.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "pass",
+      "severity": "hard",
+      "message": "integrals sum to 22; candidate has 22 H",
+      "evidence": {
+       "candidate_H": 22,
+       "exchangeable_H": 0,
+       "integral_sum": 22.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "fail",
+      "severity": "soft",
+      "message": "19 observed 13C signals vs 13 distinct carbons (allowed 11..14)",
+      "evidence": {
+       "observed": 19,
+       "unique_carbons": 13,
+       "too_many": true,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "11 non-exchangeable 1H signals vs 9 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 11,
+       "environments": 9,
+       "diastereotopic_allowance": 2
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 6 matched group(s)",
+      "evidence": {
+       "ester": {
+        "1H": {
+         "peak_ids": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          12,
+          13,
+          14
+         ]
+        }
+       },
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          25,
+          26,
+          27,
+          28,
+          29
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3,
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+         ]
+        }
+       },
+       "alkene": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+         ]
+        }
+       },
+       "acetyl": {
+        "1H": {
+         "peak_ids": [
+          11
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          12,
+          13,
+          14
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.54,
+    "claims_checked": false,
+    "status": "accepted"
+   }
+  ],
+  "memory_cases": []
+ },
+ "cost_usd": 0.107683,
+ "llm_calls": 1,
+ "timing_ms": {
+  "prompt": 0,
+  "llm": 49343,
+  "verify": 34,
+  "total": 49387
+ },
+ "warnings": []
+}

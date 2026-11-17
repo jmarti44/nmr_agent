@@ -1,0 +1,27 @@
+{
+ "arm": "M0-b",
+ "id": "10027807",
+ "truth": "CC(=O)c1c(O)c2ccc3c(c2c2ocnc12)CCCC3(C)C",
+ "truth_inchikey": "PFWZZLBGBKUQMP-UHFFFAOYSA-N",
+ "heavy_atoms": 23,
+ "h_integrals_given": false,
+ "request_sha256": "0d8975b72118e410e4bbf763e8520a35a7a941dd27af10fcef2de65ae4b3a6a4",
+ "prompt_sha256": "0d8975b72118e410e4bbf763e8520a35a7a941dd27af10fcef2de65ae4b3a6a4",
+ "outcome_config": {
+  "model_id": "claude-opus-5-5",
+  "prompt_version": "2026.11.1+shifts.2026.11.1",
+  "settings_hash": "2bb0d0ca67ec316062df7dc89a03d65e1b83ea75a0f86352c0a7a64abae0178d"
+ },
+ "run_on": "2026-11-16",
+ "memory_version": null,
+ "injected": [],
+ "status": "no_answer",
+ "error": "LLMUnavailable: timeout: the model call timed out",
+ "error_reason": "timeout",
+ "candidates": [],
+ "trace": {},
+ "cost_usd": 0,
+ "llm_calls": 0,
+ "timing_ms": {},
+ "warnings": []
+}

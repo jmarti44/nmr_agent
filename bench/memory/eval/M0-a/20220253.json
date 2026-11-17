@@ -1,0 +1,1116 @@
+{
+ "arm": "M0-a",
+ "id": "20220253",
+ "truth": "COc1cc(-c2cc(OC)cc(C(C)(C)C)c2O)c(O)c(C(C)(C)C)c1",
+ "truth_inchikey": "CBYWHFTZNVZQHV-UHFFFAOYSA-N",
+ "heavy_atoms": 26,
+ "h_integrals_given": true,
+ "request_sha256": "4c1c3a01b48be71b1ae0d3bd812609f745be763fc0b1ec50cf71fe8084c0ecf0",
+ "prompt_sha256": "4c1c3a01b48be71b1ae0d3bd812609f745be763fc0b1ec50cf71fe8084c0ecf0",
+ "outcome_config": {
+  "model_id": "claude-opus-5-5",
+  "prompt_version": "2026.11.1+shifts.2026.11.1",
+  "settings_hash": "2bb0d0ca67ec316062df7dc89a03d65e1b83ea75a0f86352c0a7a64abae0178d"
+ },
+ "run_on": "2026-11-17",
+ "memory_version": null,
+ "injected": [],
+ "status": "solved",
+ "candidates": [
+  {
+   "smiles": "COc1cc(C(C)(C)C)c(O)c(-c2cc(OC)cc(C(C)(C)C)c2O)c1",
+   "model_rank": 1,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.6375
+  },
+  {
+   "smiles": "COc1cc(C(C)(C)C)cc(-c2cc(C(C)(C)C)cc(OC)c2O)c1O",
+   "model_rank": 2,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.525
+  },
+  {
+   "smiles": "COc1c(C(C)(C)C)cc(O)cc1-c1cc(O)cc(C(C)(C)C)c1OC",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 0.6,
+   "confidence": 0.5175
+  }
+ ],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 6.96,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 6.63,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 5.02,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 3.77,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 6.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "1H",
+     "shift_ppm": 1.43,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 18.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "13C",
+     "shift_ppm": 153.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "13C",
+     "shift_ppm": 145.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "13C",
+     "shift_ppm": 138.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "13C",
+     "shift_ppm": 123.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 10,
+     "nucleus": "13C",
+     "shift_ppm": 115.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 11,
+     "nucleus": "13C",
+     "shift_ppm": 111.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 12,
+     "nucleus": "13C",
+     "shift_ppm": 55.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 13,
+     "nucleus": "13C",
+     "shift_ppm": 35.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 14,
+     "nucleus": "13C",
+     "shift_ppm": 29.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "CDCl3",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "formula_H",
+   "processing_log": [
+    "integrals sum to 30 and look like proton counts, consistent with H = 30: kept"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C22H30O4",
+   "observed_exact_mass": null,
+   "solvent": "CDCl3",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C22H30O4",
+   "degree_of_unsaturation": 8,
+   "functional_groups": [
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11
+      ],
+      "note": "Two meta-related ArH (6.96, 6.63) and six aromatic 13C signals (111.8-153.2) for a symmetric biaryl."
+     }
+    },
+    {
+     "group": "phenol",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       3,
+       7
+      ],
+      "note": "2H exchangeable singlet at 5.02 and C-OH carbon at 145.9 indicate two equivalent ArOH."
+     }
+    },
+    {
+     "group": "methoxy",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       4,
+       12
+      ],
+      "note": "6H singlet at 3.77 with 13C at 55.8 = two equivalent ArOCH3."
+     }
+    },
+    {
+     "group": "ether",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       4,
+       12,
+       6
+      ],
+      "note": "Aryl methyl ether: OCH3 55.8 and aromatic C-O at 153.2."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       5,
+       13,
+       14
+      ],
+      "note": "18H singlet at 1.43 with 35.2 (quaternary) and 29.5 (CH3) = two tert-butyl groups."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "COc1cc(C(C)(C)C)c(O)c(-c2cc(OC)cc(C(C)(C)C)c2O)c1",
+     "name": "3,3'-di-tert-butyl-5,5'-dimethoxy-[1,1'-biphenyl]-2,2'-diol (BHA dimer)",
+     "rationale": "C2-symmetric dimer: each half has 2 meta ArH (1,2), OH (3), OMe (4,12), tBu (5,13,14). Nine 13C signals (6-14) match nine unique carbons; 153.2 C-OMe, 145.9 C-OH, 138.9 C-tBu, 123.2 biaryl C, 115.3/111.8 CH. Formula C22H30O4, DoU 8.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "ArH ortho to tBu (H4/H4')"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH ortho to biaryl bond (H6/H6')"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ArOH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 6,
+       "environment": "ArOCH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 18,
+       "environment": "C(CH3)3"
+      }
+     ],
+     "confidence": 0.85
+    },
+    {
+     "rank": 2,
+     "smiles": "COc1cc(C(C)(C)C)cc(-c2cc(C(C)(C)C)cc(OC)c2O)c1O",
+     "name": "5,5'-di-tert-butyl-3,3'-dimethoxy-[1,1'-biphenyl]-2,2'-diol",
+     "rationale": "Same fragments and symmetry, but OMe ortho to OH (guaiacol-type); OMe would typically be ~3.9 and C-OH/C-OMe ~141-147, less consistent with 153.2.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ArOH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 6,
+       "environment": "ArOCH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 18,
+       "environment": "C(CH3)3"
+      }
+     ],
+     "confidence": 0.1
+    },
+    {
+     "rank": 3,
+     "smiles": "COc1c(C(C)(C)C)cc(O)cc1-c1cc(O)cc(C(C)(C)C)c1OC",
+     "name": "3,3'-di-tert-butyl-2,2'-dimethoxy-[1,1'-biphenyl]-5,5'-diol",
+     "rationale": "Isomer with OMe and OH swapped; hindered OMe would appear ~3.3-3.6 and 13C ~60, poorer fit to 55.8.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ArOH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 6,
+       "environment": "ArOCH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 18,
+       "environment": "C(CH3)3"
+      }
+     ],
+     "confidence": 0.05
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "DoU 8 with only 6 aromatic 13C signals and halved integrals implies a C2-symmetric biaryl (2 rings = 8 DoU). Each half: two ArH (6.96, 6.63, singlet-like/meta), one OH (5.02), one OMe (3.77; 55.8), one tBu (1.43; 35.2, 29.5). Aromatic C: 153.2 (C-OMe), 145.9 (C-OH), 138.9 (C-tBu), 123.2 (C-aryl), 115.3 and 111.8 (CH). This is the ortho-ortho oxidative dimer of 3-tert-butyl-4-hydroxyanisole (BHA): 3,3'-di-tert-butyl-5,5'-dimethoxybiphenyl-2,2'-diol. Total H = 2+2+2+6+18 = 30, matching C22H30O4."
+  },
+  "repaired": null,
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "COc1cc(C(C)(C)C)c(O)c(-c2cc(OC)cc(C(C)(C)C)c2O)c1",
+     "name": "3,3'-di-tert-butyl-5,5'-dimethoxy-[1,1'-biphenyl]-2,2'-diol (BHA dimer)",
+     "rationale": "C2-symmetric dimer: each half has 2 meta ArH (1,2), OH (3), OMe (4,12), tBu (5,13,14). Nine 13C signals (6-14) match nine unique carbons; 153.2 C-OMe, 145.9 C-OH, 138.9 C-tBu, 123.2 biaryl C, 115.3/111.8 CH. Formula C22H30O4, DoU 8.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "ArH ortho to tBu (H4/H4')"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH ortho to biaryl bond (H6/H6')"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ArOH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 6,
+       "environment": "ArOCH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 18,
+       "environment": "C(CH3)3"
+      }
+     ],
+     "confidence": 0.85
+    },
+    "canonical_smiles": "COc1cc(-c2cc(OC)cc(C(C)(C)C)c2O)c(O)c(C(C)(C)C)c1",
+    "inchikey": "CBYWHFTZNVZQHV-UHFFFAOYSA-N",
+    "formula": "C22H30O4",
+    "exact_mass": 358.2144,
+    "degree_of_unsaturation": 8,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C22H30O4 == C22H30O4",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 8 == formula DoU 8",
+      "evidence": {
+       "structural": 8,
+       "expected": 8.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "pass",
+      "severity": "hard",
+      "message": "integrals sum to 30; candidate has 30 H",
+      "evidence": {
+       "candidate_H": 30,
+       "exchangeable_H": 2,
+       "integral_sum": 30.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 9 distinct carbons (allowed 7..10)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 9,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 non-exchangeable 1H signals vs 4 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 5,
+       "environments": 4,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 5 matched group(s)",
+      "evidence": {
+       "phenol": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          6,
+          7,
+          8
+         ]
+        }
+       },
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          12
+         ]
+        }
+       },
+       "methoxy": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          12
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "fail",
+      "severity": "soft",
+      "message": "1H peaks not explained by the structure: [5]",
+      "evidence": {
+       "unexplained_peak_ids": [
+        5
+       ],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "fail",
+      "severity": "soft",
+      "message": "methyl: cited peaks [5, 13, 14] not in a required shift range",
+      "evidence": {
+       "problems": [
+        "methyl: cited peaks [5, 13, 14] not in a required shift range"
+       ]
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; Process NMR Associates, Table 2 - 13C NMR"
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.6375,
+    "claims_checked": true,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "COc1cc(C(C)(C)C)cc(-c2cc(C(C)(C)C)cc(OC)c2O)c1O",
+     "name": "5,5'-di-tert-butyl-3,3'-dimethoxy-[1,1'-biphenyl]-2,2'-diol",
+     "rationale": "Same fragments and symmetry, but OMe ortho to OH (guaiacol-type); OMe would typically be ~3.9 and C-OH/C-OMe ~141-147, less consistent with 153.2.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ArOH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 6,
+       "environment": "ArOCH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 18,
+       "environment": "C(CH3)3"
+      }
+     ],
+     "confidence": 0.1
+    },
+    "canonical_smiles": "COc1cc(C(C)(C)C)cc(-c2cc(C(C)(C)C)cc(OC)c2O)c1O",
+    "inchikey": "XDRVENHVEMSVNI-UHFFFAOYSA-N",
+    "formula": "C22H30O4",
+    "exact_mass": 358.2144,
+    "degree_of_unsaturation": 8,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C22H30O4 == C22H30O4",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 8 == formula DoU 8",
+      "evidence": {
+       "structural": 8,
+       "expected": 8.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "pass",
+      "severity": "hard",
+      "message": "integrals sum to 30; candidate has 30 H",
+      "evidence": {
+       "candidate_H": 30,
+       "exchangeable_H": 2,
+       "integral_sum": 30.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 9 distinct carbons (allowed 7..10)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 9,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 non-exchangeable 1H signals vs 4 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 5,
+       "environments": 4,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 5 matched group(s)",
+      "evidence": {
+       "phenol": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          6,
+          7,
+          8
+         ]
+        }
+       },
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          12
+         ]
+        }
+       },
+       "methoxy": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          12
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "fail",
+      "severity": "soft",
+      "message": "1H peaks not explained by the structure: [5]",
+      "evidence": {
+       "unexplained_peak_ids": [
+        5
+       ],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.525,
+    "claims_checked": false,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 3,
+     "smiles": "COc1c(C(C)(C)C)cc(O)cc1-c1cc(O)cc(C(C)(C)C)c1OC",
+     "name": "3,3'-di-tert-butyl-2,2'-dimethoxy-[1,1'-biphenyl]-5,5'-diol",
+     "rationale": "Isomer with OMe and OH swapped; hindered OMe would appear ~3.3-3.6 and 13C ~60, poorer fit to 55.8.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ArOH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 6,
+       "environment": "ArOCH3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 18,
+       "environment": "C(CH3)3"
+      }
+     ],
+     "confidence": 0.05
+    },
+    "canonical_smiles": "COc1c(-c2cc(O)cc(C(C)(C)C)c2OC)cc(O)cc1C(C)(C)C",
+    "inchikey": "ZSEDCWFMXRGNGD-UHFFFAOYSA-N",
+    "formula": "C22H30O4",
+    "exact_mass": 358.2144,
+    "degree_of_unsaturation": 8,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C22H30O4 == C22H30O4",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 8 == formula DoU 8",
+      "evidence": {
+       "structural": 8,
+       "expected": 8.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "pass",
+      "severity": "hard",
+      "message": "integrals sum to 30; candidate has 30 H",
+      "evidence": {
+       "candidate_H": 30,
+       "exchangeable_H": 2,
+       "integral_sum": 30.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "9 observed 13C signals vs 9 distinct carbons (allowed 7..10)",
+      "evidence": {
+       "observed": 9,
+       "unique_carbons": 9,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "5 non-exchangeable 1H signals vs 4 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 5,
+       "environments": 4,
+       "diastereotopic_allowance": 0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 5 matched group(s)",
+      "evidence": {
+       "phenol": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          6,
+          7,
+          8
+         ]
+        }
+       },
+       "ether": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          12
+         ]
+        }
+       },
+       "methoxy": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          12
+         ]
+        }
+       },
+       "aromatic_ring": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          4
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "fail",
+      "severity": "soft",
+      "message": "1H peaks not explained by the structure: [5]",
+      "evidence": {
+       "unexplained_peak_ids": [
+        5
+       ],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 1, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.5175,
+    "claims_checked": false,
+    "status": "accepted"
+   }
+  ],
+  "memory_cases": []
+ },
+ "cost_usd": 0.055011,
+ "llm_calls": 1,
+ "timing_ms": {
+  "prompt": 0,
+  "llm": 21834,
+  "verify": 34,
+  "total": 21875
+ },
+ "warnings": []
+}

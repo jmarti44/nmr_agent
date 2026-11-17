@@ -1,0 +1,1741 @@
+{
+ "arm": "M200L",
+ "id": "30103157",
+ "truth": "CO[C@H]1C[C@H]2[C@@H](OC)/C=C3\\C[C@@](C)(C=CC3=O)C(=O)[C@H](O)C(=C1C)C2(C)C",
+ "truth_inchikey": "PVZGCNRTMYSWGE-YUDSQZRISA-N",
+ "heavy_atoms": 27,
+ "h_integrals_given": false,
+ "request_sha256": "38c9e9a087733bc313e6398cd5da5f323a547129c2cdd4847952c8eb33fe3f16",
+ "prompt_sha256": "ec56d8aff2317057b570d86e2dc60be1034f1102ada7b6217821d51995c198b2",
+ "outcome_config": {
+  "model_id": "claude-opus-5-5",
+  "prompt_version": "2026.11.1+shifts.2026.11.1",
+  "settings_hash": "2bb0d0ca67ec316062df7dc89a03d65e1b83ea75a0f86352c0a7a64abae0178d"
+ },
+ "run_on": "2026-11-16",
+ "memory_version": "20de57c79d4d",
+ "injected": [
+  {
+   "case_id": "mem-000193",
+   "similarity": 0.46533082706766915,
+   "tanimoto_to_truth": 0.160494
+  },
+  {
+   "case_id": "mem-000008",
+   "similarity": 0.38346311475409844,
+   "tanimoto_to_truth": 0.092105
+  },
+  {
+   "case_id": "mem-000145",
+   "similarity": 0.3653768115942026,
+   "tanimoto_to_truth": 0.10989
+  }
+ ],
+ "status": "missed",
+ "candidates": [
+  {
+   "smiles": "O=C1C=CC(O)(C=C1)/C=C/C(C)=CCCC2(O)C(=O)CCC(C)(O)C2(C)C",
+   "model_rank": 3,
+   "status": "accepted",
+   "score": 1.0,
+   "confidence": 0.868
+  },
+  {
+   "smiles": "O=C1C=CC(O)(C=C1)/C=C/C(C)=CCCC2C(=O)C(C)(O)CC(O)C2(C)C",
+   "model_rank": 1,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.5325
+  },
+  {
+   "smiles": "O=C1C=CC(O)(C=C1)/C=C/C(C)=CCCC2(O)CC(=O)C(C)(C)C(O)C2C",
+   "model_rank": 2,
+   "status": "flagged",
+   "score": 0.6,
+   "confidence": 0.522
+  }
+ ],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 6.53,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 6.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 6.27,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 5.72,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "1H",
+     "shift_ppm": 5.26,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "1H",
+     "shift_ppm": 5.05,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "1H",
+     "shift_ppm": 3.14,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "1H",
+     "shift_ppm": 2.67,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "1H",
+     "shift_ppm": 2.55,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 10,
+     "nucleus": "1H",
+     "shift_ppm": 2.17,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 11,
+     "nucleus": "1H",
+     "shift_ppm": 1.97,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 12,
+     "nucleus": "1H",
+     "shift_ppm": 1.74,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 13,
+     "nucleus": "1H",
+     "shift_ppm": 1.51,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 14,
+     "nucleus": "1H",
+     "shift_ppm": 1.17,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 15,
+     "nucleus": "1H",
+     "shift_ppm": 1.16,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 16,
+     "nucleus": "13C",
+     "shift_ppm": 210.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 17,
+     "nucleus": "13C",
+     "shift_ppm": 189.1,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 18,
+     "nucleus": "13C",
+     "shift_ppm": 148.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 19,
+     "nucleus": "13C",
+     "shift_ppm": 136.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 20,
+     "nucleus": "13C",
+     "shift_ppm": 134.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 21,
+     "nucleus": "13C",
+     "shift_ppm": 133.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 22,
+     "nucleus": "13C",
+     "shift_ppm": 133.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 23,
+     "nucleus": "13C",
+     "shift_ppm": 131.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 24,
+     "nucleus": "13C",
+     "shift_ppm": 78.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 25,
+     "nucleus": "13C",
+     "shift_ppm": 69.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 26,
+     "nucleus": "13C",
+     "shift_ppm": 67.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 27,
+     "nucleus": "13C",
+     "shift_ppm": 51.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 28,
+     "nucleus": "13C",
+     "shift_ppm": 48.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 29,
+     "nucleus": "13C",
+     "shift_ppm": 37.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 30,
+     "nucleus": "13C",
+     "shift_ppm": 35.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 31,
+     "nucleus": "13C",
+     "shift_ppm": 34.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 32,
+     "nucleus": "13C",
+     "shift_ppm": 28.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 33,
+     "nucleus": "13C",
+     "shift_ppm": 26.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 34,
+     "nucleus": "13C",
+     "shift_ppm": 24.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 35,
+     "nucleus": "13C",
+     "shift_ppm": 16.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "CDCl3",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "none",
+   "processing_log": [
+    "integrals not normalised: not every analyte 1H peak has one"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C22H30O5",
+   "observed_exact_mass": null,
+   "solvent": "CDCl3",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C22H30O5",
+   "degree_of_unsaturation": 8,
+   "functional_groups": [
+    {
+     "group": "ketone",
+     "present": true,
+     "confidence": 0.75,
+     "evidence": {
+      "peak_ids": [
+       16,
+       17
+      ],
+      "note": "210.5 fits a saturated ring ketone; 189.1 fits a cross-conjugated cyclohexadienone C=O."
+     }
+    },
+    {
+     "group": "alkene",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       1,
+       2,
+       3,
+       4,
+       5
+      ],
+      "note": "Six sp2 13C signals (two of them likely 2C) and vinyl 1H at 5.26-6.53."
+     }
+    },
+    {
+     "group": "alcohol",
+     "present": true,
+     "confidence": 0.65,
+     "evidence": {
+      "peak_ids": [
+       24,
+       25,
+       26,
+       7
+      ],
+      "note": "Three C-O carbons at 67.8-78.9 with no ester C=O suggest alcohols; 3.14 fits a CH-OH."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       12,
+       13,
+       14,
+       15,
+       35
+      ],
+      "note": "Methyl singlets at 1.16-1.74; vinyl methyl carbon at 16.9."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "O=C1C=CC(O)(C=C1)/C=C/C(C)=CCCC2C(=O)C(C)(O)CC(O)C2(C)C",
+     "name": null,
+     "rationale": "A para-quinol dienone (C=O 189.1, CH 148.7/131.4, C-OH 69.5) has two pairs of symmetry-equivalent carbons, giving 20 signals for 22 C. A conjugated side chain carries a CH=CH and a trisubstituted alkene with a vinyl CH3 (1.74, 16.9). It ends in a cyclohexanone (210.5) with a tertiary C-OH (78.9), a CH-OH (67.8, H 3.14) and gem-dimethyls (1.16/1.17). Formula and DoU 8 match. The exact topology is tentative.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "dienone H3/H5"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "dienone H2/H6"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "CH=CH on quinol"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "CH=CH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "trisubstituted =CH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "OH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "CH-OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "CH alpha to ketone"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 1,
+       "environment": "ring CH2 Ha"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "allylic CH2"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 3,
+       "environment": "ring CH2 Hb + chain CH2"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 3,
+       "environment": "vinyl CH3"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 3,
+       "environment": "C(OH)CH3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 3,
+       "environment": "gem-CH3"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 3,
+       "environment": "gem-CH3"
+      }
+     ],
+     "confidence": 0.15
+    },
+    {
+     "rank": 2,
+     "smiles": "O=C1C=CC(O)(C=C1)/C=C/C(C)=CCCC2(O)CC(=O)C(C)(C)C(O)C2C",
+     "name": null,
+     "rationale": "Same para-quinol dienone and conjugated diene chain as candidate 1, but the cyclohexanone is arranged differently. The tertiary carbinol (78.9) carries the side chain, the CH2 alpha to the ketone is at 2.55/2.67, and a secondary methyl replaces the carbinol methyl. Formula C22H30O5 and 20 carbon environments match.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "dienone H3/H5"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "dienone H2/H6"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "CH=CH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "CH=CH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "=CH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "OH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "CH-OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "COCH2 Ha"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 1,
+       "environment": "COCH2 Hb"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "allylic CH2"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 3,
+       "environment": "CH2 + ring CH"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 3,
+       "environment": "vinyl CH3"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 3,
+       "environment": "CH-CH3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 3,
+       "environment": "gem-CH3"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 3,
+       "environment": "gem-CH3"
+      }
+     ],
+     "confidence": 0.08
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "The formula C22H30O5 gives DoU 8. The 13C data show two ketones (210.5 saturated; 189.1 conjugated dienone) and six sp2 signals. A para-quinol (4-hydroxycyclohexa-2,5-dienone; 148.7, 131.4, 69.5) explains both the 189.1 C=O and the 20 signals for 22 carbons through its two symmetry-equivalent CH pairs. The remaining four sp2 carbons (133-137) form a conjugated CH=CH / C(CH3)=CH chain with a vinyl methyl (1.74, 16.9). Two further C-O carbons (78.9, 67.8) are alcohols on a cyclohexanone ring bearing gem-dimethyls (1.16/1.17). Two rings, four C=C and two C=O give DoU 8. No integrals were supplied, so the proton counts are estimates, and the side-chain and ring topology is speculative."
+  },
+  "repaired": {
+   "formula_inferred": "C22H30O5",
+   "degree_of_unsaturation": 8,
+   "functional_groups": [
+    {
+     "group": "ketone",
+     "present": true,
+     "confidence": 0.7,
+     "evidence": {
+      "peak_ids": [
+       16,
+       17
+      ],
+      "note": "210.5 fits a saturated ring ketone; 189.1 fits a cross-conjugated dienone C=O."
+     }
+    },
+    {
+     "group": "alkene",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       1,
+       2,
+       3,
+       4,
+       5
+      ],
+      "note": "Six sp2 carbon signals and vinyl protons at 5.26-6.53."
+     }
+    },
+    {
+     "group": "alcohol",
+     "present": true,
+     "confidence": 0.55,
+     "evidence": {
+      "peak_ids": [
+       24,
+       25,
+       26,
+       6,
+       7
+      ],
+      "note": "Three C-O carbons (67.8-78.9); no 1H at 3.2-4.5, so the carbinols are tertiary; 5.05 and 3.14 taken as OH."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       12,
+       13,
+       14,
+       15,
+       35
+      ],
+      "note": "Methyl signals at 1.16-1.74; vinyl CH3 carbon at 16.9."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "O=C1C=CC(O)(C=C1)/C=C/C(C)=CCCC2(O)C(=O)CCC(C)(O)C2(C)C",
+     "name": null,
+     "rationale": "A para-quinol dienone (C=O 17; CH 18/23; C-OH 25) gives symmetry-equivalent CH pairs, so 20 carbon signals for 22 C. A conjugated CH=CH-C(CH3)=CH chain (2,4,5; vinyl CH3 12/35) links to a cyclohexanone (16). That ring carries two tertiary carbinols (24, 26) and gem-dimethyls (14, 15). No CH-O proton exists, consistent with no 1H signal between 3.2 and 4.5. Formula C22H30O5, DoU 8.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "dienone H3/H5"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "dienone H2/H6"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "CH=CH on quinol"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "CH=CH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "trisubstituted =CH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "OH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "COCH2 Ha"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 1,
+       "environment": "COCH2 Hb"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "allylic CH2"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 2,
+       "environment": "ring CH2"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 3,
+       "environment": "vinyl CH3"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 5,
+       "environment": "chain CH2 + C(OH)CH3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 3,
+       "environment": "gem-CH3"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 3,
+       "environment": "gem-CH3"
+      }
+     ],
+     "confidence": 0.12
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "Formula C22H30O5 gives DoU 8: two C=O (210.5 and 189.1), four C=C (six sp2 signals, two of them 2C) and two rings. The verifier flagged secondary alcohols because no 1H peak lies at 3.2-4.5, so all three C-O carbons (78.9, 69.5, 67.8) are now quaternary carbinols. A para-quinol dienone explains the 189.1/148.7/131.4/69.5 pattern and the 20 signals for 22 C. A conjugated diene chain with a vinyl methyl links it to a gem-dimethyl hydroxy-cyclohexanone. No integrals were supplied, so proton counts are estimates and the topology is tentative."
+  },
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 3,
+     "smiles": "O=C1C=CC(O)(C=C1)/C=C/C(C)=CCCC2(O)C(=O)CCC(C)(O)C2(C)C",
+     "name": null,
+     "rationale": "A para-quinol dienone (C=O 17; CH 18/23; C-OH 25) gives symmetry-equivalent CH pairs, so 20 carbon signals for 22 C. A conjugated CH=CH-C(CH3)=CH chain (2,4,5; vinyl CH3 12/35) links to a cyclohexanone (16). That ring carries two tertiary carbinols (24, 26) and gem-dimethyls (14, 15). No CH-O proton exists, consistent with no 1H signal between 3.2 and 4.5. Formula C22H30O5, DoU 8.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "dienone H3/H5"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "dienone H2/H6"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "CH=CH on quinol"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "CH=CH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "trisubstituted =CH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "OH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "COCH2 Ha"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 1,
+       "environment": "COCH2 Hb"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "allylic CH2"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 2,
+       "environment": "ring CH2"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 3,
+       "environment": "vinyl CH3"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 5,
+       "environment": "chain CH2 + C(OH)CH3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 3,
+       "environment": "gem-CH3"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 3,
+       "environment": "gem-CH3"
+      }
+     ],
+     "confidence": 0.12
+    },
+    "canonical_smiles": "CC(=CCCC1(O)C(=O)CCC(C)(O)C1(C)C)/C=C/C1(O)C=CC(=O)C=C1",
+    "inchikey": "NOPAKRFCOGIQNP-CCEVUSSZSA-N",
+    "formula": "C22H30O5",
+    "exact_mass": 374.2093,
+    "degree_of_unsaturation": 8,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C22H30O5 == C22H30O5",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 8 == formula DoU 8",
+      "evidence": {
+       "structural": 8,
+       "expected": 8.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "20 observed 13C signals vs 19 distinct carbons (allowed 17..20)",
+      "evidence": {
+       "observed": 20,
+       "unique_carbons": 19,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "15 non-exchangeable 1H signals vs 12 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 15,
+       "environments": 12,
+       "diastereotopic_allowance": 4
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "pass",
+      "severity": "soft",
+      "message": "required evidence present for 4 matched group(s)",
+      "evidence": {
+       "ketone": {
+        "13C": {
+         "peak_ids": [
+          16,
+          17
+         ]
+        }
+       },
+       "alcohol": {
+        "13C": {
+         "peak_ids": [
+          24,
+          25,
+          26,
+          27
+         ]
+        }
+       },
+       "alkene": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "pass",
+      "severity": "soft",
+      "message": "4 claim(s) consistent with the structure and cited peaks",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 1.0,
+    "final_confidence": 0.868,
+    "claims_checked": true,
+    "status": "accepted"
+   },
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "O=C1C=CC(O)(C=C1)/C=C/C(C)=CCCC2C(=O)C(C)(O)CC(O)C2(C)C",
+     "name": null,
+     "rationale": "A para-quinol dienone (C=O 189.1, CH 148.7/131.4, C-OH 69.5) has two pairs of symmetry-equivalent carbons, giving 20 signals for 22 C. A conjugated side chain carries a CH=CH and a trisubstituted alkene with a vinyl CH3 (1.74, 16.9). It ends in a cyclohexanone (210.5) with a tertiary C-OH (78.9), a CH-OH (67.8, H 3.14) and gem-dimethyls (1.16/1.17). Formula and DoU 8 match. The exact topology is tentative.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "dienone H3/H5"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "dienone H2/H6"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "CH=CH on quinol"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "CH=CH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "trisubstituted =CH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "OH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "CH-OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "CH alpha to ketone"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 1,
+       "environment": "ring CH2 Ha"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "allylic CH2"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 3,
+       "environment": "ring CH2 Hb + chain CH2"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 3,
+       "environment": "vinyl CH3"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 3,
+       "environment": "C(OH)CH3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 3,
+       "environment": "gem-CH3"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 3,
+       "environment": "gem-CH3"
+      }
+     ],
+     "confidence": 0.15
+    },
+    "canonical_smiles": "CC(=CCCC1C(=O)C(C)(O)CC(O)C1(C)C)/C=C/C1(O)C=CC(=O)C=C1",
+    "inchikey": "YGAODYQCIXCXGI-FCHCSGHRSA-N",
+    "formula": "C22H30O5",
+    "exact_mass": 374.2093,
+    "degree_of_unsaturation": 8,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C22H30O5 == C22H30O5",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 8 == formula DoU 8",
+      "evidence": {
+       "structural": 8,
+       "expected": 8.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "20 observed 13C signals vs 19 distinct carbons (allowed 17..20)",
+      "evidence": {
+       "observed": 20,
+       "unique_carbons": 19,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "15 non-exchangeable 1H signals vs 13 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 15,
+       "environments": 13,
+       "diastereotopic_allowance": 3
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "fail",
+      "severity": "soft",
+      "message": "alcohol: no 1H peak in h_alpha_oxygen",
+      "evidence": {
+       "ketone": {
+        "13C": {
+         "peak_ids": [
+          16,
+          17
+         ]
+        }
+       },
+       "alcohol": {
+        "1H": {
+         "missing": [
+          "h_alpha_oxygen"
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          24,
+          25,
+          26,
+          27
+         ]
+        }
+       },
+       "alkene": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 3, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.5325,
+    "claims_checked": false,
+    "status": "flagged"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "O=C1C=CC(O)(C=C1)/C=C/C(C)=CCCC2(O)CC(=O)C(C)(C)C(O)C2C",
+     "name": null,
+     "rationale": "Same para-quinol dienone and conjugated diene chain as candidate 1, but the cyclohexanone is arranged differently. The tertiary carbinol (78.9) carries the side chain, the CH2 alpha to the ketone is at 2.55/2.67, and a secondary methyl replaces the carbinol methyl. Formula C22H30O5 and 20 carbon environments match.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "dienone H3/H5"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "dienone H2/H6"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "CH=CH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "CH=CH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "=CH"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "OH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "CH-OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "COCH2 Ha"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 1,
+       "environment": "COCH2 Hb"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "allylic CH2"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 3,
+       "environment": "CH2 + ring CH"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 3,
+       "environment": "vinyl CH3"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 3,
+       "environment": "CH-CH3"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 3,
+       "environment": "gem-CH3"
+      },
+      {
+       "peak_id": 15,
+       "proton_count": 3,
+       "environment": "gem-CH3"
+      }
+     ],
+     "confidence": 0.08
+    },
+    "canonical_smiles": "CC(=CCCC1(O)CC(=O)C(C)(C)C(O)C1C)/C=C/C1(O)C=CC(=O)C=C1",
+    "inchikey": "JIVLIYLAKFYOKJ-ZDITUACVSA-N",
+    "formula": "C22H30O5",
+    "exact_mass": 374.2093,
+    "degree_of_unsaturation": 8,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C22H30O5 == C22H30O5",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 8 == formula DoU 8",
+      "evidence": {
+       "structural": 8,
+       "expected": 8.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "not every analyte 1H peak carries an integral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V06_c13_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "20 observed 13C signals vs 19 distinct carbons (allowed 17..20)",
+      "evidence": {
+       "observed": 20,
+       "unique_carbons": 19,
+       "too_many": false,
+       "blocking": false
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V07_h_environment_count",
+      "status": "pass",
+      "severity": "soft",
+      "message": "15 non-exchangeable 1H signals vs 13 distinct H environments (allowed up to +2)",
+      "evidence": {
+       "observed": 15,
+       "environments": 13,
+       "diastereotopic_allowance": 3
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V08_structure_demands_peaks",
+      "status": "fail",
+      "severity": "soft",
+      "message": "alcohol: no 1H peak in h_alpha_oxygen",
+      "evidence": {
+       "ketone": {
+        "13C": {
+         "peak_ids": [
+          16,
+          17
+         ]
+        }
+       },
+       "alcohol": {
+        "1H": {
+         "missing": [
+          "h_alpha_oxygen"
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          24,
+          25,
+          26,
+          27
+         ]
+        }
+       },
+       "alkene": {
+        "1H": {
+         "peak_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+         ]
+        },
+        "13C": {
+         "peak_ids": [
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+         ]
+        }
+       },
+       "methyl": {
+        "1H": {
+         "peak_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15
+         ]
+        }
+       }
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Process NMR Associates, Table 2 - 13C NMR; Organic Chemistry (OpenStax) \u00a713.11"
+     },
+     {
+      "rule_id": "V09_peaks_explained_by_structure",
+      "status": "pass",
+      "severity": "soft",
+      "message": "every analyte 1H peak falls in a range for an environment present",
+      "evidence": {
+       "unexplained_peak_ids": [],
+       "tainted_evidence_peak_ids": [],
+       "catch_all_peak_ids": []
+      },
+      "source": "Organic Chemistry (OpenStax, McMurry) \u00a713.4, Table 13.3; University of Windsor, J. Green, 1H NMR chemical shifts table (2015); Skoog et al., Principles of Instrumental Analysis, 7th ed., ch. 19 (Fig. 19-17 converted tau\u2192delta; Fig. 19-29 visual); NMRShiftDB2 experimental spectra; distributions computed 2026-10-09 by bench/nmrshiftdb2_shift_distributions.py (n and percentiles in its output file)"
+     },
+     {
+      "rule_id": "V10_claimed_groups_consistent",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "the model's claims describe candidate 3, not this one",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.6,
+    "final_confidence": 0.522,
+    "claims_checked": false,
+    "status": "flagged"
+   }
+  ],
+  "memory_cases": [
+   {
+    "case_id": "mem-000193",
+    "similarity": 0.46533082706766915
+   },
+   {
+    "case_id": "mem-000008",
+    "similarity": 0.38346311475409844
+   },
+   {
+    "case_id": "mem-000145",
+    "similarity": 0.3653768115942026
+   }
+  ]
+ },
+ "cost_usd": 0.298886,
+ "llm_calls": 2,
+ "timing_ms": {
+  "prompt": 64,
+  "llm": 103089,
+  "verify": 30,
+  "total": 103191
+ },
+ "warnings": [
+  "no candidate was accepted; one repair round was used"
+ ]
+}

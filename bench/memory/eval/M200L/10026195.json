@@ -1,0 +1,1332 @@
+{
+ "arm": "M200L",
+ "id": "10026195",
+ "truth": "O=C(/C=C/C=C/c1ccccc1)CCc1ccc(O)cc1",
+ "truth_inchikey": "GIXGHUAQPPUMRA-KBXRYBNXSA-N",
+ "heavy_atoms": 21,
+ "h_integrals_given": true,
+ "request_sha256": "d31e865e8f5145662cfe5584504ef4dba272a44596c3c8f04959a03194edce3e",
+ "prompt_sha256": "ee3281ef105a27f9945b9567274dc94c2d685dd5c981ffdd296345507110e7f2",
+ "outcome_config": {
+  "model_id": "claude-opus-5-5",
+  "prompt_version": "2026.11.1+shifts.2026.11.1",
+  "settings_hash": "2bb0d0ca67ec316062df7dc89a03d65e1b83ea75a0f86352c0a7a64abae0178d"
+ },
+ "run_on": "2026-11-17",
+ "memory_version": "20de57c79d4d",
+ "injected": [
+  {
+   "case_id": "mem-000178",
+   "similarity": 0.4922897727272725,
+   "tanimoto_to_truth": 0.070423
+  },
+  {
+   "case_id": "mem-000202",
+   "similarity": 0.44183831672203744,
+   "tanimoto_to_truth": 0.174603
+  },
+  {
+   "case_id": "mem-000199",
+   "similarity": 0.4527249396135269,
+   "tanimoto_to_truth": 0.109091
+  }
+ ],
+ "status": "solved",
+ "candidates": [
+  {
+   "smiles": "O=C(CCc1ccc(O)cc1)C=CC=Cc1ccccc1",
+   "model_rank": 1,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.1125
+  },
+  {
+   "smiles": "O=C(CCc1ccccc1)C=CC=Cc1ccc(O)cc1",
+   "model_rank": 2,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.0225
+  },
+  {
+   "smiles": "OC(=CC=Cc1ccccc1)C=Cc1ccc(O)cc1",
+   "model_rank": 5,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.015
+  }
+ ],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 7.37,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 7.26,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 3.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 7.23,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 7.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "1H",
+     "shift_ppm": 6.84,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "1H",
+     "shift_ppm": 6.77,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "1H",
+     "shift_ppm": 6.67,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "1H",
+     "shift_ppm": 6.19,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "1H",
+     "shift_ppm": 2.83,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 10,
+     "nucleus": "1H",
+     "shift_ppm": 2.82,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "water",
+     "exchangeable_hint": false,
+     "label": "acetone-d6 water/HOD"
+    },
+    {
+     "id": 11,
+     "nucleus": "13C",
+     "shift_ppm": 199.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 12,
+     "nucleus": "13C",
+     "shift_ppm": 154.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 13,
+     "nucleus": "13C",
+     "shift_ppm": 142.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 14,
+     "nucleus": "13C",
+     "shift_ppm": 141.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 15,
+     "nucleus": "13C",
+     "shift_ppm": 135.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 16,
+     "nucleus": "13C",
+     "shift_ppm": 133.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 17,
+     "nucleus": "13C",
+     "shift_ppm": 129.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 18,
+     "nucleus": "13C",
+     "shift_ppm": 128.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 19,
+     "nucleus": "13C",
+     "shift_ppm": 128.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 20,
+     "nucleus": "13C",
+     "shift_ppm": 127.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 21,
+     "nucleus": "13C",
+     "shift_ppm": 126.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 22,
+     "nucleus": "13C",
+     "shift_ppm": 115.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 23,
+     "nucleus": "13C",
+     "shift_ppm": 42.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 24,
+     "nucleus": "13C",
+     "shift_ppm": 30.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "solvent",
+     "exchangeable_hint": false,
+     "label": "acetone-d6 residual"
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "acetone-d6",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "formula_H",
+   "processing_log": [
+    "1H 2.83 ppm tagged water: acetone-d6 water/HOD",
+    "1H 2.82 ppm tagged water: acetone-d6 water/HOD",
+    "13C 30.3 ppm tagged solvent: acetone-d6 residual",
+    "1H 2.83 ppm is at the water position, but with it the integrals fit H = 18 and without it they do not: restored as analyte",
+    "integrals sum to 15 and look like proton counts, consistent with H = 18: kept",
+    "1H 2.82 ppm is tagged water but would be 2.00 H; left tagged (it may overlap an analyte signal)"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C19H18O2",
+   "observed_exact_mass": null,
+   "solvent": "acetone-d6",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C19H18O2",
+   "degree_of_unsaturation": 11,
+   "functional_groups": [
+    {
+     "group": "ketone",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       11,
+       8,
+       9
+      ],
+      "note": "C=O at 199.7 is a conjugated ketone; CH2 at 2.83 is alpha to it and H-alpha vinyl at 6.19."
+     }
+    },
+    {
+     "group": "phenol",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       12,
+       22,
+       7,
+       4
+      ],
+      "note": "C-OH at 154.0 with ortho CH at 115.2; AA'BB' protons at 6.67/7.00 fit a 4-alkylphenol."
+     }
+    },
+    {
+     "group": "alkene",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       3,
+       5,
+       6,
+       8,
+       13,
+       14,
+       21
+      ],
+      "note": "Four 1H vinyl signals (7.23, 6.84, 6.77, 6.19) and sp2 CH carbons fit a conjugated dienone."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2,
+       4,
+       7,
+       15,
+       16,
+       17,
+       18,
+       19,
+       20
+      ],
+      "note": "A monosubstituted phenyl (5H at 7.37/7.26) and a para-disubstituted phenol ring (2H+2H)."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "O=C(CCc1ccc(O)cc1)C=CC=Cc1ccccc1",
+     "name": "1-(4-hydroxyphenyl)-7-phenylhepta-4,6-dien-3-one",
+     "rationale": "Ketone 199.7 (11) conjugated with a diene: 6.19 (8) H-alpha, 7.23 (3) H-beta, 6.77/6.84 (5,6). Styryl phenyl 7.37/7.26 (1,2). 4-Hydroxyphenyl-CH2: 7.00/6.67 (4,7), C-OH 154.0 (12), 115.2 (22). Ar-CH2-CH2-CO: 2.83 (9) plus a second CH2 hidden under the water peak 2.82 (10). C2 is at 42.9 (23); the benzylic C1 (~30) is hidden under the acetone 30.3 (24). Fifteen carbon environments versus 13 observed.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "Ph ortho H"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "Ph meta/para H"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H-5 dienone beta CH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "ArH ortho to CH2 (phenol ring)"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "H-7 PhCH="
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "H-6 vinyl"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 2,
+       "environment": "ArH ortho to OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "H-4 vinyl alpha to C=O"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "COCH2"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "ArCH2 hidden under HOD"
+      }
+     ],
+     "confidence": 0.75
+    },
+    {
+     "rank": 2,
+     "smiles": "O=C(CCc1ccccc1)C=CC=Cc1ccc(O)cc1",
+     "name": "7-(4-hydroxyphenyl)-1-phenylhepta-4,6-dien-3-one",
+     "rationale": "Same skeleton with the aryl groups swapped. This fits less well: a styryl-type phenol would show C-OH near 159 and ArH near 7.4/6.85, not 154.0 (12) and 6.67/7.00 (4,7).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "vinyl/ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "Ph H"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "Ph H"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 2,
+       "environment": "ArH ortho OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "vinyl alpha C=O"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "COCH2"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "PhCH2 hidden"
+      }
+     ],
+     "confidence": 0.15
+    },
+    {
+     "rank": 3,
+     "smiles": "O=C(CCC=CC=Cc1ccccc1)c1ccc(O)cc1",
+     "name": null,
+     "rationale": "Aryl ketone alternative. This fits poorly: a 4-hydroxybenzoyl ring would show ArH near 7.9 and C=O near 198, with allylic CH2 near 2.5; the 6.19 alpha-vinyl H (8) would be unexplained.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "Ph H"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "Ph H"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "ArH ortho C=O"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 2,
+       "environment": "ArH ortho OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "COCH2"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "allylic CH2 hidden"
+      }
+     ],
+     "confidence": 0.05
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "C19H18O2 has DoU 11, which fits two benzene rings (8), a conjugated diene (2) and a ketone (1). The C=O at 199.7 is a conjugated ketone. A 4-alkylphenol accounts for 154.0/115.2 and AA'BB' protons at 7.00/6.67. A monosubstituted phenyl accounts for 7.37/7.26 (5H). Four single vinyl H (7.23, 6.84, 6.77, 6.19) make a PhCH=CH-CH=CH-CO dienone. The listed 1H integrals total 15H. The remaining 3H are the phenol OH (unlisted) and a second CH2 hidden under the HOD peak at 2.82, next to the CH2 at 2.83. The CH2 carbons are 42.9 (alpha to C=O) and the benzylic carbon near 30, which is masked by the acetone-d6 solvent signal. The result is the diarylheptanoid 1-(4-hydroxyphenyl)-7-phenylhepta-4,6-dien-3-one."
+  },
+  "repaired": {
+   "formula_inferred": "C19H18O2",
+   "degree_of_unsaturation": 11,
+   "functional_groups": [
+    {
+     "group": "ketone",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       11,
+       8,
+       9
+      ],
+      "note": "Conjugated ketone C=O at 199.7, with the CH2 alpha to it at 2.83 and the alpha-vinyl H at 6.19."
+     }
+    },
+    {
+     "group": "phenol",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       12,
+       22,
+       7,
+       4
+      ],
+      "note": "C-OH at 154.0 and ortho CH at 115.2; AA'BB' protons at 6.67/7.00 indicate a 4-alkylphenol."
+     }
+    },
+    {
+     "group": "alkene",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       3,
+       5,
+       6,
+       8
+      ],
+      "note": "Four single vinyl protons fit a conjugated dienone."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2,
+       4,
+       7
+      ],
+      "note": "A phenyl (5H) and a para-disubstituted ring (4H)."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "O=C(CCc1ccc(O)cc1)C=CC=Cc1ccccc1",
+     "name": "1-(4-hydroxyphenyl)-7-phenylhepta-4,6-dien-3-one",
+     "rationale": "Ketone 199.7 (11) conjugated to a diene: 6.19 (8), 7.23 (3), 6.84 and 6.77 (5,6). Phenyl at 7.37/7.26 (1,2). 4-Hydroxyphenyl at 7.00/6.67 (4,7), with C-OH 154.0 (12) and 115.2 (22). COCH2 at 2.83 (9) and 42.9 (23). The ArCH2 is assumed hidden under the HOD peak 10 and its carbon (~30) under the acetone signal (24). The 15H integral total is short by this hidden CH2; this is the main unresolved issue.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "Ph ortho H"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "Ph meta/para H"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H-5 vinyl"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "ArH ortho CH2"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "H-7 vinyl"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "H-6 vinyl"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 2,
+       "environment": "ArH ortho OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "H-4 alpha to C=O"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "COCH2"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "ArCH2 hidden under HOD"
+      }
+     ],
+     "confidence": 0.6
+    },
+    {
+     "rank": 2,
+     "smiles": "OC(=CC=Cc1ccccc1)C=Cc1ccc(O)cc1",
+     "name": "enol tautomer (2 OH)",
+     "rationale": "Enol form with two exchangeable OH protons, offered as an alternative that would explain the 15H integral total. It is contradicted by the CH2 at 2.83 (9), the sp3 carbon at 42.9 (23) and the ketone carbon at 199.7 (11).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "Ph H"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "Ph H"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 2,
+       "environment": "ArH ortho OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "vinyl (2H)"
+      }
+     ],
+     "confidence": 0.1
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "The shift data fit a conjugated dienone diarylheptanoid with a 4-hydroxyphenyl-CH2CH2 unit. The integrals total 15H against 18H in the formula. The phenol OH is unlisted, and the second CH2 (expected near 2.8 ppm) coincides with the HOD peak at 2.82. Its carbon (~30 ppm) is masked by the acetone-d6 solvent signal at 30.3. C19H18O2 with a ketone allows only one OH, so no keto candidate can have more than one exchangeable proton. Rank 1 is therefore kept despite the integration shortfall, which the checker may still reject. The enol tautomer (rank 2) is listed only because it would account for the integrals; the CH2 and ketone signals argue against it."
+  },
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "O=C(CCc1ccc(O)cc1)C=CC=Cc1ccccc1",
+     "name": "1-(4-hydroxyphenyl)-7-phenylhepta-4,6-dien-3-one",
+     "rationale": "Ketone 199.7 (11) conjugated with a diene: 6.19 (8) H-alpha, 7.23 (3) H-beta, 6.77/6.84 (5,6). Styryl phenyl 7.37/7.26 (1,2). 4-Hydroxyphenyl-CH2: 7.00/6.67 (4,7), C-OH 154.0 (12), 115.2 (22). Ar-CH2-CH2-CO: 2.83 (9) plus a second CH2 hidden under the water peak 2.82 (10). C2 is at 42.9 (23); the benzylic C1 (~30) is hidden under the acetone 30.3 (24). Fifteen carbon environments versus 13 observed.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "Ph ortho H"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "Ph meta/para H"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "H-5 dienone beta CH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "ArH ortho to CH2 (phenol ring)"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "H-7 PhCH="
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "H-6 vinyl"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 2,
+       "environment": "ArH ortho to OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "H-4 vinyl alpha to C=O"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "COCH2"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "ArCH2 hidden under HOD"
+      }
+     ],
+     "confidence": 0.75
+    },
+    "canonical_smiles": "O=C(C=CC=Cc1ccccc1)CCc1ccc(O)cc1",
+    "inchikey": "GIXGHUAQPPUMRA-UHFFFAOYSA-N",
+    "formula": "C19H18O2",
+    "exact_mass": 278.1307,
+    "degree_of_unsaturation": 11,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C19H18O2 == C19H18O2",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 11 == formula DoU 11",
+      "evidence": {
+       "structural": 11,
+       "expected": 11.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "fail",
+      "severity": "hard",
+      "message": "integrals sum to 15; candidate has 18 H (1 exchangeable), allowed [16, 19]",
+      "evidence": {
+       "candidate_H": 18,
+       "exchangeable_H": 1,
+       "integral_sum": 15.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "merged duplicate connectivity from rank(s) [4]",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.1125,
+    "claims_checked": true,
+    "status": "rejected"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "O=C(CCc1ccccc1)C=CC=Cc1ccc(O)cc1",
+     "name": "7-(4-hydroxyphenyl)-1-phenylhepta-4,6-dien-3-one",
+     "rationale": "Same skeleton with the aryl groups swapped. This fits less well: a styryl-type phenol would show C-OH near 159 and ArH near 7.4/6.85, not 154.0 (12) and 6.67/7.00 (4,7).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "vinyl/ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "Ph H"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "Ph H"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 2,
+       "environment": "ArH ortho OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "vinyl alpha C=O"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "COCH2"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "PhCH2 hidden"
+      }
+     ],
+     "confidence": 0.15
+    },
+    "canonical_smiles": "O=C(C=CC=Cc1ccc(O)cc1)CCc1ccccc1",
+    "inchikey": "NVNTZRWASUCWOR-UHFFFAOYSA-N",
+    "formula": "C19H18O2",
+    "exact_mass": 278.1307,
+    "degree_of_unsaturation": 11,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C19H18O2 == C19H18O2",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 11 == formula DoU 11",
+      "evidence": {
+       "structural": 11,
+       "expected": 11.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "fail",
+      "severity": "hard",
+      "message": "integrals sum to 15; candidate has 18 H (1 exchangeable), allowed [16, 19]",
+      "evidence": {
+       "candidate_H": 18,
+       "exchangeable_H": 1,
+       "integral_sum": 15.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.0225,
+    "claims_checked": false,
+    "status": "rejected"
+   },
+   {
+    "candidate": {
+     "rank": 5,
+     "smiles": "OC(=CC=Cc1ccccc1)C=Cc1ccc(O)cc1",
+     "name": "enol tautomer (2 OH)",
+     "rationale": "Enol form with two exchangeable OH protons, offered as an alternative that would explain the 15H integral total. It is contradicted by the CH2 at 2.83 (9), the sp3 carbon at 42.9 (23) and the ketone carbon at 199.7 (11).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "Ph H"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "Ph H"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 2,
+       "environment": "ArH ortho OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "vinyl (2H)"
+      }
+     ],
+     "confidence": 0.1
+    },
+    "canonical_smiles": "OC(C=Cc1ccc(O)cc1)=CC=Cc1ccccc1",
+    "inchikey": "GMSIXDYIMKDTPW-UHFFFAOYSA-N",
+    "formula": "C18H16O2",
+    "exact_mass": 264.115,
+    "degree_of_unsaturation": 11,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "fail",
+      "severity": "hard",
+      "message": "C18H16O2 != C19H18O2",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.015,
+    "claims_checked": false,
+    "status": "rejected"
+   },
+   {
+    "candidate": {
+     "rank": 3,
+     "smiles": "O=C(CCC=CC=Cc1ccccc1)c1ccc(O)cc1",
+     "name": null,
+     "rationale": "Aryl ketone alternative. This fits poorly: a 4-hydroxybenzoyl ring would show ArH near 7.9 and C=O near 198, with allylic CH2 near 2.5; the 6.19 alpha-vinyl H (8) would be unexplained.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 2,
+       "environment": "Ph H"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 3,
+       "environment": "Ph H"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 2,
+       "environment": "ArH ortho C=O"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 2,
+       "environment": "ArH ortho OH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "vinyl"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "COCH2"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 2,
+       "environment": "allylic CH2 hidden"
+      }
+     ],
+     "confidence": 0.05
+    },
+    "canonical_smiles": "O=C(CCC=CC=Cc1ccccc1)c1ccc(O)cc1",
+    "inchikey": "SCBSPARTXWWCTI-UHFFFAOYSA-N",
+    "formula": "C19H18O2",
+    "exact_mass": 278.1307,
+    "degree_of_unsaturation": 11,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C19H18O2 == C19H18O2",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 11 == formula DoU 11",
+      "evidence": {
+       "structural": 11,
+       "expected": 11.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "fail",
+      "severity": "hard",
+      "message": "integrals sum to 15; candidate has 18 H (1 exchangeable), allowed [16, 19]",
+      "evidence": {
+       "candidate_H": 18,
+       "exchangeable_H": 1,
+       "integral_sum": 15.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.0075,
+    "claims_checked": false,
+    "status": "rejected"
+   }
+  ],
+  "memory_cases": [
+   {
+    "case_id": "mem-000178",
+    "similarity": 0.4922897727272725
+   },
+   {
+    "case_id": "mem-000202",
+    "similarity": 0.44183831672203744
+   },
+   {
+    "case_id": "mem-000199",
+    "similarity": 0.4527249396135269
+   }
+  ]
+ },
+ "cost_usd": 0.180198,
+ "llm_calls": 2,
+ "timing_ms": {
+  "prompt": 46,
+  "llm": 58354,
+  "verify": 12,
+  "total": 58419
+ },
+ "warnings": [
+  "no candidate was accepted; one repair round was used"
+ ]
+}

@@ -1,0 +1,1192 @@
+{
+ "arm": "R200L",
+ "id": "20078844",
+ "truth": "O=C(/C=C/c1ccc(O)cc1)O[C@@H]1OC(CO)[C@@H](O)C(O)[C@@H]1O",
+ "truth_inchikey": "DSNCQKUYZOSARM-HVTITPAGSA-N",
+ "heavy_atoms": 23,
+ "h_integrals_given": true,
+ "request_sha256": "3d825f9b2549cce024831dce493851922d52a073fcb1827a771a04babef9da33",
+ "prompt_sha256": "86fbb50c3abb81eb5504086ff5bab30ae46d158c7d461e3d205e6056f3a4b021",
+ "outcome_config": {
+  "model_id": "claude-opus-5-5",
+  "prompt_version": "2026.11.1+shifts.2026.11.1",
+  "settings_hash": "2bb0d0ca67ec316062df7dc89a03d65e1b83ea75a0f86352c0a7a64abae0178d"
+ },
+ "run_on": "2026-11-17",
+ "memory_version": "20de57c79d4d",
+ "injected": [
+  {
+   "case_id": "mem-000028",
+   "similarity": null,
+   "tanimoto_to_truth": 0.180556
+  },
+  {
+   "case_id": "mem-000145",
+   "similarity": null,
+   "tanimoto_to_truth": 0.273973
+  },
+  {
+   "case_id": "mem-000041",
+   "similarity": null,
+   "tanimoto_to_truth": 0.19403
+  }
+ ],
+ "status": "solved",
+ "candidates": [
+  {
+   "smiles": "OCC1OC(OC(=O)C=Cc2ccc(O)cc2)C(O)C(O)C1O",
+   "model_rank": 1,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.12
+  },
+  {
+   "smiles": "OCC1OC(Oc2ccc(C=CC(=O)O)cc2)C(O)C(O)C1O",
+   "model_rank": 2,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.015
+  },
+  {
+   "smiles": "OC1OC(COC(=O)C=Cc2ccc(O)cc2)C(O)C(O)C1O",
+   "model_rank": 3,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.0075
+  }
+ ],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 7.73,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 7.48,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 6.81,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 6.37,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 5,
+     "nucleus": "1H",
+     "shift_ppm": 5.57,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 6,
+     "nucleus": "1H",
+     "shift_ppm": 3.85,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 7,
+     "nucleus": "1H",
+     "shift_ppm": 3.69,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "1H",
+     "shift_ppm": 3.47,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 2.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "1H",
+     "shift_ppm": 3.35,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 7.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "solvent",
+     "exchangeable_hint": false,
+     "label": "CD3OD residual"
+    },
+    {
+     "id": 10,
+     "nucleus": "13C",
+     "shift_ppm": 167.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 11,
+     "nucleus": "13C",
+     "shift_ppm": 161.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 12,
+     "nucleus": "13C",
+     "shift_ppm": 134.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 13,
+     "nucleus": "13C",
+     "shift_ppm": 131.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 14,
+     "nucleus": "13C",
+     "shift_ppm": 127.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 15,
+     "nucleus": "13C",
+     "shift_ppm": 117.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 16,
+     "nucleus": "13C",
+     "shift_ppm": 114.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 17,
+     "nucleus": "13C",
+     "shift_ppm": 95.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 18,
+     "nucleus": "13C",
+     "shift_ppm": 79.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 19,
+     "nucleus": "13C",
+     "shift_ppm": 78.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 20,
+     "nucleus": "13C",
+     "shift_ppm": 74.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 21,
+     "nucleus": "13C",
+     "shift_ppm": 71.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 22,
+     "nucleus": "13C",
+     "shift_ppm": 62.6,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "CD3OD",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "formula_H",
+   "processing_log": [
+    "1H 3.35 ppm tagged solvent: CD3OD residual",
+    "integrals sum to 11 and look like proton counts, consistent with H = 18: kept",
+    "1H 3.35 ppm is tagged solvent but would be 7.00 H; left tagged (it may overlap an analyte signal)"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C15H18O8",
+   "observed_exact_mass": null,
+   "solvent": "CD3OD",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C15H18O8",
+   "degree_of_unsaturation": 7,
+   "functional_groups": [
+    {
+     "group": "ester",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       10,
+       5,
+       17
+      ],
+      "note": "C=O at 167.8 conjugated ester; anomeric H 5.57/C 95.9 typical of 1-O-acyl glucose."
+     }
+    },
+    {
+     "group": "alkene",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       1,
+       4,
+       13,
+       16
+      ],
+      "note": "Cinnamoyl CH=CH at 7.73/6.37 ppm, carbons 134.5 region and 114.9."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       2,
+       3,
+       12,
+       14,
+       15
+      ],
+      "note": "AA'BB' para-disubstituted ring 7.48 (2H)/6.81 (2H)."
+     }
+    },
+    {
+     "group": "phenol",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       11,
+       3
+      ],
+      "note": "Oxygenated aromatic C at 161.8 with shielded ortho H at 6.81; OH exchanged in CD3OD."
+     }
+    },
+    {
+     "group": "alcohol",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       18,
+       19,
+       20,
+       21,
+       22,
+       6,
+       7,
+       8
+      ],
+      "note": "Glucose carbinol carbons 79.0-62.6 and protons 3.4-3.9."
+     }
+    },
+    {
+     "group": "ether",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       17,
+       18
+      ],
+      "note": "Pyranose ring C1-O-C5 (95.9, 79.0)."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "OCC1OC(OC(=O)C=Cc2ccc(O)cc2)C(O)C(O)C1O",
+     "name": "1-O-(E)-p-coumaroyl-beta-D-glucopyranose",
+     "rationale": "p-Coumaroyl unit: trans vinyl 7.73/6.37 (1,4), AA'BB' 7.48/6.81 (2,3), C=O 167.8 (10), C-OH 161.8 (11). Glucose: anomeric H 5.57 (5) and C 95.9 (17) diagnostic of 1-O-acyl ester; CH2OH 62.6 (22); ring C 79.0, 78.3, 74.3, 71.4. 13 C environments match 13 signals. Two sugar H plus 5 OH not listed (likely under CD3OD peak 9 / exchanged).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArCH= (beta vinyl)"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH ortho to vinyl"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ArH ortho to OH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "=CH-C(=O) (alpha vinyl)"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "anomeric H-1 (O-acyl)"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "H-6a"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "H-6b"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 2,
+       "environment": "sugar H-2/H-3 or H-4/H-5"
+      }
+     ],
+     "confidence": 0.8
+    },
+    {
+     "rank": 2,
+     "smiles": "OCC1OC(Oc2ccc(C=CC(=O)O)cc2)C(O)C(O)C1O",
+     "name": "p-coumaric acid 4-O-beta-D-glucoside",
+     "rationale": "Same formula; coumaroyl and glucose units, but anomeric O-aryl H typically ~4.95 and C ~101, and aromatic H ortho to O ~7.1; 5.57/95.9 (5,17) fit poorly.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArCH="
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ArH ortho to O"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "=CH-COOH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "anomeric H"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "H-6a"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "H-6b"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 2,
+       "environment": "sugar CH"
+      }
+     ],
+     "confidence": 0.1
+    },
+    {
+     "rank": 3,
+     "smiles": "OC1OC(COC(=O)C=Cc2ccc(O)cc2)C(O)C(O)C1O",
+     "name": "6-O-p-coumaroyl-D-glucopyranose",
+     "rationale": "Isomeric ester at C-6; would show CH2 ~64.5 and H-6 ~4.3-4.5, absent; 62.6 (22) indicates free CH2OH.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArCH="
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ArH ortho to OH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "=CH-C(=O)"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "anomeric H"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "sugar CH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "sugar CH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 2,
+       "environment": "sugar CH"
+      }
+     ],
+     "confidence": 0.05
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "DoU 7: benzene (4) + C=C (1) + C=O (1) + pyranose ring (1). trans-cinnamoyl (7.73/6.37) on a para-hydroxyphenyl (7.48/6.81, C 161.8) gives p-coumaroyl; ester C=O 167.8. Remaining C6 with carbons 95.9, 79.0, 78.3, 74.3, 71.4, 62.6 is glucose; anomeric H 5.57 and C 95.9 indicate a 1-O-acyl glucose ester. Two sugar CH likely hidden under the CD3OD residual at 3.35 (peak 9); OH protons exchanged. Formula C15H18O8 matches."
+  },
+  "repaired": {
+   "formula_inferred": "C15H18O8",
+   "degree_of_unsaturation": 7,
+   "functional_groups": [
+    {
+     "group": "ester",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       10,
+       5,
+       17
+      ],
+      "note": "Conjugated ester C=O 167.8; anomeric H 5.57/C 95.9 typical of 1-O-acyl glucose."
+     }
+    },
+    {
+     "group": "alkene",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       1,
+       4,
+       16
+      ],
+      "note": "trans CH=CH at 7.73/6.37 ppm."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.95,
+     "evidence": {
+      "peak_ids": [
+       2,
+       3,
+       12,
+       14,
+       15
+      ],
+      "note": "AA'BB' para-disubstituted ring 7.48/6.81."
+     }
+    },
+    {
+     "group": "phenol",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       11,
+       3
+      ],
+      "note": "Aromatic C-O at 161.8 with shielded ortho H 6.81; OH exchanged."
+     }
+    },
+    {
+     "group": "alcohol",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       18,
+       19,
+       20,
+       21,
+       22
+      ],
+      "note": "Glucose carbinol carbons 79.0-62.6."
+     }
+    },
+    {
+     "group": "ether",
+     "present": true,
+     "confidence": 0.8,
+     "evidence": {
+      "peak_ids": [
+       17,
+       18
+      ],
+      "note": "Pyranose ring C1-O-C5."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "OCC1OC(OC(=O)C=Cc2ccc(O)cc2)C(O)C(O)C1O",
+     "name": "1-O-(E)-p-coumaroyl-beta-D-glucopyranose",
+     "rationale": "p-Coumaroyl: vinyl 7.73/6.37 (1,4), AA'BB' 7.48/6.81 (2,3), C=O 167.8 (10), C-OH 161.8 (11). Glucose: anomeric 5.57/95.9 (5,17) diagnostic of 1-O-acyl; CH2OH 62.6 (22). Two sugar CH (H-3/H-4 region ~3.4) are hidden under the CD3OD residual peak 9, which the structure requires; 5 OH exchanged.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArCH="
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH ortho to vinyl"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ArH ortho to OH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "=CH-C(=O)"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "anomeric H-1"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "H-6a"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "H-6b"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 2,
+       "environment": "sugar H-2/H-5"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "sugar H-3/H-4 under solvent"
+      }
+     ],
+     "confidence": 0.8
+    },
+    {
+     "rank": 2,
+     "smiles": "OCC1OC(Oc2ccc(C=CC(=O)O)cc2)C(O)C(O)C1O",
+     "name": "p-coumaric acid 4-O-beta-D-glucoside",
+     "rationale": "Same units, but O-aryl glycoside anomeric expected ~4.95/101, poorer fit to 5.57/95.9 (5,17).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArCH="
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ArH ortho to O"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "=CH-COOH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "anomeric H"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "H-6a"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "H-6b"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 2,
+       "environment": "sugar CH"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 2,
+       "environment": "sugar CH under solvent"
+      }
+     ],
+     "confidence": 0.1
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "DoU 7 = benzene + C=C + C=O + pyranose. p-Coumaroyl (trans vinyl, para-hydroxyphenyl, ester C=O 167.8) plus glucose (95.9, 79.0, 78.3, 74.3, 71.4, 62.6). Anomeric 5.57/95.9 indicates 1-O-acyl glucose. Listed integrals give 11 H; two sugar methines must lie under the CD3OD residual (peak 9, 3.35), giving 13 C-H; 5 OH exchanged; total 18."
+  },
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "OCC1OC(OC(=O)C=Cc2ccc(O)cc2)C(O)C(O)C1O",
+     "name": "1-O-(E)-p-coumaroyl-beta-D-glucopyranose",
+     "rationale": "p-Coumaroyl unit: trans vinyl 7.73/6.37 (1,4), AA'BB' 7.48/6.81 (2,3), C=O 167.8 (10), C-OH 161.8 (11). Glucose: anomeric H 5.57 (5) and C 95.9 (17) diagnostic of 1-O-acyl ester; CH2OH 62.6 (22); ring C 79.0, 78.3, 74.3, 71.4. 13 C environments match 13 signals. Two sugar H plus 5 OH not listed (likely under CD3OD peak 9 / exchanged).",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArCH= (beta vinyl)"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH ortho to vinyl"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ArH ortho to OH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "=CH-C(=O) (alpha vinyl)"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "anomeric H-1 (O-acyl)"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "H-6a"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "H-6b"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 2,
+       "environment": "sugar H-2/H-3 or H-4/H-5"
+      }
+     ],
+     "confidence": 0.8
+    },
+    "canonical_smiles": "O=C(C=Cc1ccc(O)cc1)OC1OC(CO)C(O)C(O)C1O",
+    "inchikey": "DSNCQKUYZOSARM-UHFFFAOYSA-N",
+    "formula": "C15H18O8",
+    "exact_mass": 326.1002,
+    "degree_of_unsaturation": 7,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C15H18O8 == C15H18O8",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 7 == formula DoU 7",
+      "evidence": {
+       "structural": 7,
+       "expected": 7.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "fail",
+      "severity": "hard",
+      "message": "integrals sum to 11; candidate has 18 H (5 exchangeable), allowed [12, 19]",
+      "evidence": {
+       "candidate_H": 18,
+       "exchangeable_H": 5,
+       "integral_sum": 11.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "merged duplicate connectivity from rank(s) [4]",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.12,
+    "claims_checked": true,
+    "status": "rejected"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "OCC1OC(Oc2ccc(C=CC(=O)O)cc2)C(O)C(O)C1O",
+     "name": "p-coumaric acid 4-O-beta-D-glucoside",
+     "rationale": "Same formula; coumaroyl and glucose units, but anomeric O-aryl H typically ~4.95 and C ~101, and aromatic H ortho to O ~7.1; 5.57/95.9 (5,17) fit poorly.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArCH="
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ArH ortho to O"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "=CH-COOH"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "anomeric H"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "H-6a"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "H-6b"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 2,
+       "environment": "sugar CH"
+      }
+     ],
+     "confidence": 0.1
+    },
+    "canonical_smiles": "O=C(O)C=Cc1ccc(OC2OC(CO)C(O)C(O)C2O)cc1",
+    "inchikey": "LJFYQZQUAULRDF-UHFFFAOYSA-N",
+    "formula": "C15H18O8",
+    "exact_mass": 326.1002,
+    "degree_of_unsaturation": 7,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C15H18O8 == C15H18O8",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 7 == formula DoU 7",
+      "evidence": {
+       "structural": 7,
+       "expected": 7.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "fail",
+      "severity": "hard",
+      "message": "integrals sum to 11; candidate has 18 H (5 exchangeable), allowed [12, 19]",
+      "evidence": {
+       "candidate_H": 18,
+       "exchangeable_H": 5,
+       "integral_sum": 11.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "merged duplicate connectivity from rank(s) [5]",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.015,
+    "claims_checked": false,
+    "status": "rejected"
+   },
+   {
+    "candidate": {
+     "rank": 3,
+     "smiles": "OC1OC(COC(=O)C=Cc2ccc(O)cc2)C(O)C(O)C1O",
+     "name": "6-O-p-coumaroyl-D-glucopyranose",
+     "rationale": "Isomeric ester at C-6; would show CH2 ~64.5 and H-6 ~4.3-4.5, absent; 62.6 (22) indicates free CH2OH.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArCH="
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 2,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 2,
+       "environment": "ArH ortho to OH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "=CH-C(=O)"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "anomeric H"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "sugar CH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "sugar CH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 2,
+       "environment": "sugar CH"
+      }
+     ],
+     "confidence": 0.05
+    },
+    "canonical_smiles": "O=C(C=Cc1ccc(O)cc1)OCC1OC(O)C(O)C(O)C1O",
+    "inchikey": "GKUSDFCBGXFHIL-UHFFFAOYSA-N",
+    "formula": "C15H18O8",
+    "exact_mass": 326.1002,
+    "degree_of_unsaturation": 7,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C15H18O8 == C15H18O8",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 7 == formula DoU 7",
+      "evidence": {
+       "structural": 7,
+       "expected": 7.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "fail",
+      "severity": "hard",
+      "message": "integrals sum to 11; candidate has 18 H (5 exchangeable), allowed [12, 19]",
+      "evidence": {
+       "candidate_H": 18,
+       "exchangeable_H": 5,
+       "integral_sum": 11.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.0075,
+    "claims_checked": false,
+    "status": "rejected"
+   }
+  ],
+  "memory_cases": [
+   {
+    "case_id": "mem-000028",
+    "similarity": null
+   },
+   {
+    "case_id": "mem-000145",
+    "similarity": null
+   },
+   {
+    "case_id": "mem-000041",
+    "similarity": null
+   }
+  ]
+ },
+ "cost_usd": 0.144002,
+ "llm_calls": 2,
+ "timing_ms": {
+  "prompt": 1,
+  "llm": 43090,
+  "verify": 35,
+  "total": 43143
+ },
+ "warnings": [
+  "no candidate was accepted; one repair round was used"
+ ]
+}

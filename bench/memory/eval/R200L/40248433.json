@@ -1,0 +1,1202 @@
+{
+ "arm": "R200L",
+ "id": "40248433",
+ "truth": "CN1C(=O)C2C3c4ccccc4C(O)(c4ccccc43)C2C1=O",
+ "truth_inchikey": "JYJCOMSKUPTVBL-UHFFFAOYSA-N",
+ "heavy_atoms": 23,
+ "h_integrals_given": true,
+ "request_sha256": "8c843880a848b25e87a8490c6a9ced8730e3d84262a3b949b2f78b5a4b3d4a25",
+ "prompt_sha256": "49b8c49ca7a3be845d4bd0b22654550ac89694fbd7ddcd5cd466295efc8f2453",
+ "outcome_config": {
+  "model_id": "claude-opus-5-5",
+  "prompt_version": "2026.11.1+shifts.2026.11.1",
+  "settings_hash": "2bb0d0ca67ec316062df7dc89a03d65e1b83ea75a0f86352c0a7a64abae0178d"
+ },
+ "run_on": "2026-11-17",
+ "memory_version": "20de57c79d4d",
+ "injected": [
+  {
+   "case_id": "mem-000075",
+   "similarity": null,
+   "tanimoto_to_truth": 0.044444
+  },
+  {
+   "case_id": "mem-000028",
+   "similarity": null,
+   "tanimoto_to_truth": 0.083333
+  },
+  {
+   "case_id": "mem-000022",
+   "similarity": null,
+   "tanimoto_to_truth": 0.113208
+  }
+ ],
+ "status": "solved",
+ "candidates": [
+  {
+   "smiles": "CN1C(=O)C2C(C1=O)C1(O)c3ccccc3C2c2ccccc21",
+   "model_rank": 1,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.09
+  },
+  {
+   "smiles": "CC12c3ccccc3C(c3ccccc31)C1C(=O)N(O)C(=O)C12",
+   "model_rank": 2,
+   "status": "rejected",
+   "score": 0.0,
+   "confidence": 0.0225
+  }
+ ],
+ "trace": {
+  "table": {
+   "peaks": [
+    {
+     "id": 1,
+     "nucleus": "1H",
+     "shift_ppm": 7.69,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 2,
+     "nucleus": "1H",
+     "shift_ppm": 7.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 3,
+     "nucleus": "1H",
+     "shift_ppm": 7.39,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 4,
+     "nucleus": "1H",
+     "shift_ppm": 7.28,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "solvent",
+     "exchangeable_hint": false,
+     "label": "CDCl3 residual"
+    },
+    {
+     "id": 5,
+     "nucleus": "1H",
+     "shift_ppm": 7.27,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "solvent",
+     "exchangeable_hint": false,
+     "label": "CDCl3 residual"
+    },
+    {
+     "id": 6,
+     "nucleus": "1H",
+     "shift_ppm": 7.23,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "solvent",
+     "exchangeable_hint": false,
+     "label": "CDCl3 residual"
+    },
+    {
+     "id": 7,
+     "nucleus": "1H",
+     "shift_ppm": 7.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 8,
+     "nucleus": "1H",
+     "shift_ppm": 7.15,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 9,
+     "nucleus": "1H",
+     "shift_ppm": 4.76,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 10,
+     "nucleus": "1H",
+     "shift_ppm": 3.36,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 11,
+     "nucleus": "1H",
+     "shift_ppm": 3.15,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 1.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 12,
+     "nucleus": "1H",
+     "shift_ppm": 2.53,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": 3.0,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 13,
+     "nucleus": "13C",
+     "shift_ppm": 177.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 14,
+     "nucleus": "13C",
+     "shift_ppm": 176.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 15,
+     "nucleus": "13C",
+     "shift_ppm": 142.1,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 16,
+     "nucleus": "13C",
+     "shift_ppm": 140.1,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 17,
+     "nucleus": "13C",
+     "shift_ppm": 138.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 18,
+     "nucleus": "13C",
+     "shift_ppm": 136.0,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 19,
+     "nucleus": "13C",
+     "shift_ppm": 127.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 20,
+     "nucleus": "13C",
+     "shift_ppm": 126.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 21,
+     "nucleus": "13C",
+     "shift_ppm": 126.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 22,
+     "nucleus": "13C",
+     "shift_ppm": 124.2,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 23,
+     "nucleus": "13C",
+     "shift_ppm": 123.7,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 24,
+     "nucleus": "13C",
+     "shift_ppm": 120.5,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 25,
+     "nucleus": "13C",
+     "shift_ppm": 120.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 26,
+     "nucleus": "13C",
+     "shift_ppm": 76.9,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "solvent",
+     "exchangeable_hint": false,
+     "label": "CDCl3 residual"
+    },
+    {
+     "id": 27,
+     "nucleus": "13C",
+     "shift_ppm": 50.1,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 28,
+     "nucleus": "13C",
+     "shift_ppm": 47.3,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 29,
+     "nucleus": "13C",
+     "shift_ppm": 44.4,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    },
+    {
+     "id": 30,
+     "nucleus": "13C",
+     "shift_ppm": 23.8,
+     "multiplicity": "unknown",
+     "coupling_hz": [],
+     "integral": null,
+     "height": null,
+     "fwhm_hz": null,
+     "role": "analyte",
+     "exchangeable_hint": false,
+     "label": null
+    }
+   ],
+   "nucleus_frequencies_mhz": {},
+   "solvent": "CDCl3",
+   "referencing": "as_supplied",
+   "noise_sigma": {},
+   "integral_normalization": "formula_H",
+   "processing_log": [
+    "1H 7.28 ppm tagged solvent: CDCl3 residual",
+    "1H 7.27 ppm tagged solvent: CDCl3 residual",
+    "1H 7.23 ppm tagged solvent: CDCl3 residual",
+    "13C 76.9 ppm tagged solvent: CDCl3 residual",
+    "integrals sum to 11 and look like proton counts, consistent with H = 15: kept",
+    "1H 7.28 ppm is tagged solvent but would be 1.00 H; left tagged (it may overlap an analyte signal)",
+    "1H 7.27 ppm is tagged solvent but would be 1.00 H; left tagged (it may overlap an analyte signal)",
+    "1H 7.23 ppm is tagged solvent but would be 1.00 H; left tagged (it may overlap an analyte signal)"
+   ]
+  },
+  "context": {
+   "molecular_formula": "C19H15NO3",
+   "observed_exact_mass": null,
+   "solvent": "CDCl3",
+   "spectrometer_mhz": null,
+   "starting_material_smiles": null,
+   "d2o_exchange_performed": false,
+   "notes": null
+  },
+  "first": {
+   "formula_inferred": "C19H15NO3",
+   "degree_of_unsaturation": 13,
+   "functional_groups": [
+    {
+     "group": "amide",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       13,
+       14
+      ],
+      "note": "Two C=O at 177.7 and 176.3 fit a cyclic succinimide (imide) carbonyl pair."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       12,
+       30
+      ],
+      "note": "3H singlet-like signal at 2.53 with C 23.8 is a typical N-CH3 of a succinimide."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2,
+       3,
+       7,
+       8,
+       15,
+       16,
+       17,
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25
+      ],
+      "note": "Aromatic H 7.15-7.69 and 12 aromatic carbons (4 quaternary, 8 CH) indicate two inequivalent ortho-disubstituted benzo rings."
+     }
+    },
+    {
+     "group": "alcohol",
+     "present": true,
+     "confidence": 0.6,
+     "evidence": {
+      "peak_ids": [
+       26
+      ],
+      "note": "Tertiary bridgehead C-OH expected near 77 ppm, hidden under the CDCl3 signal at 76.9; OH proton not listed."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "CN1C(=O)C2C(C1=O)C1(O)c3ccccc3C2c2ccccc21",
+     "name": "9-hydroxy-N-methyl-9,10-dihydro-9,10-ethanoanthracene-11,12-dicarboximide (anthrone/9-anthrol + N-methylmaleimide Diels-Alder adduct)",
+     "rationale": "Two imide C=O (13,14), N-CH3 2.53/23.8 (12,30). Bridgehead C10-H 4.76 (9) with C 44.4 (29); succinimide CH 3.36/3.15 (10,11) with C 50.1/47.3 (27,28). Quaternary C9-OH ~77 hidden under solvent 76.9 (26). Two inequivalent benzo rings give 12 aromatic C (15-25) and 8 ArH: 5 listed plus 3 hidden under CDCl3 (4-6). OH unlisted. All 19 C accounted for.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "ArH hidden under CDCl3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "ArH hidden under CDCl3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "ArH hidden under CDCl3"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 1,
+       "environment": "bridgehead C10-H"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 1,
+       "environment": "succinimide CH next to C9(OH)"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 1,
+       "environment": "succinimide CH next to C10H"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 3,
+       "environment": "N-CH3"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "imide C=O"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "imide C=O"
+      },
+      {
+       "peak_id": 26,
+       "proton_count": 0,
+       "environment": "C9-OH quaternary (under solvent)"
+      },
+      {
+       "peak_id": 27,
+       "proton_count": 0,
+       "environment": "succinimide CH"
+      },
+      {
+       "peak_id": 28,
+       "proton_count": 0,
+       "environment": "succinimide CH"
+      },
+      {
+       "peak_id": 29,
+       "proton_count": 0,
+       "environment": "bridgehead C10H"
+      },
+      {
+       "peak_id": 30,
+       "proton_count": 0,
+       "environment": "N-CH3"
+      }
+     ],
+     "confidence": 0.6
+    },
+    {
+     "rank": 2,
+     "smiles": "CC12c3ccccc3C(c3ccccc31)C1C(=O)N(O)C(=O)C12",
+     "name": "9-methyl-N-hydroxy-9,10-dihydro-9,10-ethanoanthracene-11,12-dicarboximide",
+     "rationale": "Alternative: 9-methylanthracene + N-hydroxymaleimide adduct. Bridgehead CH 4.76 (9), succinimide CH (10,11), CH3 2.53 (12). However bridgehead C-CH3 13C is usually ~15-20 and N-hydroxyimide C=O ~170, worse fit to 23.8 and 177.7/176.3 (13,14,30).",
+     "assignments": [
+      {
+       "peak_id": 9,
+       "proton_count": 1,
+       "environment": "bridgehead C10-H"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 1,
+       "environment": "succinimide CH"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 1,
+       "environment": "succinimide CH"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 3,
+       "environment": "bridgehead C-CH3"
+      },
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "ArH"
+      }
+     ],
+     "confidence": 0.15
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "DoU 13 with two C=O at 177.7/176.3 (succinimide) and 12 aromatic carbons (two inequivalent benzo rings) suggests a dibenzobarrelene (anthracene-maleimide Diels-Alder) skeleton. N-CH3 at 2.53/23.8 matches N-methylsuccinimide adducts. Only one bridgehead H (4.76) is present, so the other bridgehead is substituted; the remaining O as a bridgehead OH (C ~77, hidden under CDCl3 76.9) completes C19H15NO3. Succinimide CH at 3.36/3.15 (C 50.1, 47.3), bridgehead CH C 44.4. Listed H total 11; 3 ArH are hidden under the CDCl3 residual and the OH is unlisted, giving 15."
+  },
+  "repaired": {
+   "formula_inferred": "C19H15NO3",
+   "degree_of_unsaturation": 13,
+   "functional_groups": [
+    {
+     "group": "amide",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       13,
+       14
+      ],
+      "note": "Two C=O at 177.7 and 176.3 fit a cyclic succinimide (imide) carbonyl pair."
+     }
+    },
+    {
+     "group": "methyl",
+     "present": true,
+     "confidence": 0.85,
+     "evidence": {
+      "peak_ids": [
+       12,
+       30
+      ],
+      "note": "3H signal at 2.53 with C 23.8 is a typical succinimide N-CH3."
+     }
+    },
+    {
+     "group": "aromatic_ring",
+     "present": true,
+     "confidence": 0.9,
+     "evidence": {
+      "peak_ids": [
+       1,
+       2,
+       3,
+       7,
+       8,
+       15,
+       16,
+       17,
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25
+      ],
+      "note": "ArH 7.15-7.69 and 12 aromatic C (4 quaternary, 8 CH) indicate two inequivalent benzo rings."
+     }
+    },
+    {
+     "group": "alcohol",
+     "present": true,
+     "confidence": 0.6,
+     "evidence": {
+      "peak_ids": [
+       26
+      ],
+      "note": "Bridgehead C-OH expected near 77 ppm, hidden under CDCl3 at 76.9; OH proton not listed."
+     }
+    }
+   ],
+   "candidates": [
+    {
+     "rank": 1,
+     "smiles": "CN1C(=O)C2C(C1=O)C1(O)c3ccccc3C2c2ccccc21",
+     "name": "9-hydroxy-N-methyl-9,10-dihydro-9,10-ethanoanthracene-11,12-dicarboximide",
+     "rationale": "Imide C=O (13,14); N-CH3 2.53/23.8 (12,30); bridgehead C10-H 4.76/44.4 (9,29); succinimide CH 3.36/3.15 with C 50.1/47.3 (10,11,27,28); C9-OH under solvent 76.9 (26); 12 aromatic C (15-25). Integral total is 11 because 3 ArH lie under the unintegrated CDCl3 peaks (4-6) and OH is unlisted; the formula fixes H=15, so no candidate can match an integral sum of 11 without these hidden protons.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "ArH under CDCl3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "ArH under CDCl3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "ArH under CDCl3"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 1,
+       "environment": "bridgehead C10-H"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 1,
+       "environment": "succinimide CH"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 1,
+       "environment": "succinimide CH"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 3,
+       "environment": "N-CH3"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "imide C=O"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "imide C=O"
+      },
+      {
+       "peak_id": 26,
+       "proton_count": 0,
+       "environment": "C9-OH (under solvent)"
+      },
+      {
+       "peak_id": 27,
+       "proton_count": 0,
+       "environment": "succinimide CH"
+      },
+      {
+       "peak_id": 28,
+       "proton_count": 0,
+       "environment": "succinimide CH"
+      },
+      {
+       "peak_id": 29,
+       "proton_count": 0,
+       "environment": "bridgehead C10H"
+      },
+      {
+       "peak_id": 30,
+       "proton_count": 0,
+       "environment": "N-CH3"
+      }
+     ],
+     "confidence": 0.55
+    }
+   ],
+   "unexplained_peak_ids": [],
+   "reasoning_summary": "The supplied formula fixes H=15, while the integrated analyte peaks sum to 11. The deficit is explained by aromatic protons hidden under the unintegrated CDCl3 residual peaks (4-6, about 3H) and an unlisted OH. Because the formula is fixed, any valid structure would show the same deficit, so I keep the best-fitting structure. It is an anthrone/9-anthrol + N-methylmaleimide Diels-Alder adduct. Evidence: imide C=O at 177.7/176.3; N-CH3 at 2.53/23.8; one bridgehead H at 4.76/44.4; succinimide CH at 3.36/3.15 (50.1/47.3); quaternary C-OH hidden at 76.9; 12 aromatic carbons from two inequivalent benzo rings."
+  },
+  "verified_untrimmed": [
+   {
+    "candidate": {
+     "rank": 1,
+     "smiles": "CN1C(=O)C2C(C1=O)C1(O)c3ccccc3C2c2ccccc21",
+     "name": "9-hydroxy-N-methyl-9,10-dihydro-9,10-ethanoanthracene-11,12-dicarboximide (anthrone/9-anthrol + N-methylmaleimide Diels-Alder adduct)",
+     "rationale": "Two imide C=O (13,14), N-CH3 2.53/23.8 (12,30). Bridgehead C10-H 4.76 (9) with C 44.4 (29); succinimide CH 3.36/3.15 (10,11) with C 50.1/47.3 (27,28). Quaternary C9-OH ~77 hidden under solvent 76.9 (26). Two inequivalent benzo rings give 12 aromatic C (15-25) and 8 ArH: 5 listed plus 3 hidden under CDCl3 (4-6). OH unlisted. All 19 C accounted for.",
+     "assignments": [
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 4,
+       "proton_count": 1,
+       "environment": "ArH hidden under CDCl3"
+      },
+      {
+       "peak_id": 5,
+       "proton_count": 1,
+       "environment": "ArH hidden under CDCl3"
+      },
+      {
+       "peak_id": 6,
+       "proton_count": 1,
+       "environment": "ArH hidden under CDCl3"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 9,
+       "proton_count": 1,
+       "environment": "bridgehead C10-H"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 1,
+       "environment": "succinimide CH next to C9(OH)"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 1,
+       "environment": "succinimide CH next to C10H"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 3,
+       "environment": "N-CH3"
+      },
+      {
+       "peak_id": 13,
+       "proton_count": 0,
+       "environment": "imide C=O"
+      },
+      {
+       "peak_id": 14,
+       "proton_count": 0,
+       "environment": "imide C=O"
+      },
+      {
+       "peak_id": 26,
+       "proton_count": 0,
+       "environment": "C9-OH quaternary (under solvent)"
+      },
+      {
+       "peak_id": 27,
+       "proton_count": 0,
+       "environment": "succinimide CH"
+      },
+      {
+       "peak_id": 28,
+       "proton_count": 0,
+       "environment": "succinimide CH"
+      },
+      {
+       "peak_id": 29,
+       "proton_count": 0,
+       "environment": "bridgehead C10H"
+      },
+      {
+       "peak_id": 30,
+       "proton_count": 0,
+       "environment": "N-CH3"
+      }
+     ],
+     "confidence": 0.6
+    },
+    "canonical_smiles": "CN1C(=O)C2C3c4ccccc4C(O)(c4ccccc43)C2C1=O",
+    "inchikey": "JYJCOMSKUPTVBL-UHFFFAOYSA-N",
+    "formula": "C19H15NO3",
+    "exact_mass": 305.1052,
+    "degree_of_unsaturation": 13,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C19H15NO3 == C19H15NO3",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 13 == formula DoU 13",
+      "evidence": {
+       "structural": 13,
+       "expected": 13.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "fail",
+      "severity": "hard",
+      "message": "integrals sum to 11; candidate has 15 H (1 exchangeable), allowed [13, 16]",
+      "evidence": {
+       "candidate_H": 15,
+       "exchangeable_H": 1,
+       "integral_sum": 11.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "merged duplicate connectivity from rank(s) [3]",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.09,
+    "claims_checked": true,
+    "status": "rejected"
+   },
+   {
+    "candidate": {
+     "rank": 2,
+     "smiles": "CC12c3ccccc3C(c3ccccc31)C1C(=O)N(O)C(=O)C12",
+     "name": "9-methyl-N-hydroxy-9,10-dihydro-9,10-ethanoanthracene-11,12-dicarboximide",
+     "rationale": "Alternative: 9-methylanthracene + N-hydroxymaleimide adduct. Bridgehead CH 4.76 (9), succinimide CH (10,11), CH3 2.53 (12). However bridgehead C-CH3 13C is usually ~15-20 and N-hydroxyimide C=O ~170, worse fit to 23.8 and 177.7/176.3 (13,14,30).",
+     "assignments": [
+      {
+       "peak_id": 9,
+       "proton_count": 1,
+       "environment": "bridgehead C10-H"
+      },
+      {
+       "peak_id": 10,
+       "proton_count": 1,
+       "environment": "succinimide CH"
+      },
+      {
+       "peak_id": 11,
+       "proton_count": 1,
+       "environment": "succinimide CH"
+      },
+      {
+       "peak_id": 12,
+       "proton_count": 3,
+       "environment": "bridgehead C-CH3"
+      },
+      {
+       "peak_id": 1,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 2,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 3,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 7,
+       "proton_count": 1,
+       "environment": "ArH"
+      },
+      {
+       "peak_id": 8,
+       "proton_count": 1,
+       "environment": "ArH"
+      }
+     ],
+     "confidence": 0.15
+    },
+    "canonical_smiles": "CC12c3ccccc3C(c3ccccc31)C1C(=O)N(O)C(=O)C12",
+    "inchikey": "ZOKWTPAKVLLWAL-UHFFFAOYSA-N",
+    "formula": "C19H15NO3",
+    "exact_mass": 305.1052,
+    "degree_of_unsaturation": 13,
+    "rules": [
+     {
+      "rule_id": "V01_smiles_valid",
+      "status": "pass",
+      "severity": "hard",
+      "message": "parsed and sanitized; neutral",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V02_formula_match",
+      "status": "pass",
+      "severity": "hard",
+      "message": "C19H15NO3 == C19H15NO3",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V03_dou_consistency",
+      "status": "pass",
+      "severity": "hard",
+      "message": "structure DoU 13 == formula DoU 13",
+      "evidence": {
+       "structural": 13,
+       "expected": 13.0,
+       "basis": "formula"
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V04_exact_mass",
+      "status": "skipped",
+      "severity": "soft",
+      "message": "no observed exact mass supplied",
+      "evidence": {},
+      "source": null
+     },
+     {
+      "rule_id": "V05_proton_accounting",
+      "status": "fail",
+      "severity": "hard",
+      "message": "integrals sum to 11; candidate has 15 H (1 exchangeable), allowed [13, 16]",
+      "evidence": {
+       "candidate_H": 15,
+       "exchangeable_H": 1,
+       "integral_sum": 11.0,
+       "tolerance": 1.0
+      },
+      "source": null
+     },
+     {
+      "rule_id": "V11_distinct_connectivity",
+      "status": "pass",
+      "severity": "info",
+      "message": "distinct connectivity",
+      "evidence": {},
+      "source": null
+     }
+    ],
+    "verifier_score": 0.0,
+    "final_confidence": 0.0225,
+    "claims_checked": false,
+    "status": "rejected"
+   }
+  ],
+  "memory_cases": [
+   {
+    "case_id": "mem-000075",
+    "similarity": null
+   },
+   {
+    "case_id": "mem-000028",
+    "similarity": null
+   },
+   {
+    "case_id": "mem-000022",
+    "similarity": null
+   }
+  ]
+ },
+ "cost_usd": 0.192018,
+ "llm_calls": 2,
+ "timing_ms": {
+  "prompt": 1,
+  "llm": 66822,
+  "verify": 19,
+  "total": 66850
+ },
+ "warnings": [
+  "alcohol: evidence cites peak 26, which is tagged solvent",
+  "no candidate was accepted; one repair round was used",
+  "alcohol: evidence cites peak 26, which is tagged solvent"
+ ]
+}
